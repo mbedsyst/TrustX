@@ -15,6 +15,14 @@ RM := rm -rf
 -include Drivers/BSP/STM32H5xx_Nucleo/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Application/Utils/Timekeeper/Src/subdir.mk
+-include Application/Utils/SerialLogger/Src/subdir.mk
+-include Application/Library/W25Q64JV/Src/subdir.mk
+-include Application/Library/24C256C/Src/subdir.mk
+-include Application/Crypto/Random/Src/subdir.mk
+-include Application/Crypto/Hashing/Src/subdir.mk
+-include Application/Crypto/Encryption/Src/subdir.mk
+-include Application/Crypto/Decryption/Src/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
