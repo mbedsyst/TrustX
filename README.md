@@ -4,3 +4,24 @@ A Hardware Security Module (HSM) that supports AES, RSA, and ECC encryption and 
 To ensure persistent configuration storage across resets, a serial EEPROM is incorporated. Hardware security measures include readout protection for internal flash memory and restricted access to the Secure World from Non-Secure code using the GTZC feature of the STM32. Tamper protection is also implemented, monitoring both internal tamper signals and a predefined external GPIO pin for enclosure breaches, triggering erasure protocols for both internal and external flash memory if necessary.  
 
 Currently, the PCB is being designed with the STM32H573RIV6 MCU at the core, featuring a USB-C receptacle as the sole interface. SWD pins are exposed for potential future flashing and debugging needs, and UART terminal pins are included for use as a serial data logger during debugging.
+
+
+## PCB Design (Work in Progress)
+
+### 🧷 2D Views
+**Top View:**
+
+![2D Top View](PCB/PCB%20View%202D%20Top.png)
+
+**Bottom View:**
+
+![2D Bottom View](PCB/PCB%20View%202D%20Bottom.png)
+
+### 🧷 3D Views
+**Top View:**
+
+![3D Top View](PCB/PCB%20View%203D%20Top.png)
+
+**Right View:**
+
+![3D Right View](PCB/PCB%20View%203D%20Right.png)
