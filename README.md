@@ -11,26 +11,26 @@ Currently, the PCB is being designed with the STM32H573RIV6 MCU at the core, fea
 ### 🧷 2D Views
 **Top View:**
 
-![2D Top View](PCB/40.%20PCB%20View%202D%20Top%20Silkscreen.png)
+![2D Top View](PCB/01.%20PCB%20View%202D%20Top%20Silkscreen.png)
 
 **Bottom View:**
 
-![2D Bottom View](PCB/42.%20PCB%20View%202D%20Bottom%20Silkscreen.png)
+![2D Bottom View](PCB/02.%20PCB%20View%202D%20Bottom%20Silkscreen.png)
 
 ### 🧷 3D Views
 **Top View:**
 
-![Gerber Top View](PCB/45.%20PCB%20Gerber%20View%20Top.png)
+![Gerber Top View](PCB/03.%20PCB%20Gerber%20View%20Top.png)
 
 **Right View:**
 
-![Gerber Right View](PCB/46.%20PCB%20Gerber%20View%20Bottom.png)
+![Gerber Right View](PCB/04.%20PCB%20Gerber%20View%20Bottom.png)
 
 ### 🧷 Routed Views
 **Top Routed View:**
 
-![2D Top Routed View](PCB/47.%20PCB%20View%202D%20Top%20Routed.png)
+![2D Top Routed View](PCB/05.%20PCB%20View%202D%20Top%20Routed.png)
 
 **Bottom Routed View:**
 
-![2D Bottom Routed View](PCB/48.%20PCB%20View%202D%20Bottom%20Routed.png)
+![2D Bottom Routed View](PCB/06.%20PCB%20View%202D%20Bottom%20Routed.png)
