@@ -1,6 +1,9 @@
 #include "../../FLASH/Inc/W25Q64.h"
 #include <stdint.h>
 
+/* Slave Select Pin : PB14
+ */
+
 extern SPI_HandleTypeDef hspi1;
 #define W25Q_SPI hspi1
 
@@ -31,7 +34,6 @@ void SPI_Read (uint8_t *data, uint32_t len)
 	HAL_SPI_Receive(&W25Q_SPI, data, len, 5000);
 }
 
-//
 
 void W25Q_Reset (void)
 {

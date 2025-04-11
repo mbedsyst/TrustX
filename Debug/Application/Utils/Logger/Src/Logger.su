@@ -1,0 +1,7 @@
+../Application/Utils/Logger/Src/Logger.c:19:6:log_init	16	static
+../Application/Utils/Logger/Src/Logger.c:24:13:uart6_write	16	static
+../Application/Utils/Logger/Src/Logger.c:29:13:log_generic	624	static
+../Application/Utils/Logger/Src/Logger.c:43:6:log_debug	24	static
+../Application/Utils/Logger/Src/Logger.c:51:6:log_info	24	static
+../Application/Utils/Logger/Src/Logger.c:59:6:log_warn	24	static
+../Application/Utils/Logger/Src/Logger.c:67:6:log_error	24	static

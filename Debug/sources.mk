@@ -24,6 +24,7 @@ C_DEPS :=
 SUBDIRS := \
 Application/Library/EEPROM/Src \
 Application/Library/FLASH/Src \
+Application/Utils/Logger/Src \
 Core/Src \
 Core/Startup \
 Drivers/BSP/STM32H5xx_Nucleo \
