@@ -1,0 +1,8 @@
+../Application/Library/EEPROM/Src/AT24C256.c:15:10:bytestowriteEEPROM	16	static
+../Application/Library/EEPROM/Src/AT24C256.c:21:6:EEPROM_Write	64	static
+../Application/Library/EEPROM/Src/AT24C256.c:42:6:float2Bytes	24	static
+../Application/Library/EEPROM/Src/AT24C256.c:58:7:Bytes2float	32	static
+../Application/Library/EEPROM/Src/AT24C256.c:75:6:EEPROM_Write_NUM	16	static
+../Application/Library/EEPROM/Src/AT24C256.c:81:7:EEPROM_Read_NUM	24	static
+../Application/Library/EEPROM/Src/AT24C256.c:88:6:EEPROM_Read	64	static
+../Application/Library/EEPROM/Src/AT24C256.c:107:6:EEPROM_PageErase	104	static

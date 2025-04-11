@@ -22,14 +22,8 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-Application/Crypto/Decryption/Src \
-Application/Crypto/Encryption/Src \
-Application/Crypto/Hashing/Src \
-Application/Crypto/Random/Src \
-Application/Library/24C256C/Src \
-Application/Library/W25Q64JV/Src \
-Application/Utils/SerialLogger/Src \
-Application/Utils/Timekeeper/Src \
+Application/Library/EEPROM/Src \
+Application/Library/FLASH/Src \
 Core/Src \
 Core/Startup \
 Drivers/BSP/STM32H5xx_Nucleo \
