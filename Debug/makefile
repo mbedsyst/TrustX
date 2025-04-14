@@ -17,8 +17,13 @@ RM := rm -rf
 -include Core/Src/subdir.mk
 -include Application/Utils/Timekeeper/Src/subdir.mk
 -include Application/Utils/Logger/Src/subdir.mk
+-include Application/Protocol/PacketParser/Src/subdir.mk
+-include Application/Protocol/PacketBuilder/Src/subdir.mk
 -include Application/Library/FLASH/Src/subdir.mk
 -include Application/Library/EEPROM/Src/subdir.mk
+-include Application/Handlers/subdir.mk
+-include Application/Core/OperationDispatcher/Src/subdir.mk
+-include Application/Core/HSMManager/Src/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

@@ -12,12 +12,15 @@
 #define CMD_PING                  0x0F // 0b00001111    For testing HSM connection
 
 // === Option Codes (OPTION field) ===
-// -- Encryption/Decryption Modes
-#define OPTION_CRYP_KEY128        0x01 // 0b00000001
-#define OPTION_CRYP_KEY256        0x02 // 0b00000010
+// -- Encryption Modes
+#define OPTION_ENCRYP_KEY128      0x01 // 0b00000001
+#define OPTION_ENCRYP_KEY256      0x02 // 0b00000010
+// -- Decryption Modes
+#define OPTION_DECRYP_KEY128	  0x11 // 0b00010001
+#define OPTION_DECRYP_KEY256	  0x12 // 0b00010010
 // -- Hash Modes
-#define OPTION_HSH_SHA224         0x21 // 0b00100001
-#define OPTION_HSH_SHA256         0x22 // 0b00100010
+#define OPTION_HASH_SHA224        0x21 // 0b00100001
+#define OPTION_HASH_SHA256        0x22 // 0b00100010
 #define OPTION_HMAC_SHA224        0x23 // 0b00100011
 #define OPTION_HMAC_SHA256        0x24 // 0b00100100
 // -- Random
@@ -35,6 +38,6 @@
 
 
 // === End of Data Flag (EOD field) ===
-#define EOD_FLAG				  0xDEADDAED
+#define EOD_FLAG				  0xDEADDEAD
 
 #endif /* INC_CONSTANTS_H_ */

@@ -22,8 +22,13 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/Core/HSMManager/Src \
+Application/Core/OperationDispatcher/Src \
+Application/Handlers \
 Application/Library/EEPROM/Src \
 Application/Library/FLASH/Src \
+Application/Protocol/PacketBuilder/Src \
+Application/Protocol/PacketParser/Src \
 Application/Utils/Logger/Src \
 Application/Utils/Timekeeper/Src \
 Core/Src \
