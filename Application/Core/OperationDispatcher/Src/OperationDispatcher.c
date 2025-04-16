@@ -1,15 +1,15 @@
 #include "../../OperationDispatcher/Inc/OperationDispatcher.h"
+#include "../../../Handlers/Encryption/Inc/EncryptHandler.h"
+#include "../../../Handlers/Decryption/Inc/DecryptHandler.h"
+#include "../../../Handlers/Hashing/Inc/HashHandler.h"
+#include "../../../Handlers/Keys/Inc/KeyHandler.h"
+#include "../../../Handlers/Random/Inc/RandomHandler.h"
 #include "constants.h"
-#include "EncryptHandler.h"
-#include "DecryptHandler.h"
-#include "HashHandler.h"
-#include "KeyHandler.h"
-#include "RandomHandler.h"
 #include "Logger.h"
 
 OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
-    Logger_Log("Dispatching command...");
+    log_info("Dispatching command...");
 
     switch (request->cmd)
     {

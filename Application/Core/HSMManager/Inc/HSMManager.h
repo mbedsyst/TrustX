@@ -1,7 +1,7 @@
 #ifndef CORE_HSMMANAGER_INC_HSMMANAGER_H_
 #define CORE_HSMMANAGER_INC_HSMMANAGER_H_
 
-#include "../../constants.h"
+#include "constants.h"
 #include "PacketParser.h"
 #include "PacketBuilder.h"
 #include "../../OperationDispatcher/Inc/OperationDispatcher.h"

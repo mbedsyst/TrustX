@@ -7,5 +7,4 @@
 
 OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, ResponsePacket_t* response);
 
-
 #endif /* CORE_OPERATIONDISPATCHER_INC_OPERATIONDISPATCHER_H_ */
