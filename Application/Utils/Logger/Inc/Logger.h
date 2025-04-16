@@ -1,7 +1,7 @@
 #ifndef UTILS_LOGGER_INC_LOGGER_H_
 #define UTILS_LOGGER_INC_LOGGER_H_
 
-#include "stm32h5xx_hal.h"  // Or the correct header for your STM32 family
+#include "stm32h5xx_hal.h"
 
 typedef enum
 {
