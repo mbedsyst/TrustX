@@ -1,8 +1,2 @@
-/*
- * EncryptHandler.c
- *
- *  Created on: Apr 17, 2025
- *      Author: zalma
- */
-
+#include "../../Encryption/Inc/EncryptHandler.h"
 
