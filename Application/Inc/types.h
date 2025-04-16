@@ -22,7 +22,7 @@ typedef enum
 } OperationStatus_t;
 
 // === Packet Structure ===
-typedef struct
+/*typedef struct
 {
     uint32_t transaction_id;
     uint8_t command;
@@ -36,7 +36,7 @@ typedef struct
     uint32_t transaction_id;
     uint16_t output_size;
     uint8_t* output_data;
-} ResponsePacket_t;
+} ResponsePacket_t;*/
 
 
 #endif /* INC_TYPES_H_ */
