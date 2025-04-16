@@ -3,7 +3,8 @@
 
 #include "stm32h5xx_hal.h"  // Or the correct header for your STM32 family
 
-typedef enum {
+typedef enum
+{
     LOG_LEVEL_DEBUG,
     LOG_LEVEL_INFO,
     LOG_LEVEL_WARN,
