@@ -1,0 +1,2 @@
+../Application/Core/HSMManager/Src/HSMManager.c:4:6:HSMManager_Init	8	static
+../Application/Core/HSMManager/Src/HSMManager.c:10:19:HSMManager_ProcessCommand	16	static

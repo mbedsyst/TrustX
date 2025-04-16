@@ -21,7 +21,11 @@ RM := rm -rf
 -include Application/Protocol/PacketBuilder/Src/subdir.mk
 -include Application/Library/FLASH/Src/subdir.mk
 -include Application/Library/EEPROM/Src/subdir.mk
--include Application/Handlers/subdir.mk
+-include Application/Handlers/Random/Src/subdir.mk
+-include Application/Handlers/Keys/Src/subdir.mk
+-include Application/Handlers/Hashing/Src/subdir.mk
+-include Application/Handlers/Encryption/Src/subdir.mk
+-include Application/Handlers/Decryption/Src/subdir.mk
 -include Application/Core/OperationDispatcher/Src/subdir.mk
 -include Application/Core/HSMManager/Src/subdir.mk
 -include objects.mk

@@ -24,7 +24,11 @@ C_DEPS :=
 SUBDIRS := \
 Application/Core/HSMManager/Src \
 Application/Core/OperationDispatcher/Src \
-Application/Handlers \
+Application/Handlers/Decryption/Src \
+Application/Handlers/Encryption/Src \
+Application/Handlers/Hashing/Src \
+Application/Handlers/Keys/Src \
+Application/Handlers/Random/Src \
 Application/Library/EEPROM/Src \
 Application/Library/FLASH/Src \
 Application/Protocol/PacketBuilder/Src \

@@ -79,111 +79,375 @@ Discarded input sections
  .ARM.exidx     0x00000000       0x10 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o
  .ARM.attributes
                 0x00000000       0x24 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o
- .group         0x00000000        0xc ./Application/Core/HSMManager.o
- .text          0x00000000        0x0 ./Application/Core/HSMManager.o
- .data          0x00000000        0x0 ./Application/Core/HSMManager.o
- .bss           0x00000000        0x0 ./Application/Core/HSMManager.o
- .debug_info    0x00000000       0x22 ./Application/Core/HSMManager.o
- .debug_abbrev  0x00000000       0x12 ./Application/Core/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/HSMManager/Src/HSMManager.o
+ .text          0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
+ .data          0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
+ .bss           0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
+ .rodata        0x00000000       0x32 ./Application/Core/HSMManager/Src/HSMManager.o
+ .text.HSMManager_Init
+                0x00000000       0x14 ./Application/Core/HSMManager/Src/HSMManager.o
+ .text.HSMManager_ProcessCommand
+                0x00000000       0x28 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_info    0x00000000      0x265 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_abbrev  0x00000000      0x130 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Core/HSMManager.o
- .debug_macro   0x00000000       0x11 ./Application/Core/HSMManager.o
- .debug_macro   0x00000000      0xac0 ./Application/Core/HSMManager.o
- .debug_line    0x00000000       0x41 ./Application/Core/HSMManager.o
- .debug_str     0x00000000     0x2e47 ./Application/Core/HSMManager.o
- .comment       0x00000000       0x44 ./Application/Core/HSMManager.o
+                0x00000000       0x28 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_rnglists
+                0x00000000       0x19 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x321 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0xac0 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0xb2 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x22 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x8e ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x51 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x103 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x6a ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x1df ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x22 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x10 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x1dc ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x61 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x2a ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x43 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x34 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x189 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x43 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x34 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x10 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x58 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x8e ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x1c ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x177 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x369 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x19b ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x28 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x49 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x1c ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x29 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0xfb ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000     0x1685 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x5e ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000    0x211d5 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x6d ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000     0x388a ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x63 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000     0x1f0d ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0xe96 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x166 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x307 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x917 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x478 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0xd6 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x1cd ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x55b ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x638 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x7b ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x22c ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0x35 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0xa5 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x313 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x1bb ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x31a ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x96a ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0xe4 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x5cf ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0xeb ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x693 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000       0xa6 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x23f ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x169 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x2a7 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x47e ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_line    0x00000000      0xbe5 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_str     0x00000000   0x13bbb3 ./Application/Core/HSMManager/Src/HSMManager.o
+ .comment       0x00000000       0x44 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_frame   0x00000000       0x50 ./Application/Core/HSMManager/Src/HSMManager.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Core/HSMManager.o
- .group         0x00000000        0xc ./Application/Core/OperationDispatcher.o
- .text          0x00000000        0x0 ./Application/Core/OperationDispatcher.o
- .data          0x00000000        0x0 ./Application/Core/OperationDispatcher.o
- .bss           0x00000000        0x0 ./Application/Core/OperationDispatcher.o
- .debug_info    0x00000000       0x22 ./Application/Core/OperationDispatcher.o
- .debug_abbrev  0x00000000       0x12 ./Application/Core/OperationDispatcher.o
+                0x00000000       0x3a ./Application/Core/HSMManager/Src/HSMManager.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .text          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .data          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .bss           0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_info    0x00000000       0x85 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_abbrev  0x00000000       0x28 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Core/OperationDispatcher.o
- .debug_macro   0x00000000       0x11 ./Application/Core/OperationDispatcher.o
- .debug_macro   0x00000000      0xac0 ./Application/Core/OperationDispatcher.o
- .debug_line    0x00000000       0x4a ./Application/Core/OperationDispatcher.o
- .debug_str     0x00000000     0x2e50 ./Application/Core/OperationDispatcher.o
- .comment       0x00000000       0x44 ./Application/Core/OperationDispatcher.o
+                0x00000000       0x18 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x343 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0xac0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x22 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x8e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x51 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x103 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x6a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x1df ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x22 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x16 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x16 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0xb2 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x1dc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x61 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x2a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x43 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x189 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x16 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x43 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x10 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x58 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x8e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x1c ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x177 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x369 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x19b ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x28 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x49 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x1c ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x29 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0xfb ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000     0x1685 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x5e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000    0x211d5 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x6d ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000     0x388a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x63 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000     0x1f0d ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0xe96 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x166 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x307 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x917 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x478 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0xd6 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x1cd ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x55b ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x638 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x7b ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x22c ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0x35 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0xa5 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x313 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x1bb ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x31a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x96a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0xe4 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x5cf ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0xeb ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x693 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000       0xa6 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x23f ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x169 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x2a7 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x47e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_line    0x00000000      0xd44 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_str     0x00000000   0x13ba45 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .comment       0x00000000       0x44 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Core/OperationDispatcher.o
- .group         0x00000000        0xc ./Application/Handlers/DecryptHandler.o
- .text          0x00000000        0x0 ./Application/Handlers/DecryptHandler.o
- .data          0x00000000        0x0 ./Application/Handlers/DecryptHandler.o
- .bss           0x00000000        0x0 ./Application/Handlers/DecryptHandler.o
- .debug_info    0x00000000       0x22 ./Application/Handlers/DecryptHandler.o
- .debug_abbrev  0x00000000       0x12 ./Application/Handlers/DecryptHandler.o
+                0x00000000       0x3a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .group         0x00000000        0xc ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .text          0x00000000        0x0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .data          0x00000000        0x0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .bss           0x00000000        0x0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_info    0x00000000       0x22 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_abbrev  0x00000000       0x12 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Handlers/DecryptHandler.o
- .debug_macro   0x00000000       0x11 ./Application/Handlers/DecryptHandler.o
- .debug_macro   0x00000000      0xac0 ./Application/Handlers/DecryptHandler.o
- .debug_line    0x00000000       0x49 ./Application/Handlers/DecryptHandler.o
- .debug_str     0x00000000     0x2e4f ./Application/Handlers/DecryptHandler.o
- .comment       0x00000000       0x44 ./Application/Handlers/DecryptHandler.o
+                0x00000000       0x18 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_macro   0x00000000       0x1b ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_macro   0x00000000      0xac0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_line    0x00000000       0xa8 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_str     0x00000000     0x2e89 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .comment       0x00000000       0x44 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Handlers/DecryptHandler.o
- .group         0x00000000        0xc ./Application/Handlers/EncryptHandler.o
- .text          0x00000000        0x0 ./Application/Handlers/EncryptHandler.o
- .data          0x00000000        0x0 ./Application/Handlers/EncryptHandler.o
- .bss           0x00000000        0x0 ./Application/Handlers/EncryptHandler.o
- .debug_info    0x00000000       0x22 ./Application/Handlers/EncryptHandler.o
- .debug_abbrev  0x00000000       0x12 ./Application/Handlers/EncryptHandler.o
+                0x00000000       0x3a ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .group         0x00000000        0xc ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .text          0x00000000        0x0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .data          0x00000000        0x0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .bss           0x00000000        0x0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_info    0x00000000       0x22 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_abbrev  0x00000000       0x12 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Handlers/EncryptHandler.o
- .debug_macro   0x00000000       0x11 ./Application/Handlers/EncryptHandler.o
- .debug_macro   0x00000000      0xac0 ./Application/Handlers/EncryptHandler.o
- .debug_line    0x00000000       0x49 ./Application/Handlers/EncryptHandler.o
- .debug_str     0x00000000     0x2e4f ./Application/Handlers/EncryptHandler.o
- .comment       0x00000000       0x44 ./Application/Handlers/EncryptHandler.o
+                0x00000000       0x18 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_macro   0x00000000       0x1b ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_macro   0x00000000      0xac0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_line    0x00000000       0xa8 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_str     0x00000000     0x2e89 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .comment       0x00000000       0x44 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Handlers/EncryptHandler.o
- .group         0x00000000        0xc ./Application/Handlers/HashHandler.o
- .text          0x00000000        0x0 ./Application/Handlers/HashHandler.o
- .data          0x00000000        0x0 ./Application/Handlers/HashHandler.o
- .bss           0x00000000        0x0 ./Application/Handlers/HashHandler.o
- .debug_info    0x00000000       0x22 ./Application/Handlers/HashHandler.o
- .debug_abbrev  0x00000000       0x12 ./Application/Handlers/HashHandler.o
+                0x00000000       0x3a ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .group         0x00000000        0xc ./Application/Handlers/Hashing/Src/HashHandler.o
+ .text          0x00000000        0x0 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .data          0x00000000        0x0 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .bss           0x00000000        0x0 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_info    0x00000000       0x22 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_abbrev  0x00000000       0x12 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Handlers/HashHandler.o
- .debug_macro   0x00000000       0x11 ./Application/Handlers/HashHandler.o
- .debug_macro   0x00000000      0xac0 ./Application/Handlers/HashHandler.o
- .debug_line    0x00000000       0x46 ./Application/Handlers/HashHandler.o
- .debug_str     0x00000000     0x2e4c ./Application/Handlers/HashHandler.o
- .comment       0x00000000       0x44 ./Application/Handlers/HashHandler.o
+                0x00000000       0x18 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_macro   0x00000000       0x1b ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_macro   0x00000000      0xac0 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_line    0x00000000       0x99 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_str     0x00000000     0x2e7d ./Application/Handlers/Hashing/Src/HashHandler.o
+ .comment       0x00000000       0x44 ./Application/Handlers/Hashing/Src/HashHandler.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Handlers/HashHandler.o
- .group         0x00000000        0xc ./Application/Handlers/KeyHandler.o
- .text          0x00000000        0x0 ./Application/Handlers/KeyHandler.o
- .data          0x00000000        0x0 ./Application/Handlers/KeyHandler.o
- .bss           0x00000000        0x0 ./Application/Handlers/KeyHandler.o
- .debug_info    0x00000000       0x22 ./Application/Handlers/KeyHandler.o
- .debug_abbrev  0x00000000       0x12 ./Application/Handlers/KeyHandler.o
+                0x00000000       0x3a ./Application/Handlers/Hashing/Src/HashHandler.o
+ .group         0x00000000        0xc ./Application/Handlers/Keys/Src/KeyHandler.o
+ .text          0x00000000        0x0 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .data          0x00000000        0x0 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .bss           0x00000000        0x0 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_info    0x00000000       0x22 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_abbrev  0x00000000       0x12 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Handlers/KeyHandler.o
- .debug_macro   0x00000000       0x11 ./Application/Handlers/KeyHandler.o
- .debug_macro   0x00000000      0xac0 ./Application/Handlers/KeyHandler.o
- .debug_line    0x00000000       0x45 ./Application/Handlers/KeyHandler.o
- .debug_str     0x00000000     0x2e4b ./Application/Handlers/KeyHandler.o
- .comment       0x00000000       0x44 ./Application/Handlers/KeyHandler.o
+                0x00000000       0x18 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_macro   0x00000000       0x1b ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_macro   0x00000000      0xac0 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_line    0x00000000       0x8e ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_str     0x00000000     0x2e75 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .comment       0x00000000       0x44 ./Application/Handlers/Keys/Src/KeyHandler.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Handlers/KeyHandler.o
- .group         0x00000000        0xc ./Application/Handlers/RandomHandler.o
- .text          0x00000000        0x0 ./Application/Handlers/RandomHandler.o
- .data          0x00000000        0x0 ./Application/Handlers/RandomHandler.o
- .bss           0x00000000        0x0 ./Application/Handlers/RandomHandler.o
- .debug_info    0x00000000       0x22 ./Application/Handlers/RandomHandler.o
- .debug_abbrev  0x00000000       0x12 ./Application/Handlers/RandomHandler.o
+                0x00000000       0x3a ./Application/Handlers/Keys/Src/KeyHandler.o
+ .group         0x00000000        0xc ./Application/Handlers/Random/Src/RandomHandler.o
+ .text          0x00000000        0x0 ./Application/Handlers/Random/Src/RandomHandler.o
+ .data          0x00000000        0x0 ./Application/Handlers/Random/Src/RandomHandler.o
+ .bss           0x00000000        0x0 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_info    0x00000000       0x22 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_abbrev  0x00000000       0x12 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Handlers/RandomHandler.o
- .debug_macro   0x00000000       0x11 ./Application/Handlers/RandomHandler.o
- .debug_macro   0x00000000      0xac0 ./Application/Handlers/RandomHandler.o
- .debug_line    0x00000000       0x48 ./Application/Handlers/RandomHandler.o
- .debug_str     0x00000000     0x2e4e ./Application/Handlers/RandomHandler.o
- .comment       0x00000000       0x44 ./Application/Handlers/RandomHandler.o
+                0x00000000       0x18 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_macro   0x00000000       0x1b ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_macro   0x00000000      0xac0 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_line    0x00000000       0x9a ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_str     0x00000000     0x2e7f ./Application/Handlers/Random/Src/RandomHandler.o
+ .comment       0x00000000       0x44 ./Application/Handlers/Random/Src/RandomHandler.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Handlers/RandomHandler.o
+                0x00000000       0x3a ./Application/Handlers/Random/Src/RandomHandler.o
  .group         0x00000000        0xc ./Application/Library/EEPROM/Src/AT24C256.o
  .group         0x00000000        0xc ./Application/Library/EEPROM/Src/AT24C256.o
  .group         0x00000000        0xc ./Application/Library/EEPROM/Src/AT24C256.o
@@ -748,8 +1012,8 @@ Discarded input sections
                 0x00000000       0x34 ./Application/Utils/Logger/Src/Logger.o
  .text.log_error
                 0x00000000       0x34 ./Application/Utils/Logger/Src/Logger.o
- .debug_info    0x00000000      0xb90 ./Application/Utils/Logger/Src/Logger.o
- .debug_abbrev  0x00000000      0x204 ./Application/Utils/Logger/Src/Logger.o
+ .debug_info    0x00000000      0xb8b ./Application/Utils/Logger/Src/Logger.o
+ .debug_abbrev  0x00000000      0x205 ./Application/Utils/Logger/Src/Logger.o
  .debug_aranges
                 0x00000000       0x50 ./Application/Utils/Logger/Src/Logger.o
  .debug_rnglists
@@ -7816,13 +8080,13 @@ Linker script and memory map
 LOAD C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v8-m.main+fp/hard/crti.o
 LOAD C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v8-m.main+fp/hard/crtbegin.o
 LOAD C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o
-LOAD ./Application/Core/HSMManager.o
-LOAD ./Application/Core/OperationDispatcher.o
-LOAD ./Application/Handlers/DecryptHandler.o
-LOAD ./Application/Handlers/EncryptHandler.o
-LOAD ./Application/Handlers/HashHandler.o
-LOAD ./Application/Handlers/KeyHandler.o
-LOAD ./Application/Handlers/RandomHandler.o
+LOAD ./Application/Core/HSMManager/Src/HSMManager.o
+LOAD ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+LOAD ./Application/Handlers/Decryption/Src/DecryptHandler.o
+LOAD ./Application/Handlers/Encryption/Src/EncryptHandler.o
+LOAD ./Application/Handlers/Hashing/Src/HashHandler.o
+LOAD ./Application/Handlers/Keys/Src/KeyHandler.o
+LOAD ./Application/Handlers/Random/Src/RandomHandler.o
 LOAD ./Application/Library/EEPROM/Src/AT24C256.o
 LOAD ./Application/Library/FLASH/Src/W25Q64.o
 LOAD ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
