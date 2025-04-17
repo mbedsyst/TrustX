@@ -46,7 +46,7 @@ ParseStatus_t PacketParser_Parse(const uint8_t* rawData, uint16_t rawLength, Par
                            (rawData[index + 2] << 8)  |
                            (rawData[index + 3]);
     // Check if EOD Flag is valid
-    if (receivedEOD != EOD_FLAG_VALUE)
+    if (receivedEOD != EOD_FLAG)
     {
         return PARSE_EOD_MISMATCH;
     }

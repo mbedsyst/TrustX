@@ -30,10 +30,10 @@ BuildStatus_t PacketBuilder_Build(const ResponsePacket_t* responsePacket, uint8_
     // Set Index to point to EOD Flag
     index += responsePacket->outputSize;
     // Add EOD Flag to Data Stream
-    outBuffer[index++] = (EOD_FLAG_VALUE >> 24) & 0xFF;
-    outBuffer[index++] = (EOD_FLAG_VALUE >> 16) & 0xFF;
-    outBuffer[index++] = (EOD_FLAG_VALUE >> 8)  & 0xFF;
-    outBuffer[index++] = (EOD_FLAG_VALUE)       & 0xFF;
+    outBuffer[index++] = (EOD_FLAG >> 24) & 0xFF;
+    outBuffer[index++] = (EOD_FLAG >> 16) & 0xFF;
+    outBuffer[index++] = (EOD_FLAG >> 8)  & 0xFF;
+    outBuffer[index++] = (EOD_FLAG)       & 0xFF;
     // Set Index to point to End of Data Stream
     *outLength = index;
     // Return to indicate successful Packet Build

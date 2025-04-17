@@ -6,7 +6,7 @@
 #include "../../../Handlers/Random/Inc/RandomHandler.h"
 #include "constants.h"
 #include "Logger.h"
-
+/*
 OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
     log_info("Dispatching command...");
@@ -43,4 +43,4 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
             Logger_Log("Invalid command.");
             return OPERATION_INVALID_CMD;
     }
-}
+}*/
