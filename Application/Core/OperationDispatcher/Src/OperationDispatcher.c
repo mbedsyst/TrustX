@@ -5,22 +5,29 @@
 #include "../../../Handlers/Keys/Inc/KeyHandler.h"
 #include "../../../Handlers/Random/Inc/RandomHandler.h"
 #include "constants.h"
+#include "types.h"
 #include "Logger.h"
-/*
+
 OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
-    log_info("Dispatching command...");
+    log_info("Dispatching Command.");
 
     switch (request->cmd)
     {
         case CMD_ENCRYPT:
-            return EncryptHandler_Handle(request, response);
+        	log_info("Calling Encryption Operation.");
+        	log_warn("Encryption Operation not supported");
+            return OPERATION_UNKNOWN_ERROR;
 
         case CMD_DECRYPT:
-            return DecryptHandler_Handle(request, response);
+        	log_info("Calling Decryption Operation.");
+        	log_warn("Decryption Operation not supported");
+            return OPERATION_UNKNOWN_ERROR;
 
         case CMD_HASH:
-            return HashHandler_Handle(request, response);
+        	log_info("Calling Hashing Operation.");
+        	log_warn("Hashing Operation not supported");
+            return OPERATION_UNKNOWN_ERROR;
 
         case CMD_RANDOM:
             return RandomHandler_Handle(request, response);
@@ -28,19 +35,18 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
         case CMD_KEY_STORE:
         case CMD_KEY_RETRIEVE:
         case CMD_KEY_ERASE:
-            return KeyHandler_Handle(request, response);
+        	log_info("Calling Key Management.");
+        	log_warn("Key Management Operation not supported");
+            return OPERATION_UNKNOWN_ERROR;
 
         case CMD_PING:
-            response->status = RESPONSE_OK;
-            response->dataLength = 4;
-            response->data[0] = 'P';
-            response->data[1] = 'O';
-            response->data[2] = 'N';
-            response->data[3] = 'G';
-            return OPERATION_SUCCESS;
+        	log_info("Calling Ping Operation.");
+        	log_warn("Ping Operation not supported");
+            return OPERATION_UNKNOWN_ERROR;
 
         default:
-            Logger_Log("Invalid command.");
+            log_error("Invalid Command code received");
+            log_error("Returning Failure Status code");
             return OPERATION_INVALID_CMD;
     }
-}*/
+}
