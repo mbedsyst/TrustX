@@ -5,6 +5,13 @@
 
 extern HASH_HandleTypeDef hhash;
 
+static void Compute_HASH_SHA224(void);
+static void Compute_HASH_SHA256(void);
+static void Compute_HASH_SHA384(void);
+static void Compute_HASH_SHA512(void);
+static void Compute_HMAC_SHA224(void);
+static void Compute_HMAC_SHA256(void);
+
 OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
 	// Check if either Request or Response Packet is NULL
@@ -70,7 +77,7 @@ OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponseP
     return OPERATION_SUCCESS;
 }
 
-static void ComputeSHA1()
+static void Compute_HASH_SHA224(void)
 {
 	hhash.Init.DataType = HASH_NO_SWAP;
 	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA224;
@@ -78,4 +85,39 @@ static void ComputeSHA1()
 	{
 		Error_Handler();
 	}
+}
+static void Compute_HASH_SHA256(void)
+{
+	hhash.Init.DataType = HASH_NO_SWAP;
+	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA256;
+	if (HAL_HASH_Init(&hhash) != HAL_OK)
+	{
+		Error_Handler();
+	}
+}
+static void Compute_HASH_SHA384(void)
+{
+	hhash.Init.DataType = HASH_NO_SWAP;
+	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA384;
+	if (HAL_HASH_Init(&hhash) != HAL_OK)
+	{
+		Error_Handler();
+	}
+}
+static void Compute_HASH_SHA512(void)
+{
+	hhash.Init.DataType = HASH_NO_SWAP;
+	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA512;
+	if (HAL_HASH_Init(&hhash) != HAL_OK)
+	{
+		Error_Handler();
+	}
+}
+static void Compute_HMAC_SHA224(void)
+{
+
+}
+static void Compute_HMAC_SHA256(void)
+{
+
 }
