@@ -13,7 +13,7 @@ extern RNG_HandleTypeDef hrng;
 
 OperationStatus_t RandomHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
-    log_info("Handling Random Number Generation.");
+    log_info("Handling Random Number Generation operation.");
     // Retrieve requested OPTION half-word from Request Packet
     uint8_t option_val = ((request->option) - 0x30);
     // Set the requested Random Number size
