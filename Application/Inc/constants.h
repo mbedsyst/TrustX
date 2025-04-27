@@ -21,8 +21,10 @@
 // -- Hash Modes
 #define OPTION_HASH_SHA224        0x21 // 0b00100001
 #define OPTION_HASH_SHA256        0x22 // 0b00100010
-#define OPTION_HMAC_SHA224        0x23 // 0b00100011
-#define OPTION_HMAC_SHA256        0x24 // 0b00100100
+#define OPTION_HASH_SHA384        0x23 // 0b00100011
+#define OPTION_HASH_SHA512        0x24 // 0b00100100
+#define OPTION_HMAC_SHA224        0x25 // 0b00100101
+#define OPTION_HMAC_SHA256        0x26 // 0b00100110
 // -- Random
 #define OPTION_RNG_0004           0x31 // 0b00110001
 #define OPTION_RNG_0008           0x32 // 0b00110010
