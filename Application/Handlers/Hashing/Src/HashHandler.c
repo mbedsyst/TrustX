@@ -3,6 +3,8 @@
 #include "types.h"
 #include <string.h>
 
+extern HASH_HandleTypeDef hhash;
+
 OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
 	// Check if either Request or Response Packet is NULL
@@ -10,7 +12,6 @@ OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponseP
     {
         return OPERATION_NULL_POINTER;
     }
-
     // Declare status as Negative for Early Exit Pattern
     OperationStatus_t status = OPERATION_INVALID_OPTION;
     // Declare a static byte array of 64 elements
@@ -67,4 +68,14 @@ OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponseP
     memcpy(response->outputData, digest, response->outputSize);
     // Return Success
     return OPERATION_SUCCESS;
+}
+
+static void ComputeSHA1()
+{
+	hhash.Init.DataType = HASH_NO_SWAP;
+	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA224;
+	if (HAL_HASH_Init(&hhash) != HAL_OK)
+	{
+		Error_Handler();
+	}
 }
