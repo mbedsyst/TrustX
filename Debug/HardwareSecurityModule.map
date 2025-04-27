@@ -331,10 +331,15 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .data          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .bss           0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_info    0x00000000       0x85 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_abbrev  0x00000000       0x28 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .rodata        0x00000000      0x192 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .text.OperationDispatcher_Dispatch
+                0x00000000      0x104 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_info    0x00000000      0x26f ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_abbrev  0x00000000      0x117 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+                0x00000000       0x20 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_rnglists
+                0x00000000       0x14 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x35c ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0xac0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000       0x22 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
@@ -404,9 +409,10 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x2a7 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x47e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_line    0x00000000      0xd75 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_str     0x00000000   0x13c814 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_line    0x00000000      0xdbf ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_str     0x00000000   0x13ca31 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .comment       0x00000000       0x44 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_frame   0x00000000       0x34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .group         0x00000000        0xc ./Application/Handlers/Decryption/Src/DecryptHandler.o
