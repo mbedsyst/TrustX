@@ -5,58 +5,66 @@
 
 OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
-
+	// Check if either Request or Response Packet is NULL
     if (!request || !response)
     {
         return OPERATION_NULL_POINTER;
     }
 
+    // Declare status as Negative for Early Exit Pattern
     OperationStatus_t status = OPERATION_INVALID_OPTION;
-    uint8_t digest[64]; // Max digest size for SHA256
-
+    // Declare a static byte array of 64 elements
+    static uint8_t digest[64];
+    // Check the Request Packet's option member
     switch (request->option)
     {
+    	// SHA224 Hashing Algorithm Selected.
         case OPTION_HASH_SHA224:
         	log_info("SHA224 Hashing Algorithm Selected.");
-            // status = compute_sha224(request->inputData, request->inputSize, digest);
+        	response->outputSize = 28;
             break;
 
+        // SHA256 Hashing Algorithm Selected.
         case OPTION_HASH_SHA256:
         	log_info("SHA256 Hashing Algorithm Selected.");
-            // status = compute_sha256(request->inputData, request->inputSize, digest);
+        	response->outputSize = 32;
             break;
 
+        // SHA384 Hashing Algorithm Selected.
         case OPTION_HASH_SHA384:
         	log_info("SHA384 Hashing Algorithm Selected.");
-            // status = compute_sha256(request->inputData, request->inputSize, digest);
+        	response->outputSize = 48;
             break;
 
+        // SHA512 Hashing Algorithm Selected.
         case OPTION_HASH_SHA512:
         	log_info("SHA512 Hashing Algorithm Selected.");
-            // status = compute_sha256(request->inputData, request->inputSize, digest);
+        	response->outputSize = 64;
             break;
 
+        // SHA224 HMAC Algorithm Selected.
         case OPTION_HMAC_SHA224:
-        	log_info("SHA224 HMAC Hashing Algorithm Selected.");
-            // status = compute_hmac(request->inputData, request->inputSize, MBEDTLS_MD_SHA224, digest);
+        	log_info("SHA224 HMAC Algorithm Selected.");
+        	response->outputSize = 28;
             break;
 
+        // SHA256 HMAC Algorithm Selected.
         case OPTION_HMAC_SHA256:
-        	log_info("SHA256 HMAC Hashing Algorithm Selected.");
-            // status = compute_hmac(request->inputData, request->inputSize, MBEDTLS_MD_SHA256, digest);
+        	log_info("SHA256 HMAC Algorithm Selected.");
+        	response->outputSize = 32;
             break;
 
+        // Default switch case
         default:
             return OPERATION_INVALID_OPTION;
     }
-
+    // Check if operation status is Success
     if (status != OPERATION_SUCCESS)
+    {
         return status;
-
-    // Fill in the response
-    response->transactionID = request->transactionID;
-    response->outputSize = (request->option == OPTION_HASH_SHA224 || request->option == OPTION_HMAC_SHA224) ? 28 : 32;
+    }
+    // Copy digest value to Response Packet structure
     memcpy(response->outputData, digest, response->outputSize);
-
+    // Return Success
     return OPERATION_SUCCESS;
 }
