@@ -22,6 +22,7 @@ USB/Core/Src/usbd_core.o: ../USB/Core/Src/usbd_core.c \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash_ex.h \
+ ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_hash.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_i2c.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_i2c_ex.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pwr.h \
@@ -65,6 +66,7 @@ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/USB/Core/
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_flash_ex.h:
+../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_hash.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_i2c.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_i2c_ex.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pwr.h:

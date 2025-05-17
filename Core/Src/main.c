@@ -90,9 +90,8 @@ static void MX_HASH_Init(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
-  char TxMessageBuffer[64];
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -148,12 +147,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-      for(uint32_t j = 0; j <= UINT32_MAX; j++)
-      {
-          snprintf(TxMessageBuffer, sizeof(TxMessageBuffer), "Counter: %lu\r\n", (unsigned long)j);
-          TEMPLATE_Transmit((uint8_t*)TxMessageBuffer, strlen(TxMessageBuffer));
-          HAL_Delay(j%1000);
-      }
+	BSP_LED_Toggle(LED_GREEN);
+	HAL_Delay(333);
+	BSP_LED_Toggle(LED_RED);
+	HAL_Delay(333);
+	BSP_LED_Toggle(LED_YELLOW);
+	HAL_Delay(333);
 
     /* USER CODE END WHILE */
 

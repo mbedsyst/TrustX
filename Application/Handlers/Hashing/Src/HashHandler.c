@@ -2,7 +2,7 @@
 #include "constants.h"
 #include "types.h"
 #include <string.h>
-
+/*
 extern HASH_HandleTypeDef hhash;
 
 static void Compute_HASH_SHA224(void);
@@ -120,4 +120,4 @@ static void Compute_HMAC_SHA224(void)
 static void Compute_HMAC_SHA256(void)
 {
 
-}
+}*/
