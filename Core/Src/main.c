@@ -152,23 +152,21 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
 
   while (1)
   {
-	log_info("Hughie, You’ve Done A Murder. Comparatively Speaking, This Will Be A Piece Of Cake.\n\r");
-	HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

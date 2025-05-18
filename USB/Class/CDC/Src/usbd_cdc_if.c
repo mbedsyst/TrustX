@@ -39,6 +39,11 @@ volatile uint8_t tx_complete = 1;
 #define CDC_CHUNK_SIZE  	64
 #define LOG_BUFFER_SIZE		512
 
+#define MAX_USB_DATA_SIZE 65536
+
+static uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
+static uint32_t usb_rx_index = 0;
+
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
   */
@@ -244,28 +249,32 @@ static int8_t TEMPLATE_Control(uint8_t cmd, uint8_t *pbuf, uint16_t length)
   * @param  Len: Number of data received (in bytes)
   * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
   */
-/*static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
-{
-      if(Buf[0] == '1')
-             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-      else if(Buf[0] == '0')
-             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-      USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-      return (USBD_OK);
-}*/
-
 static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
 {
-    // Null-terminate if possible
-    char temp[LOG_BUFFER_SIZE];
-    uint32_t copy_len = (*Len < sizeof(temp) - 1) ? *Len : (sizeof(temp) - 1);
-    memcpy(temp, Buf, copy_len);
-    temp[copy_len] = '\0';
+    // Check for overflow (always a good idea)
+    if ((usb_rx_index + *Len) > MAX_USB_DATA_SIZE)
+    {
+        log_error("USB RX buffer overflow");
+        usb_rx_index = 0;
+        return USBD_FAIL;
+    }
 
-    log_info("Received USB data: \"%s\"", temp);
+    // Copy the incoming packet to our application buffer
+    memcpy(&usb_rx_buffer[usb_rx_index], Buf, *Len);
+    usb_rx_index += *Len;
 
+    // OPTIONAL: Detect if full message has been received
+    if (usb_rx_index >= MAX_USB_DATA_SIZE)
+    {
+        log_info("Full USB data received: %lu bytes", usb_rx_index);
+        // Reset for next transfer
+        usb_rx_index = 0;
+    }
+
+    // Prepare USB to receive the next packet
     USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-    return (USBD_OK);
+
+    return USBD_OK;
 }
 
 
