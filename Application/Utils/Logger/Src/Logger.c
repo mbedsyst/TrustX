@@ -12,8 +12,6 @@
 
 #define LOG_BUFFER_SIZE 256
 
-extern UART_HandleTypeDef huart2;
-
 static LogLevel current_level = LOG_LEVEL_INFO;
 
 void log_init(LogLevel level)
@@ -21,23 +19,16 @@ void log_init(LogLevel level)
     current_level = level;
 }
 
-static void uart6_write(const char *data)
-{
-    HAL_UART_Transmit(&huart2, (uint8_t *)data, strlen(data), HAL_MAX_DELAY);
-}
-
 static void log_generic(LogLevel level, const char *prefix, const char *color, const char *fmt, va_list args)
 {
     if (level < current_level)
-    	return;
+        return;
 
     char buffer[LOG_BUFFER_SIZE];
     vsnprintf(buffer, sizeof(buffer), fmt, args);
 
-    char final_msg[LOG_BUFFER_SIZE + 64];
-    snprintf(final_msg, sizeof(final_msg), "%s[%s] %s%s\r\n", color, prefix, buffer, COLOR_RESET);
-
-    uart6_write(final_msg);
+    // Print directly using printf(), assumes it's redirected to VCOM via BSP
+    printf("%s[%s] %s%s\r\n", color, prefix, buffer, COLOR_RESET);
 }
 
 void log_debug(const char *fmt, ...)
