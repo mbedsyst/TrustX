@@ -250,8 +250,10 @@ static int8_t TEMPLATE_TransmitCplt(uint8_t *Buf, uint32_t *Len, uint8_t epnum)
   UNUSED(Len);
   UNUSED(epnum);
 
-  return (0);
+  return 0;
+
 }
+
 
 /**
   * @}
