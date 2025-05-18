@@ -40,6 +40,6 @@
 
 
 // === End of Data Flag (EOD field) ===
-#define EOD_FLAG				  0xDEADDEAD
+#define EOD_FLAG				  0xDEADBEEF
 
 #endif /* INC_CONSTANTS_H_ */

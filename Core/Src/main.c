@@ -72,7 +72,7 @@ PCD_HandleTypeDef hpcd_USB_DRD_FS;
 /* USER CODE BEGIN PV */
 USBD_HandleTypeDef hUsbDeviceFS;
 extern USBD_DescriptorsTypeDef Class_Desc;
-#define TEST_PACKET_SIZE 	200
+#define TEST_PACKET_SIZE 	204
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,26 +99,26 @@ void fill_test_packet(uint8_t *buffer, uint16_t *length)
     buffer[3] = 0x78;
 
     // CMD
-    buffer[4] = 0xA1;
+    buffer[4] = 0x03;
 
     // OPTION
-    buffer[5] = 0x01;
+    buffer[5] = 0x22;
 
-    // INPUT SIZE: 188 bytes (0x00BC)
+    // INPUT SIZE: 192 bytes (0x00C0)
     buffer[6] = 0x00;
-    buffer[7] = 0xBC;
+    buffer[7] = 0xC0;
 
     // Input Data: 188 bytes of pseudo-random values
-    for (uint16_t i = 0; i < 188; ++i)
+    for (uint16_t i = 0; i < 192; ++i)
     {
         buffer[8 + i] = (uint8_t)((i ^ 0xAA) & 0xFF);
     }
 
     // EOD Flag: 0xDEADBEEF
-    buffer[196] = 0xDE;
-    buffer[197] = 0xAD;
-    buffer[198] = 0xBE;
-    buffer[199] = 0xEF;
+    buffer[200] = 0xDE;
+    buffer[201] = 0xAD;
+    buffer[202] = 0xBE;
+    buffer[203] = 0xEF;
 
     *length = TEST_PACKET_SIZE;
 }
