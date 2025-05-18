@@ -12,7 +12,7 @@
 
 #define LOG_BUFFER_SIZE 256
 
-extern UART_HandleTypeDef huart6;
+extern UART_HandleTypeDef huart2;
 
 static LogLevel current_level = LOG_LEVEL_INFO;
 
@@ -23,7 +23,7 @@ void log_init(LogLevel level)
 
 static void uart6_write(const char *data)
 {
-    HAL_UART_Transmit(&huart6, (uint8_t *)data, strlen(data), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart2, (uint8_t *)data, strlen(data), HAL_MAX_DELAY);
 }
 
 static void log_generic(LogLevel level, const char *prefix, const char *color, const char *fmt, va_list args)

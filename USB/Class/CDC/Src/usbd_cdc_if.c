@@ -24,6 +24,8 @@ EndBSPDependencies */
 /* Includes ------------------------------------------------------------------*/
 #include <usbd_cdc_if.h>
 
+#include "Logger.h"
+
 /* Create buffer for reception and transmission           */
 /* It's up to user to redefine and/or remove those define */
 /** Received data over USB are stored in this buffer      */
@@ -31,6 +33,11 @@ uint8_t UserRxBufferFS[APP_RX_DATA_SIZE];
 /** Data to send over USB CDC are stored in this buffer   */
 uint8_t UserTxBufferFS[APP_TX_DATA_SIZE];
 extern USBD_HandleTypeDef hUsbDeviceFS;
+
+volatile uint8_t tx_complete = 1;
+
+#define CDC_CHUNK_SIZE  	64
+#define LOG_BUFFER_SIZE		512
 
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
@@ -122,17 +129,32 @@ static int8_t TEMPLATE_DeInit(void)
   return (0);
 }
 
-uint8_t TEMPLATE_Transmit(uint8_t* Buf, uint16_t Len)
+uint8_t USB_Transmit(uint8_t *data, uint32_t len)
 {
-  uint8_t result = USBD_OK;
-  USBD_CDC_HandleTypeDef *hcdc = (USBD_CDC_HandleTypeDef*)hUsbDeviceFS.pClassData;
-  if (hcdc->TxState != 0){
-    return
-             USBD_BUSY;
-  }
-  USBD_CDC_SetTxBuffer(&hUsbDeviceFS, Buf, Len);
-  result = USBD_CDC_TransmitPacket(&hUsbDeviceFS);
-  return result;
+    uint32_t offset = 0;
+    while (offset < len)
+    {
+        uint16_t chunk_len = ((len - offset) >= CDC_CHUNK_SIZE) ? CDC_CHUNK_SIZE : (len - offset);
+        // Reset flag before each send
+        tx_complete = 0;
+        USBD_CDC_SetTxBuffer(&hUsbDeviceFS, &data[offset], chunk_len);
+
+        if (USBD_CDC_TransmitPacket(&hUsbDeviceFS) != USBD_OK)
+        {
+        	return USBD_FAIL;
+        }
+        // Wait for previous chunk to complete
+        uint32_t timeout = 10000;
+        while (tx_complete == 0 && timeout--);
+        if (timeout == 0)
+        {
+            return USBD_FAIL;
+        }
+        offset += chunk_len;
+        // Optional delay — helps avoid subtle race in some MCUs
+        for (volatile int i = 0; i < 200; i++);
+    }
+    return USBD_OK;
 }
 
 /**
@@ -222,7 +244,7 @@ static int8_t TEMPLATE_Control(uint8_t cmd, uint8_t *pbuf, uint16_t length)
   * @param  Len: Number of data received (in bytes)
   * @retval Result of the operation: USBD_OK if all operations are OK else USBD_FAIL
   */
-static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
+/*static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
 {
       if(Buf[0] == '1')
              HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
@@ -230,7 +252,22 @@ static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
              HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
       USBD_CDC_ReceivePacket(&hUsbDeviceFS);
       return (USBD_OK);
+}*/
+
+static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
+{
+    // Null-terminate if possible
+    char temp[LOG_BUFFER_SIZE];
+    uint32_t copy_len = (*Len < sizeof(temp) - 1) ? *Len : (sizeof(temp) - 1);
+    memcpy(temp, Buf, copy_len);
+    temp[copy_len] = '\0';
+
+    log_info("Received USB data: \"%s\"", temp);
+
+    USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+    return (USBD_OK);
 }
+
 
 /**
   * @brief  TEMPLATE_TransmitCplt

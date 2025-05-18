@@ -36,7 +36,7 @@ extern USBD_CDC_ItfTypeDef  USBD_CDC_Template_fops;
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
-uint8_t TEMPLATE_Transmit(uint8_t* Buf, uint16_t Len);
+uint8_t USB_Transmit(uint8_t *data, uint32_t len);
 #ifdef __cplusplus
 }
 #endif
