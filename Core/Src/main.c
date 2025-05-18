@@ -27,7 +27,7 @@
 #include "stdbool.h"
 
 #include "Logger.h"
-#include "PacketParser.h"
+#include "PacketBuilder.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,65 +88,46 @@ static void MX_RNG_Init(void);
 static void MX_HASH_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void fill_test_packet(uint8_t *buffer, uint16_t *length)
+ResponsePacket_t prepare_dummy_response_packet(void)
 {
-    if (!buffer || !length) return;
+    ResponsePacket_t response;
 
-    // Transaction ID: 0x12345678
-    buffer[0] = 0x12;
-    buffer[1] = 0x34;
-    buffer[2] = 0x56;
-    buffer[3] = 0x78;
+    response.transactionID = 0x12345678;
 
-    // CMD
-    buffer[4] = 0x03;
+    const char* msg = "Test response payload";
+    response.outputSize = strlen(msg);
+    memcpy(response.outputData, msg, response.outputSize);
 
-    // OPTION
-    buffer[5] = 0x22;
-
-    // INPUT SIZE: 192 bytes (0x00C0)
-    buffer[6] = 0x00;
-    buffer[7] = 0xC0;
-
-    // Input Data: 188 bytes of pseudo-random values
-    for (uint16_t i = 0; i < 192; ++i)
-    {
-        buffer[8 + i] = (uint8_t)((i ^ 0xAA) & 0xFF);
-    }
-
-    // EOD Flag: 0xDEADBEEF
-    buffer[200] = 0xDE;
-    buffer[201] = 0xAD;
-    buffer[202] = 0xBE;
-    buffer[203] = 0xEF;
-
-    *length = TEST_PACKET_SIZE;
+    return response;
 }
-
-void test_parse_packet(const uint8_t *buffer, uint16_t length)
+void test_packet_builder(void)
 {
-    ParsedPacket_t parsedPacket;
-    ParseStatus_t status = PacketParser_Parse(buffer, length, &parsedPacket);
+    // Step 1: Prepare dummy response
+    ResponsePacket_t response = prepare_dummy_response_packet();
 
-    if (status == PARSE_SUCCESS)
+    // Step 2: Prepare output buffer and length
+    uint8_t outBuffer[MAX_OUTPUT_DATA_SIZE + 10];  // buffer = data + headers
+    uint16_t outLength = 0;
+
+    // Step 3: Build packet
+    BuildStatus_t status = PacketBuilder_Build(&response, outBuffer, &outLength);
+
+    if (status == BUILD_SUCCESS)
     {
-        log_info("=== Parser Test Successful ===");
-        log_debug("Transaction ID : 0x%08X", parsedPacket.transactionID);
-        log_debug("Command        : 0x%02X", parsedPacket.cmd);
-        log_debug("Option         : 0x%02X", parsedPacket.option);
-        log_debug("Input Size     : %d bytes", parsedPacket.inputSize);
+        log_debug("Packet built successfully. Length: %d bytes", outLength);
+        log_debug("Packet content (hex):");
 
-        log_debug("First 16 Input Data bytes:");
-        for (uint16_t i = 0; i < 16 && i < parsedPacket.inputSize; ++i)
+        for (uint16_t i = 0; i < outLength; ++i)
         {
-            log_debug("  Byte[%02d] = 0x%02X", i, parsedPacket.inputData[i]);
+            log_debug("  Byte[%03d] = 0x%02X", i, outBuffer[i]);
         }
     }
     else
     {
-        log_error("Parser failed with error code: %d", status);
+        log_error("PacketBuilder failed with status: %d", status);
     }
 }
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -235,12 +216,8 @@ int main(void)
   BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
   BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
 
-  uint8_t test_packet[TEST_PACKET_SIZE];
-  uint16_t test_length = 0;
-  log_info("Filling Test Packet");
-  fill_test_packet(test_packet, &test_length);
-  log_info("Parsing Test Packet");
-  test_parse_packet(test_packet, test_length);
+  log_info("Filling Dummy Data & Building Packet.");
+  test_packet_builder();
   log_info("Logic Completed");
 
   while (1)
