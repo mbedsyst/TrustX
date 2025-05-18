@@ -23,7 +23,7 @@ EndBSPDependencies */
 
 /* Includes ------------------------------------------------------------------*/
 #include <usbd_cdc_if.h>
-
+#include "stdbool.h"
 #include "Logger.h"
 
 /* Create buffer for reception and transmission           */
@@ -37,12 +37,11 @@ extern USBD_HandleTypeDef hUsbDeviceFS;
 volatile uint8_t tx_complete = 1;
 
 #define CDC_CHUNK_SIZE  	64
-#define LOG_BUFFER_SIZE		512
+#define MAX_USB_DATA_SIZE 	65536
 
-#define MAX_USB_DATA_SIZE 65536
-
-static uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
-static uint32_t usb_rx_index = 0;
+uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
+uint32_t usb_rx_index = 0;
+volatile bool usb_rx_complete = false;
 
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
@@ -251,32 +250,30 @@ static int8_t TEMPLATE_Control(uint8_t cmd, uint8_t *pbuf, uint16_t length)
   */
 static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
 {
-    // Check for overflow (always a good idea)
-    if ((usb_rx_index + *Len) > MAX_USB_DATA_SIZE)
+    // Don't overflow buffer
+    if ((usb_rx_index + *Len) < MAX_USB_DATA_SIZE)
     {
-        log_error("USB RX buffer overflow");
+        memcpy(&usb_rx_buffer[usb_rx_index], Buf, *Len);
+        usb_rx_index += *Len;
+    }
+    else
+    {
+        // Error: overflow
         usb_rx_index = 0;
+        log_error("USB buffer overflow");
         return USBD_FAIL;
     }
 
-    // Copy the incoming packet to our application buffer
-    memcpy(&usb_rx_buffer[usb_rx_index], Buf, *Len);
-    usb_rx_index += *Len;
-
-    // OPTIONAL: Detect if full message has been received
-    if (usb_rx_index >= MAX_USB_DATA_SIZE)
+    // Optional: check for custom end-of-transmission pattern
+    // For now, just simulate end if host sends less than 64 bytes
+    if (*Len < CDC_DATA_FS_MAX_PACKET_SIZE)
     {
-        log_info("Full USB data received: %lu bytes", usb_rx_index);
-        // Reset for next transfer
-        usb_rx_index = 0;
+        usb_rx_complete = true;
     }
 
-    // Prepare USB to receive the next packet
     USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-
     return USBD_OK;
 }
-
 
 /**
   * @brief  TEMPLATE_TransmitCplt

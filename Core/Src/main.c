@@ -24,7 +24,10 @@
 #include "usbd_core.h"
 #include "usbd_cdc_if.h"
 
+#include "stdbool.h"
+
 #include "Logger.h"
+#include "PacketParser.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,6 +38,10 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
+#define MAX_USB_DATA_SIZE 	65536
+extern uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
+extern uint32_t usb_rx_index;
+extern volatile bool usb_rx_complete;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -65,6 +72,7 @@ PCD_HandleTypeDef hpcd_USB_DRD_FS;
 /* USER CODE BEGIN PV */
 USBD_HandleTypeDef hUsbDeviceFS;
 extern USBD_DescriptorsTypeDef Class_Desc;
+#define TEST_PACKET_SIZE 	200
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,7 +88,65 @@ static void MX_RNG_Init(void);
 static void MX_HASH_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
+void fill_test_packet(uint8_t *buffer, uint16_t *length)
+{
+    if (!buffer || !length) return;
 
+    // Transaction ID: 0x12345678
+    buffer[0] = 0x12;
+    buffer[1] = 0x34;
+    buffer[2] = 0x56;
+    buffer[3] = 0x78;
+
+    // CMD
+    buffer[4] = 0xA1;
+
+    // OPTION
+    buffer[5] = 0x01;
+
+    // INPUT SIZE: 188 bytes (0x00BC)
+    buffer[6] = 0x00;
+    buffer[7] = 0xBC;
+
+    // Input Data: 188 bytes of pseudo-random values
+    for (uint16_t i = 0; i < 188; ++i)
+    {
+        buffer[8 + i] = (uint8_t)((i ^ 0xAA) & 0xFF);
+    }
+
+    // EOD Flag: 0xDEADBEEF
+    buffer[196] = 0xDE;
+    buffer[197] = 0xAD;
+    buffer[198] = 0xBE;
+    buffer[199] = 0xEF;
+
+    *length = TEST_PACKET_SIZE;
+}
+
+void test_parse_packet(const uint8_t *buffer, uint16_t length)
+{
+    ParsedPacket_t parsedPacket;
+    ParseStatus_t status = PacketParser_Parse(buffer, length, &parsedPacket);
+
+    if (status == PARSE_SUCCESS)
+    {
+        log_info("=== Parser Test Successful ===");
+        log_debug("Transaction ID : 0x%08X", parsedPacket.transactionID);
+        log_debug("Command        : 0x%02X", parsedPacket.cmd);
+        log_debug("Option         : 0x%02X", parsedPacket.option);
+        log_debug("Input Size     : %d bytes", parsedPacket.inputSize);
+
+        log_debug("First 16 Input Data bytes:");
+        for (uint16_t i = 0; i < 16 && i < parsedPacket.inputSize; ++i)
+        {
+            log_debug("  Byte[%02d] = 0x%02X", i, parsedPacket.inputData[i]);
+        }
+    }
+    else
+    {
+        log_error("Parser failed with error code: %d", status);
+    }
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -151,19 +217,31 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  log_init(LOG_LEVEL_DEBUG);
+  log_info("Turning LED ON.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED OFF.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED ON.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED OFF.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
 
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  uint8_t test_packet[TEST_PACKET_SIZE];
+  uint16_t test_length = 0;
+  log_info("Filling Test Packet");
+  fill_test_packet(test_packet, &test_length);
+  log_info("Parsing Test Packet");
+  test_parse_packet(test_packet, test_length);
+  log_info("Logic Completed");
 
   while (1)
   {
