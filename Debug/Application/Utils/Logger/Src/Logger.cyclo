@@ -1,7 +1,6 @@
-../Application/Utils/Logger/Src/Logger.c:19:6:log_init	1
-../Application/Utils/Logger/Src/Logger.c:24:13:uart6_write	1
-../Application/Utils/Logger/Src/Logger.c:29:13:log_generic	2
-../Application/Utils/Logger/Src/Logger.c:43:6:log_debug	1
-../Application/Utils/Logger/Src/Logger.c:51:6:log_info	1
-../Application/Utils/Logger/Src/Logger.c:59:6:log_warn	1
-../Application/Utils/Logger/Src/Logger.c:67:6:log_error	1
+../Application/Utils/Logger/Src/Logger.c:17:6:log_init	1
+../Application/Utils/Logger/Src/Logger.c:22:13:log_generic	2
+../Application/Utils/Logger/Src/Logger.c:34:6:log_debug	1
+../Application/Utils/Logger/Src/Logger.c:42:6:log_info	1
+../Application/Utils/Logger/Src/Logger.c:50:6:log_warn	1
+../Application/Utils/Logger/Src/Logger.c:58:6:log_error	1
