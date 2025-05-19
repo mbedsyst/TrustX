@@ -1,6 +1,6 @@
-../USB/Class/CDC/Src/usbd_cdc_if.c:116:15:TEMPLATE_Init	1
-../USB/Class/CDC/Src/usbd_cdc_if.c:128:15:TEMPLATE_DeInit	1
-../USB/Class/CDC/Src/usbd_cdc_if.c:136:9:USB_Transmit	7
-../USB/Class/CDC/Src/usbd_cdc_if.c:172:15:TEMPLATE_Control	3
-../USB/Class/CDC/Src/usbd_cdc_if.c:251:15:TEMPLATE_Receive	3
-../USB/Class/CDC/Src/usbd_cdc_if.c:290:15:TEMPLATE_TransmitCplt	1
+../USB/Class/CDC/Src/usbd_cdc_if.c:115:15:TEMPLATE_Init	1
+../USB/Class/CDC/Src/usbd_cdc_if.c:127:15:TEMPLATE_DeInit	1
+../USB/Class/CDC/Src/usbd_cdc_if.c:135:9:USB_Transmit	7
+../USB/Class/CDC/Src/usbd_cdc_if.c:171:15:TEMPLATE_Control	3
+../USB/Class/CDC/Src/usbd_cdc_if.c:250:15:TEMPLATE_Receive	4
+../USB/Class/CDC/Src/usbd_cdc_if.c:300:15:TEMPLATE_TransmitCplt	1

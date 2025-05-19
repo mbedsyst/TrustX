@@ -34,13 +34,12 @@ uint8_t UserRxBufferFS[APP_RX_DATA_SIZE];
 uint8_t UserTxBufferFS[APP_TX_DATA_SIZE];
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
-volatile uint8_t tx_complete = 1;
-
 #define CDC_CHUNK_SIZE  	64
 #define MAX_USB_DATA_SIZE 	65536
 
 uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
 uint32_t usb_rx_index = 0;
+volatile uint8_t tx_complete = 1;
 volatile bool usb_rx_complete = false;
 
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
@@ -250,7 +249,18 @@ static int8_t TEMPLATE_Control(uint8_t cmd, uint8_t *pbuf, uint16_t length)
   */
 static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
 {
-    // Don't overflow buffer
+	// Create a buffer for the log message
+	char hexStr[3 * CDC_DATA_FS_MAX_PACKET_SIZE + 1] = {0}; // 2 hex chars + space per byte
+
+	// Convert received bytes to hex string
+	for (uint32_t i = 0; i < *Len; ++i)
+	{
+		sprintf(&hexStr[i * 3], "%02X ", Buf[i]);
+	}
+
+	log_info("USB Data (%lu bytes): %s", *Len, hexStr);
+
+	// Don't overflow buffer
     if ((usb_rx_index + *Len) < MAX_USB_DATA_SIZE)
     {
         memcpy(&usb_rx_buffer[usb_rx_index], Buf, *Len);

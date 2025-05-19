@@ -27,7 +27,7 @@
 #include "stdbool.h"
 
 #include "Logger.h"
-#include "PacketBuilder.h"
+#include "PacketParser.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,6 +39,7 @@
 /* USER CODE BEGIN PD */
 
 #define MAX_USB_DATA_SIZE 	65536
+
 extern uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
 extern uint32_t usb_rx_index;
 extern volatile bool usb_rx_complete;
@@ -72,7 +73,12 @@ PCD_HandleTypeDef hpcd_USB_DRD_FS;
 /* USER CODE BEGIN PV */
 USBD_HandleTypeDef hUsbDeviceFS;
 extern USBD_DescriptorsTypeDef Class_Desc;
-#define TEST_PACKET_SIZE 	204
+#define MAX_USB_DATA_SIZE 	65536
+
+extern uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
+extern uint32_t usb_rx_index;
+extern volatile bool usb_rx_complete;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -88,43 +94,41 @@ static void MX_RNG_Init(void);
 static void MX_HASH_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
-ResponsePacket_t prepare_dummy_response_packet(void)
+void Test_ParseReceivedUsbData(void)
 {
-    ResponsePacket_t response;
-
-    response.transactionID = 0x12345678;
-
-    const char* msg = "Test response payload";
-    response.outputSize = strlen(msg);
-    memcpy(response.outputData, msg, response.outputSize);
-
-    return response;
-}
-void test_packet_builder(void)
-{
-    // Step 1: Prepare dummy response
-    ResponsePacket_t response = prepare_dummy_response_packet();
-
-    // Step 2: Prepare output buffer and length
-    uint8_t outBuffer[MAX_OUTPUT_DATA_SIZE + 10];  // buffer = data + headers
-    uint16_t outLength = 0;
-
-    // Step 3: Build packet
-    BuildStatus_t status = PacketBuilder_Build(&response, outBuffer, &outLength);
-
-    if (status == BUILD_SUCCESS)
+    if (usb_rx_complete)
     {
-        log_debug("Packet built successfully. Length: %d bytes", outLength);
-        log_debug("Packet content (hex):");
+        ParsedPacket_t parsedPacket;
+        ParseStatus_t status = PacketParser_Parse(usb_rx_buffer, usb_rx_index, &parsedPacket);
 
-        for (uint16_t i = 0; i < outLength; ++i)
+        if (status == PARSE_SUCCESS)
         {
-            log_debug("  Byte[%03d] = 0x%02X", i, outBuffer[i]);
+            log_debug("Packet Parsed Successfully:");
+            log_debug("Transaction ID : 0x%08X", parsedPacket.transactionID);
+            log_debug("Command        : 0x%02X", parsedPacket.cmd);
+            log_debug("Option         : 0x%02X", parsedPacket.option);
+            log_debug("Input Size     : %d bytes", parsedPacket.inputSize);
+
+            log_debug("  Input Data (first 16 bytes or less):");
+            for (uint16_t i = 0; i < parsedPacket.inputSize; ++i)
+            {
+                log_debug("Byte[%02d] = 0x%02X", i, parsedPacket.inputData[i]);
+            }
+
+            log_debug("End of Parsed Packet");
         }
+        else
+        {
+            log_error("Parsing failed with status code: %d", status);
+        }
+
+        // Reset buffer and flag for next reception
+        usb_rx_index = 0;
+        usb_rx_complete = false;
     }
     else
     {
-        log_error("PacketBuilder failed with status: %d", status);
+    	log_error("USB Reception not completed");
     }
 }
 
@@ -216,12 +220,13 @@ int main(void)
   BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
   BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
 
-  log_info("Filling Dummy Data & Building Packet.");
-  test_packet_builder();
-  log_info("Logic Completed");
+  log_info("Send Dummy Data");
+  HAL_Delay(5000);
+  log_info("Parsing incoming data over USB.");
 
   while (1)
   {
+	Test_ParseReceivedUsbData();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

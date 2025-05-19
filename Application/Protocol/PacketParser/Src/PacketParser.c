@@ -40,7 +40,7 @@ ParseStatus_t PacketParser_Parse(const uint8_t* rawData, uint16_t rawLength, Par
     index += 2;
     log_debug("Checking if INPUT_SIZE is within the limits.");
     // Check if INPUT_SIZE is under the prescribed limit
-    if (parsedPacket->inputSize > MAX_INPUT_DATA_SIZE || (index + parsedPacket->inputSize + 4) > rawLength)
+    if (parsedPacket->inputSize > MAX_INPUT_DATA_SIZE || ((index - 1) + parsedPacket->inputSize + 4) > rawLength)
     {
     	log_error("Input Data Size is too big.");
         return PARSE_INPUT_TOO_LARGE;
