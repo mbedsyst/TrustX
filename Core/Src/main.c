@@ -27,7 +27,7 @@
 #include "stdbool.h"
 
 #include "Logger.h"
-#include "PacketParser.h"
+#include "PacketBuilder.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -38,11 +38,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define MAX_USB_DATA_SIZE 	65536
-
-extern uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
-extern uint32_t usb_rx_index;
-extern volatile bool usb_rx_complete;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -73,11 +68,6 @@ PCD_HandleTypeDef hpcd_USB_DRD_FS;
 /* USER CODE BEGIN PV */
 USBD_HandleTypeDef hUsbDeviceFS;
 extern USBD_DescriptorsTypeDef Class_Desc;
-#define MAX_USB_DATA_SIZE 	65536
-
-extern uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
-extern uint32_t usb_rx_index;
-extern volatile bool usb_rx_complete;
 
 /* USER CODE END PV */
 
@@ -94,43 +84,6 @@ static void MX_RNG_Init(void);
 static void MX_HASH_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void Test_ParseReceivedUsbData(void)
-{
-    if (usb_rx_complete)
-    {
-        ParsedPacket_t parsedPacket;
-        ParseStatus_t status = PacketParser_Parse(usb_rx_buffer, usb_rx_index, &parsedPacket);
-
-        if (status == PARSE_SUCCESS)
-        {
-            log_debug("Packet Parsed Successfully:");
-            log_debug("Transaction ID : 0x%08X", parsedPacket.transactionID);
-            log_debug("Command        : 0x%02X", parsedPacket.cmd);
-            log_debug("Option         : 0x%02X", parsedPacket.option);
-            log_debug("Input Size     : %d bytes", parsedPacket.inputSize);
-
-            log_debug("  Input Data (first 16 bytes or less):");
-            for (uint16_t i = 0; i < parsedPacket.inputSize; ++i)
-            {
-                log_debug("Byte[%02d] = 0x%02X", i, parsedPacket.inputData[i]);
-            }
-
-            log_debug("End of Parsed Packet");
-        }
-        else
-        {
-            log_error("Parsing failed with status code: %d", status);
-        }
-
-        // Reset buffer and flag for next reception
-        usb_rx_index = 0;
-        usb_rx_complete = false;
-    }
-    else
-    {
-    	log_error("USB Reception not completed");
-    }
-}
 
 /* USER CODE END PFP */
 
@@ -147,7 +100,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  const uint8_t test_data[] = "Device startup complete. Initializing subsystems. Awaiting commands from host interface. Ensure proper connection and configuration before sending instructions.\r\n";
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -220,13 +173,12 @@ int main(void)
   BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
   BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
 
-  log_info("Send Dummy Data");
-  HAL_Delay(5000);
-  log_info("Parsing incoming data over USB.");
-
   while (1)
   {
-	Test_ParseReceivedUsbData();
+
+	USB_Transmit((uint8_t *)test_data, sizeof(test_data) - 1);
+	log_info("Waiting for Delay");
+	HAL_Delay(10000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
