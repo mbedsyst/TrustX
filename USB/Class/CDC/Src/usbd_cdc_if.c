@@ -34,7 +34,7 @@ uint8_t UserRxBufferFS[APP_RX_DATA_SIZE];
 uint8_t UserTxBufferFS[APP_TX_DATA_SIZE];
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
-#define CDC_CHUNK_SIZE  	64
+#define CDC_BLOCK_SIZE  	64
 #define MAX_USB_DATA_SIZE 	65536
 
 uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
@@ -137,24 +137,35 @@ uint8_t USB_Transmit(uint8_t *data, uint32_t len)
     uint32_t offset = 0;
     while (offset < len)
     {
-        uint16_t chunk_len = ((len - offset) >= CDC_CHUNK_SIZE) ? CDC_CHUNK_SIZE : (len - offset);
-        // Reset flag before each send
+        uint16_t chunk_len = ((len - offset) >= CDC_BLOCK_SIZE) ? CDC_BLOCK_SIZE : (len - offset);
         tx_complete = 0;
         USBD_CDC_SetTxBuffer(&hUsbDeviceFS, &data[offset], chunk_len);
 
+        // Prepare log string
+        char log_line[CDC_BLOCK_SIZE * 3 + 1] = {0};
+        char *ptr = log_line;
+        for (uint16_t i = 0; i < chunk_len; i++)
+        {
+            ptr += sprintf(ptr, "%02X ", data[offset + i]);
+        }
+
+        // Log the data and its size
+        log_info("USB Tx [%d bytes]: %s", chunk_len, log_line);
+
         if (USBD_CDC_TransmitPacket(&hUsbDeviceFS) != USBD_OK)
         {
-        	return USBD_FAIL;
+            return USBD_FAIL;
         }
-        // Wait for previous chunk to complete
+
         uint32_t timeout = 10000;
         while (tx_complete == 0 && timeout--);
         if (timeout == 0)
         {
+            log_error("USB TX Timeout");
             return USBD_FAIL;
         }
+
         offset += chunk_len;
-        // Optional delay — helps avoid subtle race in some MCUs
         for (volatile int i = 0; i < 200; i++);
     }
     return USBD_OK;
@@ -249,18 +260,15 @@ static int8_t TEMPLATE_Control(uint8_t cmd, uint8_t *pbuf, uint16_t length)
   */
 static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
 {
-	// Create a buffer for the log message
-	char hexStr[3 * CDC_DATA_FS_MAX_PACKET_SIZE + 1] = {0}; // 2 hex chars + space per byte
+    uint32_t maxLen = (*Len > CDC_DATA_FS_MAX_PACKET_SIZE) ? CDC_DATA_FS_MAX_PACKET_SIZE : *Len;
 
-	// Convert received bytes to hex string
-	for (uint32_t i = 0; i < *Len; ++i)
-	{
-		sprintf(&hexStr[i * 3], "%02X ", Buf[i]);
-	}
+    char hexStr[3 * CDC_DATA_FS_MAX_PACKET_SIZE + 1] = {0};
+    for (uint32_t i = 0; i < maxLen; ++i)
+    {
+        snprintf(&hexStr[i * 3], 4, "%02X ", Buf[i]);
+    }
+    log_info("USB Rx [%lu bytes]: %s", *Len, hexStr);
 
-	log_info("USB Data (%lu bytes): %s", *Len, hexStr);
-
-	// Don't overflow buffer
     if ((usb_rx_index + *Len) < MAX_USB_DATA_SIZE)
     {
         memcpy(&usb_rx_buffer[usb_rx_index], Buf, *Len);
@@ -268,14 +276,11 @@ static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
     }
     else
     {
-        // Error: overflow
         usb_rx_index = 0;
         log_error("USB buffer overflow");
         return USBD_FAIL;
     }
 
-    // Optional: check for custom end-of-transmission pattern
-    // For now, just simulate end if host sends less than 64 bytes
     if (*Len < CDC_DATA_FS_MAX_PACKET_SIZE)
     {
         usb_rx_complete = true;
