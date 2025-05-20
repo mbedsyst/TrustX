@@ -4,6 +4,7 @@
 #include "usbd_cdc_if.h"
 #include "stm32h5xx_nucleo.h"
 
+#define bytesPerLine		16
 #define CDC_BLOCK_SIZE		64
 #define MAX_USB_DATA_SIZE 	65536
 
@@ -23,21 +24,34 @@ static void LogParsedPacket(const ParsedPacket_t* packet)
         return;
     }
 
-    log_debug("Parsed Packet:");
-    log_debug("TXID      : %08X", packet->transactionID);
-    log_debug("CMD       : %02X", packet->cmd);
-    log_debug("OPTION    : %02X", packet->option);
-    log_debug("INPUT SIZE: %04X", packet->inputSize);
+    log_debug("PARSED PACKET:");
+    log_debug("TXID       : %08X", packet->transactionID);
+    log_debug("CMD        : %02X", packet->cmd);
+    log_debug("OPTION     : %02X", packet->option);
+    log_debug("INPUT SIZE : %04X", packet->inputSize);
 
-    char inputHex[3 * MAX_INPUT_DATA_SIZE + 1] = {0};
-    char *ptr = inputHex;
+    const uint8_t* data = packet->inputData;
+    uint16_t size = packet->inputSize;
 
-    for (uint16_t i = 0; i < packet->inputSize; i++)
+    for (uint16_t i = 0; i < size; i += bytesPerLine)
     {
-        ptr += sprintf(ptr, "%02X ", packet->inputData[i]);
-    }
+        char line[bytesPerLine * 3 + 1] = {0};
+        char* ptr = line;
 
-    log_debug("INPUT DATA: %s", inputHex);
+        for (uint16_t j = 0; j < bytesPerLine && (i + j) < size; ++j)
+        {
+            ptr += sprintf(ptr, "%02X ", data[i + j]);
+        }
+
+        if (i == 0)
+        {
+        	log_debug("INPUT DATA : %s", line);
+        }
+        else
+        {
+        	log_debug("             %s", line);
+        }
+    }
 }
 
 static void LogResponsePacket(const ResponsePacket_t* packet)
@@ -48,20 +62,29 @@ static void LogResponsePacket(const ResponsePacket_t* packet)
         return;
     }
 
-    log_debug("Response Packet:");
+    log_debug("RESPONSE PACKET");
     log_debug("TXID        : %08X", packet->transactionID);
     log_debug("OUTPUT SIZE : %04X", packet->outputSize);
-
-    char outputHex[3 * MAX_OUTPUT_DATA_SIZE + 1] = {0};
-    char *ptr = outputHex;
-
-    for (uint16_t i = 0; i < packet->outputSize; i++)
-    {
-        ptr += sprintf(ptr, "%02X ", packet->outputData[i]);
-    }
-
-    log_debug("OUTPUT DATA : %s", outputHex);
     log_debug("EOD FLAG    : %08X", packet->out_eod_flag);
+
+    const uint8_t* data = packet->outputData;
+    uint16_t size = packet->outputSize;
+
+    for (uint16_t i = 0; i < size; i += bytesPerLine)
+    {
+        char line[bytesPerLine * 3 + 1] = {0};
+        char* ptr = line;
+
+        for (uint16_t j = 0; j < bytesPerLine && (i + j) < size; ++j)
+        {
+            ptr += sprintf(ptr, "%02X ", data[i + j]);
+        }
+
+        if (i == 0)
+            log_debug("OUTPUT DATA : %s", line);
+        else
+            log_debug("              %s", line);
+    }
 }
 
 static void LogTransmitBuffer(const uint8_t* usb_tx_buffer, uint32_t usb_tx_index)
@@ -72,15 +95,22 @@ static void LogTransmitBuffer(const uint8_t* usb_tx_buffer, uint32_t usb_tx_inde
         return;
     }
 
-    char hexStr[3 * CDC_BLOCK_SIZE + 1] = {0}; // Adjust buffer size if needed
-    char* ptr = hexStr;
 
-    for (uint32_t i = 0; i < usb_tx_index && i < CDC_BLOCK_SIZE; ++i)
+    for (uint32_t i = 0; i < usb_tx_index; i += bytesPerLine)
     {
-        ptr += sprintf(ptr, "%02X ", usb_tx_buffer[i]);
-    }
+        char line[bytesPerLine * 3 + 1] = {0};
+        char* ptr = line;
 
-    log_debug("USB TX [%lu bytes]: %s", usb_tx_index, hexStr);
+        for (uint32_t j = 0; j < bytesPerLine && (i + j) < usb_tx_index; ++j)
+        {
+            ptr += sprintf(ptr, "%02X ", usb_tx_buffer[i + j]);
+        }
+
+        if (i == 0)
+            log_debug("USB Tx [%lu bytes]: %s", usb_tx_index, line);
+        else
+            log_debug("                 %s", line);  // 17-character indent to align with line 1
+    }
 }
 
 void HSMManager_Init(void)
