@@ -1,2 +1,5 @@
-../Application/Core/HSMManager/Src/HSMManager.c:4:6:HSMManager_Init	8	static
-../Application/Core/HSMManager/Src/HSMManager.c:10:19:HSMManager_ProcessCommand	16	static
+../Application/Core/HSMManager/Src/HSMManager.c:19:13:LogParsedPacket	88	static
+../Application/Core/HSMManager/Src/HSMManager.c:57:13:LogResponsePacket	88	static
+../Application/Core/HSMManager/Src/HSMManager.c:90:13:LogTransmitBuffer	80	static
+../Application/Core/HSMManager/Src/HSMManager.c:116:6:HSMManager_Init	8	static
+../Application/Core/HSMManager/Src/HSMManager.c:141:19:HSMManager_ProcessCommand	73760	static

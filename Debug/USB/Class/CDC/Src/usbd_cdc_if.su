@@ -1,6 +1,6 @@
-../USB/Class/CDC/Src/usbd_cdc_if.c:115:15:TEMPLATE_Init	8	static
-../USB/Class/CDC/Src/usbd_cdc_if.c:127:15:TEMPLATE_DeInit	4	static
-../USB/Class/CDC/Src/usbd_cdc_if.c:135:9:USB_Transmit	240	static
-../USB/Class/CDC/Src/usbd_cdc_if.c:184:15:TEMPLATE_Control	16	static
-../USB/Class/CDC/Src/usbd_cdc_if.c:263:15:TEMPLATE_Receive	224	static
-../USB/Class/CDC/Src/usbd_cdc_if.c:307:15:TEMPLATE_TransmitCplt	24	static
+../USB/Class/CDC/Src/usbd_cdc_if.c:116:15:TEMPLATE_Init	8	static
+../USB/Class/CDC/Src/usbd_cdc_if.c:128:15:TEMPLATE_DeInit	4	static
+../USB/Class/CDC/Src/usbd_cdc_if.c:136:9:USB_Transmit	152	static
+../USB/Class/CDC/Src/usbd_cdc_if.c:201:15:TEMPLATE_Control	16	static
+../USB/Class/CDC/Src/usbd_cdc_if.c:280:15:TEMPLATE_Receive	72	dynamic
+../USB/Class/CDC/Src/usbd_cdc_if.c:352:15:TEMPLATE_TransmitCplt	24	static
