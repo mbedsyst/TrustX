@@ -52,12 +52,12 @@ ParseStatus_t PacketParser_Parse(const uint8_t* rawData, uint16_t rawLength, Par
     index += parsedPacket->inputSize;
     log_debug("Checking the Received EOD word.");
     // Retrieve EOD Flag from Data Stream
-    uint32_t receivedEOD = (rawData[index]     << 24) |
-                           (rawData[index + 1] << 16) |
-                           (rawData[index + 2] << 8)  |
-                           (rawData[index + 3]);
+    uint32_t received_IN_EOD = (rawData[index]     << 24) |
+                           	   (rawData[index + 1] << 16) |
+							   (rawData[index + 2] << 8)  |
+							   (rawData[index + 3]);
     // Check if EOD Flag is valid
-    if (receivedEOD != EOD_FLAG)
+    if (received_IN_EOD != IN_EOD_FLAG)
     {
     	log_error("Received EOD Flag is Invalid");
         return PARSE_EOD_MISMATCH;
