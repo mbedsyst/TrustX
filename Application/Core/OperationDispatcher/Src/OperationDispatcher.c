@@ -30,6 +30,7 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
             return OPERATION_UNKNOWN_ERROR;
 
         case CMD_RANDOM:
+        	log_info("Calling RNG Operation.");
             return RandomHandler_Handle(request, response);
 
         case CMD_KEY_STORE:
