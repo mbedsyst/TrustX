@@ -36,6 +36,7 @@ extern USBD_HandleTypeDef hUsbDeviceFS;
 
 #define CDC_BLOCK_SIZE  	64
 #define MAX_USB_DATA_SIZE 	65536
+#define BYTES_PER_LINE 		32
 
 uint8_t usb_rx_buffer[MAX_USB_DATA_SIZE];
 uint32_t usb_rx_index = 0;
@@ -135,7 +136,7 @@ static int8_t TEMPLATE_DeInit(void)
 uint8_t USB_Transmit(uint8_t *data, uint32_t len)
 {
     uint32_t offset = 0;
-    const uint32_t bytesPerLine = 32;
+    const uint32_t bytesPerLine = 16;
 
     while (offset < len)
     {
@@ -148,7 +149,7 @@ uint8_t USB_Transmit(uint8_t *data, uint32_t len)
         while (printed < chunk_len)
         {
             uint32_t lineLen = ((chunk_len - printed) > bytesPerLine) ? bytesPerLine : (chunk_len - printed);
-            char log_line[bytesPerLine * 3 + 1] = {0};
+            char log_line[BYTES_PER_LINE * 3 + 1] = {0};
             char *ptr = log_line;
 
             for (uint32_t i = 0; i < lineLen; i++)
@@ -162,7 +163,7 @@ uint8_t USB_Transmit(uint8_t *data, uint32_t len)
             }
             else
             {
-                log_info("%26s%s", "", log_line);
+                log_info("%19s%s", "", log_line);
             }
 
             printed += lineLen;
@@ -278,7 +279,7 @@ static int8_t TEMPLATE_Control(uint8_t cmd, uint8_t *pbuf, uint16_t length)
   */
 static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
 {
-    const uint32_t bytesPerLine = 32;
+    const uint32_t bytesPerLine = 16;
     char hexLine[bytesPerLine * 3 + 1]; // 2 hex chars + 1 space per byte
     uint32_t totalLen = *Len;
     uint32_t printed = 0;
@@ -306,7 +307,7 @@ static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
         else
         {
             // Subsequent lines have 26-space indent
-            log_info("%26s%s", "", hexLine);
+            log_info("%19s%s", "", hexLine);
         }
 
         printed += lineLen;
