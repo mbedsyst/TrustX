@@ -135,22 +135,38 @@ static int8_t TEMPLATE_DeInit(void)
 uint8_t USB_Transmit(uint8_t *data, uint32_t len)
 {
     uint32_t offset = 0;
+    const uint32_t bytesPerLine = 32;
+
     while (offset < len)
     {
         uint16_t chunk_len = ((len - offset) >= CDC_BLOCK_SIZE) ? CDC_BLOCK_SIZE : (len - offset);
         tx_complete = 0;
         USBD_CDC_SetTxBuffer(&hUsbDeviceFS, &data[offset], chunk_len);
 
-        // Prepare log string
-        char log_line[CDC_BLOCK_SIZE * 3 + 1] = {0};
-        char *ptr = log_line;
-        for (uint16_t i = 0; i < chunk_len; i++)
+        // Log in 32-byte lines
+        uint32_t printed = 0;
+        while (printed < chunk_len)
         {
-            ptr += sprintf(ptr, "%02X ", data[offset + i]);
-        }
+            uint32_t lineLen = ((chunk_len - printed) > bytesPerLine) ? bytesPerLine : (chunk_len - printed);
+            char log_line[bytesPerLine * 3 + 1] = {0};
+            char *ptr = log_line;
 
-        // Log the data and its size
-        log_info("USB Tx [%d bytes]: %s", chunk_len, log_line);
+            for (uint32_t i = 0; i < lineLen; i++)
+            {
+                ptr += snprintf(ptr, 4, "%02X ", data[offset + printed + i]);
+            }
+
+            if (printed == 0)
+            {
+                log_info("USB Tx [%d bytes]: %s", chunk_len, log_line);
+            }
+            else
+            {
+                log_info("%26s%s", "", log_line);
+            }
+
+            printed += lineLen;
+        }
 
         if (USBD_CDC_TransmitPacket(&hUsbDeviceFS) != USBD_OK)
         {
@@ -168,8 +184,10 @@ uint8_t USB_Transmit(uint8_t *data, uint32_t len)
         offset += chunk_len;
         for (volatile int i = 0; i < 200; i++);
     }
+
     return USBD_OK;
 }
+
 
 /**
   * @brief  TEMPLATE_Control
@@ -260,15 +278,41 @@ static int8_t TEMPLATE_Control(uint8_t cmd, uint8_t *pbuf, uint16_t length)
   */
 static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
 {
-    uint32_t maxLen = (*Len > CDC_DATA_FS_MAX_PACKET_SIZE) ? CDC_DATA_FS_MAX_PACKET_SIZE : *Len;
+    const uint32_t bytesPerLine = 32;
+    char hexLine[bytesPerLine * 3 + 1]; // 2 hex chars + 1 space per byte
+    uint32_t totalLen = *Len;
+    uint32_t printed = 0;
 
-    char hexStr[3 * CDC_DATA_FS_MAX_PACKET_SIZE + 1] = {0};
-    for (uint32_t i = 0; i < maxLen; ++i)
-    {
-        snprintf(&hexStr[i * 3], 4, "%02X ", Buf[i]);
+    if (*Len > CDC_DATA_FS_MAX_PACKET_SIZE) {
+        *Len = CDC_DATA_FS_MAX_PACKET_SIZE;
     }
-    log_info("USB Rx [%lu bytes]: %s", *Len, hexStr);
 
+    while (printed < *Len)
+    {
+        uint32_t lineLen = ((*Len - printed) > bytesPerLine) ? bytesPerLine : (*Len - printed);
+        memset(hexLine, 0, sizeof(hexLine));
+        char *ptr = hexLine;
+
+        for (uint32_t i = 0; i < lineLen; ++i)
+        {
+            ptr += snprintf(ptr, 4, "%02X ", Buf[printed + i]);
+        }
+
+        if (printed == 0)
+        {
+            // First line includes logger message
+            log_info("USB Rx [%lu bytes]: %s", totalLen, hexLine);
+        }
+        else
+        {
+            // Subsequent lines have 26-space indent
+            log_info("%26s%s", "", hexLine);
+        }
+
+        printed += lineLen;
+    }
+
+    // Copy to usb_rx_buffer if space permits
     if ((usb_rx_index + *Len) < MAX_USB_DATA_SIZE)
     {
         memcpy(&usb_rx_buffer[usb_rx_index], Buf, *Len);
@@ -281,6 +325,7 @@ static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
         return USBD_FAIL;
     }
 
+    // If this was the last packet
     if (*Len < CDC_DATA_FS_MAX_PACKET_SIZE)
     {
         usb_rx_complete = true;
@@ -289,6 +334,7 @@ static int8_t TEMPLATE_Receive(uint8_t *Buf, uint32_t *Len)
     USBD_CDC_ReceivePacket(&hUsbDeviceFS);
     return USBD_OK;
 }
+
 
 /**
   * @brief  TEMPLATE_TransmitCplt
