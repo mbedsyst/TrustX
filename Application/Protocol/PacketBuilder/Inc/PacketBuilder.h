@@ -13,6 +13,7 @@ typedef struct
     uint32_t transactionID;
     uint16_t outputSize;
     uint8_t outputData[MAX_OUTPUT_DATA_SIZE];
+    uint32_t out_eod_flag;
 } ResponsePacket_t;
 
 // Enumeration to hold Build Operation status
