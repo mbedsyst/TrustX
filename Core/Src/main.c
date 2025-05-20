@@ -26,8 +26,7 @@
 
 #include "stdbool.h"
 
-#include "Logger.h"
-#include "PacketBuilder.h"
+#include "HSMManager.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,7 +99,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  const uint8_t test_data[] = "Device startup complete. Initializing subsystems. Awaiting commands from host interface. Ensure proper connection and configuration before sending instructions.\r\n";
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -154,31 +153,14 @@ int main(void)
   }
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  log_init(LOG_LEVEL_DEBUG);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
 
+  HSMManager_Init();
+
+  HSMManager_ProcessCommand();
+
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-	USB_Transmit((uint8_t *)test_data, sizeof(test_data) - 1);
-	log_info("Waiting for Delay");
-	HAL_Delay(10000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
