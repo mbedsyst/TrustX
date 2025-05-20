@@ -1,5 +1,6 @@
 #include "../../Random/Inc/RandomHandler.h"
 #include "Logger.h"
+#include "constants.h"
 #include "types.h"
 #include <stdlib.h>
 #include <string.h>
@@ -7,17 +8,38 @@
 #include "stm32h5xx_hal.h"
 
 // Define the max number of random bytes that can be requested
-#define MAX_RANDOM_BYTES 2048
+#define MAX_RANDOM_BYTES 4096
 // Externally link RNG Instance
 extern RNG_HandleTypeDef hrng;
+
+uint16_t CalculateByteSize(uint8_t option_member)
+{
+	uint16_t byteSize;
+	switch(option_member)
+	{
+		case OPTION_RNG_0004: byteSize = 4; break;
+		case OPTION_RNG_0008: byteSize = 8; break;
+		case OPTION_RNG_0016: byteSize = 16; break;
+		case OPTION_RNG_0032: byteSize = 32; break;
+		case OPTION_RNG_0064: byteSize = 64; break;
+		case OPTION_RNG_0128: byteSize = 128; break;
+		case OPTION_RNG_0256: byteSize = 256; break;
+		case OPTION_RNG_0512: byteSize = 512; break;
+		case OPTION_RNG_1024: byteSize = 1024; break;
+		case OPTION_RNG_2048: byteSize = 2048; break;
+		case OPTION_RNG_4096: byteSize = 4096; break;
+		default: break;
+	}
+	return byteSize;
+}
 
 OperationStatus_t RandomHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
     log_info("Handling Random Number Generation operation.");
     // Retrieve requested OPTION half-word from Request Packet
-    uint8_t option_val = ((request->option) - 0x30);
+    uint8_t option_val = (request->option);
     // Set the requested Random Number size
-    uint8_t numBytes = pow(2, 2 * option_val);
+    uint16_t numBytes = CalculateByteSize(option_val);
     // Check if the requested size is within the limits
     if (numBytes == 0 || numBytes > MAX_RANDOM_BYTES)
     {
@@ -29,7 +51,7 @@ OperationStatus_t RandomHandler_Handle(const ParsedPacket_t* request, ResponsePa
     // Declare a 32-bit variable to store generated word
     uint32_t randomValue;
     // Iterate through loop till required number of random words are filled
-    for (uint8_t i = 0; i < numBytes; ++i)
+    for (uint8_t i = 0; i < numBytes/4; ++i)
     {
     	// Call HAL API to generate 32-bit random word
     	hal_status = HAL_RNG_GenerateRandomNumber(&hrng, &randomValue);
