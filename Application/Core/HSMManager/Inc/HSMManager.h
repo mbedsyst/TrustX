@@ -8,6 +8,6 @@
 
 
 void HSMManager_Init(void);
-OperationStatus_t HSMManager_ProcessCommand(const ParsedPacket_t* request, ResponsePacket_t* response);
+OperationStatus_t HSMManager_ProcessCommand(void);
 
 #endif /* CORE_HSMMANAGER_INC_HSMMANAGER_H_ */
