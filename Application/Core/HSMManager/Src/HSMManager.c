@@ -16,18 +16,6 @@ extern volatile bool usb_rx_complete;
 #include <stdio.h>
 #include <stdint.h>
 
-
-/*#define CMD_ENCRYPT               0x01 // 0b00000001
-#define CMD_DECRYPT               0x02 // 0b00000010
-#define CMD_HASH                  0x03 // 0b00000011
-#define CMD_RANDOM                0x04 // 0b00000100
-#define CMD_KEY_STORE             0x05 // 0b00000101
-#define CMD_KEY_RETRIEVE          0x06 // 0b00000110
-#define CMD_KEY_ERASE             0x07 // 0b00000111
-#define CMD_PING                  0x0F // 0b00001111    For testing HSM connection
- *
- *
- * */
 static const char* GetCommandName(uint8_t cmd)
 {
     switch (cmd)
@@ -48,27 +36,27 @@ static const char* GetOptionName(uint8_t option)
 {
     switch (option)
     {
-    	case OPTION_ENCRYP_KEY128:	return "128-bit Encryption"; 					break;
-		case OPTION_ENCRYP_KEY256:	return "256-bit Encryption"; 					break;
-		case OPTION_DECRYP_KEY128:	return "128-bit Decryption"; 					break;
-		case OPTION_DECRYP_KEY256:	return "256-bit Decryption"; 					break;
-		case OPTION_HASH_SHA224:	return "SHA224 Hashing Algorithm"; 				break;
-		case OPTION_HASH_SHA256:	return "SHA256 Hashing Algorithm"; 				break;
-		case OPTION_HASH_SHA384:	return "SHA384 Hashing Algorithm"; 				break;
-		case OPTION_HASH_SHA512:	return "SHA512 Hashing Algorithm"; 				break;
-		case OPTION_HMAC_SHA224:	return "SHA224 HMAC Algorithm"; 				break;
-		case OPTION_HMAC_SHA256:	return "SHA256 HMAC Algorithm"; 				break;
-		case OPTION_RNG_0004:		return "4-byte Random Number Generation"; 		break;
-		case OPTION_RNG_0008:		return "8-byte Random Number Generation"; 		break;
-		case OPTION_RNG_0016:		return "16-byte Random Number Generation"; 		break;
-		case OPTION_RNG_0032:		return "32-byte Random Number Generation"; 		break;
-		case OPTION_RNG_0064:		return "64-byte Random Number Generation"; 		break;
-		case OPTION_RNG_0128:		return "128-byte Random Number Generation"; 	break;
-		case OPTION_RNG_0256:		return "256-byte Random Number Generation"; 	break;
-		case OPTION_RNG_0512:		return "512-byte Random Number Generation"; 	break;
-		case OPTION_RNG_1024:		return "1024-byte Random Number Generation"; 	break;
-		case OPTION_RNG_2048:		return "2048-byte Random Number Generation"; 	break;
-		case OPTION_RNG_4096:		return "4096-byte Random Number Generation"; 	break;
+    	case OPTION_ENCRYP_KEY128:	return "128-bit Encryption";
+		case OPTION_ENCRYP_KEY256:	return "256-bit Encryption";
+		case OPTION_DECRYP_KEY128:	return "128-bit Decryption";
+		case OPTION_DECRYP_KEY256:	return "256-bit Decryption";
+		case OPTION_HASH_SHA224:	return "SHA224 Hashing Algorithm";
+		case OPTION_HASH_SHA256:	return "SHA256 Hashing Algorithm";
+		case OPTION_HASH_SHA384:	return "SHA384 Hashing Algorithm";
+		case OPTION_HASH_SHA512:	return "SHA512 Hashing Algorithm";
+		case OPTION_HMAC_SHA224:	return "SHA224 HMAC Algorithm";
+		case OPTION_HMAC_SHA256:	return "SHA256 HMAC Algorithm";
+		case OPTION_RNG_0004:		return "4-byte Random Number Generation";
+		case OPTION_RNG_0008:		return "8-byte Random Number Generation";
+		case OPTION_RNG_0016:		return "16-byte Random Number Generation";
+		case OPTION_RNG_0032:		return "32-byte Random Number Generation";
+		case OPTION_RNG_0064:		return "64-byte Random Number Generation";
+		case OPTION_RNG_0128:		return "128-byte Random Number Generation";
+		case OPTION_RNG_0256:		return "256-byte Random Number Generation";
+		case OPTION_RNG_0512:		return "512-byte Random Number Generation";
+		case OPTION_RNG_1024:		return "1024-byte Random Number Generation";
+		case OPTION_RNG_2048:		return "2048-byte Random Number Generation";
+		case OPTION_RNG_4096:		return "4096-byte Random Number Generation";
 		default:					return "Unknown Command"; 	break;
     }
 }
