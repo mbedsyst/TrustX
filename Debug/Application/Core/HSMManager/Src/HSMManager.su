@@ -1,5 +1,7 @@
-../Application/Core/HSMManager/Src/HSMManager.c:19:13:LogParsedPacket	88	static
-../Application/Core/HSMManager/Src/HSMManager.c:57:13:LogResponsePacket	88	static
-../Application/Core/HSMManager/Src/HSMManager.c:90:13:LogTransmitBuffer	80	static
-../Application/Core/HSMManager/Src/HSMManager.c:116:6:HSMManager_Init	8	static
-../Application/Core/HSMManager/Src/HSMManager.c:141:19:HSMManager_ProcessCommand	73760	static
+../Application/Core/HSMManager/Src/HSMManager.c:19:20:GetCommandName	16	static
+../Application/Core/HSMManager/Src/HSMManager.c:35:20:GetOptionName	16	static
+../Application/Core/HSMManager/Src/HSMManager.c:64:13:LogParsedPacket	88	static
+../Application/Core/HSMManager/Src/HSMManager.c:102:13:LogResponsePacket	88	static
+../Application/Core/HSMManager/Src/HSMManager.c:135:13:LogTransmitBuffer	80	static
+../Application/Core/HSMManager/Src/HSMManager.c:161:6:HSMManager_Init	8	static
+../Application/Core/HSMManager/Src/HSMManager.c:186:19:HSMManager_ProcessCommand	73760	static
