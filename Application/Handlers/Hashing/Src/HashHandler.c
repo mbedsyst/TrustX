@@ -1,28 +1,26 @@
 #include "../../Hashing/Inc/HashHandler.h"
 #include "constants.h"
 #include "types.h"
+#include "Logger.h"
 #include <string.h>
-/*
-extern HASH_HandleTypeDef hhash;
 
-static void Compute_HASH_SHA224(void);
-static void Compute_HASH_SHA256(void);
-static void Compute_HASH_SHA384(void);
-static void Compute_HASH_SHA512(void);
-static void Compute_HMAC_SHA224(void);
-static void Compute_HMAC_SHA256(void);
+#include "stm32h5xx_hal.h"
+
+extern HASH_HandleTypeDef hhash;
 
 OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
+	log_info("Handling Hashing operation.");
 	// Check if either Request or Response Packet is NULL
-    if (!request || !response)
+    if (!request )
     {
-        return OPERATION_NULL_POINTER;
+        return OPERATION_INVALID_DATA;
     }
+    uint32_t AlgorithmSelected;
     // Declare status as Negative for Early Exit Pattern
     OperationStatus_t status = OPERATION_INVALID_OPTION;
     // Declare a static byte array of 64 elements
-    static uint8_t digest[64];
+    static uint8_t digest[64] = {0};
     // Check the Request Packet's option member
     switch (request->option)
     {
@@ -30,94 +28,66 @@ OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponseP
         case OPTION_HASH_SHA224:
         	log_info("SHA224 Hashing Algorithm Selected.");
         	response->outputSize = 28;
+        	AlgorithmSelected = HASH_ALGOSELECTION_SHA224;
             break;
 
         // SHA256 Hashing Algorithm Selected.
         case OPTION_HASH_SHA256:
         	log_info("SHA256 Hashing Algorithm Selected.");
         	response->outputSize = 32;
+        	AlgorithmSelected = HASH_ALGOSELECTION_SHA256;
             break;
 
         // SHA384 Hashing Algorithm Selected.
         case OPTION_HASH_SHA384:
         	log_info("SHA384 Hashing Algorithm Selected.");
         	response->outputSize = 48;
+        	AlgorithmSelected = HASH_ALGOSELECTION_SHA384;
             break;
 
         // SHA512 Hashing Algorithm Selected.
         case OPTION_HASH_SHA512:
         	log_info("SHA512 Hashing Algorithm Selected.");
         	response->outputSize = 64;
-            break;
-
-        // SHA224 HMAC Algorithm Selected.
-        case OPTION_HMAC_SHA224:
-        	log_info("SHA224 HMAC Algorithm Selected.");
-        	response->outputSize = 28;
-            break;
-
-        // SHA256 HMAC Algorithm Selected.
-        case OPTION_HMAC_SHA256:
-        	log_info("SHA256 HMAC Algorithm Selected.");
-        	response->outputSize = 32;
+        	AlgorithmSelected = HASH_ALGOSELECTION_SHA512;
             break;
 
         // Default switch case
         default:
             return OPERATION_INVALID_OPTION;
     }
+
+    status = OPERATION_SUCCESS;
+    HAL_HASH_DeInit(&hhash);
+
+    log_info("De-Initialized HASH Peripheral.");
+
+    hhash.Instance = HASH;
+    hhash.Init.DataType = HASH_BYTE_SWAP;
+    hhash.Init.Algorithm = AlgorithmSelected;
+    if (HAL_HASH_Init(&hhash) != HAL_OK)
+    {
+    	status = OPERATION_FAILURE;
+    }
+
+    log_info("Re-initialized HASH Peripheral.");
+
+    if (HAL_HASH_Start_IT(&hhash, (uint8_t*)request->inputData, request->inputSize, digest) != HAL_OK)
+    {
+      status = OPERATION_HASH_FAIL;
+    }
+    while (HAL_HASH_GetState(&hhash) != HAL_HASH_STATE_READY);
+
+    log_info("Generated Hash Digest successfully.");
     // Check if operation status is Success
     if (status != OPERATION_SUCCESS)
     {
         return status;
     }
+    log_info("Copying Hash Digest into Response Packet.");
     // Copy digest value to Response Packet structure
     memcpy(response->outputData, digest, response->outputSize);
+    log_info("Hash operation complete.");
     // Return Success
     return OPERATION_SUCCESS;
 }
-
-static void Compute_HASH_SHA224(void)
-{
-	hhash.Init.DataType = HASH_NO_SWAP;
-	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA224;
-	if (HAL_HASH_Init(&hhash) != HAL_OK)
-	{
-		Error_Handler();
-	}
-}
-static void Compute_HASH_SHA256(void)
-{
-	hhash.Init.DataType = HASH_NO_SWAP;
-	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA256;
-	if (HAL_HASH_Init(&hhash) != HAL_OK)
-	{
-		Error_Handler();
-	}
-}
-static void Compute_HASH_SHA384(void)
-{
-	hhash.Init.DataType = HASH_NO_SWAP;
-	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA384;
-	if (HAL_HASH_Init(&hhash) != HAL_OK)
-	{
-		Error_Handler();
-	}
-}
-static void Compute_HASH_SHA512(void)
-{
-	hhash.Init.DataType = HASH_NO_SWAP;
-	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA512;
-	if (HAL_HASH_Init(&hhash) != HAL_OK)
-	{
-		Error_Handler();
-	}
-}
-static void Compute_HMAC_SHA224(void)
-{
-
-}
-static void Compute_HMAC_SHA256(void)
-{
-
-}*/
