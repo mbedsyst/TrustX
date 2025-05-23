@@ -1,248 +1,240 @@
 import sys
-import random
-import struct
 import serial
+import random
 from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
-    QPushButton, QLabel, QTextEdit, QStackedWidget, QListWidget, QListWidgetItem,
-    QComboBox, QFileDialog, QLineEdit
+    QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QTextEdit,
+    QHBoxLayout, QStackedWidget, QListWidget, QListWidgetItem, QComboBox,
+    QLabel, QFileDialog
 )
-from PyQt5.QtCore import Qt, QTimer, QTime
-from PyQt5.QtGui import QFont, QColor, QPalette
+from PyQt5.QtCore import QTimer
+from PyQt5.QtGui import QColor, QTextCharFormat
 
-class DashboardPage(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-
-        self.banner = QLabel("Welcome to the HSM Interface Dashboard")
-        self.banner.setFont(QFont("Arial", 18, QFont.Bold))
-        self.banner.setAlignment(Qt.AlignCenter)
-
-        self.clock = QLabel()
-        self.clock.setFont(QFont("Courier", 14))
-        self.clock.setAlignment(Qt.AlignCenter)
-
-        layout.addWidget(self.banner)
-        layout.addWidget(self.clock)
-        self.setLayout(layout)
-
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_time)
-        self.timer.start(1000)
-        self.update_time()
-
-    def update_time(self):
-        current_time = QTime.currentTime().toString("hh:mm:ss AP")
-        self.clock.setText(f"Current Time: {current_time}")
 
 class DevicePage(QWidget):
-    def __init__(self, log_callback):
+    def __init__(self, serial_port_callback):
         super().__init__()
-        self.log_callback = log_callback
+        self.serial_port_callback = serial_port_callback
         layout = QVBoxLayout()
 
-        button_layout = QHBoxLayout()
-
         self.connect_button = QPushButton("Connect")
-        self.connect_button.setStyleSheet("background-color: #0A1F44; color: white; padding: 5px;")
-        self.connect_button.setFixedWidth(100)
         self.connect_button.clicked.connect(self.connect_serial)
+        self.connect_button.setStyleSheet("background-color: navy; color: white; padding: 5px;")
 
         self.disconnect_button = QPushButton("Disconnect")
-        self.disconnect_button.setStyleSheet("background-color: #0A1F44; color: white; padding: 5px;")
-        self.disconnect_button.setFixedWidth(100)
         self.disconnect_button.clicked.connect(self.disconnect_serial)
+        self.disconnect_button.setStyleSheet("background-color: navy; color: white; padding: 5px;")
 
-        button_layout.addWidget(self.connect_button)
-        button_layout.addWidget(self.disconnect_button)
-        layout.addLayout(button_layout)
+        btn_layout = QHBoxLayout()
+        btn_layout.addWidget(self.connect_button)
+        btn_layout.addWidget(self.disconnect_button)
 
+        layout.addLayout(btn_layout)
         self.setLayout(layout)
-        self.serial = None
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.read_serial)
 
     def connect_serial(self):
-        try:
-            self.serial = serial.Serial("COM4", 115200, timeout=0.5)
-            self.timer.start(100)
-            self.log_callback("[INFO] Connected to COM4 at 115200", color="#00BFFF")
-        except Exception as e:
-            self.log_callback(f"[ERROR] {str(e)}", color="#FF5555")
+        self.serial_port_callback("connect")
 
     def disconnect_serial(self):
+        self.serial_port_callback("disconnect")
+
+
+class RNGPage(QWidget):
+    def __init__(self, send_packet_callback):
+        super().__init__()
+        self.send_packet_callback = send_packet_callback
+        layout = QVBoxLayout()
+
+        self.dropdown = QComboBox()
+        self.dropdown.addItems(["4", "8", "16", "32", "64", "128", "256", "512", "1024", "2048", "4096"])
+        layout.addWidget(QLabel("Select Byte Size for RNG:"))
+        layout.addWidget(self.dropdown)
+
+        self.execute_button = QPushButton("Execute")
+        self.execute_button.clicked.connect(self.send_rng_packet)
+        layout.addWidget(self.execute_button)
+
+        self.setLayout(layout)
+
+    def send_rng_packet(self):
+        size_to_option = {
+            "4": 0x31, "8": 0x32, "16": 0x33, "32": 0x34, "64": 0x35, "128": 0x36,
+            "256": 0x37, "512": 0x38, "1024": 0x39, "2048": 0x3A, "4096": 0x3B
+        }
+        option = size_to_option[self.dropdown.currentText()]
+        txid = random.getrandbits(32).to_bytes(4, 'big')
+        cmd = bytes([0x04])
+        option_byte = bytes([option])
+        input_size = b"\x00\x00\x00"
+        eod = bytes.fromhex("DEADBEEF")
+        packet = txid + cmd + option_byte + input_size + eod
+        self.send_packet_callback(packet)
+
+
+class HashingPage(QWidget):
+    def __init__(self, send_packet_callback, log_callback):
+        super().__init__()
+        self.send_packet_callback = send_packet_callback
+        self.log_callback = log_callback
+
+        self.max_input_size = int(65536 * 0.95)
+
+        layout = QVBoxLayout()
+
+        self.dropdown = QComboBox()
+        self.dropdown.addItems([
+            "SHA224", "SHA256", "SHA384", "SHA512"
+        ])
+        layout.addWidget(QLabel("Select Hashing Algorithm:"))
+        layout.addWidget(self.dropdown)
+
+        self.input_field = QTextEdit()
+        layout.addWidget(self.input_field)
+
+        self.attach_button = QPushButton("Attach File")
+        self.attach_button.clicked.connect(self.attach_file)
+        layout.addWidget(self.attach_button)
+
+        self.execute_button = QPushButton("Execute")
+        self.execute_button.clicked.connect(self.send_hash_packet)
+        self.execute_button.setEnabled(False)
+        layout.addWidget(self.execute_button)
+
+        self.input_field.textChanged.connect(self.validate_input)
+
+        self.setLayout(layout)
+
+    def validate_input(self):
+        data = self.input_field.toPlainText().encode()
+        if len(data) > self.max_input_size:
+            self.log_callback("Error: Input size exceeds 95% of 65536 bytes", "error")
+            self.execute_button.setEnabled(False)
+        else:
+            self.execute_button.setEnabled(True)
+
+    def attach_file(self):
+        file_path, _ = QFileDialog.getOpenFileName(self, "Open Text File", "", "Text Files (*.txt)")
+        if file_path:
+            try:
+                with open(file_path, 'r') as file:
+                    content = file.read()
+                    self.input_field.setPlainText(content)
+            except Exception as e:
+                self.log_callback(f"Failed to read file: {e}", "error")
+
+    def send_hash_packet(self):
+        algo_to_option = {
+            "SHA224": 0x21, "SHA256": 0x22,
+            "SHA384": 0x23, "SHA512": 0x24
+        }
+        option = algo_to_option[self.dropdown.currentText()]
+        input_data = self.input_field.toPlainText().encode()
+        input_size = len(input_data)
+
+        txid = random.getrandbits(32).to_bytes(4, 'big')
+        cmd = bytes([0x03])
+        option_byte = bytes([option])
+        input_size_bytes = input_size.to_bytes(2, 'big')
+        eod = bytes.fromhex("DEADBEEF")
+
+        packet = txid + cmd + option_byte + input_size_bytes + input_data + eod
+        self.send_packet_callback(packet)
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Hardware Security Module Interface")
+        self.resize(1000, 700)
+
+        self.serial = None
+        self.central_widget = QWidget()
+        self.setCentralWidget(self.central_widget)
+        self.main_layout = QVBoxLayout()
+
+        self.navbar = QListWidget()
+        self.navbar.setFixedWidth(200)
+        self.pages = QStackedWidget()
+
+        self.navbar.addItem(QListWidgetItem("Device"))
+        self.navbar.addItem(QListWidgetItem("RNG"))
+        self.navbar.addItem(QListWidgetItem("Hashing"))
+
+        self.device_page = DevicePage(self.handle_serial)
+        self.rng_page = RNGPage(self.send_packet)
+        self.hashing_page = HashingPage(self.send_packet, self.log)
+
+        self.pages.addWidget(self.device_page)
+        self.pages.addWidget(self.rng_page)
+        self.pages.addWidget(self.hashing_page)
+
+        self.navbar.currentRowChanged.connect(self.pages.setCurrentIndex)
+        self.navbar.setCurrentRow(0)
+
+        content_layout = QHBoxLayout()
+        content_layout.addWidget(self.navbar)
+        content_layout.addWidget(self.pages)
+
+        self.terminal = QTextEdit()
+        self.terminal.setReadOnly(True)
+        self.terminal.setFixedHeight(200)
+        self.terminal.setStyleSheet("background-color: black; color: white; font-family: monospace;")
+
+        self.main_layout.addLayout(content_layout)
+        self.main_layout.addWidget(self.terminal)
+        self.central_widget.setLayout(self.main_layout)
+
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.read_serial)
+
+    def handle_serial(self, action):
+        if action == "connect":
+            try:
+                # Change 'COM4' to your actual serial port
+                self.serial = serial.Serial('COM4', 115200, timeout=0.1)
+                self.log("[INFO] Connected to COM4", "info")
+                self.timer.start(100)
+            except Exception as e:
+                self.log(f"[ERROR] Connection failed: {e}", "error")
+        elif action == "disconnect":
+            if self.serial and self.serial.is_open:
+                self.serial.close()
+                self.log("[INFO] Disconnected from COM4", "info")
+                self.timer.stop()
+
+    def send_packet(self, data):
         if self.serial and self.serial.is_open:
-            self.serial.close()
-            self.log_callback("[INFO] Disconnected from COM4", color="#00BFFF")
-            self.timer.stop()
+            self.serial.write(data)
+            self.log(f"[TX] {' '.join(f'{b:02X}' for b in data)}", "tx")
+        else:
+            self.log("[WARNING] Serial not connected.", "warning")
 
     def read_serial(self):
         if self.serial and self.serial.in_waiting:
             data = self.serial.read(self.serial.in_waiting)
-            hex_data = ' '.join(f'{b:02X}' for b in data)
-            self.log_callback(f"[RX] {hex_data}", color="#00FF00")
+            self.log(f"[RX] {' '.join(f'{b:02X}' for b in data)}", "rx")
 
-class RNGPage(QWidget):
-    def __init__(self, log_callback, get_serial_callback):
-        super().__init__()
-        self.log_callback = log_callback
-        self.get_serial = get_serial_callback
+    def log(self, message, level="info"):
+        color = {
+            "info": "white",
+            "warning": "orange",
+            "error": "red",
+            "tx": "cyan",
+            "rx": "lime"
+        }.get(level, "white")
 
-        layout = QVBoxLayout()
+        fmt = QTextCharFormat()
+        fmt.setForeground(QColor(color))
 
-        self.byte_size_selector = QComboBox()
-        self.byte_size_selector.addItems(["4", "8", "16", "32", "64", "128", "256", "512", "1024", "2048", "4096"])
-        layout.addWidget(QLabel("Select Byte Size:"))
-        layout.addWidget(self.byte_size_selector)
+        cursor = self.terminal.textCursor()
+        cursor.movePosition(cursor.End)
+        cursor.setCharFormat(fmt)
+        cursor.insertText(message + "\n")
+        self.terminal.setTextCursor(cursor)
+        self.terminal.ensureCursorVisible()
 
-        self.send_button = QPushButton("Execute")
-        self.send_button.clicked.connect(self.send_rng_command)
-        layout.addWidget(self.send_button)
-
-        self.setLayout(layout)
-
-    def send_rng_command(self):
-        byte_size = int(self.byte_size_selector.currentText())
-        txid = random.getrandbits(32)
-        cmd = 0x04
-        option_lookup = {
-            4: 0x31, 8: 0x32, 16: 0x33, 32: 0x34,
-            64: 0x35, 128: 0x36, 256: 0x37, 512: 0x38,
-            1024: 0x39, 2048: 0x3A, 4096: 0x3B
-        }
-        option = option_lookup[byte_size]
-
-        packet = struct.pack("<IBB", txid, cmd, option) + b"\x00\x00\x00" + b"\xDE\xAD\xBE\xEF"
-
-        serial_port = self.get_serial()
-        if serial_port and serial_port.is_open:
-            serial_port.write(packet)
-            hex_data = ' '.join(f'{b:02X}' for b in packet)
-            self.log_callback(f"[TX] {hex_data}", color="#FFFF00")
-        else:
-            self.log_callback("[ERROR] Serial not connected.", color="#FF5555")
-
-class HashingPage(QWidget):
-    def __init__(self, log_callback):
-        super().__init__()
-        self.log_callback = log_callback
-
-        self.option_lookup = {
-            "SHA224": 0x21,
-            "SHA256": 0x22,
-            "SHA384": 0x23,
-            "SHA512": 0x24
-        }
-
-        layout = QVBoxLayout()
-        self.hash_selector = QComboBox()
-        self.hash_selector.addItems(self.option_lookup.keys())
-        layout.addWidget(QLabel("Select Hash Algorithm:"))
-        layout.addWidget(self.hash_selector)
-
-        self.input_area = QTextEdit()
-        layout.addWidget(self.input_area)
-
-        self.file_button = QPushButton("Attach File")
-        self.file_button.clicked.connect(self.load_file)
-        layout.addWidget(self.file_button)
-
-        self.execute_button = QPushButton("Execute")
-        self.execute_button.setEnabled(False)
-        layout.addWidget(self.execute_button)
-
-        self.setLayout(layout)
-        self.input_area.textChanged.connect(self.validate_input)
-
-    def load_file(self):
-        file_name, _ = QFileDialog.getOpenFileName(self, "Open Text File", "", "Text Files (*.txt)")
-        if file_name:
-            with open(file_name, 'r') as file:
-                content = file.read()
-                self.input_area.setPlainText(content)
-
-    def validate_input(self):
-        data = self.input_area.toPlainText().encode()
-        if len(data) <= 0.95 * 65536:
-            self.execute_button.setEnabled(True)
-        else:
-            self.execute_button.setEnabled(False)
-            self.log_callback("[ERROR] Input exceeds 95% of 65536 bytes.", color="#FF5555")
-
-class HSMInterface(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("HSM Debug Terminal")
-        self.resize(1000, 600)
-
-        self.central_widget = QWidget()
-        self.setCentralWidget(self.central_widget)
-        main_layout = QVBoxLayout(self.central_widget)
-
-        top_layout = QHBoxLayout()
-
-        self.nav_list = QListWidget()
-        self.nav_list.setFixedWidth(200)
-        for page_name in ["Dashboard", "Device", "Encryption", "Decryption", "Hashing", "HMAC", "Random Number", "Key Management", "About"]:
-            QListWidgetItem(page_name, self.nav_list)
-
-        self.pages = QStackedWidget()
-        self.dashboard_page = DashboardPage()
-        self.device_page = DevicePage(self.log_to_terminal)
-        self.rng_page = RNGPage(self.log_to_terminal, self.get_serial)
-        self.hashing_page = HashingPage(self.log_to_terminal)
-
-        self.pages.addWidget(self.dashboard_page)  # Index 0: Dashboard
-        self.pages.addWidget(self.device_page)     # Index 1: Device
-        for i in range(2):                         # Index 2-3: Encryption, Decryption placeholder
-            self.pages.addWidget(QLabel("Coming Soon..."))
-        self.pages.addWidget(self.hashing_page)    # Index 4: Hashing Page
-        for i in range(2):                         # Index 5-6: HMAC, RNG Page
-            self.pages.addWidget(QLabel("Coming Soon..."))
-        self.pages.addWidget(self.rng_page)        # Index 7: RNG Page
-        for i in range(2):                         # Index 8-9: Key Management, About
-            self.pages.addWidget(QLabel("Coming Soon..."))
-
-        self.nav_list.currentRowChanged.connect(self.pages.setCurrentIndex)
-
-        top_layout.addWidget(self.nav_list)
-        top_layout.addWidget(self.pages)
-
-        self.terminal = QTextEdit()
-        self.terminal.setReadOnly(True)
-        self.terminal.setStyleSheet("background-color: #161B22; color: white;")
-        self.terminal.setFixedHeight(150)
-
-        main_layout.addLayout(top_layout)
-        main_layout.addWidget(self.terminal)
-
-        self.apply_dark_theme()
-
-    def get_serial(self):
-        return self.device_page.serial
-
-    def log_to_terminal(self, message, color="#FFFFFF"):
-        self.terminal.setTextColor(QColor(color))
-        self.terminal.append(message)
-
-    def apply_dark_theme(self):
-        dark_palette = QPalette()
-        dark_palette.setColor(QPalette.Window, QColor("#0D1117"))
-        dark_palette.setColor(QPalette.WindowText, Qt.white)
-        dark_palette.setColor(QPalette.Base, QColor("#161B22"))
-        dark_palette.setColor(QPalette.AlternateBase, QColor("#0D1117"))
-        dark_palette.setColor(QPalette.ToolTipBase, Qt.white)
-        dark_palette.setColor(QPalette.ToolTipText, Qt.white)
-        dark_palette.setColor(QPalette.Text, Qt.white)
-        dark_palette.setColor(QPalette.Button, QColor("#21262D"))
-        dark_palette.setColor(QPalette.ButtonText, Qt.white)
-        dark_palette.setColor(QPalette.BrightText, Qt.red)
-        dark_palette.setColor(QPalette.Highlight, QColor("#238636"))
-        dark_palette.setColor(QPalette.HighlightedText, Qt.black)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = HSMInterface()
+    window = MainWindow()
     window.show()
     sys.exit(app.exec_())
