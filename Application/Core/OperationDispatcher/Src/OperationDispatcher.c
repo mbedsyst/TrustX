@@ -26,7 +26,6 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
 
         case CMD_HASH:
         	log_info("Calling Hashing Operation.");
-        	log_warn("Hashing Operation not supported");
             return HashingHandler_Handle(request, response);
 
         case CMD_RANDOM:

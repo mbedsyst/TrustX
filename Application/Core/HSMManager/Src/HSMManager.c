@@ -70,10 +70,10 @@ static void LogParsedPacket(const ParsedPacket_t* packet)
     }
 
     log_debug("PARSED PACKET:");
-    log_debug("TXID       : %08X", packet->transactionID);
-    log_debug("CMD        : %02X", GetCommandName(packet->cmd));
-    log_debug("OPTION     : %02X", GetOptionName(packet->option));
-    log_debug("INPUT SIZE : %04X", packet->inputSize);
+    log_debug("TXID       : %u", packet->transactionID);
+    log_debug("CMD        : %s", GetCommandName(packet->cmd));
+    log_debug("OPTION     : %s", GetOptionName(packet->option));
+    log_debug("INPUT SIZE : %hu", packet->inputSize);
 
     const uint8_t* data = packet->inputData;
     uint16_t size = packet->inputSize;
@@ -108,9 +108,9 @@ static void LogResponsePacket(const ResponsePacket_t* packet)
     }
 
     log_debug("RESPONSE PACKET");
-    log_debug("TXID        : %08X", packet->transactionID);
-    log_debug("OUTPUT SIZE : %04X", packet->outputSize);
-    log_debug("EOD FLAG    : %08X", packet->out_eod_flag);
+    log_debug("TXID        : %u", packet->transactionID);
+    log_debug("OUTPUT SIZE : %u", packet->outputSize);
+    log_debug("EOD FLAG    : %u", packet->out_eod_flag);
 
     const uint8_t* data = packet->outputData;
     uint16_t size = packet->outputSize;
@@ -154,7 +154,7 @@ static void LogTransmitBuffer(const uint8_t* usb_tx_buffer, uint32_t usb_tx_inde
         if (i == 0)
             log_debug("USB Tx [%lu bytes]: %s", usb_tx_index, line);
         else
-            log_debug("                 %s", line);  // 17-character indent to align with line 1
+            log_debug("                %s", line);  // 17-character indent to align with line 1
     }
 }
 
