@@ -5,7 +5,7 @@ import serial
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QLabel, QTextEdit, QStackedWidget, QListWidget, QListWidgetItem,
-    QComboBox
+    QComboBox, QFileDialog, QLineEdit
 )
 from PyQt5.QtCore import Qt, QTimer, QTime
 from PyQt5.QtGui import QFont, QColor, QPalette
@@ -113,7 +113,6 @@ class RNGPage(QWidget):
         }
         option = option_lookup[byte_size]
 
-        # Format: TXID (4) | CMD (1) | OPTION (1) | 00 00 00 | DE AD BE EF (not swapped)
         packet = struct.pack("<IBB", txid, cmd, option) + b"\x00\x00\x00" + b"\xDE\xAD\xBE\xEF"
 
         serial_port = self.get_serial()
@@ -123,6 +122,53 @@ class RNGPage(QWidget):
             self.log_callback(f"[TX] {hex_data}", color="#FFFF00")
         else:
             self.log_callback("[ERROR] Serial not connected.", color="#FF5555")
+
+class HashingPage(QWidget):
+    def __init__(self, log_callback):
+        super().__init__()
+        self.log_callback = log_callback
+
+        self.option_lookup = {
+            "SHA224": 0x21,
+            "SHA256": 0x22,
+            "SHA384": 0x23,
+            "SHA512": 0x24
+        }
+
+        layout = QVBoxLayout()
+        self.hash_selector = QComboBox()
+        self.hash_selector.addItems(self.option_lookup.keys())
+        layout.addWidget(QLabel("Select Hash Algorithm:"))
+        layout.addWidget(self.hash_selector)
+
+        self.input_area = QTextEdit()
+        layout.addWidget(self.input_area)
+
+        self.file_button = QPushButton("Attach File")
+        self.file_button.clicked.connect(self.load_file)
+        layout.addWidget(self.file_button)
+
+        self.execute_button = QPushButton("Execute")
+        self.execute_button.setEnabled(False)
+        layout.addWidget(self.execute_button)
+
+        self.setLayout(layout)
+        self.input_area.textChanged.connect(self.validate_input)
+
+    def load_file(self):
+        file_name, _ = QFileDialog.getOpenFileName(self, "Open Text File", "", "Text Files (*.txt)")
+        if file_name:
+            with open(file_name, 'r') as file:
+                content = file.read()
+                self.input_area.setPlainText(content)
+
+    def validate_input(self):
+        data = self.input_area.toPlainText().encode()
+        if len(data) <= 0.95 * 65536:
+            self.execute_button.setEnabled(True)
+        else:
+            self.execute_button.setEnabled(False)
+            self.log_callback("[ERROR] Input exceeds 95% of 65536 bytes.", color="#FF5555")
 
 class HSMInterface(QMainWindow):
     def __init__(self):
@@ -145,18 +191,18 @@ class HSMInterface(QMainWindow):
         self.dashboard_page = DashboardPage()
         self.device_page = DevicePage(self.log_to_terminal)
         self.rng_page = RNGPage(self.log_to_terminal, self.get_serial)
+        self.hashing_page = HashingPage(self.log_to_terminal)
 
         self.pages.addWidget(self.dashboard_page)  # Index 0: Dashboard
         self.pages.addWidget(self.device_page)     # Index 1: Device
-        for i in range(4):                         # Index 2 to 5: Empty Pages
-            empty_page = QLabel("Coming Soon...")
-            empty_page.setAlignment(Qt.AlignCenter)
-            self.pages.addWidget(empty_page)
-        self.pages.addWidget(self.rng_page)        # Index 6: RNG Page
-        for i in range(2):                         # Index 7 to 8: Empty Pages
-            empty_page = QLabel("Coming Soon...")
-            empty_page.setAlignment(Qt.AlignCenter)
-            self.pages.addWidget(empty_page)
+        for i in range(2):                         # Index 2-3: Encryption, Decryption placeholder
+            self.pages.addWidget(QLabel("Coming Soon..."))
+        self.pages.addWidget(self.hashing_page)    # Index 4: Hashing Page
+        for i in range(2):                         # Index 5-6: HMAC, RNG Page
+            self.pages.addWidget(QLabel("Coming Soon..."))
+        self.pages.addWidget(self.rng_page)        # Index 7: RNG Page
+        for i in range(2):                         # Index 8-9: Key Management, About
+            self.pages.addWidget(QLabel("Coming Soon..."))
 
         self.nav_list.currentRowChanged.connect(self.pages.setCurrentIndex)
 
