@@ -1,6 +1,7 @@
 Application/Protocol/PacketBuilder/Src/PacketBuilder.o: \
  ../Application/Protocol/PacketBuilder/Src/PacketBuilder.c \
  ../Application/Protocol/PacketBuilder/Src/../../PacketBuilder/Inc/PacketBuilder.h \
+ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketParser/Inc/PacketParser.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
@@ -42,6 +43,7 @@ Application/Protocol/PacketBuilder/Src/PacketBuilder.o: \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h
 ../Application/Protocol/PacketBuilder/Src/../../PacketBuilder/Inc/PacketBuilder.h:
+C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketParser/Inc/PacketParser.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:

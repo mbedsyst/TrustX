@@ -87,6 +87,9 @@ void HAL_HASH_MspInit(HASH_HandleTypeDef* hhash)
   /* USER CODE END HASH_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_HASH_CLK_ENABLE();
+    /* HASH interrupt Init */
+    HAL_NVIC_SetPriority(HASH_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(HASH_IRQn);
   /* USER CODE BEGIN HASH_MspInit 1 */
 
   /* USER CODE END HASH_MspInit 1 */
@@ -106,6 +109,9 @@ void HAL_HASH_MspDeInit(HASH_HandleTypeDef* hhash)
   /* USER CODE END HASH_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_HASH_CLK_DISABLE();
+
+    /* HASH interrupt DeInit */
+    HAL_NVIC_DisableIRQ(HASH_IRQn);
   /* USER CODE BEGIN HASH_MspDeInit 1 */
 
   /* USER CODE END HASH_MspDeInit 1 */
@@ -445,48 +451,6 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 
   /* USER CODE END USART2_MspInit 1 */
   }
-  else if(huart->Instance==USART3)
-  {
-  /* USER CODE BEGIN USART3_MspInit 0 */
-
-  /* USER CODE END USART3_MspInit 0 */
-
-  /** Initializes the peripherals clock
-  */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART3;
-    PeriphClkInitStruct.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /* Peripheral clock enable */
-    __HAL_RCC_USART3_CLK_ENABLE();
-
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    __HAL_RCC_GPIOD_CLK_ENABLE();
-    /**USART3 GPIO Configuration
-    PB10     ------> USART3_TX
-    PD9     ------> USART3_RX
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_10;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = GPIO_PIN_9;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
-    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /* USER CODE BEGIN USART3_MspInit 1 */
-
-  /* USER CODE END USART3_MspInit 1 */
-  }
   else if(huart->Instance==USART6)
   {
   /* USER CODE BEGIN USART6_MspInit 0 */
@@ -551,26 +515,6 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
   /* USER CODE BEGIN USART2_MspDeInit 1 */
 
   /* USER CODE END USART2_MspDeInit 1 */
-  }
-  else if(huart->Instance==USART3)
-  {
-  /* USER CODE BEGIN USART3_MspDeInit 0 */
-
-  /* USER CODE END USART3_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_USART3_CLK_DISABLE();
-
-    /**USART3 GPIO Configuration
-    PB10     ------> USART3_TX
-    PD9     ------> USART3_RX
-    */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10);
-
-    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_9);
-
-  /* USER CODE BEGIN USART3_MspDeInit 1 */
-
-  /* USER CODE END USART3_MspDeInit 1 */
   }
   else if(huart->Instance==USART6)
   {

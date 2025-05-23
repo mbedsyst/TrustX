@@ -73,7 +73,7 @@ static void LogParsedPacket(const ParsedPacket_t* packet)
     log_debug("TXID       : %u", packet->transactionID);
     log_debug("CMD        : %s", GetCommandName(packet->cmd));
     log_debug("OPTION     : %s", GetOptionName(packet->option));
-    log_debug("INPUT SIZE : %hu", packet->inputSize);
+    log_debug("INPUT SIZE : %hu bytes", packet->inputSize);
 
     const uint8_t* data = packet->inputData;
     uint16_t size = packet->inputSize;
@@ -97,6 +97,7 @@ static void LogParsedPacket(const ParsedPacket_t* packet)
         	log_debug("             %s", line);
         }
     }
+    // log_debug("EOD FLAG    : %04X", packet->out_eod_flag);
 }
 
 static void LogResponsePacket(const ResponsePacket_t* packet)
@@ -109,8 +110,7 @@ static void LogResponsePacket(const ResponsePacket_t* packet)
 
     log_debug("RESPONSE PACKET");
     log_debug("TXID        : %u", packet->transactionID);
-    log_debug("OUTPUT SIZE : %u", packet->outputSize);
-    log_debug("EOD FLAG    : %u", packet->out_eod_flag);
+    log_debug("OUTPUT SIZE : %u bytes", packet->outputSize);
 
     const uint8_t* data = packet->outputData;
     uint16_t size = packet->outputSize;
@@ -130,6 +130,7 @@ static void LogResponsePacket(const ResponsePacket_t* packet)
         else
             log_debug("              %s", line);
     }
+    log_debug("EOD FLAG    : %04X", packet->out_eod_flag);
 }
 
 static void LogTransmitBuffer(const uint8_t* usb_tx_buffer, uint32_t usb_tx_index)
@@ -154,7 +155,7 @@ static void LogTransmitBuffer(const uint8_t* usb_tx_buffer, uint32_t usb_tx_inde
         if (i == 0)
             log_debug("USB Tx [%lu bytes]: %s", usb_tx_index, line);
         else
-            log_debug("                %s", line);  // 17-character indent to align with line 1
+            log_debug("                   %s", line);  // 17-character indent to align with line 1
     }
 }
 
@@ -198,6 +199,7 @@ OperationStatus_t HSMManager_ProcessCommand(void)
 			 log_debug("Packet Parsed Successfully:");
 			 LogParsedPacket(&request);
 			 OperationDispatcher_Dispatch(&request, &response);
+			 response.transactionID = request.transactionID;
 			 LogResponsePacket(&response);
 			 usb_tx_index = response.outputSize + 10;
 			 PacketBuilder_Build(&response, usb_tx_buffer, &usb_tx_index);

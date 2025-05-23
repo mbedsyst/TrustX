@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#include "PacketParser.h"
+
 // Upper limit on valid OUTPUT_DATA in Data Stream
 #define MAX_OUTPUT_DATA_SIZE 4096
 

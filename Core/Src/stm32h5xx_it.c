@@ -55,6 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern HASH_HandleTypeDef hhash;
 extern PCD_HandleTypeDef hpcd_USB_DRD_FS;
 /* USER CODE BEGIN EV */
 
@@ -224,6 +225,20 @@ void USB_DRD_FS_IRQHandler(void)
   /* USER CODE BEGIN USB_DRD_FS_IRQn 1 */
 
   /* USER CODE END USB_DRD_FS_IRQn 1 */
+}
+
+/**
+  * @brief This function handles HASH global interrupt.
+  */
+void HASH_IRQHandler(void)
+{
+  /* USER CODE BEGIN HASH_IRQn 0 */
+
+  /* USER CODE END HASH_IRQn 0 */
+  HAL_HASH_IRQHandler(&hhash);
+  /* USER CODE BEGIN HASH_IRQn 1 */
+
+  /* USER CODE END HASH_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
