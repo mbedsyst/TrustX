@@ -49,7 +49,14 @@ ParseStatus_t PacketParser_Parse(const uint8_t* rawData, uint16_t rawLength, Par
     // Copy INPUT_DATA array from Data Stream to Packet structure
     memcpy(parsedPacket->inputData, &rawData[index], parsedPacket->inputSize);
     // Set Index to point EOD Flag
-    index += parsedPacket->inputSize;
+    if(!(parsedPacket->inputSize))
+    {
+    	index = 9;
+    }
+    else
+    {
+    	index += parsedPacket->inputSize;
+    }
     log_debug("Checking the Received EOD word.");
     // Retrieve EOD Flag from Data Stream
     uint32_t received_IN_EOD = (rawData[index]     << 24) |
