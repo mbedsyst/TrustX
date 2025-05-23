@@ -7,6 +7,7 @@
 #include "stm32h5xx_hal.h"
 
 extern HASH_HandleTypeDef hhash;
+extern void Error_Handler(void);
 
 OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
@@ -72,9 +73,9 @@ OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponseP
 
     log_info("Re-initialized HASH Peripheral.");
 
-    if (HAL_HASH_Start_IT(&hhash, (uint8_t*)request->inputData, request->inputSize, digest) != HAL_OK)
+    if (HAL_HASH_Start_IT(&hhash, (uint8_t*)request->inputData, (uint32_t)request->inputSize, digest) != HAL_OK)
     {
-      status = OPERATION_HASH_FAIL;
+      Error_Handler();
     }
     while (HAL_HASH_GetState(&hhash) != HAL_HASH_STATE_READY);
 
