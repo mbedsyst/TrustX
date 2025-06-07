@@ -49,26 +49,38 @@ class RNGPage(QWidget):
         layout.addWidget(QLabel("Select Byte Size for RNG:"))
         layout.addWidget(self.dropdown)
 
-        self.execute_button = QPushButton("Execute")
+        self.execute_button = QPushButton("Generate Random Number")
         self.execute_button.clicked.connect(self.send_rng_packet)
         layout.addWidget(self.execute_button)
+
+        self.output_field = QTextEdit()
+        self.output_field.setReadOnly(True)
+        self.output_field.setPlaceholderText("Random number will appear here...")
+        layout.addWidget(QLabel("Generated Random Number:"))
+        layout.addWidget(self.output_field)
 
         self.setLayout(layout)
 
     def send_rng_packet(self):
         size_to_option = {
-            "4": 0x31, "8": 0x32, "16": 0x33, "32": 0x34, "64": 0x35, "128": 0x36,
-            "256": 0x37, "512": 0x38, "1024": 0x39, "2048": 0x3A, "4096": 0x3B
+            "4": 0x31, "8": 0x32, "16": 0x33, "32": 0x34, "64": 0x35,
+            "128": 0x36, "256": 0x37, "512": 0x38, "1024": 0x39,
+            "2048": 0x3A, "4096": 0x3B
         }
-        option = size_to_option[self.dropdown.currentText()]
+        selected_size = self.dropdown.currentText()
+        option = size_to_option[selected_size]
         txid = random.getrandbits(32).to_bytes(4, 'big')
-        cmd = bytes([0x04])
+        cmd = bytes([0x04])  # Command code for RNG
         option_byte = bytes([option])
         input_size = b"\x00\x00\x00"
         eod = bytes.fromhex("DEADBEEF")
+
+        self.current_txid = txid  # Store for matching response
         packet = txid + cmd + option_byte + input_size + eod
         self.send_packet_callback(packet)
 
+    def update_rng_output(self, data: bytes):
+        self.output_field.setPlainText(data.hex().upper())
 
 class HashingPage(QWidget):
     def __init__(self, send_packet_callback, log_callback):
@@ -139,6 +151,97 @@ class HashingPage(QWidget):
         packet = txid + cmd + option_byte + input_size_bytes + input_data + eod
         self.send_packet_callback(packet)
 
+class OTPPage(QWidget):
+    def __init__(self, send_packet_callback, log_callback):
+        super().__init__()
+        self.send_packet_callback = send_packet_callback
+        self.log_callback = log_callback
+
+        layout = QVBoxLayout()
+
+        self.dropdown = QComboBox()
+        self.dropdown.addItems(["16", "32", "64", "128", "256", "512", "1024"])
+        layout.addWidget(QLabel("Select Byte Size for OTP:"))
+        layout.addWidget(self.dropdown)
+
+        self.execute_button = QPushButton("Generate OTP")
+        self.execute_button.clicked.connect(self.send_otp_packet)
+        layout.addWidget(self.execute_button)
+
+        self.output_field = QTextEdit()
+        self.output_field.setReadOnly(True)
+        self.output_field.setPlaceholderText("OTP will appear here after generation...")
+        layout.addWidget(QLabel("Generated OTP:"))
+        layout.addWidget(self.output_field)
+
+        self.setLayout(layout)
+
+    def send_otp_packet(self):
+        size_to_option = {
+            "16": 0x41, "32": 0x42, "64": 0x43, "128": 0x44,
+            "256": 0x45, "512": 0x46, "1024": 0x47
+        }
+        selected_size = self.dropdown.currentText()
+        option = size_to_option[selected_size]
+        txid = random.getrandbits(32).to_bytes(4, 'big')
+        cmd = bytes([0x05])  # Assuming different command code for OTP
+        option_byte = bytes([option])
+        input_size = b"\x00\x00\x00"
+        eod = bytes.fromhex("DEADBEEF")
+        packet = txid + cmd + option_byte + input_size + eod
+
+        self.current_txid = txid  # to match the response later
+        self.send_packet_callback(packet)
+
+    def update_otp_output(self, data: bytes):
+        self.output_field.setPlainText(data.hex().upper())
+
+class KeyGenPage(QWidget):
+    def __init__(self, send_packet_callback, log_callback):
+        super().__init__()
+        self.send_packet_callback = send_packet_callback
+        self.log_callback = log_callback
+
+        layout = QVBoxLayout()
+
+        self.dropdown = QComboBox()
+        self.dropdown.addItems(["16", "24", "32", "48", "64", "66", "128", "256", "512"])
+        layout.addWidget(QLabel("Select Key Size (bytes):"))
+        layout.addWidget(self.dropdown)
+
+        self.execute_button = QPushButton("Generate Key")
+        self.execute_button.clicked.connect(self.send_keygen_packet)
+        layout.addWidget(self.execute_button)
+
+        self.output_field = QTextEdit()
+        self.output_field.setReadOnly(True)
+        self.output_field.setPlaceholderText("Key ID will appear here...")
+        layout.addWidget(QLabel("Returned Key ID:"))
+        layout.addWidget(self.output_field)
+
+        self.setLayout(layout)
+
+    def send_keygen_packet(self):
+        size_to_option = {
+            "16": 0x51, "24": 0x52, "32": 0x53, "48": 0x54,
+            "64": 0x55, "66": 0x56, "128": 0x57, "256": 0x58, "512": 0x59
+        }
+        selected_size = self.dropdown.currentText()
+        option = size_to_option[selected_size]
+        txid = random.getrandbits(32).to_bytes(4, 'big')
+        cmd = bytes([0x06])  # Assuming different command code for Key Gen
+        option_byte = bytes([option])
+        input_size = b"\x00\x00\x00"
+        eod = bytes.fromhex("DEADBEEF")
+        packet = txid + cmd + option_byte + input_size + eod
+
+        self.current_txid = txid  # track txid for response matching
+        self.send_packet_callback(packet)
+
+    def update_keyid_output(self, keyid: str):
+        self.output_field.setPlainText(keyid)
+
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -158,14 +261,20 @@ class MainWindow(QMainWindow):
         self.navbar.addItem(QListWidgetItem("Device"))
         self.navbar.addItem(QListWidgetItem("RNG"))
         self.navbar.addItem(QListWidgetItem("Hashing"))
+        self.navbar.addItem(QListWidgetItem("One-Time Pad"))
+        self.navbar.addItem(QListWidgetItem("Key Generation"))
 
         self.device_page = DevicePage(self.handle_serial)
         self.rng_page = RNGPage(self.send_packet)
         self.hashing_page = HashingPage(self.send_packet, self.log)
+        self.otp_page = OTPPage(self.send_packet, self.log)
+        self.keygen_page = KeyGenPage(self.send_packet, self.log)
 
         self.pages.addWidget(self.device_page)
         self.pages.addWidget(self.rng_page)
         self.pages.addWidget(self.hashing_page)
+        self.pages.addWidget(self.otp_page)
+        self.pages.addWidget(self.keygen_page)
 
         self.navbar.currentRowChanged.connect(self.pages.setCurrentIndex)
         self.navbar.setCurrentRow(0)
@@ -209,9 +318,32 @@ class MainWindow(QMainWindow):
             self.log("[WARNING] Serial not connected.", "warning")
 
     def read_serial(self):
-        if self.serial and self.serial.in_waiting:
-            data = self.serial.read(self.serial.in_waiting)
-            self.log(f"[RX] {' '.join(f'{b:02X}' for b in data)}", "rx")
+        try:
+            if self.serial and self.serial.in_waiting:
+                data = self.serial.read(self.serial.in_waiting)
+                self.log(f"[RX] {' '.join(f'{b:02X}' for b in data)}", "rx")
+
+                # Example response processing
+                current_page = self.pages.currentWidget()
+
+                if isinstance(current_page, RNGPage):
+                    if len(data) > 8:
+                        rng_data = data[8:-4]  # Remove txid+cmd+opt and EOD
+                        current_page.update_rng_output(rng_data)
+
+                elif isinstance(current_page, OTPPage):
+                    if len(data) > 8:
+                        otp_bytes = data[8:-4]
+                        current_page.update_otp_output(otp_bytes)
+
+                elif isinstance(current_page, KeyGenPage):
+                    if len(data) > 8:
+                        keyid = data[8:-4].hex().upper()
+                        current_page.update_keyid_output(keyid)
+
+        except Exception as e:
+            self.log(f"[ERROR] Serial read failed: {e}", "error")
+
 
     def log(self, message, level="info"):
         color = {
