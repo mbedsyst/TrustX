@@ -20,11 +20,12 @@ static const char* GetCommandName(uint8_t cmd)
 {
     switch (cmd)
     {
-        case CMD_ENCRYPT:   	return "Encrypt Operation";
-        case CMD_DECRYPT:   	return "Decrypt Operation";
-        case CMD_HASH:      	return "Hash Operation";
+        case CMD_ENCRYPT:   	return "Encryption Operation";
+        case CMD_DECRYPT:   	return "Decryption Operation";
+        case CMD_HASH:      	return "Hashing Operation";
         case CMD_RANDOM:   		return "RNG Operation";
-        case CMD_KEY_STORE:   	return "Key Storage Operation";
+        case CMD_OTP:   		return "OTP Operation";
+        case CMD_KEY_GEN:   	return "Key Generation Operation";
         case CMD_KEY_RETRIEVE:  return "Key Retrieve Operation";
         case CMD_KEY_ERASE:   	return "Key Erase Operation";
         case CMD_PING:   		return "Device Ping Operation";
@@ -49,8 +50,11 @@ static const char* GetOptionName(uint8_t option)
 		case OPTION_RNG_0004:		return "4-byte Random Number Generation";
 		case OPTION_RNG_0008:		return "8-byte Random Number Generation";
 		case OPTION_RNG_0016:		return "16-byte Random Number Generation";
+		case OPTION_RNG_0024:		return "24-byte Random Number Generation";
 		case OPTION_RNG_0032:		return "32-byte Random Number Generation";
+		case OPTION_RNG_0048:		return "48-byte Random Number Generation";
 		case OPTION_RNG_0064:		return "64-byte Random Number Generation";
+		case OPTION_RNG_0066:		return "66-byte Random Number Generation";
 		case OPTION_RNG_0128:		return "128-byte Random Number Generation";
 		case OPTION_RNG_0256:		return "256-byte Random Number Generation";
 		case OPTION_RNG_0512:		return "512-byte Random Number Generation";
