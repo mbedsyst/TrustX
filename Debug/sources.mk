@@ -28,6 +28,7 @@ Application/Handlers/Decryption/Src \
 Application/Handlers/Encryption/Src \
 Application/Handlers/Hashing/Src \
 Application/Handlers/Keys/Src \
+Application/Handlers/OTP/Src \
 Application/Handlers/Random/Src \
 Application/Library/EEPROM/Src \
 Application/Library/FLASH/Src \

@@ -1,16 +1,9 @@
-Application/Core/OperationDispatcher/Src/OperationDispatcher.o: \
- ../Application/Core/OperationDispatcher/Src/OperationDispatcher.c \
- ../Application/Core/OperationDispatcher/Src/../../OperationDispatcher/Inc/OperationDispatcher.h \
+Application/Handlers/OTP/Src/OTPHandler.o: \
+ ../Application/Handlers/OTP/Src/OTPHandler.c \
+ ../Application/Handlers/OTP/Src/../../OTP/Inc/OTPHandler.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/types.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketParser/Inc/PacketParser.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketBuilder/Inc/PacketBuilder.h \
- ../Application/Core/OperationDispatcher/Src/../../../Handlers/Encryption/Inc/EncryptHandler.h \
- ../Application/Core/OperationDispatcher/Src/../../../Handlers/Decryption/Inc/DecryptHandler.h \
- ../Application/Core/OperationDispatcher/Src/../../../Handlers/Hashing/Inc/HashHandler.h \
- ../Application/Core/OperationDispatcher/Src/../../../Handlers/Keys/Inc/KeyHandler.h \
- ../Application/Core/OperationDispatcher/Src/../../../Handlers/Random/Inc/RandomHandler.h \
- ../Application/Core/OperationDispatcher/Src/../../../Handlers/OTP/Inc/OTPHandler.h \
- C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  ../Core/Inc/stm32h5xx_hal_conf.h \
@@ -49,18 +42,12 @@ Application/Core/OperationDispatcher/Src/OperationDispatcher.o: \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usb.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h \
- ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h
-../Application/Core/OperationDispatcher/Src/../../OperationDispatcher/Inc/OperationDispatcher.h:
+ ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h \
+ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h
+../Application/Handlers/OTP/Src/../../OTP/Inc/OTPHandler.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/types.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketParser/Inc/PacketParser.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketBuilder/Inc/PacketBuilder.h:
-../Application/Core/OperationDispatcher/Src/../../../Handlers/Encryption/Inc/EncryptHandler.h:
-../Application/Core/OperationDispatcher/Src/../../../Handlers/Decryption/Inc/DecryptHandler.h:
-../Application/Core/OperationDispatcher/Src/../../../Handlers/Hashing/Inc/HashHandler.h:
-../Application/Core/OperationDispatcher/Src/../../../Handlers/Keys/Inc/KeyHandler.h:
-../Application/Core/OperationDispatcher/Src/../../../Handlers/Random/Inc/RandomHandler.h:
-../Application/Core/OperationDispatcher/Src/../../../Handlers/OTP/Inc/OTPHandler.h:
-C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
 ../Core/Inc/stm32h5xx_hal_conf.h:
@@ -100,3 +87,4 @@ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Applicati
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usb.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h:
+C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h:

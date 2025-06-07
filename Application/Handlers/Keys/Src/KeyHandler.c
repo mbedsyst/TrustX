@@ -80,6 +80,7 @@ OperationStatus_t KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacke
 
 		case CMD_KEY_RETRIEVE:
 			log_info("Calling Key Retrieve operation.");
+			log_info("Key Retrieve operation not supported now.");
 			return OPERATION_UNKNOWN_ERROR;
 
 		case CMD_KEY_ERASE:

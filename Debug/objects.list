@@ -4,6 +4,7 @@
 "./Application/Handlers/Encryption/Src/EncryptHandler.o"
 "./Application/Handlers/Hashing/Src/HashHandler.o"
 "./Application/Handlers/Keys/Src/KeyHandler.o"
+"./Application/Handlers/OTP/Src/OTPHandler.o"
 "./Application/Handlers/Random/Src/RandomHandler.o"
 "./Application/Library/EEPROM/Src/AT24C256.o"
 "./Application/Library/FLASH/Src/W25Q64.o"

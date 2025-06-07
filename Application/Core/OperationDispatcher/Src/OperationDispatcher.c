@@ -4,6 +4,7 @@
 #include "../../../Handlers/Hashing/Inc/HashHandler.h"
 #include "../../../Handlers/Keys/Inc/KeyHandler.h"
 #include "../../../Handlers/Random/Inc/RandomHandler.h"
+#include "../../../Handlers/OTP/Inc/OTPHandler.h"
 #include "constants.h"
 #include "types.h"
 #include "Logger.h"
@@ -32,12 +33,15 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
         	log_info("Calling RNG Operation.");
             return RandomHandler_Handle(request, response);
 
-        case CMD_KEY_STORE:
+        case CMD_OTP:
+            log_info("Calling OTP Operation.");
+            return OTPHandler_Handle(request, response);
+
+        case CMD_KEY_GEN:
         case CMD_KEY_RETRIEVE:
         case CMD_KEY_ERASE:
         	log_info("Calling Key Management.");
-        	log_warn("Key Management Operation not supported");
-            return OPERATION_UNKNOWN_ERROR;
+            return KeyHandler_Handle(request, response);
 
         case CMD_PING:
         	log_info("Calling Ping Operation.");

@@ -17,8 +17,6 @@ uint16_t CalculatePadSize(uint8_t option_member)
 	uint16_t byteSize;
 	switch(option_member)
 	{
-		case OPTION_RNG_0004: byteSize = 4; 	break;
-		case OPTION_RNG_0008: byteSize = 8; 	break;
 		case OPTION_RNG_0016: byteSize = 16; 	break;
 		case OPTION_RNG_0032: byteSize = 32; 	break;
 		case OPTION_RNG_0064: byteSize = 64; 	break;
@@ -26,8 +24,6 @@ uint16_t CalculatePadSize(uint8_t option_member)
 		case OPTION_RNG_0256: byteSize = 256; 	break;
 		case OPTION_RNG_0512: byteSize = 512; 	break;
 		case OPTION_RNG_1024: byteSize = 1024; 	break;
-		case OPTION_RNG_2048: byteSize = 2048; 	break;
-		case OPTION_RNG_4096: byteSize = 4096; 	break;
 		default: break;
 	}
 	return byteSize;
