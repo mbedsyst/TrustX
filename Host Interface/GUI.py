@@ -4,7 +4,7 @@ import random
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QTextEdit,
     QHBoxLayout, QStackedWidget, QListWidget, QListWidgetItem, QComboBox,
-    QLabel, QFileDialog
+    QLabel, QFileDialog, QLineEdit
 )
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QColor, QTextCharFormat
@@ -37,6 +37,138 @@ class DevicePage(QWidget):
     def disconnect_serial(self):
         self.serial_port_callback("disconnect")
 
+class EncryptionPage(QWidget):
+    def __init__(self, send_packet_callback, log_callback):
+        super().__init__()
+        self.send_packet_callback = send_packet_callback
+        self.log_callback = log_callback
+
+        layout = QVBoxLayout()
+
+        # Dropdowns for Algorithm and Key Size
+        self.algo_dropdown = QComboBox()
+        self.algo_dropdown.addItems(["AES"])
+        layout.addWidget(QLabel("Select Algorithm:"))
+        layout.addWidget(self.algo_dropdown)
+
+        self.keysize_dropdown = QComboBox()
+        self.keysize_dropdown.addItems(["128", "256"])
+        layout.addWidget(QLabel("Select Key Size (bits):"))
+        layout.addWidget(self.keysize_dropdown)
+
+        # Key Option Dropdown
+        self.key_option_dropdown = QComboBox()
+        self.key_option_dropdown.addItems(["Generate by HSM", "Provide Key ID", "External Key"])
+        layout.addWidget(QLabel("Select Key Option:"))
+        layout.addWidget(self.key_option_dropdown)
+
+        # Key Field
+        self.key_input = QTextEdit()
+        self.key_input.setPlaceholderText("Enter 32-byte Key or Key ID here (hex encoded)")
+        layout.addWidget(QLabel("Key / Key ID:"))
+        layout.addWidget(self.key_input)
+
+        # Input Data Field
+        self.input_data_field = QTextEdit()
+        self.input_data_field.setPlaceholderText("Plaintext input or attach a file")
+        layout.addWidget(QLabel("Plaintext Input:"))
+        layout.addWidget(self.input_data_field)
+
+        # File Attachment
+        self.attach_button = QPushButton("Attach File")
+        self.attach_button.clicked.connect(self.attach_file)
+        layout.addWidget(self.attach_button)
+
+        # Encrypt Button
+        self.encrypt_button = QPushButton("Encrypt Data")
+        self.encrypt_button.clicked.connect(self.encrypt_data)
+        layout.addWidget(self.encrypt_button)
+
+        # Output Fields
+        self.output_keyid = QLineEdit()
+        self.output_keyid.setReadOnly(True)
+        layout.addWidget(QLabel("Returned Key ID:"))
+        layout.addWidget(self.output_keyid)
+
+        self.output_iv = QLineEdit()
+        self.output_iv.setReadOnly(True)
+        layout.addWidget(QLabel("Returned IV:"))
+        layout.addWidget(self.output_iv)
+
+        self.output_cipher = QTextEdit()
+        self.output_cipher.setReadOnly(True)
+        layout.addWidget(QLabel("Ciphertext:"))
+        layout.addWidget(self.output_cipher)
+
+        btn_layout = QHBoxLayout()
+        self.copy_btn = QPushButton("Copy")
+        self.copy_btn.clicked.connect(self.copy_ciphertext)
+        btn_layout.addWidget(self.copy_btn)
+
+        self.download_btn = QPushButton("Download")
+        self.download_btn.clicked.connect(self.download_ciphertext)
+        btn_layout.addWidget(self.download_btn)
+
+        layout.addLayout(btn_layout)
+        self.setLayout(layout)
+
+    def attach_file(self):
+        file_path, _ = QFileDialog.getOpenFileName(self, "Open Text File", "", "Text Files (*.txt)")
+        if file_path:
+            try:
+                with open(file_path, 'r') as file:
+                    self.input_data_field.setPlainText(file.read())
+            except Exception as e:
+                self.log_callback(f"Failed to read file: {e}", "error")
+
+    def copy_ciphertext(self):
+        clipboard = QApplication.clipboard()
+        clipboard.setText(self.output_cipher.toPlainText())
+
+    def download_ciphertext(self):
+        file_path, _ = QFileDialog.getSaveFileName(self, "Save Ciphertext", "ciphertext.txt", "Text Files (*.txt)")
+        if file_path:
+            try:
+                with open(file_path, 'w') as f:
+                    f.write(self.output_cipher.toPlainText())
+            except Exception as e:
+                self.log_callback(f"Failed to save file: {e}", "error")
+
+    def encrypt_data(self):
+        try:
+            txid = random.getrandbits(32).to_bytes(4, 'big')
+            cmd = bytes([0x01])
+            option = bytes([0x01]) if self.keysize_dropdown.currentText() == "128" else bytes([0x02])
+
+            key_option_index = self.key_option_dropdown.currentIndex()
+            key_option_byte = bytes([key_option_index + 1])  # 0x01, 0x02, 0x03
+
+            key_data = bytes.fromhex(self.key_input.toPlainText().strip())
+            key_data = key_data.ljust(32, b'\x00') if key_option_index == 2 else b'\x00' * 32
+
+            plaintext = self.input_data_field.toPlainText().encode()
+            input_data = key_option_byte + key_data + plaintext
+            input_size = len(input_data).to_bytes(2, 'big')
+
+            eod = bytes.fromhex("DEADBEEF")
+            packet = txid + cmd + option + input_size + input_data + eod
+
+            self.send_packet_callback(packet)
+            self.current_txid = txid  # Save to match in read_serial()
+        except Exception as e:
+            self.log_callback(f"Encryption failed: {e}", "error")
+
+    def update_output(self, data: bytes):
+        try:
+            keyid = data[0:4].hex().upper()
+            iv = data[4:20].hex().upper()
+            ciphertext = data[20:].hex().upper()
+
+            self.output_keyid.setText(keyid)
+            self.output_iv.setText(iv)
+            self.output_cipher.setPlainText(ciphertext)
+        except Exception as e:
+            self.log_callback(f"Failed to parse response: {e}", "error")
 
 class RNGPage(QWidget):
     def __init__(self, send_packet_callback):
@@ -241,8 +373,6 @@ class KeyGenPage(QWidget):
     def update_keyid_output(self, keyid: str):
         self.output_field.setPlainText(keyid)
 
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -259,18 +389,21 @@ class MainWindow(QMainWindow):
         self.pages = QStackedWidget()
 
         self.navbar.addItem(QListWidgetItem("Device"))
+        self.navbar.addItem(QListWidgetItem("Encryption"))
         self.navbar.addItem(QListWidgetItem("RNG"))
         self.navbar.addItem(QListWidgetItem("Hashing"))
         self.navbar.addItem(QListWidgetItem("One-Time Pad"))
         self.navbar.addItem(QListWidgetItem("Key Generation"))
 
         self.device_page = DevicePage(self.handle_serial)
+        self.encryption_page = EncryptionPage(self.send_packet, self.log)
         self.rng_page = RNGPage(self.send_packet)
         self.hashing_page = HashingPage(self.send_packet, self.log)
         self.otp_page = OTPPage(self.send_packet, self.log)
         self.keygen_page = KeyGenPage(self.send_packet, self.log)
 
         self.pages.addWidget(self.device_page)
+        self.pages.addWidget(self.encryption_page)
         self.pages.addWidget(self.rng_page)
         self.pages.addWidget(self.hashing_page)
         self.pages.addWidget(self.otp_page)
@@ -330,6 +463,15 @@ class MainWindow(QMainWindow):
                     if len(data) > 8:
                         rng_data = data[8:-4]  # Remove txid+cmd+opt and EOD
                         current_page.update_rng_output(rng_data)
+
+                elif isinstance(current_page, EncryptionPage):
+                    if len(data) > 8:
+                        try:
+                            output_size = int.from_bytes(data[4:6], 'big')
+                            output_data = data[6:6 + output_size]
+                            current_page.update_output(output_data)
+                        except Exception as e:
+                            self.log(f"[ERROR] Failed to parse encryption output: {e}", "error")
 
                 elif isinstance(current_page, OTPPage):
                     if len(data) > 8:
