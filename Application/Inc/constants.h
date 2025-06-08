@@ -31,19 +31,28 @@
 #define OPTION_RNG_0004           0x31 // 0b00110001
 #define OPTION_RNG_0008           0x32 // 0b00110010
 #define OPTION_RNG_0016           0x33 // 0b00110011
-#define OPTION_RNG_0024           0x34 // 0b00111100
-#define OPTION_RNG_0032           0x35 // 0b00110100
-#define OPTION_RNG_0048           0x36 // 0b00111101
-#define OPTION_RNG_0064           0x37 // 0b00110101
-#define OPTION_RNG_0066			  0x38 // 0b00111110
-#define OPTION_RNG_0128           0x39 // 0b00110110
-#define OPTION_RNG_0256           0x3A // 0b00110111
-#define OPTION_RNG_0384			  0x3B // 0b00111111
-#define OPTION_RNG_0512           0x3C // 0b00111000
-#define OPTION_RNG_1024           0x3D // 0b00111001
-#define OPTION_RNG_2048           0x3E // 0b00111010
-#define OPTION_RNG_4096           0x3F // 0b00111011
-
+#define OPTION_RNG_0024           0x34 // 0b00110100
+#define OPTION_RNG_0032           0x35 // 0b00110101
+#define OPTION_RNG_0048           0x36 // 0b00110110
+#define OPTION_RNG_0064           0x37 // 0b00110111
+#define OPTION_RNG_0066			  0x38 // 0b00111000
+#define OPTION_RNG_0128           0x39 // 0b00111001
+#define OPTION_RNG_0256           0x3A // 0b00111010
+#define OPTION_RNG_0384			  0x3B // 0b00111011
+#define OPTION_RNG_0512           0x3C // 0b00111100
+#define OPTION_RNG_1024           0x3D // 0b00111101
+#define OPTION_RNG_2048           0x3E // 0b00111110
+#define OPTION_RNG_4096           0x3F // 0b00111111
+// -- Encryption Key State
+#define ENC_KEY_BYOK			  0x41
+#define ENC_KEY_GYOK			  0x42
+#define ENC_KEY_DABA			  0x43
+// -- Decryption Key State
+#define DEC_KEY_BYOK			  0x51
+#define DEC_KEY_DABA			  0x52
+// Decryption IV State
+#define DEC_IV_BYIV				  0x61
+#define DEC_IV_DABA               0x62
 // === End of Data Flag (EOD field) ===
 #define IN_EOD_FLAG				  0xDEADBEEF
 #define OUT_EOD_FLAG			  0xCAFEBABE
