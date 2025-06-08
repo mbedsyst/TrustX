@@ -26,7 +26,7 @@ static const char* GetCommandName(uint8_t cmd)
         case CMD_RANDOM:   		return "RNG Operation";
         case CMD_OTP:   		return "OTP Operation";
         case CMD_KEY_GEN:   	return "Key Generation Operation";
-        case CMD_KEY_RETRIEVE:  return "Key Retrieve Operation";
+        case CMD_KEY_STORE:     return "Key Store Operation";
         case CMD_KEY_ERASE:   	return "Key Erase Operation";
         case CMD_PING:   		return "Device Ping Operation";
         default:            	return "Unknown Command";

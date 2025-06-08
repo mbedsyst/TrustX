@@ -78,19 +78,20 @@ OperationStatus_t KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacke
 			log_info("Handling Key Generation operation.");
 			return KeyHandler_Generate(request, response);
 
-		case CMD_KEY_RETRIEVE:
-			log_info("Calling Key Retrieve operation.");
-			log_info("Key Retrieve operation not supported now.");
+		case CMD_KEY_STORE:
+			log_info("Calling Key Store operation.");
+			log_warn("Key Store operation not supported now.");
 			return OPERATION_UNKNOWN_ERROR;
 
 		case CMD_KEY_ERASE:
 			log_info("Calling Key Store operation.");
-			log_info("Key Store operation not supported now.");
+			log_warn("Key Store operation not supported now.");
 			return OPERATION_UNKNOWN_ERROR;
 
 		default:
 			break;
 	}
 
+	return 0;
 }
 

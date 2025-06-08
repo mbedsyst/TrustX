@@ -51,7 +51,7 @@ ParseStatus_t PacketParser_Parse(const uint8_t* rawData, uint16_t rawLength, Par
     // Set Index to point EOD Flag
     if(!(parsedPacket->inputSize))
     {
-    	index = 9;
+    	index = 8;
     }
     else
     {
