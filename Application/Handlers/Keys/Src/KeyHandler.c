@@ -70,6 +70,16 @@ static OperationStatus_t KeyHandler_Generate(const ParsedPacket_t* request, Resp
     return OPERATION_SUCCESS;
 }
 
+static OperationStatus_t KeyHandler_Store(const ParsedPacket_t* request, ResponsePacket_t* response)
+{
+	return OPERATION_UNKNOWN_ERROR;
+}
+
+static OperationStatus_t KeyHandler_Erase(const ParsedPacket_t* request, ResponsePacket_t* response)
+{
+	return OPERATION_UNKNOWN_ERROR;
+}
+
 OperationStatus_t KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
 	switch(request->cmd)
@@ -81,12 +91,12 @@ OperationStatus_t KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacke
 		case CMD_KEY_STORE:
 			log_info("Calling Key Store operation.");
 			log_warn("Key Store operation not supported now.");
-			return OPERATION_UNKNOWN_ERROR;
+			return KeyHandler_Store(request, response);
 
 		case CMD_KEY_ERASE:
 			log_info("Calling Key Store operation.");
 			log_warn("Key Store operation not supported now.");
-			return OPERATION_UNKNOWN_ERROR;
+			return KeyHandler_Erase(request, response);
 
 		default:
 			break;
