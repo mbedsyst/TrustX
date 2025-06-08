@@ -8,7 +8,7 @@
 #define CMD_RANDOM                0x04 // 0b00000100
 #define CMD_OTP					  0x05 // 0b00000101
 #define CMD_KEY_GEN               0x06 // 0b00000101
-#define CMD_KEY_RETRIEVE          0x07 // 0b00000110
+#define CMD_KEY_STORE          	  0x07 // 0b00000110
 #define CMD_KEY_ERASE             0x08 // 0b00000111
 #define CMD_PING                  0x0F // 0b00001111    For testing HSM connection
 
@@ -24,25 +24,25 @@
 #define OPTION_HASH_SHA256        0x22 // 0b00100010
 #define OPTION_HASH_SHA384        0x23 // 0b00100011
 #define OPTION_HASH_SHA512        0x24 // 0b00100100
+// -- HMAC Modes
 #define OPTION_HMAC_SHA224        0x25 // 0b00100101
 #define OPTION_HMAC_SHA256        0x26 // 0b00100110
 // -- Random
 #define OPTION_RNG_0004           0x31 // 0b00110001
 #define OPTION_RNG_0008           0x32 // 0b00110010
 #define OPTION_RNG_0016           0x33 // 0b00110011
-#define OPTION_RNG_0024           0x3C // 0b00111100
-#define OPTION_RNG_0032           0x34 // 0b00110100
-#define OPTION_RNG_0048           0x3D // 0b00111101
-#define OPTION_RNG_0064           0x35 // 0b00110101
-#define OPTION_RNG_0066			  0x3E // 0b00111110
-#define OPTION_RNG_0128           0x36 // 0b00110110
-#define OPTION_RNG_0256           0x37 // 0b00110111
-#define OPTION_RNG_0384			  0x3F // 0b00111111
-#define OPTION_RNG_0512           0x38 // 0b00111000
-#define OPTION_RNG_1024           0x39 // 0b00111001
-#define OPTION_RNG_2048           0x3A // 0b00111010
-#define OPTION_RNG_4096           0x3B // 0b00111011
-
+#define OPTION_RNG_0024           0x34 // 0b00111100
+#define OPTION_RNG_0032           0x35 // 0b00110100
+#define OPTION_RNG_0048           0x36 // 0b00111101
+#define OPTION_RNG_0064           0x37 // 0b00110101
+#define OPTION_RNG_0066			  0x38 // 0b00111110
+#define OPTION_RNG_0128           0x39 // 0b00110110
+#define OPTION_RNG_0256           0x3A // 0b00110111
+#define OPTION_RNG_0384			  0x3B // 0b00111111
+#define OPTION_RNG_0512           0x3C // 0b00111000
+#define OPTION_RNG_1024           0x3D // 0b00111001
+#define OPTION_RNG_2048           0x3E // 0b00111010
+#define OPTION_RNG_4096           0x3F // 0b00111011
 
 // === End of Data Flag (EOD field) ===
 #define IN_EOD_FLAG				  0xDEADBEEF
