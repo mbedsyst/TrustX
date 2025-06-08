@@ -340,16 +340,16 @@ class RNGPage(QWidget):
 
     def send_rng_packet(self):
         size_to_option = {
-            "4": 0x31, "8": 0x32, "16": 0x33, "32": 0x34, "64": 0x35,
-            "128": 0x36, "256": 0x37, "512": 0x38, "1024": 0x39,
-            "2048": 0x3A, "4096": 0x3B
+            "4": 0x31, "8": 0x32, "16": 0x33, "32": 0x35, "64": 0x37,
+            "128": 0x39, "256": 0x3A, "512": 0x3C, "1024": 0x3D,
+            "2048": 0x3E, "4096": 0x3F
         }
         selected_size = self.dropdown.currentText()
         option = size_to_option[selected_size]
         txid = random.getrandbits(32).to_bytes(4, 'big')
         cmd = bytes([0x04])  # Command code for RNG
         option_byte = bytes([option])
-        input_size = b"\x00\x00\x00"
+        input_size = b"\x00\x00"
         eod = bytes.fromhex("DEADBEEF")
 
         self.current_txid = txid  # Store for matching response
@@ -455,23 +455,56 @@ class OTPPage(QWidget):
 
     def send_otp_packet(self):
         size_to_option = {
-            "16": 0x41, "32": 0x42, "64": 0x43, "128": 0x44,
-            "256": 0x45, "512": 0x46, "1024": 0x47
+            "16": 0x33, "32": 0x35, "64": 0x37, "128": 0x39,
+            "256": 0x3A, "512": 0x3C, "1024": 0x3D
         }
         selected_size = self.dropdown.currentText()
         option = size_to_option[selected_size]
         txid = random.getrandbits(32).to_bytes(4, 'big')
         cmd = bytes([0x05])  # Assuming different command code for OTP
         option_byte = bytes([option])
-        input_size = b"\x00\x00\x00"
+        input_size = b"\x00\x00"
         eod = bytes.fromhex("DEADBEEF")
         packet = txid + cmd + option_byte + input_size + eod
 
         self.current_txid = txid  # to match the response later
         self.send_packet_callback(packet)
 
-    def update_otp_output(self, data: bytes):
-        self.output_field.setPlainText(data.hex().upper())
+    def update_otp_output(self, data):
+        # Normalize hex string to bytes
+        if isinstance(data, str):
+            try:
+                data = bytes.fromhex(data)
+            except ValueError:
+                self.output_field.setPlainText("Invalid data format!")
+                return
+
+        # Check minimum length: TXID (4) + SIZE (2) + at least 1 byte + EOD (4)
+        if len(data) < 10:
+            self.output_field.setPlainText("Invalid response! Length too short.")
+            return
+
+        txid = data[0:4]
+        output_size = int.from_bytes(data[4:6], 'big')
+
+        expected_len = 6 + output_size + 4  # TXID + size + data + EOD
+        if len(data) < expected_len:
+            self.output_field.setPlainText(
+                f"Invalid response! Expected {expected_len} bytes, got {len(data)}.\n"
+                f"Raw: {data.hex().upper()}"
+            )
+            return
+
+        otp_output = data[6:6 + output_size]
+        eod_flag = data[6 + output_size: 6 + output_size + 4]
+
+        if eod_flag != bytes.fromhex("CAFEBABE"):
+            self.output_field.setPlainText(
+                f"Invalid EOD Flag! Got {eod_flag.hex().upper()}"
+            )
+            return
+
+        self.output_field.setPlainText(otp_output.hex().upper())
 
 class KeyGenPage(QWidget):
     def __init__(self, send_packet_callback, log_callback):
@@ -500,15 +533,15 @@ class KeyGenPage(QWidget):
 
     def send_keygen_packet(self):
         size_to_option = {
-            "16": 0x51, "24": 0x52, "32": 0x53, "48": 0x54,
-            "64": 0x55, "66": 0x56, "128": 0x57, "256": 0x58, "512": 0x59
+            "16": 0x33, "24": 0x34, "32": 0x35, "48": 0x36,
+            "64": 0x37, "66": 0x38, "128": 0x39, "256": 0x3A, "512": 0x3C
         }
         selected_size = self.dropdown.currentText()
         option = size_to_option[selected_size]
         txid = random.getrandbits(32).to_bytes(4, 'big')
         cmd = bytes([0x06])  # Assuming different command code for Key Gen
         option_byte = bytes([option])
-        input_size = b"\x00\x00\x00"
+        input_size = b"\x00\x00"
         eod = bytes.fromhex("DEADBEEF")
         packet = txid + cmd + option_byte + input_size + eod
 
