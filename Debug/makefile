@@ -20,6 +20,7 @@ RM := rm -rf
 -include Application/Utils/Logger/Src/subdir.mk
 -include Application/Protocol/PacketParser/Src/subdir.mk
 -include Application/Protocol/PacketBuilder/Src/subdir.mk
+-include Application/Protocol/Generator/Src/subdir.mk
 -include Application/Protocol/FlashManager/Src/subdir.mk
 -include Application/Protocol/CryptoEngine/Src/subdir.mk
 -include Application/Library/FLASH/Src/subdir.mk

@@ -5,6 +5,14 @@
 #include "stm32h5xx_hal.h"  // Or adjust based on your STM32 HAL path
 
 /**
+ * @brief Generates a 4-byte random key ID using hardware RNG.
+ *
+ * @param id_out Pointer to a 4-byte buffer to receive the key ID.
+ * @return HAL_OK on success, HAL_ERROR on failure.
+ */
+HAL_StatusTypeDef GenerateKEYID(uint8_t *id_out);
+
+/**
  * @brief Generates a 16-byte AES key using hardware RNG.
  *
  * @param key_out Pointer to a 16-byte buffer to receive the AES key.

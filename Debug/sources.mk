@@ -34,6 +34,7 @@ Application/Library/EEPROM/Src \
 Application/Library/FLASH/Src \
 Application/Protocol/CryptoEngine/Src \
 Application/Protocol/FlashManager/Src \
+Application/Protocol/Generator/Src \
 Application/Protocol/PacketBuilder/Src \
 Application/Protocol/PacketParser/Src \
 Application/Utils/Logger/Src \
