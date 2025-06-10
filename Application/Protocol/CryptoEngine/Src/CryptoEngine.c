@@ -1,4 +1,5 @@
 #include "CryptoEngine.h"
+#include <tinycrypt/constants.h>
 #include <tinycrypt/ctr_mode.h>
 #include <string.h>
 
