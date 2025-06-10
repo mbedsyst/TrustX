@@ -47,12 +47,15 @@
 #define ENC_KEY_BYOK			  0x41
 #define ENC_KEY_GYOK			  0x42
 #define ENC_KEY_DABA			  0x43
+// -- Encryption IV State
+#define ENC_IV_BYIV				  0x51
+#define ENC_IV_GYIV				  0x52
 // -- Decryption Key State
-#define DEC_KEY_BYOK			  0x51
-#define DEC_KEY_DABA			  0x52
+#define DEC_KEY_BYOK			  0x61
+#define DEC_KEY_DABA			  0x62
 // -- Decryption IV State
-#define DEC_IV_BYIV				  0x61
-#define DEC_IV_DABA               0x62
+#define DEC_IV_BYIV				  0x71
+#define DEC_IV_DABA               0x72
 // === End of Data Flag (EOD field) ===
 #define IN_EOD_FLAG				  0xDEADBEEF
 #define OUT_EOD_FLAG			  0xCAFEBABE
