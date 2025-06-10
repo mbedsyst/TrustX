@@ -50,7 +50,7 @@
 // -- Decryption Key State
 #define DEC_KEY_BYOK			  0x51
 #define DEC_KEY_DABA			  0x52
-// Decryption IV State
+// -- Decryption IV State
 #define DEC_IV_BYIV				  0x61
 #define DEC_IV_DABA               0x62
 // === End of Data Flag (EOD field) ===

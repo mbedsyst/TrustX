@@ -11,6 +11,7 @@ RM := rm -rf
 -include sources.mk
 -include USB/Core/Src/subdir.mk
 -include USB/Class/CDC/Src/subdir.mk
+-include Drivers/tinycrypt/src/subdir.mk
 -include Drivers/STM32H5xx_HAL_Driver/Src/subdir.mk
 -include Drivers/BSP/STM32H5xx_Nucleo/subdir.mk
 -include Core/Startup/subdir.mk
@@ -19,6 +20,8 @@ RM := rm -rf
 -include Application/Utils/Logger/Src/subdir.mk
 -include Application/Protocol/PacketParser/Src/subdir.mk
 -include Application/Protocol/PacketBuilder/Src/subdir.mk
+-include Application/Protocol/FlashManager/Src/subdir.mk
+-include Application/Protocol/CryptoEngine/Src/subdir.mk
 -include Application/Library/FLASH/Src/subdir.mk
 -include Application/Library/EEPROM/Src/subdir.mk
 -include Application/Handlers/Random/Src/subdir.mk

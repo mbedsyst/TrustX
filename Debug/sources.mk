@@ -32,6 +32,8 @@ Application/Handlers/OTP/Src \
 Application/Handlers/Random/Src \
 Application/Library/EEPROM/Src \
 Application/Library/FLASH/Src \
+Application/Protocol/CryptoEngine/Src \
+Application/Protocol/FlashManager/Src \
 Application/Protocol/PacketBuilder/Src \
 Application/Protocol/PacketParser/Src \
 Application/Utils/Logger/Src \
@@ -40,6 +42,7 @@ Core/Src \
 Core/Startup \
 Drivers/BSP/STM32H5xx_Nucleo \
 Drivers/STM32H5xx_HAL_Driver/Src \
+Drivers/tinycrypt/src \
 USB/Class/CDC/Src \
 USB/Core/Src \
 
