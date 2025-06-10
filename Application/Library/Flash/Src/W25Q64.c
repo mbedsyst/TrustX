@@ -1,7 +1,11 @@
 #include "../../FLASH/Inc/W25Q64.h"
 #include <stdint.h>
 
-/* Slave Select Pin : PB14
+/* SPI1 Pin Mappings
+ * SPI1 NSS  - PA04
+ * SPI1 SCK  - PA05
+ * SPI1 MISO - PA06
+ * SPI1 MOSI - PA07
  */
 
 extern SPI_HandleTypeDef hspi1;
@@ -16,20 +20,20 @@ void W25Q_Delay(uint32_t time)
 
 void csLOW (void)
 {
-	HAL_GPIO_WritePin (GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
 }
 
 void csHIGH (void)
 {
-	HAL_GPIO_WritePin (GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
 }
 
-void SPI_Write (uint8_t *data, uint8_t len)
+void SPI_Write(uint8_t *data, uint8_t len)
 {
 	HAL_SPI_Transmit(&W25Q_SPI, data, len, 2000);
 }
 
-void SPI_Read (uint8_t *data, uint32_t len)
+void SPI_Read(uint8_t *data, uint32_t len)
 {
 	HAL_SPI_Receive(&W25Q_SPI, data, len, 5000);
 }
