@@ -25,22 +25,6 @@
 
 OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
-	/* ToDo
-	 * 1. Parse out Decryption Key State from INPUT DATA
-	 * 2. Parse out the Key Data field from INPUT DATA.
-	 * 3. Parse out IV State from INPUT DATA
-	 * 4. Parse out the IV Data field from INPUT DATA
-	 * 5. If Key is provided, store it into an array.
-	 * 6. If Key ID is provided, search for the key from the flash, decrypt and store it in an array.
-	 * 7. Store the provided IV into an array
-	 * 8. Initialize the wolfSSL Decryption context.
-	 * 9. Execute the Decryption operation.
-	 * 10. Store the used Key into the Flash and increase the usage counter.
-	 * 11. Append the Plaintext to the end of the Key ID, as OUTPUT DATA
-	 * 12. Assign the size of OUTPUT DATA.
-	 * 13. Return the Response Packet
-	 * */
-
 	log_info("Handling Decryption operation.");
 	// Check if either Request or Response Packet is NULL
 	if (!request )
@@ -49,14 +33,19 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 	}
 	int codec_result = 0;
 	uint8_t keyState, ivState;
-	uint32_t keyID;
+	uint32_t keyID = 0;
 	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
 
 	keyState = request->inputData[KEY_STATE_POS];
 	ivState = request->inputData[IV_STATE_POS];
 
 	const uint16_t ciphertextLen = (request->inputSize) - AES_KEY_SIZE - AES_IV_SIZE - 2;
-	static uint8_t plaintextData[ciphertextLen];
+	//static uint8_t plaintextData[ciphertextLen];
+	uint8_t *plaintextData = malloc(ciphertextLen);
+	if (plaintextData == NULL)
+	{
+	    // Handle allocation failure
+	}
 
 	switch(keyState)
 	{
@@ -67,6 +56,7 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 
 		case DEC_KEY_DABA:
 			log_info("Searching for a stored Key in the Key Manager.");
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
 			// ToDo Search Key Manager for a match using Key ID
 			break;
 
@@ -101,13 +91,13 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 
 	if(codec_result == CODEC_FAILURE)
 	{
-		log_err("Decryption operation failed.");
+		log_error("Decryption operation failed.");
 		return OPERATION_DECRYPTION_FAIL;
 	}
 
 	response->outputSize = ciphertextLen + KEYID_LEN + AES_IV_SIZE;
-	memcpy(&response->outputData[OUT_KEYID_POS], keyID, KEYID_LEN);
-	memcpy(&response->outputData[OUT_CT_POS], ciphertextData, plaintextLen);
+	memcpy(&response->outputData[OUT_KEYID_POS], (uint8_t *)keyID, KEYID_LEN);
+	memcpy(&response->outputData[OUT_CT_POS], plaintextData, ciphertextLen);
 
 	return OPERATION_SUCCESS;
 }
