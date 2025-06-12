@@ -34,14 +34,19 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	}
 	int codec_result = 0;
 	uint8_t keyState, ivState;
-	uint32_t keyID;
+	uint32_t keyID = 0;
 	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
 
 	keyState = request->inputData[KEY_STATE_POS];
 	ivState = request->inputData[IV_STATE_POS];
 
 	uint16_t plaintextLen = (request->inputSize) - AES_KEY_SIZE - AES_IV_SIZE - 2;
-	static uint8_t ciphertextData[plaintextLen];
+	//static uint8_t ciphertextData[plaintextLen];
+	uint8_t *ciphertextData = malloc(plaintextLen);
+	if (ciphertextData == NULL)
+	{
+	    // Handle allocation failure
+	}
 
 	switch(keyState)
 	{
@@ -52,6 +57,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 
 		case ENC_KEY_DABA:
 			log_info("Searching for a stored Key in the Key Manager.");
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
 			// ToDo Search Key Manager for a match using Key ID
 			break;
 
@@ -91,12 +97,12 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 
 	if(codec_result == CODEC_FAILURE)
 	{
-		log_err("Encryption operation failed.");
+		log_error("Encryption operation failed.");
 		return OPERATION_ENCRYPTION_FAIL;
 	}
 
 	response->outputSize = plaintextLen + KEYID_LEN + AES_IV_SIZE;
-	memcpy(&response->outputData[OUT_KEYID_POS], keyID, KEYID_LEN);
+	memcpy(&response->outputData[OUT_KEYID_POS], (uint8_t *)keyID, KEYID_LEN);
 	memcpy(&response->outputData[OUT_IV_POS], ivData, AES_IV_SIZE);
 	memcpy(&response->outputData[OUT_CT_POS], ciphertextData, plaintextLen);
 
