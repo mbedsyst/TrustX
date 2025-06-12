@@ -27,6 +27,8 @@
 #include "stdbool.h"
 
 #include "HSMManager.h"
+#include "Logger.h"
+#include "W25Q64.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,7 +99,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  uint8_t data[100] = {0};
+  uint8_t msg[] = "WELL, IT JUST SO HAPPENS THAT WE ARE EXPERTS AT EXTERMINATING SHITBAG SUPES.";
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -151,9 +154,46 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HSMManager_Init();
+  // HSMManager_Init();
 
-  HSMManager_ProcessCommand();
+  // HSMManager_ProcessCommand();
+  W25Q_Reset();
+  W25Q_Write(0, 0, sizeof(msg), msg);
+  log_info("Turning LED ON.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED OFF.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED ON.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED OFF.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  W25Q_Read(0, 0, sizeof(msg), data);
+  log_info("Turning LED ON.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED OFF.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED ON.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  log_info("Turning LED OFF.");
+  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+  printf("\n\n\r%s", data);
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -419,11 +459,11 @@ static void MX_SPI1_Init(void)
   hspi1.Instance = SPI1;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.DataSize = SPI_DATASIZE_4BIT;
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -607,8 +647,11 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : RMII_MDC_Pin RMII_RXD0_Pin RMII_RXD1_Pin */
   GPIO_InitStruct.Pin = RMII_MDC_Pin|RMII_RXD0_Pin|RMII_RXD1_Pin;
@@ -653,6 +696,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
   HAL_GPIO_Init(RMII_TXD1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PD14 */
+  GPIO_InitStruct.Pin = GPIO_PIN_14;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pin : UCPD_FLT_Pin */
   GPIO_InitStruct.Pin = UCPD_FLT_Pin;
