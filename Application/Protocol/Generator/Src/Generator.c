@@ -1,5 +1,8 @@
 #include "Generator.h"
 
+extern RNG_HandleTypeDef hrng;
+extern HASH_HandleTypeDef hhash;
+
 static HAL_StatusTypeDef GenerateRandomBytes(uint8_t *output, uint32_t length)
 {
     if (output == NULL || length == 0 || (length % 4) != 0) {
@@ -29,6 +32,35 @@ static HAL_StatusTypeDef GenerateRandomBytes(uint8_t *output, uint32_t length)
     HAL_RNG_DeInit(&hrng);
     return HAL_OK;
 }
+
+HAL_StatusTypeDef GenerateHMAC(uint8_t* input, uint8_t size, uint8_t* key, uint8_t* output)
+{
+	if (input == NULL || size == 0 || key == 0)
+	{
+		return HAL_ERROR;
+	}
+	HAL_HASH_DeInit(&hhash);
+	log_info("De-Initialized HASH Peripheral.");
+	hhash.Instance = HASH;
+	hhash.Init.DataType = HASH_BYTE_SWAP;
+	hhash.Init.KeySize = size;
+	hhash.Init.pKey = (uint8_t *)key;
+	hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA256;
+	if (HAL_HASH_Init(&hhash) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	if (HAL_HASH_HMAC_Start(&hhash, (uint8_t *)input, size, (uint8_t *)output, 0xFF) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	/* Check the output buffer containing the computing digest with the expected buffer */
+	if(memcmp(aDigest, aExpectedDigest ,64) != 0)
+	{
+		Error_Handler();
+	}
+}
+
 
 HAL_StatusTypeDef GenerateKey(uint8_t *key_out)
 {

@@ -536,13 +536,13 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .data          0x00000000        0x0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .bss           0x00000000        0x0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .rodata        0x00000000      0x131 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .rodata        0x00000000      0x159 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .text.DecryptHandler_Decrypt
-                0x00000000      0x14c ./Application/Handlers/Decryption/Src/DecryptHandler.o
+                0x00000000      0x160 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .bss.keyData.1
                 0x00000000       0x10 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .bss.ivData.0  0x00000000       0x10 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_info    0x00000000      0x37b ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_info    0x00000000      0x38b ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_abbrev  0x00000000      0x155 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_aranges
                 0x00000000       0x20 ./Application/Handlers/Decryption/Src/DecryptHandler.o
@@ -625,7 +625,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_line    0x00000000      0xddd ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_line    0x00000000      0xdec ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_str     0x00000000   0x13da03 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_frame   0x00000000       0x38 ./Application/Handlers/Decryption/Src/DecryptHandler.o
@@ -710,13 +710,13 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .data          0x00000000        0x0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .bss           0x00000000        0x0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .rodata        0x00000000      0x155 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .rodata        0x00000000      0x181 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .text.EncryptHandler_Encrypt
-                0x00000000      0x170 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+                0x00000000      0x18c ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .bss.keyData.1
                 0x00000000       0x10 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .bss.ivData.0  0x00000000       0x10 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_info    0x00000000      0x3cf ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_info    0x00000000      0x3f5 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_abbrev  0x00000000      0x158 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_aranges
                 0x00000000       0x20 ./Application/Handlers/Encryption/Src/EncryptHandler.o
@@ -799,8 +799,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_line    0x00000000      0xde1 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_str     0x00000000   0x13da60 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_line    0x00000000      0xdf1 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_str     0x00000000   0x13da6e ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_frame   0x00000000       0x3c ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .ARM.attributes
