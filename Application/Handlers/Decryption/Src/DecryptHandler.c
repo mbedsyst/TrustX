@@ -31,27 +31,34 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 	{
 		return OPERATION_INVALID_DATA;
 	}
+	// Initialize variable to store Codec operation status
 	int codec_result = 0;
+	// Declare variables to assign Key and IV state
 	uint8_t keyState, ivState;
-	uint32_t keyID = 0;
+	// Initialize array to store Key ID
+	uint8_t keyID[4] = {0};
+	// Declare array to hold Key and IV data in data section
 	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
-
+	// Parse out Key State and IV state from Input Data Stream
 	keyState = request->inputData[KEY_STATE_POS];
 	ivState = request->inputData[IV_STATE_POS];
-
+	// Calculate the size of input Ciphertext
 	const uint16_t ciphertextLen = (request->inputSize) - AES_KEY_SIZE - AES_IV_SIZE - 2;
-	//static uint8_t plaintextData[ciphertextLen];
+	// Declare array to hold the output Ciphertext on the stack
 	uint8_t *plaintextData = malloc(ciphertextLen);
+	// Check if the dynamically allocated array is NULL or not
 	if (plaintextData == NULL)
 	{
-	    // Handle allocation failure
+	    log_error("Failed to allocate buffer for Plaintext");
+	    return OPERATION_UNKNOWN_ERROR;
 	}
-
+	// Copy the Key/Key ID from Data Stream
 	switch(keyState)
 	{
 		case DEC_KEY_BYOK:
 			log_info("Using a User-Provided Decryption Key.");
 			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
+			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
 			break;
 
 		case DEC_KEY_DABA:
@@ -64,7 +71,7 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 			log_warn("Key State field not Recognized.");
 			break;
 	}
-
+	// Copy the IV from the Data Stream
 	switch(ivState)
 	{
 		case DEC_IV_BYIV:
@@ -81,23 +88,25 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 			log_warn("IV State field not Recognized.");
 			break;
 	}
-
+	// Execute the Encryption operation
 	codec_result = CryptoEngine_Codec(plaintextData,
 										ciphertextLen,
 										&request->inputData[PLAINTEXT_POS],
 										ciphertextLen,
 										ivData,
 										keyData);
-
+	// Check if Encryption operation was success
 	if(codec_result == CODEC_FAILURE)
 	{
 		log_error("Decryption operation failed.");
 		return OPERATION_DECRYPTION_FAIL;
 	}
-
+	// Set the output size in Response Packet
 	response->outputSize = ciphertextLen + KEYID_LEN + AES_IV_SIZE;
-	memcpy(&response->outputData[OUT_KEYID_POS], (uint8_t *)keyID, KEYID_LEN);
+	// Copy the Key ID into Output Data Buffer
+	memcpy(&response->outputData[OUT_KEYID_POS], keyID, KEYID_LEN);
+	// Copy the Ciphertext into Output Data Buffer
 	memcpy(&response->outputData[OUT_CT_POS], plaintextData, ciphertextLen);
-
+	// Return the OperationStatus value
 	return OPERATION_SUCCESS;
 }

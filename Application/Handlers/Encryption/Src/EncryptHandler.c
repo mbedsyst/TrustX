@@ -32,45 +32,54 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	{
 		return OPERATION_INVALID_DATA;
 	}
+	// Initialize variable to store Codec operation status
 	int codec_result = 0;
+	// Declare variables to assign Key and IV state
 	uint8_t keyState, ivState;
-	uint32_t keyID = 0;
+	// Initialize variable to store Key ID
+	uint8_t keyID[4] = {0};
+	// Declare array to hold Key and IV data in data section
 	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
-
+	// Parse out Key State and IV state from Input Data Stream
 	keyState = request->inputData[KEY_STATE_POS];
 	ivState = request->inputData[IV_STATE_POS];
-
+	// Calculate the size of input Plaintext
 	uint16_t plaintextLen = (request->inputSize) - AES_KEY_SIZE - AES_IV_SIZE - 2;
-	//static uint8_t ciphertextData[plaintextLen];
+	// Declare array to hold the output Ciphertext on the stack
 	uint8_t *ciphertextData = malloc(plaintextLen);
+	// Check if the dynamically allocated array is NULL or not
 	if (ciphertextData == NULL)
 	{
-	    // Handle allocation failure
+	    log_error("Failed to allocate buffer for Ciphertext");
+	    return OPERATION_UNKNOWN_ERROR;
 	}
-
+	// Copy the Key/Key ID from Data Stream or Generate a Key
 	switch(keyState)
 	{
 		case ENC_KEY_BYOK:
 			log_info("Using a User-Provided Encryption Key.");
 			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
+			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
 			break;
 
 		case ENC_KEY_DABA:
 			log_info("Searching for a stored Key in the Key Manager.");
 			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
-			// ToDo Search Key Manager for a match using Key ID
+			// ToDo Search the Key Manager for a match using the given Key ID
 			break;
 
 		case ENC_KEY_GYOK:
 			log_info("Generating a Random Encryption Key.");
 			GenerateKEY(keyData);
+			GenerateKEYID(keyID);
+			// ToDo Store the Generated Key in the Key Manager
 			break;
 
 		default:
 			log_warn("Key State field not Recognized.");
 			break;
 	}
-
+	// Copy the IV from Data Stream or Generate an IV
 	switch(ivState)
 	{
 		case ENC_IV_BYIV:
@@ -87,24 +96,28 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			log_warn("IV State field not Recognized.");
 			break;
 	}
-
+	// Execute the Encryption operation
 	codec_result = CryptoEngine_Codec(ciphertextData,
 										plaintextLen,
 										&request->inputData[PLAINTEXT_POS],
 										plaintextLen,
 										ivData,
 										keyData);
-
+	// Check if Encryption operation was success
 	if(codec_result == CODEC_FAILURE)
 	{
 		log_error("Encryption operation failed.");
 		return OPERATION_ENCRYPTION_FAIL;
 	}
 
+	// Set the output size in Response Packet
 	response->outputSize = plaintextLen + KEYID_LEN + AES_IV_SIZE;
-	memcpy(&response->outputData[OUT_KEYID_POS], (uint8_t *)keyID, KEYID_LEN);
+	// Copy the Key ID into Output Data Buffer
+	memcpy(&response->outputData[OUT_KEYID_POS], keyID, KEYID_LEN);
+	// Copy the Initialization Vector into Output Data Buffer
 	memcpy(&response->outputData[OUT_IV_POS], ivData, AES_IV_SIZE);
+	// Copy the Ciphertext into Output Data Buffer
 	memcpy(&response->outputData[OUT_CT_POS], ciphertextData, plaintextLen);
-
+	// Return the OperationStatus value
 	return OPERATION_SUCCESS;
 }
