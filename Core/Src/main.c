@@ -51,6 +51,8 @@
 COM_InitTypeDef BspCOMInit;
 
 HASH_HandleTypeDef hhash;
+__ALIGN_BEGIN static const uint8_t pKeyHASH[1] __ALIGN_END = {
+                            0x00};
 
 I2C_HandleTypeDef hi2c1;
 
@@ -279,6 +281,8 @@ static void MX_HASH_Init(void)
   /* USER CODE END HASH_Init 1 */
   hhash.Instance = HASH;
   hhash.Init.DataType = HASH_BYTE_SWAP;
+  hhash.Init.KeySize = 1;
+  hhash.Init.pKey = (uint8_t *)pKeyHASH;
   hhash.Init.Algorithm = HASH_ALGOSELECTION_SHA256;
   if (HAL_HASH_Init(&hhash) != HAL_OK)
   {

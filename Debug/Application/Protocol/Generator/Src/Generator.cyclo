@@ -1,4 +1,5 @@
-../Application/Protocol/Generator/Src/Generator.c:3:26:GenerateRandomBytes	7
-../Application/Protocol/Generator/Src/Generator.c:33:19:GenerateKey	1
-../Application/Protocol/Generator/Src/Generator.c:38:19:GenerateIV	1
-../Application/Protocol/Generator/Src/Generator.c:43:19:GenerateKEYID	1
+../Application/Protocol/Generator/Src/Generator.c:6:26:GenerateRandomBytes	7
+../Application/Protocol/Generator/Src/Generator.c:36:19:GenerateHMAC	1
+../Application/Protocol/Generator/Src/Generator.c:66:19:GenerateKey	1
+../Application/Protocol/Generator/Src/Generator.c:71:19:GenerateIV	1
+../Application/Protocol/Generator/Src/Generator.c:76:19:GenerateKEYID	1

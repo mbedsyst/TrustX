@@ -26,6 +26,7 @@ Application/Core/HSMManager/Src \
 Application/Core/OperationDispatcher/Src \
 Application/Handlers/Decryption/Src \
 Application/Handlers/Encryption/Src \
+Application/Handlers/HMAC/Src \
 Application/Handlers/Hashing/Src \
 Application/Handlers/Keys/Src \
 Application/Handlers/OTP/Src \
@@ -35,6 +36,7 @@ Application/Library/FLASH/Src \
 Application/Protocol/CryptoEngine/Src \
 Application/Protocol/FlashManager/Src \
 Application/Protocol/Generator/Src \
+Application/Protocol/Key\ Manager/Src \
 Application/Protocol/PacketBuilder/Src \
 Application/Protocol/PacketParser/Src \
 Application/Utils/Logger/Src \

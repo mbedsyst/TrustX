@@ -20,6 +20,7 @@ RM := rm -rf
 -include Application/Utils/Logger/Src/subdir.mk
 -include Application/Protocol/PacketParser/Src/subdir.mk
 -include Application/Protocol/PacketBuilder/Src/subdir.mk
+-include Application/Protocol/Key\ Manager/Src/subdir.mk
 -include Application/Protocol/Generator/Src/subdir.mk
 -include Application/Protocol/FlashManager/Src/subdir.mk
 -include Application/Protocol/CryptoEngine/Src/subdir.mk
@@ -29,6 +30,7 @@ RM := rm -rf
 -include Application/Handlers/OTP/Src/subdir.mk
 -include Application/Handlers/Keys/Src/subdir.mk
 -include Application/Handlers/Hashing/Src/subdir.mk
+-include Application/Handlers/HMAC/Src/subdir.mk
 -include Application/Handlers/Encryption/Src/subdir.mk
 -include Application/Handlers/Decryption/Src/subdir.mk
 -include Application/Core/OperationDispatcher/Src/subdir.mk

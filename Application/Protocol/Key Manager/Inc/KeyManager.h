@@ -46,7 +46,7 @@ typedef enum
     KM_OP_WIPE_ALL_KEYS        // Clear all keys from flash
 } KeyManager_Op_t;
 
-KeyManager_Op_t KeyManager_AddKey(uint8_t* keyID, uint8_t* key, uint8_t keySize);
+KeyManager_Op_t KeyManager_AddKey(uint8_t* keyID, uint8_t* key, uint8_t keySize, uint8_t keyOrigin, uint8_t keyUsage);
 KeyManager_Op_t KeyManager_GetKey(uint8_t* keyID, uint8_t* key);
 KeyManager_Op_t KeyManager_DeleteKey(uint8_t keyID);
 

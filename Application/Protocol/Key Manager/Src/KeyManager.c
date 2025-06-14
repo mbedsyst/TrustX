@@ -14,6 +14,7 @@ KeyManager_Op_t KeyManager_AddKey(uint8_t* keyID, uint8_t* key, uint8_t keySize,
 	 * 9. Populate the Flash Memory to-write buffer
 	 * 10. Call the FlashManager function
 	 * */
+	return KM_OP_NONE;
 }
 
 KeyManager_Op_t KeyManager_GetKey(uint8_t* keyID, uint8_t* key)
@@ -31,6 +32,7 @@ KeyManager_Op_t KeyManager_GetKey(uint8_t* keyID, uint8_t* key)
 	 * 10. Transform structure back into array
 	 * 11. Call the FLash Manager function
 	 * */
+	return KM_OP_NONE;
 }
 
 KeyManager_Op_t KeyManager_DeleteKey(uint8_t keyID)
@@ -40,6 +42,6 @@ KeyManager_Op_t KeyManager_DeleteKey(uint8_t keyID)
 	 * 2. Once a match is found, check the flash memory device for valid entry
 	 * 3. If entry is valid, convert location into sector number
 	 * 4. Call FlashManager function to erase that sector
-	 *
 	 * */
+	return KM_OP_NONE;
 }
