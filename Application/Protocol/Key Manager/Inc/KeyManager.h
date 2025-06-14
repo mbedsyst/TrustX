@@ -58,7 +58,7 @@ typedef struct __attribute__((packed))
     uint8_t  origin;                     // Provided or Generated
     uint8_t  usage;                      // Bitmask: Encrypt, Decrypt, HMAC
     uint8_t  key_size;                   // Key size in bytes
-    uint8_t  ciphertext[MAX_KEY_SIZE];   // Encrypted key data
+    uint8_t  key_val[MAX_KEY_SIZE];   // Encrypted key data
     uint8_t  iv[16];                     // IV used during encryption
     uint8_t  hmac[32];                   // HMAC-SHA256 truncated (e.g., first 16 bytes)
 } KeyEntry_t;
