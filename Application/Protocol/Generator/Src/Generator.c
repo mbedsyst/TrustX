@@ -1,4 +1,5 @@
 #include "Generator.h"
+#include "Logger.h"
 
 extern RNG_HandleTypeDef hrng;
 extern HASH_HandleTypeDef hhash;
