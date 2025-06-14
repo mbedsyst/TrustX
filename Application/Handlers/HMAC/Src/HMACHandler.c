@@ -40,7 +40,7 @@ OperationStatus_t HMACHandler_Handle(const ParsedPacket_t* request, ResponsePack
 	// Declare array to hold Key and IV data in data section
 	static uint8_t keyData[KEY_DATA_SIZE];
     // Declare a static byte array of 64 elements
-    static uint8_t digest[DIGEST_SIZE] = {0};
+    static uint8_t digest[DIGEST_SIZE_SHA256] = {0};
 	// Parse out Key State and IV state from Input Data Stream
 	keyState = request->inputData[KEY_STATE_POS];
 	// Calculate the size of input Plaintext
@@ -53,14 +53,14 @@ OperationStatus_t HMACHandler_Handle(const ParsedPacket_t* request, ResponsePack
     	// SHA224 Hashing Algorithm Selected.
         case OPTION_HMAC_SHA224:
         	log_info("SHA224 HMAC Algorithm Selected.");
-        	response->outputSize = DIGEST_SIZE_224 + KEYID_SIZE;
+        	response->outputSize = DIGEST_SIZE_SHA224 + KEYID_SIZE;
         	AlgorithmSelected = HASH_ALGOSELECTION_SHA224;
             break;
 
         // SHA256 Hashing Algorithm Selected.
         case OPTION_HMAC_SHA256:
         	log_info("SHA256 HMAC Algorithm Selected.");
-        	response->outputSize = DIGEST_SIZE_256 + KEYID_SIZE;
+        	response->outputSize = DIGEST_SIZE_SHA256 + KEYID_SIZE;
         	AlgorithmSelected = HASH_ALGOSELECTION_SHA256;
             break;
 
