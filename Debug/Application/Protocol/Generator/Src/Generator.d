@@ -38,7 +38,8 @@ Application/Protocol/Generator/Src/Generator.o: \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usb.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h \
- ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h
+ ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h \
+ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/Generator/Inc/Generator.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
 ../Core/Inc/stm32h5xx_hal_conf.h:
@@ -78,3 +79,4 @@ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Applicati
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usb.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h:
+C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h:
