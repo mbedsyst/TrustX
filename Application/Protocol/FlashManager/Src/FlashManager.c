@@ -1,62 +1,109 @@
 #include "../../FlashManager/Inc/FlashManager.h"
 #include "constants.h"
 #include "Logger.h"
+#include "W25Q64.h"
 #include <string.h>
 
-/* ToDo	FlashDB_Init()
-		1. For all 2048 sectors:
-			- Read the first byte.
-			- If valid_flag == 0xAA:
-				- Read key_id and store in key_id -> sector map (RAM).
-			- Else if valid_flag == 0x55:
-				- Erase the sector (reclaim invalidated storage).
+#define PAGE_SIZE		256
+#define SECTOR_SIZE		4096
+#define ENTRY_SIZE		88
+#define VALID_FLAG 		0xAA
+#define INVALID_FLAG 	0x55
 
-   ToDo FlashDB_AddKeyEntry()
-		1. Scan all sectors until a free sector is found:
-			- Read first byte of each sector (valid_flag).
-			- If valid_flag != 0xAA (valid), mark as free.
+void FlashManager_Init(void)
+{
+	log_info("Initializing the Flash Manager.");
+	W25Q_Reset();
+	log_info("External Flash Memory device has been reset.");
+}
 
-		2. Populate KeyEntry_t structure:
-			- Set valid_flag = 0xAA.
-			- Fill in metadata fields (key_id, key_size, etc.).
-			- Encrypt the key and store it in encrypted_key field.
-			- If IV is used, generate and fill it in.
-			- If tag is needed (e.g., for AES-GCM), compute and store it.
+void FlashManager_ReadEntry(uint16_t sectorNumber, uint8_t *entry)
+{
+	// Calculating Page Number and Validity Flag address.
+	uint32_t page_number = sectorNumber * (SECTOR_SIZE/PAGE_SIZE);
+	uint32_t byte_addr = page_number * PAGE_SIZE;
+	// Reading Validity Flag at the start of sector.
+	uint8_t entryFlag = W25Q_Read_Byte(byte_addr);
+	// Checking if Entry has a Valid Flag or not.
+	if (entryFlag == INVALID_FLAG)
+	{
+		// ToDo Fix Error Handling
+		log_error("Entry has Invalid Flag.");
+	}
+	else if(entryFlag == VALID_FLAG)
+	{
+		// Reading from the sector if validity flag is 0xAA
+		W25Q_Read(page_number, 1, KEY_ENTRY_SIZE, entry);
+		log_info("Read valid entry from Flash.");
+	}
+}
 
-		3. Write the KeyEntry_t to the beginning of the sector.
+void FlashManager_WriteEntry(uint16_t sectorNumber, uint8_t *entry)
+{
+	// Calculating Page Number and Validity Flag address
+	uint32_t page_number = sectorNumber * (SECTOR_SIZE/PAGE_SIZE);
+	uint32_t byte_addr = page_number * PAGE_SIZE;
+	// Reading Validity Flag at the start of sector
+	uint8_t entryFlag = W25Q_Read_Byte(byte_addr);
+	// Checking if Entry has a Valid Flag or not.
+	if (entryFlag == VALID_FLAG)
+	{
+		// ToDo Fix Error Handling
+		log_error("Entry has a Valid Flag.");
+		log_warn("Cannot write to this sector.");
+	}
+	else
+	{
+		// Writing to the sector if Validity Flag is not 0xAA
+		W25Q_Write_Byte(byte_addr, VALID_FLAG);
+		W25Q_Write(page_number, 1, ENTRY_SIZE, entry);
+		log_info("Wrote a valid entry to Flash.");
+	}
+}
 
-		4. Update the RAM map: key_id -> sector number.
+void FlashManager_UpdateEntry(uint16_t sectorNumber, uint8_t *entry)
+{
+	// Calculating Page Number and Validity Flag address
+	uint32_t page_number = sectorNumber * (SECTOR_SIZE/PAGE_SIZE);
+	uint32_t byte_addr = page_number * PAGE_SIZE;
+	// Reading Validity Flag at the start of sector
+	uint8_t entryFlag = W25Q_Read_Byte(byte_addr);
+	// Checking if Entry has an Invalid Flag or not.
+	if (entryFlag == INVALID_FLAG)
+	{
+		// ToDo Fix Error Handling
+		log_error("Entry has an Invalid Flag.");
+	}
+	else if(entryFlag == VALID_FLAG)
+	{
+		// Updating the sector if Validity Flag is 0xAA
+		log_info("Erasing the current entry in Flash.");
+		W25Q_Erase_Sector(sectorNumber);
+		log_info("Updating the current entry in Flash.");
+		W25Q_Write_Byte(byte_addr, VALID_FLAG);
+		W25Q_Write(page_number, 1, ENTRY_SIZE, entry);
+		log_info("Completed updating the Key Entry in Flash.");
+	}
+}
 
-   ToDo FlashDB_UpdateKeyEntry()
-		1. Look up the sector number for the given key_id from RAM map.
+void FlashManager_EraseEntry(uint16_t sectorNumber, uint8_t *entry)
+{
+	// Calculating Page Number and Validity Flag address
+	uint32_t page_number = sectorNumber * (SECTOR_SIZE/PAGE_SIZE);
+	uint32_t byte_addr = page_number * PAGE_SIZE;
+	// Reading Validity Flag at the start of sector
+	uint8_t entryFlag = W25Q_Read_Byte(byte_addr);
+	// Checking if Entry has a Valid Flag or not.
+	if (entryFlag == VALID_FLAG)
+	{
+		log_info("The current entry has a Valid Flag.");
+		W25Q_Erase_Sector(sectorNumber);
+		log_info("Completed erasing the Key Entry in Flash.");
+	}
+	else
+	{
+		// ToDo Fix Error Handling
+		log_info("The current entry has an Invalid Flag.");
+	}
+}
 
-		2. Read the entire sector into a temporary KeyEntry_t.
-
-		3. Modify only the fields that need updating (e.g., IV, purpose, tag).
-
-		4. Erase the sector (sector erase required before rewrite in NOR flash).
-
-		5. Write the updated KeyEntry_t back to the same sector.
-
-   ToDo FlashDB_UseKeyEntry()
-		1. Look up the sector number for the given key_id from RAM map.
-
-		2. Read the KeyEntry_t structure from that sector.
-
-		3. Decrypt the encrypted_key and return the key to caller.
-
-		4. Increment the usage_count field.
-
-		5. Erase the sector.
-
-		6. Write back the modified KeyEntry_t to the same sector.
-
-   ToDo FlashDB_DeleteKeyEntry()
-		1. Look up the sector number for the given key_id from RAM map.
-
-		2. Write 0x55 to the first byte (valid_flag) of that sector.
-
-		3. Remove the key_id from the RAM map.
-
-		4. On next initialization, this sector will be erased and reused.
-*/
