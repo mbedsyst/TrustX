@@ -1,4 +1,7 @@
 #include "KeyManager.h"
+#include "FlashManager.h"
+#include "stdlib.h"
+#include "string.h"
 
 #define KEY_ID_POS			0
 #define KEY_USECOUNT_POS	4
@@ -18,20 +21,101 @@
 #define KEY_IV_SIZE			16
 #define KEY_HMAC_SIZE		32
 
+#define MAX_SECTORS 			2048
+#define FLASH_ENTRY_HEADER_SIZE 5 // 1 byte validity + 4 bytes key_id
+#define VALID_ENTRY_FLAG 		0xAA
+#define INVALID_ENTRY_FLAG 		0x55
+
+// Lookup Table for Key ID to Sector Mapping
+static uint32_t key_lookup_table[MAX_SECTORS];
+static uint16_t total_keys = 0;
+
+// Initializes the Key Manager and builds the lookup table
+void KeyManager_Init(void)
+{
+    uint8_t entry_header[FLASH_ENTRY_HEADER_SIZE];
+
+    memset(key_lookup_table, 0xFF, sizeof(key_lookup_table)); // 0xFFFFFFFF indicates unused
+    total_keys = 0;
+
+    for (uint16_t sector = 0; sector < MAX_SECTORS; sector++)
+    {
+        // Read first 5 bytes of each sector to check for valid entry
+        if (FlashManager_ReadIdentifier(sector, entry_header) != FLASH_MANAGER_OK)
+        {
+            log_error("Failed to read sector %u during KeyManager Init", sector);
+            continue;
+        }
+
+        if (entry_header[0] == VALID_ENTRY_FLAG)
+        {
+            uint32_t key_id = (entry_header[1] << 24) |
+                              (entry_header[2] << 16) |
+                              (entry_header[3] << 8)  |
+                              (entry_header[4]);
+
+            key_lookup_table[sector] = key_id;
+            total_keys++;
+            log_info("Key ID 0x%08X found at sector %u", key_id, sector);
+        }
+    }
+
+    log_info("KeyManager Init completed with %u keys loaded", total_keys);
+}
+
+// Returns sector number if key is found, else -1
+int16_t KeyManager_FindSectorByKeyID(uint32_t key_id)
+{
+    for (uint16_t sector = 0; sector < MAX_SECTORS; sector++)
+    {
+        if (key_lookup_table[sector] == key_id)
+		{
+        	return sector;
+		}
+    }
+    return -1;
+}
+
+// Marks an entry as deleted in the flash and updates the lookup table
+KeyManager_Status_t KeyManager_InvalidateKey(uint32_t key_id)
+{
+    int16_t sector = KeyManager_FindSectorByKeyID(key_id);
+    if (sector < 0)
+    {
+    	return KM_STATUS_KEY_NOT_FOUND;
+    }
+
+    uint8_t invalid_flag = INVALID_ENTRY_FLAG;
+    if (FlashManager_WriteSector(sector, &invalid_flag, 1) != FLASH_MANAGER_OK)
+        return KM_STATUS_FLASH_ERROR;
+
+    key_lookup_table[sector] = 0xFFFFFFFF;
+    total_keys--;
+
+    log_info("Key ID 0x%08X invalidated from sector %d", key_id, sector);
+    return KM_STATUS_OK;
+}
+
+// Returns the first empty sector
+int16_t KeyManager_FindFreeSector(void)
+{
+    for (uint16_t sector = 0; sector < MAX_SECTORS; sector++)
+    {
+        if (key_lookup_table[sector] == 0xFFFFFFFF)
+            return sector;
+    }
+    return -1;
+}
+
+// Getter for total number of active keys
+uint16_t KeyManager_GetTotalKeys(void)
+{
+    return total_keys;
+}
+
+
 KeyManager_Op_t KeyManager_AddKey(uint8_t* keyID, uint8_t* key, uint8_t keySize, uint8_t keyOrigin, uint8_t keyUsage)
 {
-	/* ToDo
-	 * 1. Create dynamic instance of Key Structure
-	 * 2. Assign Key ID, Key Length and Key Size
-	 * 3. Assign Key Origin and Key Usage
-	 * 4. Set Key Usage Count to 0
-	 * 5. Fill up an array with Key Metadata excluding Usage Count
-	 * 6. Calculate HMAC-SHA256 of this Key Metadata array
-	 * 7. Encrypt this Key Metadata array
-	 * 8. Transform struct to array
-	 * 9. Populate the Flash Memory to-write buffer
-	 * 10. Call the FlashManager function
-	 * */
 	// Creating an instance of the KeyEntry_t structure
 	KeyEntry_t *keyEntry = (KeyEntry_t *)malloc(sizeof(KeyEntry_t));
 	// Checking if Heap allocated space for the struct instance
@@ -86,19 +170,6 @@ KeyManager_Op_t KeyManager_AddKey(uint8_t* keyID, uint8_t* key, uint8_t keySize,
 
 KeyManager_Op_t KeyManager_GetKey(uint8_t* keyID, uint8_t* key)
 {
-	/* ToDo
-	 * 1. Create dynamic instance of Key Structure
-	 * 2. Call FlashManager function to read entry using Key ID
-	 * 3. Parse out ciphertext and MAC from buffer
-	 * 4. Decrypt ciphertext and compute MAC
-	 * 5. Verify the computed MAC with stored value
-	 * 6. Transform array & Populate the key structure with entry values
-	 * 7. Copy key into the function argument
-	 * 8. Update Usage Count member in the structure
-	 * 9. Copy the read-back ciphertext content and MAC to the structure
-	 * 10. Transform structure back into array
-	 * 11. Call the FLash Manager function
-	 * */
 	// Creating an instance of the KeyEntry_t structure
 	KeyEntry_t *keyEntry = (KeyEntry_t *)malloc(sizeof(KeyEntry_t));
 	// Checking if Heap allocated space for the struct instance
@@ -138,28 +209,13 @@ KeyManager_Op_t KeyManager_GetKey(uint8_t* keyID, uint8_t* key)
 	log_info("Computed HMAC value matches with the stored value.");
 	// Decrypt the Key Entry Blob with a Master key from KDF
 	CryptoEngine_Codec(plaintext, sizeof(plaintext), ciphertext, sizeof(ciphertext), iv, masterKey);
-	// Set Key ID member in the structure
-	keyEntry->key_id = (keyEntryArray[KEY_ID_POS + 0] << 24)
-					 | (keyEntryArray[KEY_ID_POS + 1] << 16)
-					 | (keyEntryArray[KEY_ID_POS + 2] << 8)
-					 | (keyEntryArray[KEY_ID_POS + 3]);
-	// Retrieve the Key Usage Count
-	keyEntry->usage_count = keyEntryArray[KEY_USECOUNT_POS];
-	// Retrieve the Key Origin
-	keyEntry->origin = plaintext[KEY_ORIGIN_POS - 5];
-	// Retrieve the Set Key Usage
-	keyEntry->usage = plaintext[KEY_USAGE_POS - 5];
 	// Retrieve the Key Size
 	keyEntry->key_size = plaintext[KEY_SIZE_POS - 5];
 	// Retrieve the Key Value
-	memcpy(&keyEntry->key_val, plaintext[KEY_VAL_POS - 5], MAX_KEY_SIZE);
-	// Retrieve the Key Blob IV
-	memcpy(&keyEntry->iv, keyEntryArray[KEY_IV_POS], KEY_IV_SIZE);
-	// Retrieve the Key Blob HMAC
-	memcpy(&keyEntry->hmac, keyEntryArray[KEY_HMAC_POS], KEY_HMAC_SIZE);
-
+	memcpy(key, plaintext[KEY_VAL_POS - 5], MAX_KEY_SIZE);
 	// Update the Key Use Count in the Buffer array
 	keyEntryArray[KEY_USECOUNT_POS] += 1;
+
 	// ToDo Call FlashManager function to write the updated Buffer array to flash
 
 	return KM_OP_NONE;

@@ -1,3 +1,0 @@
-../Application/Protocol/Key Manager/Src/KeyManager.c:3:17:KeyManager_AddKey	1
-../Application/Protocol/Key Manager/Src/KeyManager.c:20:17:KeyManager_GetKey	1
-../Application/Protocol/Key Manager/Src/KeyManager.c:38:17:KeyManager_DeleteKey	1
