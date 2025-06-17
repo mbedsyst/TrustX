@@ -23,7 +23,7 @@ KeyDerivatorStatus_t HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint
     uint8_t salt[HASH_OUTPUT_SIZE] = {0};  // optional, use zero as per HKDF standard
 
     // HKDF Extract: PRK = HMAC(salt, IKM)
-    if (GenerateHMAC((uint8_t *)ikm, IKM_SIZE, salt, prk) != HAL_OK)
+    if (GenerateHMAC((uint8_t *)ikm, IKM_SIZE, salt, prk) != 0)
     {
         log_error("HKDF Extract failed.");
         return KEY_DERIVATOR_HMAC_FAIL;
@@ -35,7 +35,7 @@ KeyDerivatorStatus_t HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint
     info[UID_SIZE] = 0x01;  // Counter = 1
 
     uint8_t okm[HASH_OUTPUT_SIZE];  // full 32-byte output
-    if (GenerateHMAC(info, sizeof(info), prk, okm) != HAL_OK)
+    if (GenerateHMAC(info, sizeof(info), prk, okm) != 0)
     {
         log_error("HKDF Expand failed.");
         return KEY_DERIVATOR_HMAC_FAIL;
