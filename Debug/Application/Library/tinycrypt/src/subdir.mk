@@ -1,0 +1,45 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../Application/Library/tinycrypt/src/aes_decrypt.c \
+../Application/Library/tinycrypt/src/aes_encrypt.c \
+../Application/Library/tinycrypt/src/ctr_mode.c \
+../Application/Library/tinycrypt/src/hmac.c \
+../Application/Library/tinycrypt/src/hmac_prng.c \
+../Application/Library/tinycrypt/src/sha256.c \
+../Application/Library/tinycrypt/src/utils.c 
+
+OBJS += \
+./Application/Library/tinycrypt/src/aes_decrypt.o \
+./Application/Library/tinycrypt/src/aes_encrypt.o \
+./Application/Library/tinycrypt/src/ctr_mode.o \
+./Application/Library/tinycrypt/src/hmac.o \
+./Application/Library/tinycrypt/src/hmac_prng.o \
+./Application/Library/tinycrypt/src/sha256.o \
+./Application/Library/tinycrypt/src/utils.o 
+
+C_DEPS += \
+./Application/Library/tinycrypt/src/aes_decrypt.d \
+./Application/Library/tinycrypt/src/aes_encrypt.d \
+./Application/Library/tinycrypt/src/ctr_mode.d \
+./Application/Library/tinycrypt/src/hmac.d \
+./Application/Library/tinycrypt/src/hmac_prng.d \
+./Application/Library/tinycrypt/src/sha256.d \
+./Application/Library/tinycrypt/src/utils.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+Application/Library/tinycrypt/src/%.o Application/Library/tinycrypt/src/%.su Application/Library/tinycrypt/src/%.cyclo: ../Application/Library/tinycrypt/src/%.c Application/Library/tinycrypt/src/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUSE_NUCLEO_64 -DUSE_HAL_DRIVER -DSTM32H563xx -c -I../Core/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc -I../Drivers/STM32H5xx_HAL_Driver/Inc/Legacy -I../Drivers/BSP/STM32H5xx_Nucleo -I../Drivers/CMSIS/Device/ST/STM32H5xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/USB/Class/CDC/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/USB/Core/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketParser/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketBuilder/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Core/HSMManager/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Handlers/Encryption/Src" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Handlers/Encryption/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/FlashManager" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/CryptoEngine/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/Generator/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Library/FLASH/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/Key Manager/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Handlers/HMAC/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/FlashManager/Inc" -I"C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Library/tinycrypt/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+
+clean: clean-Application-2f-Library-2f-tinycrypt-2f-src
+
+clean-Application-2f-Library-2f-tinycrypt-2f-src:
+	-$(RM) ./Application/Library/tinycrypt/src/aes_decrypt.cyclo ./Application/Library/tinycrypt/src/aes_decrypt.d ./Application/Library/tinycrypt/src/aes_decrypt.o ./Application/Library/tinycrypt/src/aes_decrypt.su ./Application/Library/tinycrypt/src/aes_encrypt.cyclo ./Application/Library/tinycrypt/src/aes_encrypt.d ./Application/Library/tinycrypt/src/aes_encrypt.o ./Application/Library/tinycrypt/src/aes_encrypt.su ./Application/Library/tinycrypt/src/ctr_mode.cyclo ./Application/Library/tinycrypt/src/ctr_mode.d ./Application/Library/tinycrypt/src/ctr_mode.o ./Application/Library/tinycrypt/src/ctr_mode.su ./Application/Library/tinycrypt/src/hmac.cyclo ./Application/Library/tinycrypt/src/hmac.d ./Application/Library/tinycrypt/src/hmac.o ./Application/Library/tinycrypt/src/hmac.su ./Application/Library/tinycrypt/src/hmac_prng.cyclo ./Application/Library/tinycrypt/src/hmac_prng.d ./Application/Library/tinycrypt/src/hmac_prng.o ./Application/Library/tinycrypt/src/hmac_prng.su ./Application/Library/tinycrypt/src/sha256.cyclo ./Application/Library/tinycrypt/src/sha256.d ./Application/Library/tinycrypt/src/sha256.o ./Application/Library/tinycrypt/src/sha256.su ./Application/Library/tinycrypt/src/utils.cyclo ./Application/Library/tinycrypt/src/utils.d ./Application/Library/tinycrypt/src/utils.o ./Application/Library/tinycrypt/src/utils.su
+
+.PHONY: clean-Application-2f-Library-2f-tinycrypt-2f-src
+

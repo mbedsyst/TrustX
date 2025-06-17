@@ -1,0 +1,5 @@
+../Application/Library/tinycrypt/src/hmac.c:37:13:rekey	32	static
+../Application/Library/tinycrypt/src/hmac.c:52:5:tc_hmac_set_key	328	static
+../Application/Library/tinycrypt/src/hmac.c:95:5:tc_hmac_init	16	static
+../Application/Library/tinycrypt/src/hmac.c:109:5:tc_hmac_update	24	static
+../Application/Library/tinycrypt/src/hmac.c:124:5:tc_hmac_final	24	static
