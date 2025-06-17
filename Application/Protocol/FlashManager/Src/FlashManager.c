@@ -110,7 +110,7 @@ FlashManagerStatus_t FlashManager_UpdateEntry(uint16_t sectorNumber, uint8_t *en
 	return FLASH_MANAGER_OK;
 }
 
-FlashManagerStatus_t FlashManager_InvalidateEntry(uint16_t sectorNumber)
+/*FlashManagerStatus_t FlashManager_InvalidateEntry(uint16_t sectorNumber)
 {
 	// Calculating Page Number and Validity Flag address
 	uint32_t page_number = sectorNumber * (SECTOR_SIZE/PAGE_SIZE);
@@ -130,7 +130,7 @@ FlashManagerStatus_t FlashManager_InvalidateEntry(uint16_t sectorNumber)
 		log_info("The Key entry has been Invalidated.");
 	}
 	return FLASH_MANAGER_OK;
-}
+}*/
 
 FlashManagerStatus_t FlashManager_EraseEntry(uint16_t sectorNumber)
 {

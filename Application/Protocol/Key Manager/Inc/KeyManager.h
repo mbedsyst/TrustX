@@ -41,7 +41,14 @@ typedef enum
     KM_STATUS_INVALID_ARGUMENT,    // Input parameters invalid or NULL
     KM_STATUS_UNALIGNED_ACCESS,    // Flash or memory alignment error
     KM_STATUS_FLASH_ERROR,         // Flash read/write/erase failure
-    KM_STATUS_NOT_IMPLEMENTED      // Operation not supported yet
+    KM_STATUS_NOT_IMPLEMENTED,      // Operation not supported yet
+	KM_STATUS_IV_FAIL,
+	KM_STATUS_CODEC_FAIL,
+	KM_STATUS_HMAC_FAIL,
+	KM_STATUS_WRITE_KEY_FAIL,
+	KM_STATUS_READ_KEY_FAIL,
+	KM_STATUS_UPDATE_KEY_FAIL,
+	KM_STATUS_DELETE_KEY_FAIL
 } KeyManagerStatus_t;
 
 typedef struct __attribute__((packed))

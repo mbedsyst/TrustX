@@ -1,0 +1,7 @@
+../Application/Protocol/Key Manager/Src/KeyManager.c:38:16:KeyManager_FindKey	3
+../Application/Protocol/Key Manager/Src/KeyManager.c:51:16:KeyManager_FindFreeSector	3
+../Application/Protocol/Key Manager/Src/KeyManager.c:64:10:KeyManager_GetTotalKeys	1
+../Application/Protocol/Key Manager/Src/KeyManager.c:70:20:KeyManager_Init	4
+../Application/Protocol/Key Manager/Src/KeyManager.c:107:20:KeyManager_AddKey	7
+../Application/Protocol/Key Manager/Src/KeyManager.c:188:20:KeyManager_GetKey	8
+../Application/Protocol/Key Manager/Src/KeyManager.c:267:20:KeyManager_DeleteKey	4

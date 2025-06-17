@@ -2319,9 +2319,9 @@ static void MX_SPI1_Init(void)
  800133a:	4b24      	ldr	r3, [pc, #144]	@ (80013cc <MX_SPI1_Init+0xa4>)
  800133c:	2200      	movs	r2, #0
  800133e:	609a      	str	r2, [r3, #8]
-  hspi1.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
  8001340:	4b22      	ldr	r3, [pc, #136]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 8001342:	2203      	movs	r2, #3
+ 8001342:	2207      	movs	r2, #7
  8001344:	60da      	str	r2, [r3, #12]
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
  8001346:	4b21      	ldr	r3, [pc, #132]	@ (80013cc <MX_SPI1_Init+0xa4>)
@@ -2335,84 +2335,83 @@ static void MX_SPI1_Init(void)
  8001352:	4b1e      	ldr	r3, [pc, #120]	@ (80013cc <MX_SPI1_Init+0xa4>)
  8001354:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  8001358:	619a      	str	r2, [r3, #24]
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
  800135a:	4b1c      	ldr	r3, [pc, #112]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 800135c:	2200      	movs	r2, #0
- 800135e:	61da      	str	r2, [r3, #28]
+ 800135c:	f04f 42c0 	mov.w	r2, #1610612736	@ 0x60000000
+ 8001360:	61da      	str	r2, [r3, #28]
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
- 8001360:	4b1a      	ldr	r3, [pc, #104]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 8001362:	2200      	movs	r2, #0
- 8001364:	621a      	str	r2, [r3, #32]
+ 8001362:	4b1a      	ldr	r3, [pc, #104]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 8001364:	2200      	movs	r2, #0
+ 8001366:	621a      	str	r2, [r3, #32]
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
- 8001366:	4b19      	ldr	r3, [pc, #100]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 8001368:	2200      	movs	r2, #0
- 800136a:	625a      	str	r2, [r3, #36]	@ 0x24
+ 8001368:	4b18      	ldr	r3, [pc, #96]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 800136a:	2200      	movs	r2, #0
+ 800136c:	625a      	str	r2, [r3, #36]	@ 0x24
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
- 800136c:	4b17      	ldr	r3, [pc, #92]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 800136e:	2200      	movs	r2, #0
- 8001370:	629a      	str	r2, [r3, #40]	@ 0x28
+ 800136e:	4b17      	ldr	r3, [pc, #92]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 8001370:	2200      	movs	r2, #0
+ 8001372:	629a      	str	r2, [r3, #40]	@ 0x28
   hspi1.Init.CRCPolynomial = 0x7;
- 8001372:	4b16      	ldr	r3, [pc, #88]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 8001374:	2207      	movs	r2, #7
- 8001376:	62da      	str	r2, [r3, #44]	@ 0x2c
+ 8001374:	4b15      	ldr	r3, [pc, #84]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 8001376:	2207      	movs	r2, #7
+ 8001378:	62da      	str	r2, [r3, #44]	@ 0x2c
   hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
- 8001378:	4b14      	ldr	r3, [pc, #80]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 800137a:	f04f 4280 	mov.w	r2, #1073741824	@ 0x40000000
- 800137e:	635a      	str	r2, [r3, #52]	@ 0x34
+ 800137a:	4b14      	ldr	r3, [pc, #80]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 800137c:	f04f 4280 	mov.w	r2, #1073741824	@ 0x40000000
+ 8001380:	635a      	str	r2, [r3, #52]	@ 0x34
   hspi1.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
- 8001380:	4b12      	ldr	r3, [pc, #72]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 8001382:	2200      	movs	r2, #0
- 8001384:	639a      	str	r2, [r3, #56]	@ 0x38
+ 8001382:	4b12      	ldr	r3, [pc, #72]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 8001384:	2200      	movs	r2, #0
+ 8001386:	639a      	str	r2, [r3, #56]	@ 0x38
   hspi1.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
- 8001386:	4b11      	ldr	r3, [pc, #68]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 8001388:	2200      	movs	r2, #0
- 800138a:	63da      	str	r2, [r3, #60]	@ 0x3c
+ 8001388:	4b10      	ldr	r3, [pc, #64]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 800138a:	2200      	movs	r2, #0
+ 800138c:	63da      	str	r2, [r3, #60]	@ 0x3c
   hspi1.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
- 800138c:	4b0f      	ldr	r3, [pc, #60]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 800138e:	2200      	movs	r2, #0
- 8001390:	649a      	str	r2, [r3, #72]	@ 0x48
+ 800138e:	4b0f      	ldr	r3, [pc, #60]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 8001390:	2200      	movs	r2, #0
+ 8001392:	649a      	str	r2, [r3, #72]	@ 0x48
   hspi1.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
- 8001392:	4b0e      	ldr	r3, [pc, #56]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 8001394:	2200      	movs	r2, #0
- 8001396:	64da      	str	r2, [r3, #76]	@ 0x4c
+ 8001394:	4b0d      	ldr	r3, [pc, #52]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 8001396:	2200      	movs	r2, #0
+ 8001398:	64da      	str	r2, [r3, #76]	@ 0x4c
   hspi1.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
- 8001398:	4b0c      	ldr	r3, [pc, #48]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 800139a:	2200      	movs	r2, #0
- 800139c:	651a      	str	r2, [r3, #80]	@ 0x50
+ 800139a:	4b0c      	ldr	r3, [pc, #48]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 800139c:	2200      	movs	r2, #0
+ 800139e:	651a      	str	r2, [r3, #80]	@ 0x50
   hspi1.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_DISABLE;
- 800139e:	4b0b      	ldr	r3, [pc, #44]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 80013a0:	2200      	movs	r2, #0
- 80013a2:	655a      	str	r2, [r3, #84]	@ 0x54
+ 80013a0:	4b0a      	ldr	r3, [pc, #40]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 80013a2:	2200      	movs	r2, #0
+ 80013a4:	655a      	str	r2, [r3, #84]	@ 0x54
   hspi1.Init.IOSwap = SPI_IO_SWAP_DISABLE;
- 80013a4:	4b09      	ldr	r3, [pc, #36]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 80013a6:	2200      	movs	r2, #0
- 80013a8:	659a      	str	r2, [r3, #88]	@ 0x58
+ 80013a6:	4b09      	ldr	r3, [pc, #36]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 80013a8:	2200      	movs	r2, #0
+ 80013aa:	659a      	str	r2, [r3, #88]	@ 0x58
   hspi1.Init.ReadyMasterManagement = SPI_RDY_MASTER_MANAGEMENT_INTERNALLY;
- 80013aa:	4b08      	ldr	r3, [pc, #32]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 80013ac:	2200      	movs	r2, #0
- 80013ae:	65da      	str	r2, [r3, #92]	@ 0x5c
+ 80013ac:	4b07      	ldr	r3, [pc, #28]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 80013ae:	2200      	movs	r2, #0
+ 80013b0:	65da      	str	r2, [r3, #92]	@ 0x5c
   hspi1.Init.ReadyPolarity = SPI_RDY_POLARITY_HIGH;
- 80013b0:	4b06      	ldr	r3, [pc, #24]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 80013b2:	2200      	movs	r2, #0
- 80013b4:	661a      	str	r2, [r3, #96]	@ 0x60
+ 80013b2:	4b06      	ldr	r3, [pc, #24]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 80013b4:	2200      	movs	r2, #0
+ 80013b6:	661a      	str	r2, [r3, #96]	@ 0x60
   if (HAL_SPI_Init(&hspi1) != HAL_OK)
- 80013b6:	4805      	ldr	r0, [pc, #20]	@ (80013cc <MX_SPI1_Init+0xa4>)
- 80013b8:	f00a fe74 	bl	800c0a4 <HAL_SPI_Init>
- 80013bc:	4603      	mov	r3, r0
- 80013be:	2b00      	cmp	r3, #0
- 80013c0:	d001      	beq.n	80013c6 <MX_SPI1_Init+0x9e>
+ 80013b8:	4804      	ldr	r0, [pc, #16]	@ (80013cc <MX_SPI1_Init+0xa4>)
+ 80013ba:	f00a fe73 	bl	800c0a4 <HAL_SPI_Init>
+ 80013be:	4603      	mov	r3, r0
+ 80013c0:	2b00      	cmp	r3, #0
+ 80013c2:	d001      	beq.n	80013c8 <MX_SPI1_Init+0xa0>
   {
     Error_Handler();
- 80013c2:	f000 fa25 	bl	8001810 <Error_Handler>
+ 80013c4:	f000 fa24 	bl	8001810 <Error_Handler>
   }
   /* USER CODE BEGIN SPI1_Init 2 */
 
   /* USER CODE END SPI1_Init 2 */
 
 }
- 80013c6:	bf00      	nop
- 80013c8:	bd80      	pop	{r7, pc}
- 80013ca:	bf00      	nop
+ 80013c8:	bf00      	nop
+ 80013ca:	bd80      	pop	{r7, pc}
  80013cc:	20000284 	.word	0x20000284
  80013d0:	40013000 	.word	0x40013000
 

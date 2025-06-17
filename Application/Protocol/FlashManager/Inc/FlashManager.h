@@ -18,7 +18,7 @@ FlashManagerStatus_t FlashManager_ReadIdentifier(uint16_t sectorNumber, uint8_t 
 FlashManagerStatus_t FlashManager_ReadEntry(uint16_t sectorNumber, uint8_t *entry);
 FlashManagerStatus_t FlashManager_WriteEntry(uint16_t sectorNumber, uint8_t *entry);
 FlashManagerStatus_t FlashManager_UpdateEntry(uint16_t sectorNumber, uint8_t *entry);
-FlashManagerStatus_t FlashManager_InvalidateEntry(uint16_t sectorNumber);
+// FlashManagerStatus_t FlashManager_InvalidateEntry(uint16_t sectorNumber);
 FlashManagerStatus_t FlashManager_EraseEntry(uint16_t sectorNumber);
 
 #endif /* PROTOCOL_FLASHMANAGER_INC_FLASHMANAGER_H_ */

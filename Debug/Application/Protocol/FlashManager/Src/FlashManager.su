@@ -1,0 +1,6 @@
+../Application/Protocol/FlashManager/Src/FlashManager.c:14:22:FlashManager_Init	16	static
+../Application/Protocol/FlashManager/Src/FlashManager.c:31:22:FlashManager_ReadIdentifier	24	static
+../Application/Protocol/FlashManager/Src/FlashManager.c:41:22:FlashManager_ReadEntry	32	static
+../Application/Protocol/FlashManager/Src/FlashManager.c:63:22:FlashManager_WriteEntry	32	static
+../Application/Protocol/FlashManager/Src/FlashManager.c:87:22:FlashManager_UpdateEntry	32	static
+../Application/Protocol/FlashManager/Src/FlashManager.c:135:22:FlashManager_EraseEntry	32	static

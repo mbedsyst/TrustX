@@ -22,6 +22,8 @@ C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.external
                               C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o) (__sread)
 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-vsnprintf.o)
                               ./Application/Utils/Logger/Src/Logger.o (vsnprintf)
+C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
+                              ./Application/Protocol/Key Manager/Src/KeyManager.o (memcmp)
 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
                               C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o (memset)
 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
@@ -2107,24 +2109,42 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .data          0x00000000        0x0 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .bss           0x00000000        0x0 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_info    0x00000000       0x85 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_abbrev  0x00000000       0x28 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .rodata        0x00000000      0x287 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .text.FlashManager_Init
+                0x00000000       0x5c ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .text.FlashManager_ReadIdentifier
+                0x00000000       0x34 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .text.FlashManager_ReadEntry
+                0x00000000       0x58 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .text.FlashManager_WriteEntry
+                0x00000000       0x68 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .text.FlashManager_UpdateEntry
+                0x00000000       0x7c ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .text.FlashManager_EraseEntry
+                0x00000000       0x5c ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_info    0x00000000      0x3c0 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_abbrev  0x00000000      0x127 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000      0x339 ./Application/Protocol/FlashManager/Src/FlashManager.o
+                0x00000000       0x48 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_rnglists
+                0x00000000       0x31 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000      0x36d ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000      0xac0 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000       0x22 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000       0x51 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000      0x103 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000       0x6a ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000      0x1df ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000      0x130 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000      0x1e8 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000       0x22 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000       0x5b ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000       0x61 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x2a ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000       0x94 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x43 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x34 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000      0x189 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x16 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x43 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000       0x57 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x34 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x10 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x58 ./Application/Protocol/FlashManager/Src/FlashManager.o
@@ -2135,9 +2155,6 @@ Discarded input sections
  .debug_macro   0x00000000      0x19b ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x28 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x49 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000      0x103 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000       0x6a ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000      0x1df ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x1c ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x29 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0xfb ./Application/Protocol/FlashManager/Src/FlashManager.o
@@ -2181,9 +2198,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x35 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x20 ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_line    0x00000000      0xabc ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_str     0x00000000   0x13d4a6 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_line    0x00000000      0xc3e ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_str     0x00000000   0x13d752 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .comment       0x00000000       0x44 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_frame   0x00000000       0xe8 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Protocol/FlashManager/Src/FlashManager.o
  .group         0x00000000        0xc ./Application/Protocol/Generator/Src/Generator.o
@@ -2351,22 +2369,112 @@ Discarded input sections
  .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
  .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
  .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
  .text          0x00000000        0x0 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .data          0x00000000        0x0 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .bss           0x00000000        0x0 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.key_lookup_table
+                0x00000000     0x2000 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.total_keys
+                0x00000000        0x2 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .text.KeyManager_FindKey
+                0x00000000       0x44 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .text.KeyManager_FindFreeSector
+                0x00000000       0x44 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .text.KeyManager_GetTotalKeys
+                0x00000000       0x18 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .rodata        0x00000000      0x27a ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .text.KeyManager_Init
+                0x00000000       0xb4 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .text.KeyManager_AddKey
-                0x00000000       0x24 ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000      0x1d0 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .text.KeyManager_GetKey
-                0x00000000       0x18 ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000      0x1d0 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .text.KeyManager_DeleteKey
-                0x00000000       0x18 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_info    0x00000000      0x19d ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_abbrev  0x00000000       0xbf ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000       0x78 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.ciphertext.5
+                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.plaintext.4
+                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.keyEntryArray.3
+                0x00000000       0x58 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.keyEntryArray.2
+                0x00000000       0x58 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.ciphertext.1
+                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .bss.plaintext.0
+                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_info    0x00000000      0x775 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_abbrev  0x00000000      0x1ff ./Application/Protocol/Key Manager/Src/KeyManager.o
  .debug_aranges
-                0x00000000       0x30 ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000       0x50 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .debug_rnglists
-                0x00000000       0x1f ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x72 ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000       0x3a ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x414 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .debug_macro   0x00000000      0xac0 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .debug_macro   0x00000000       0x22 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .debug_macro   0x00000000       0x8e ./Application/Protocol/Key Manager/Src/KeyManager.o
@@ -2375,10 +2483,75 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Application/Protocol/Key Manager/Src/KeyManager.o
  .debug_macro   0x00000000      0x1df ./Application/Protocol/Key Manager/Src/KeyManager.o
  .debug_macro   0x00000000       0x10 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_line    0x00000000      0x4d7 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_str     0x00000000     0x3ee3 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x28 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x1e8 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x61 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x2a ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x189 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x10 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x58 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x177 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x369 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x19b ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x28 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x49 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x29 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xfb ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000     0x1685 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x5e ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000    0x211d5 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x6d ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000     0x388a ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x63 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000     0x1f0d ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0xe96 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x166 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x307 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x917 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x478 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xd6 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x1cd ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x55b ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x638 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x7b ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x114 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x22c ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x35 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xa5 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x313 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x1bb ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xab ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xad ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x19 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x31a ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x96a ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xe4 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x5cf ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xeb ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x693 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xa6 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x23f ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x169 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x2a7 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x47e ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x35 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x29 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x20 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_line    0x00000000      0xefc ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_str     0x00000000   0x13d973 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .comment       0x00000000       0x44 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_frame   0x00000000       0x88 ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .debug_frame   0x00000000      0x124 ./Application/Protocol/Key Manager/Src/KeyManager.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Protocol/Key Manager/Src/KeyManager.o
  .group         0x00000000        0xc ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
@@ -10778,6 +10951,13 @@ Discarded input sections
  .text          0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-vsnprintf.o)
  .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-vsnprintf.o)
  .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-vsnprintf.o)
+ .text          0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
+ .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
+ .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
+ .text.memcmp   0x00000000       0x20 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
+ .debug_frame   0x00000000       0x28 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
+ .ARM.attributes
+                0x00000000       0x38 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
  .text          0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
  .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
  .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)

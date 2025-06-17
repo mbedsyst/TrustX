@@ -80,7 +80,7 @@ static OperationStatus_t KeyHandler_Erase(const ParsedPacket_t* request, Respons
 	return OPERATION_UNKNOWN_ERROR;
 }
 
-OperationStatus_t KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
+OperationStatus_t  KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
 	switch(request->cmd)
 	{
@@ -101,7 +101,6 @@ OperationStatus_t KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacke
 		default:
 			break;
 	}
-
 	return 0;
 }
 
