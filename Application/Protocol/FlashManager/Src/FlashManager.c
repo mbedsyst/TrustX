@@ -32,6 +32,7 @@ FlashManagerStatus_t FlashManager_ReadIdentifier(uint16_t sectorNumber, uint8_t 
 {
 	// Calculating Page Number from Sector Number
 	uint32_t page_number = sectorNumber * (SECTOR_SIZE/PAGE_SIZE);
+	// Read the first 5 bytes from the sector
 	W25Q_Read(page_number, 0, IDENTIFIER_SIZE, entryHeader);
 	log_info("Read Sector Identifier from Flash.");
 	return FLASH_MANAGER_OK;
@@ -45,12 +46,12 @@ FlashManagerStatus_t FlashManager_ReadEntry(uint16_t sectorNumber, uint8_t *entr
 	// Reading Validity Flag at the start of sector.
 	uint8_t entryFlag = W25Q_Read_Byte(byte_addr);
 	// Checking if Entry has a Valid Flag or not.
-	if (entryFlag == INVALID_FLAG)
+	if (entryFlag != VALID_FLAG)
 	{
-		log_error("Entry has Invalid Flag.");
+		log_error("Entry has an Invalid/Unidentified Flag.");
 		return FLASH_MANAGER_INVALID_FLAG;
 	}
-	else if(entryFlag == VALID_FLAG)
+	else
 	{
 		// Reading from the sector if validity flag is 0xAA
 		W25Q_Read(page_number, 1, ENTRY_SIZE, entry);
@@ -91,12 +92,12 @@ FlashManagerStatus_t FlashManager_UpdateEntry(uint16_t sectorNumber, uint8_t *en
 	// Reading Validity Flag at the start of sector
 	uint8_t entryFlag = W25Q_Read_Byte(byte_addr);
 	// Checking if Entry has an Invalid Flag or not.
-	if (entryFlag == INVALID_FLAG)
+	if (entryFlag != VALID_FLAG)
 	{
-		log_error("Entry has an Invalid Flag.");
+		log_error("Entry has an Invalid/Unidentified Flag.");
 		return FLASH_MANAGER_INVALID_FLAG;
 	}
-	else if(entryFlag == VALID_FLAG)
+	else
 	{
 		// Updating the sector if Validity Flag is 0xAA
 		log_info("Erasing the current entry in Flash.");
