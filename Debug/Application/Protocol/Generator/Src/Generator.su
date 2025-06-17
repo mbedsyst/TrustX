@@ -3,3 +3,4 @@
 ../Application/Protocol/Generator/Src/Generator.c:74:19:GenerateKey	16	static
 ../Application/Protocol/Generator/Src/Generator.c:79:19:GenerateIV	16	static
 ../Application/Protocol/Generator/Src/Generator.c:84:19:GenerateKEYID	16	static
+../Application/Protocol/Generator/Src/Generator.c:89:19:GenerateSalt	16	static

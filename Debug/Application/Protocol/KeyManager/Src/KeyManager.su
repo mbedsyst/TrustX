@@ -1,0 +1,7 @@
+../Application/Protocol/KeyManager/Src/KeyManager.c:38:16:KeyManager_FindKey	24	static
+../Application/Protocol/KeyManager/Src/KeyManager.c:51:16:KeyManager_FindFreeSector	16	static
+../Application/Protocol/KeyManager/Src/KeyManager.c:64:10:KeyManager_GetTotalKeys	4	static
+../Application/Protocol/KeyManager/Src/KeyManager.c:70:20:KeyManager_Init	24	static
+../Application/Protocol/KeyManager/Src/KeyManager.c:107:20:KeyManager_AddKey	128	static
+../Application/Protocol/KeyManager/Src/KeyManager.c:188:20:KeyManager_GetKey	152	static
+../Application/Protocol/KeyManager/Src/KeyManager.c:267:20:KeyManager_DeleteKey	24	static

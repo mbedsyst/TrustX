@@ -85,3 +85,8 @@ HAL_StatusTypeDef GenerateKEYID(uint8_t *id_out)
 {
     return GenerateRandomBytes(id_out, 4);
 }
+
+HAL_StatusTypeDef GenerateSalt(uint8_t *id_out)
+{
+    return GenerateRandomBytes(id_out, 20);
+}

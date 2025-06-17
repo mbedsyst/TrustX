@@ -37,9 +37,11 @@ Application/Library/tinycrypt/src \
 Application/Protocol/CryptoEngine/Src \
 Application/Protocol/FlashManager/Src \
 Application/Protocol/Generator/Src \
-Application/Protocol/Key\ Manager/Src \
+Application/Protocol/KeyDerivator/Src \
+Application/Protocol/KeyManager/Src \
 Application/Protocol/PacketBuilder/Src \
 Application/Protocol/PacketParser/Src \
+Application/Protocol/SaltManager/Src \
 Application/Utils/Logger/Src \
 Application/Utils/Timekeeper/Src \
 Core/Src \

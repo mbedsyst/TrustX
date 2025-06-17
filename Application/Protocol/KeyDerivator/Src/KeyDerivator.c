@@ -5,8 +5,10 @@
 
 extern HASH_HandleTypeDef hhash;
 
-// Constants
 #define HASH_OUTPUT_SIZE 	32  // SHA-256 digest size
+#define DERIVED_KEY_SIZE 	16  // 128-bit AES key
+#define UID_SIZE         	12  // 96-bit STM32 Unique ID
+#define IKM_SIZE         	20  // Random entropy size
 
 KeyDerivatorStatus_t HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint8_t *out_key)
 {
@@ -14,7 +16,7 @@ KeyDerivatorStatus_t HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint
     if (!ikm || !uid || !out_key)
     {
         log_error("Key derivation: NULL input");
-        return KEY_DERIVATOR_ERR_PARAM;
+        return KEY_DERIVATOR_NULL_INPUT;
     }
 
     uint8_t prk[HASH_OUTPUT_SIZE];
@@ -24,7 +26,7 @@ KeyDerivatorStatus_t HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint
     if (GenerateHMAC((uint8_t *)ikm, IKM_SIZE, salt, prk) != HAL_OK)
     {
         log_error("HKDF Extract failed.");
-        return KEY_DERIVATOR_ERR_HASH;
+        return KEY_DERIVATOR_HMAC_FAIL;
     }
 
     // HKDF Expand: OKM = HMAC(PRK, info | 0x01)
@@ -36,7 +38,7 @@ KeyDerivatorStatus_t HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint
     if (GenerateHMAC(info, sizeof(info), prk, okm) != HAL_OK)
     {
         log_error("HKDF Expand failed.");
-        return KEY_DERIVATOR_ERR_HASH;
+        return KEY_DERIVATOR_HMAC_FAIL;
     }
 
     // Copy first 16 bytes for AES-128

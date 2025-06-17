@@ -1,2 +1,0 @@
-../Application/Handlers/OTP/Src/OTPHandler.c:15:10:CalculatePadSize	24	static
-../Application/Handlers/OTP/Src/OTPHandler.c:32:19:OTPHandler_Handle	32	static

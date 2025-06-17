@@ -23,7 +23,7 @@ C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.external
 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-vsnprintf.o)
                               ./Application/Utils/Logger/Src/Logger.o (vsnprintf)
 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memcmp.o)
-                              ./Application/Protocol/Key Manager/Src/KeyManager.o (memcmp)
+                              ./Application/Protocol/KeyManager/Src/KeyManager.o (memcmp)
 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-memset.o)
                               C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o (memset)
 C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-closer.o)
@@ -2930,199 +2930,354 @@ Discarded input sections
  .debug_frame   0x00000000       0xc8 ./Application/Protocol/Generator/Src/Generator.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Protocol/Generator/Src/Generator.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .group         0x00000000        0xc ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text          0x00000000        0x0 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .data          0x00000000        0x0 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss           0x00000000        0x0 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.key_lookup_table
-                0x00000000     0x2000 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.total_keys
-                0x00000000        0x2 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text.KeyManager_FindKey
-                0x00000000       0x44 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text.KeyManager_FindFreeSector
-                0x00000000       0x44 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text.KeyManager_GetTotalKeys
-                0x00000000       0x18 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .rodata        0x00000000      0x27a ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text.KeyManager_Init
-                0x00000000       0xb4 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text.KeyManager_AddKey
-                0x00000000      0x1d0 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text.KeyManager_GetKey
-                0x00000000      0x1d0 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .text.KeyManager_DeleteKey
-                0x00000000       0x78 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.ciphertext.5
-                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.plaintext.4
-                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.keyEntryArray.3
-                0x00000000       0x58 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.keyEntryArray.2
-                0x00000000       0x58 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.ciphertext.1
-                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .bss.plaintext.0
-                0x00000000       0x23 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_info    0x00000000      0x775 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_abbrev  0x00000000      0x1ff ./Application/Protocol/Key Manager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .text          0x00000000        0x0 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .data          0x00000000        0x0 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .bss           0x00000000        0x0 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .rodata        0x00000000       0x48 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .text.HKDF_DeriveKey
+                0x00000000       0xbc ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_info    0x00000000      0x21e ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_abbrev  0x00000000      0x12f ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
  .debug_aranges
-                0x00000000       0x50 ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000       0x20 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
  .debug_rnglists
-                0x00000000       0x3a ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x414 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0xac0 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x22 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x8e ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x51 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x103 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x6a ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x1df ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x10 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x28 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x1e8 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x61 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x2a ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x43 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x34 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x189 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x43 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x34 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x10 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x58 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x8e ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x1c ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x177 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x369 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x19b ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x28 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x49 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x1c ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x29 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xfb ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000     0x1685 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x5e ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000    0x211d5 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x6d ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000     0x388a ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x63 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000     0x1f0d ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0xe96 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x166 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x307 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x917 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x478 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xd6 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x1cd ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x55b ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x638 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x7b ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x114 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x22c ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x35 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xa5 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x313 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x1bb ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xab ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xad ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x19 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x31a ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x96a ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xe4 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x5cf ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xeb ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x693 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0xa6 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x23f ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x169 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x2a7 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000      0x47e ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x35 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x29 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x16 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_macro   0x00000000       0x20 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_line    0x00000000      0xf08 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_str     0x00000000   0x13d973 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .comment       0x00000000       0x44 ./Application/Protocol/Key Manager/Src/KeyManager.o
- .debug_frame   0x00000000      0x124 ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000       0x14 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x35c ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0xac0 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x22 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x51 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x103 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x6a ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x1df ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x189 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x1e8 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x61 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x2a ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x10 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x58 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x177 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x369 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x19b ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x28 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x49 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x29 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xfb ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000     0x1685 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x5e ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000    0x211d5 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x6d ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000     0x388a ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x63 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000     0x1f0d ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0xe96 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x166 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x307 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x917 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x478 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xd6 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x1cd ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x55b ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x638 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x7b ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x114 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x22c ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x35 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xa5 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x313 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x1bb ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xab ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xad ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x19 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x31a ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x96a ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xe4 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x5cf ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xeb ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x693 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0xa6 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x23f ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x169 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x2a7 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000      0x47e ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x35 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_macro   0x00000000       0x20 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_line    0x00000000      0xb52 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_str     0x00000000   0x13d207 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .comment       0x00000000       0x44 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .debug_frame   0x00000000       0x38 ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
  .ARM.attributes
-                0x00000000       0x3a ./Application/Protocol/Key Manager/Src/KeyManager.o
+                0x00000000       0x3a ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text          0x00000000        0x0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .data          0x00000000        0x0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss           0x00000000        0x0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.key_lookup_table
+                0x00000000     0x2000 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.total_keys
+                0x00000000        0x2 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text.KeyManager_FindKey
+                0x00000000       0x44 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text.KeyManager_FindFreeSector
+                0x00000000       0x44 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text.KeyManager_GetTotalKeys
+                0x00000000       0x18 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .rodata        0x00000000      0x27a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text.KeyManager_Init
+                0x00000000       0xb4 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text.KeyManager_AddKey
+                0x00000000      0x1d0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text.KeyManager_GetKey
+                0x00000000      0x1d0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .text.KeyManager_DeleteKey
+                0x00000000       0x78 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.ciphertext.5
+                0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.plaintext.4
+                0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.keyEntryArray.3
+                0x00000000       0x58 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.keyEntryArray.2
+                0x00000000       0x58 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.ciphertext.1
+                0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .bss.plaintext.0
+                0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_info    0x00000000      0x775 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_abbrev  0x00000000      0x1ff ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_aranges
+                0x00000000       0x50 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_rnglists
+                0x00000000       0x3a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x414 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0xac0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x22 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x51 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x103 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x6a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x1df ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x10 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x28 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x1e8 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x61 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x2a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x189 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x10 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x58 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x177 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x369 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x19b ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x28 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x49 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x29 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xfb ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000     0x1685 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x5e ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000    0x211d5 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x6d ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000     0x388a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x63 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000     0x1f0d ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0xe96 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x166 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x307 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x917 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x478 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xd6 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x1cd ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x55b ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x638 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x7b ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x114 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x22c ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x35 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xa5 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x313 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x1bb ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xab ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xad ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x19 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x31a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x96a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xe4 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x5cf ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xeb ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x693 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0xa6 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x23f ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x169 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x2a7 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x47e ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x35 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x29 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x20 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_line    0x00000000      0xf06 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_str     0x00000000   0x13d971 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .comment       0x00000000       0x44 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_frame   0x00000000      0x124 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .ARM.attributes
+                0x00000000       0x3a ./Application/Protocol/KeyManager/Src/KeyManager.o
  .group         0x00000000        0xc ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .group         0x00000000        0xc ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .group         0x00000000        0xc ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
@@ -3443,6 +3598,21 @@ Discarded input sections
  .debug_frame   0x00000000       0x34 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Protocol/PacketParser/Src/PacketParser.o
+ .group         0x00000000        0xc ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .text          0x00000000        0x0 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .data          0x00000000        0x0 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .bss           0x00000000        0x0 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .debug_info    0x00000000       0x22 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .debug_abbrev  0x00000000       0x12 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .debug_aranges
+                0x00000000       0x18 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .debug_macro   0x00000000       0x11 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .debug_macro   0x00000000      0xac0 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .debug_line    0x00000000       0x56 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .debug_str     0x00000000     0x2e5c ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .comment       0x00000000       0x44 ./Application/Protocol/SaltManager/Src/SaltManager.o
+ .ARM.attributes
+                0x00000000       0x3a ./Application/Protocol/SaltManager/Src/SaltManager.o
  .group         0x00000000        0xc ./Application/Utils/Logger/Src/Logger.o
  .group         0x00000000        0xc ./Application/Utils/Logger/Src/Logger.o
  .group         0x00000000        0xc ./Application/Utils/Logger/Src/Logger.o
@@ -11381,9 +11551,11 @@ LOAD ./Application/Library/tinycrypt/src/utils.o
 LOAD ./Application/Protocol/CryptoEngine/Src/CryptoEngine.o
 LOAD ./Application/Protocol/FlashManager/Src/FlashManager.o
 LOAD ./Application/Protocol/Generator/Src/Generator.o
-LOAD ./Application/Protocol/Key Manager/Src/KeyManager.o
+LOAD ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o
+LOAD ./Application/Protocol/KeyManager/Src/KeyManager.o
 LOAD ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
 LOAD ./Application/Protocol/PacketParser/Src/PacketParser.o
+LOAD ./Application/Protocol/SaltManager/Src/SaltManager.o
 LOAD ./Application/Utils/Logger/Src/Logger.o
 LOAD ./Application/Utils/Timekeeper/Src/Timekeeper.o
 LOAD ./Core/Src/main.o

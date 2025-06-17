@@ -17,9 +17,11 @@ RM := rm -rf
 -include Core/Src/subdir.mk
 -include Application/Utils/Timekeeper/Src/subdir.mk
 -include Application/Utils/Logger/Src/subdir.mk
+-include Application/Protocol/SaltManager/Src/subdir.mk
 -include Application/Protocol/PacketParser/Src/subdir.mk
 -include Application/Protocol/PacketBuilder/Src/subdir.mk
--include Application/Protocol/Key\ Manager/Src/subdir.mk
+-include Application/Protocol/KeyManager/Src/subdir.mk
+-include Application/Protocol/KeyDerivator/Src/subdir.mk
 -include Application/Protocol/Generator/Src/subdir.mk
 -include Application/Protocol/FlashManager/Src/subdir.mk
 -include Application/Protocol/CryptoEngine/Src/subdir.mk

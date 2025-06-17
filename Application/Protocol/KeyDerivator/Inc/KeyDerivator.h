@@ -4,13 +4,6 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#define DERIVED_KEY_SIZE 16  // 128-bit AES key
-#define UID_SIZE         12  // 96-bit STM32 Unique ID
-#define IKM_SIZE         20  // Random entropy size
-
-#define KEY_DERIVATOR_ERR_HASH   1
-#define KEY_DERIVATOR_ERR_PARAM  2
-
 typedef enum
 {
 	KEY_DERIVATOR_OK = 0,
@@ -26,6 +19,6 @@ typedef enum
  * @param out_key   Pointer to 16-byte output buffer to hold the AES key.
  * @return          0 on success, non-zero on error.
  */
-int HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint8_t *out_key);
+KeyDerivatorStatus_t HKDF_DeriveKey(const uint8_t *ikm, const uint8_t *uid, uint8_t *out_key);
 
 #endif /* PROTOCOL_KEYDERIVATOR_INC_KEYDERIVATOR_H_ */

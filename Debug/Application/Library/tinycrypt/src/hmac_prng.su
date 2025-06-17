@@ -1,4 +1,0 @@
-../Application/Library/tinycrypt/src/hmac_prng.c:78:13:update	32	static
-../Application/Library/tinycrypt/src/hmac_prng.c:130:5:tc_hmac_prng_init	32	static
-../Application/Library/tinycrypt/src/hmac_prng.c:154:5:tc_hmac_prng_reseed	32	static
-../Application/Library/tinycrypt/src/hmac_prng.c:192:5:tc_hmac_prng_generate	40	static
