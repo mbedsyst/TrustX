@@ -21,17 +21,10 @@ typedef enum
 
 typedef enum
 {
-    KM_OP_NONE = 0,            // No operation
-    KM_OP_ADD_KEY,             // Add a new key entry
-    KM_OP_DELETE_KEY,          // Delete a key by ID
-    KM_OP_UPDATE_KEY,          // Modify an existing key entry
-    KM_OP_GET_KEY,             // Retrieve a key by ID
-    KM_OP_LIST_KEYS,           // Get metadata for all keys
-    KM_OP_INCREMENT_USAGE,     // Decrement/increment usage count
-    KM_OP_VALIDATE_KEY,        // Validate key (CRC/hash check)
-    KM_OP_RESET_USAGE,         // Reset usage count
-    KM_OP_WIPE_ALL_KEYS        // Clear all keys from flash
-} KeyManager_Op_t;
+    SIZE_128 = 16,
+    SIZE_192 = 24,
+    SIZE_256 = 32
+} KeySize_t;
 
 typedef enum
 {
@@ -49,7 +42,7 @@ typedef enum
     KM_STATUS_UNALIGNED_ACCESS,    // Flash or memory alignment error
     KM_STATUS_FLASH_ERROR,         // Flash read/write/erase failure
     KM_STATUS_NOT_IMPLEMENTED      // Operation not supported yet
-} KeyManager_Status_t;
+} KeyManagerStatus_t;
 
 typedef struct __attribute__((packed))
 {
@@ -63,9 +56,10 @@ typedef struct __attribute__((packed))
     uint8_t  hmac[32];                   // HMAC-SHA256 truncated (e.g., first 16 bytes)
 } KeyEntry_t;
 
-KeyManager_Op_t KeyManager_AddKey(uint8_t* keyID, uint8_t* key, uint8_t keySize, uint8_t keyOrigin, uint8_t keyUsage);
-KeyManager_Op_t KeyManager_GetKey(uint8_t* keyID, uint8_t* key);
-KeyManager_Op_t KeyManager_DeleteKey(uint8_t keyID);
+KeyManagerStatus_t KeyManager_Init(void);
+KeyManagerStatus_t KeyManager_AddKey(uint32_t keyID, uint8_t* key, uint8_t keySize, uint8_t keyOrigin, uint8_t keyUsage);
+KeyManagerStatus_t KeyManager_GetKey(uint32_t keyID, uint8_t* key);
+KeyManagerStatus_t KeyManager_DeleteKey(uint32_t keyID);
 
 
 #endif /* PROTOCOL_KEY_MANAGER_INC_KEYMANAGER_H_ */
