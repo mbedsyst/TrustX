@@ -51,8 +51,7 @@
 COM_InitTypeDef BspCOMInit;
 
 HASH_HandleTypeDef hhash;
-__ALIGN_BEGIN static const uint8_t pKeyHASH[1] __ALIGN_END = {
-                            0x00};
+__ALIGN_BEGIN static const uint8_t pKeyHASH[1] __ALIGN_END = { 0x00 };
 
 I2C_HandleTypeDef hi2c1;
 
@@ -84,6 +83,7 @@ static void MX_USART6_UART_Init(void);
 static void MX_RTC_Init(void);
 static void MX_RNG_Init(void);
 static void MX_HASH_Init(void);
+static void MX_FLASH_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -131,6 +131,7 @@ int main(void)
   MX_RTC_Init();
   MX_RNG_Init();
   MX_HASH_Init();
+  MX_FLASH_Init();
   /* USER CODE BEGIN 2 */
   while(hUsbDeviceFS.pClassData == NULL);
   /* USER CODE END 2 */
@@ -262,6 +263,35 @@ void SystemClock_Config(void)
   /** Configure the programming delay
   */
   __HAL_FLASH_SET_PROGRAM_DELAY(FLASH_PROGRAMMING_DELAY_2);
+}
+
+/**
+  * @brief FLASH Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_FLASH_Init(void)
+{
+
+  /* USER CODE BEGIN FLASH_Init 0 */
+
+  /* USER CODE END FLASH_Init 0 */
+
+  /* USER CODE BEGIN FLASH_Init 1 */
+
+  /* USER CODE END FLASH_Init 1 */
+  if (HAL_FLASH_Unlock() != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_FLASH_Lock() != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN FLASH_Init 2 */
+
+  /* USER CODE END FLASH_Init 2 */
+
 }
 
 /**

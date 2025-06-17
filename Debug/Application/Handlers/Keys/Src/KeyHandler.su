@@ -1,0 +1,5 @@
+../Application/Handlers/Keys/Src/KeyHandler.c:15:17:CalculateKeySize	24	static
+../Application/Handlers/Keys/Src/KeyHandler.c:35:26:KeyHandler_Generate	32	static
+../Application/Handlers/Keys/Src/KeyHandler.c:73:26:KeyHandler_Store	16	static
+../Application/Handlers/Keys/Src/KeyHandler.c:78:26:KeyHandler_Erase	16	static
+../Application/Handlers/Keys/Src/KeyHandler.c:83:20:KeyHandler_Handle	16	static

@@ -1,0 +1,2 @@
+../Application/Handlers/Random/Src/RandomHandler.c:15:10:CalculateByteSize	12
+../Application/Handlers/Random/Src/RandomHandler.c:36:19:RandomHandler_Handle	5
