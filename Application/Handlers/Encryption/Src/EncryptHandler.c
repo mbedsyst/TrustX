@@ -1,5 +1,6 @@
 #include "../../Encryption/Inc/EncryptHandler.h"
 #include "CryptoEngine.h"
+#include "KeyManager.h"
 #include "Generator.h"
 #include "Logger.h"
 #include "constants.h"
@@ -53,32 +54,6 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	    log_error("Failed to allocate buffer for Ciphertext");
 	    return OPERATION_UNKNOWN_ERROR;
 	}
-	// Copy the Key/Key ID from Data Stream or Generate a Key
-	switch(keyState)
-	{
-		case ENC_KEY_BYOK:
-			log_info("Using a User-Provided Encryption Key.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
-			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
-			break;
-
-		case ENC_KEY_DABA:
-			log_info("Searching for a stored Key in the Key Manager.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
-			// ToDo Search the Key Manager for a match using the given Key ID
-			break;
-
-		case ENC_KEY_GYOK:
-			log_info("Generating a Random Encryption Key.");
-			GenerateKEY(keyData);
-			GenerateKEYID(keyID);
-			// ToDo Store the Generated Key in the Key Manager
-			break;
-
-		default:
-			log_warn("Key State field not Recognized.");
-			break;
-	}
 	// Copy the IV from Data Stream or Generate an IV
 	switch(ivState)
 	{
@@ -94,6 +69,41 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 
 		default:
 			log_warn("IV State field not Recognized.");
+			break;
+	}
+	// Copy the Key/Key ID from Data Stream or Generate a Key
+	switch(keyState)
+	{
+		case ENC_KEY_BYOK:
+			log_info("Using a User-Provided Encryption Key.");
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
+			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
+			GenerateKEYID(keyID);
+			KeyManager_AddKey(keyID, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_ENCRYPT);
+			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
+			// ToDo Fix the Key Size parameter
+			break;
+
+		case ENC_KEY_DABA:
+			log_info("Searching for a stored Key in the Key Manager.");
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
+			// ToDo Search the Key Manager for a match using the given Key ID
+			KeyManager_GetKey(keyID, keyData);
+			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
+			break;
+
+		case ENC_KEY_GYOK:
+			log_info("Generating a Random Encryption Key.");
+			GenerateKEY(keyData);
+			GenerateKEYID(keyID);
+			// ToDo Store the Generated Key in the Key Manager
+			KeyManager_AddKey(keyID, keyData, AES_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_ENCRYPT);
+			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
+			// ToDo Fix the Key Size parameter
+			break;
+
+		default:
+			log_warn("Key State field not Recognized.");
 			break;
 	}
 	// Execute the Encryption operation

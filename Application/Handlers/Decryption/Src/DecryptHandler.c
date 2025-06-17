@@ -1,5 +1,6 @@
 #include "../../Decryption/Inc/DecryptHandler.h"
 #include "CryptoEngine.h"
+#include "KeyManager.h"
 #include "Generator.h"
 #include "Logger.h"
 #include "constants.h"
@@ -52,25 +53,6 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 	    log_error("Failed to allocate buffer for Plaintext");
 	    return OPERATION_UNKNOWN_ERROR;
 	}
-	// Copy the Key/Key ID from Data Stream
-	switch(keyState)
-	{
-		case DEC_KEY_BYOK:
-			log_info("Using a User-Provided Decryption Key.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
-			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
-			break;
-
-		case DEC_KEY_DABA:
-			log_info("Searching for a stored Key in the Key Manager.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
-			// ToDo Search Key Manager for a match using Key ID
-			break;
-
-		default:
-			log_warn("Key State field not Recognized.");
-			break;
-	}
 	// Copy the IV from the Data Stream
 	switch(ivState)
 	{
@@ -86,6 +68,30 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 
 		default:
 			log_warn("IV State field not Recognized.");
+			break;
+	}
+	// Copy the Key/Key ID from Data Stream
+	switch(keyState)
+	{
+		case DEC_KEY_BYOK:
+			log_info("Using a User-Provided Decryption Key.");
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
+			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
+			KeyManager_AddKey(keyID, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_DECRYPT);
+			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
+			// ToDo Fix the Key Size parameter
+			break;
+
+		case DEC_KEY_DABA:
+			log_info("Searching for a stored Key in the Key Manager.");
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
+			// ToDo Search Key Manager for a match using Key ID
+			KeyManager_GetKey(keyID, keyData);
+			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
+			break;
+
+		default:
+			log_warn("Key State field not Recognized.");
 			break;
 	}
 	// Execute the Encryption operation
