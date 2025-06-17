@@ -4,12 +4,12 @@
 #include "W25Q64.h"
 #include <string.h>
 
-#define PAGE_SIZE		256
-#define SECTOR_SIZE		4096
-#define ENTRY_SIZE		88
-#define VALID_FLAG 		0xAA
-#define INVALID_FLAG 	0x55
-#define IDENTIFIER_SIZE	5
+#define PAGE_SIZE			256
+#define SECTOR_SIZE			4096
+#define ENTRY_SIZE			88
+#define VALID_FLAG 			0xAA
+#define INVALID_FLAG 		0x55
+#define IDENTIFIER_SIZE		5
 
 FlashManagerStatus_t FlashManager_Init(void)
 {
@@ -17,6 +17,12 @@ FlashManagerStatus_t FlashManager_Init(void)
 	log_info("Initializing the Flash Manager.");
 	W25Q_Reset();
 	deviceID = W25Q_ReadID();
+	if(!deviceID)
+	{
+		log_error("Flash Memory Device ID could not be retrieved.");
+		log_error("External Flash Memory device has not been reset.");
+		return FLASH_MANAGER_NOT_INITIALIZED;
+	}
 	log_info("External Flash Memory device has been reset.");
 	log_info("Flash Memory Device ID : %0xX", deviceID);
 	return FLASH_MANAGER_OK;
@@ -41,7 +47,6 @@ FlashManagerStatus_t FlashManager_ReadEntry(uint16_t sectorNumber, uint8_t *entr
 	// Checking if Entry has a Valid Flag or not.
 	if (entryFlag == INVALID_FLAG)
 	{
-		// ToDo Fix Error Handling
 		log_error("Entry has Invalid Flag.");
 		return FLASH_MANAGER_INVALID_FLAG;
 	}
@@ -51,6 +56,7 @@ FlashManagerStatus_t FlashManager_ReadEntry(uint16_t sectorNumber, uint8_t *entr
 		W25Q_Read(page_number, 1, ENTRY_SIZE, entry);
 		log_info("Read valid entry from Flash.");
 	}
+	return FLASH_MANAGER_OK;
 }
 
 FlashManagerStatus_t FlashManager_WriteEntry(uint16_t sectorNumber, uint8_t *entry)
@@ -63,10 +69,9 @@ FlashManagerStatus_t FlashManager_WriteEntry(uint16_t sectorNumber, uint8_t *ent
 	// Checking if Entry has a Valid Flag or not.
 	if (entryFlag == VALID_FLAG)
 	{
-		// ToDo Fix Error Handling
 		log_error("Entry has a Valid Flag.");
 		log_warn("Cannot write to this sector.");
-		return FLASH_MANAGER_ERROR;
+		return FLASH_MANAGER_WRITE_FAIL;
 	}
 	else
 	{
@@ -75,6 +80,7 @@ FlashManagerStatus_t FlashManager_WriteEntry(uint16_t sectorNumber, uint8_t *ent
 		W25Q_Write(page_number, 1, ENTRY_SIZE, entry);
 		log_info("Wrote a valid entry to Flash.");
 	}
+	return FLASH_MANAGER_OK;
 }
 
 FlashManagerStatus_t FlashManager_UpdateEntry(uint16_t sectorNumber, uint8_t *entry)
@@ -88,7 +94,7 @@ FlashManagerStatus_t FlashManager_UpdateEntry(uint16_t sectorNumber, uint8_t *en
 	if (entryFlag == INVALID_FLAG)
 	{
 		log_error("Entry has an Invalid Flag.");
-		return FLASH_MANAGER_ERROR;
+		return FLASH_MANAGER_INVALID_FLAG;
 	}
 	else if(entryFlag == VALID_FLAG)
 	{
@@ -100,6 +106,7 @@ FlashManagerStatus_t FlashManager_UpdateEntry(uint16_t sectorNumber, uint8_t *en
 		W25Q_Write(page_number, 1, ENTRY_SIZE, entry);
 		log_info("Completed updating the Key Entry in Flash.");
 	}
+	return FLASH_MANAGER_OK;
 }
 
 FlashManagerStatus_t FlashManager_InvalidateEntry(uint16_t sectorNumber)
@@ -119,9 +126,9 @@ FlashManagerStatus_t FlashManager_InvalidateEntry(uint16_t sectorNumber)
 	}
 	else
 	{
-		log_info("The entry has been Invalidated.");
-		return FLASH_MANAGER_OK;
+		log_info("The Key entry has been Invalidated.");
 	}
+	return FLASH_MANAGER_OK;
 }
 
 FlashManagerStatus_t FlashManager_EraseEntry(uint16_t sectorNumber)
@@ -141,7 +148,8 @@ FlashManagerStatus_t FlashManager_EraseEntry(uint16_t sectorNumber)
 	else
 	{
 		log_info("The current entry has an Invalid Flag.");
-		return FLASH_MANAGER_ERROR;
+		return FLASH_MANAGER_ERASE_FAIL;
 	}
+	return FLASH_MANAGER_OK;
 }
 
