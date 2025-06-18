@@ -19,6 +19,12 @@ void log_init(LogLevel level)
     current_level = level;
 }
 
+void log_clearline(void)
+{
+    // Move cursor up and clear the entire line
+    printf("\033[A\033[2K\r");
+}
+
 static void log_generic(LogLevel level, const char *prefix, const char *color, const char *fmt, va_list args)
 {
     if (level < current_level)

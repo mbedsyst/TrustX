@@ -1,6 +1,10 @@
 #include "../../HSMManager/Inc/HSMManager.h"
 #include "Logger.h"
 #include "PacketParser.h"
+#include "SaltManager.h"
+#include "KeyManager.h"
+#include "FlashManager.h"
+
 #include "usbd_cdc_if.h"
 #include "stm32h5xx_nucleo.h"
 
@@ -165,26 +169,34 @@ static void LogTransmitBuffer(const uint8_t* usb_tx_buffer, uint32_t usb_tx_inde
 
 void HSMManager_Init(void)
 {
+	log_init(LOG_LEVEL_DEBUG);
+	log_info("Initializing HSM Device.");
+	HAL_Delay(1000);
+	log_info("Turning LED ON.");
+	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+	log_clearline();
+	log_info("Turning LED OFF.");
+	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+	log_clearline();
 
-  log_init(LOG_LEVEL_DEBUG);
-  log_info("HSM Initialized.");
-  HAL_Delay(1000);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+	SaltManager_Init();
+	FlashManager_Init();
+	KeyManager_Init();
+
+	log_info("Turning LED ON.");
+	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+	log_clearline();
+	log_info("Turning LED OFF.");
+	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
+	BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
+	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
+	log_clearline();
 }
 
 
@@ -217,25 +229,3 @@ OperationStatus_t HSMManager_ProcessCommand(void)
 	 }
 	 return 0;
 }
-
-	/* ToDo
-	 *
-	 * Check usb_rx_buffer
-	 * Parse the input data stream
-	 * Print the parsed out data structure using logger
-	 * Call OperationDispatcher_Dispatch()
-	 * Print the operation output data using logger
-	 * Build the output data stream
-	 * Call USB_Transmit()
-	 *
-	 * */
-
-
-/*
- * 	log_info("Processing new HSM command...");
-
-    // Validate packet contents, do CRC checks if needed
-    // Pass to dispatcher
-    return OperationDispatcher_Dispatch(request, response);
- *
- * */
