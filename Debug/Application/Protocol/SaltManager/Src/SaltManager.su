@@ -1,4 +1,4 @@
-../Application/Protocol/SaltManager/Src/SaltManager.c:15:13:WriteSaltToFlash	16	static
-../Application/Protocol/SaltManager/Src/SaltManager.c:43:13:LoadSaltFromFlash	16	static
-../Application/Protocol/SaltManager/Src/SaltManager.c:48:6:SaltManager_Init	8	static
-../Application/Protocol/SaltManager/Src/SaltManager.c:63:16:SaltManager_Get	4	static
+../Application/Protocol/SaltManager/Src/SaltManager.c:19:28:WriteSaltToFlash	64	static
+../Application/Protocol/SaltManager/Src/SaltManager.c:64:13:LoadSaltFromFlash	16	static
+../Application/Protocol/SaltManager/Src/SaltManager.c:69:21:SaltManager_Init	16	static
+../Application/Protocol/SaltManager/Src/SaltManager.c:95:16:SaltManager_Get	4	static
