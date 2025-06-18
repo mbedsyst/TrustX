@@ -24,6 +24,7 @@ RM := rm -rf
 -include Application/Protocol/KeyDerivator/Src/subdir.mk
 -include Application/Protocol/Generator/Src/subdir.mk
 -include Application/Protocol/FlashManager/Src/subdir.mk
+-include Application/Protocol/DeviceInfo/Src/subdir.mk
 -include Application/Protocol/CryptoEngine/Src/subdir.mk
 -include Application/Library/tinycrypt/src/subdir.mk
 -include Application/Library/FLASH/Src/subdir.mk

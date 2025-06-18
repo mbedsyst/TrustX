@@ -2610,6 +2610,157 @@ Discarded input sections
  .debug_frame   0x00000000       0x3c ./Application/Protocol/CryptoEngine/Src/CryptoEngine.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Protocol/CryptoEngine/Src/CryptoEngine.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .group         0x00000000        0xc ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .text          0x00000000        0x0 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .data          0x00000000        0x0 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .bss           0x00000000        0x0 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .rodata        0x00000000       0x45 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .text.DeviceInfo_GetDeviceID
+                0x00000000       0x30 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .text.DeviceInfo_GetUniqueID
+                0x00000000       0xc0 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_info    0x00000000      0x1c4 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_abbrev  0x00000000      0x11e ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_aranges
+                0x00000000       0x28 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_rnglists
+                0x00000000       0x1a ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x30c ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0xac0 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x22 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x51 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x103 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x6a ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x1df ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x1e8 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x61 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x2a ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x189 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x16 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x43 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x34 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x10 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x58 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x8e ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x177 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x369 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x19b ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x28 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x49 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x1c ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x29 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xfb ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000     0x1685 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x5e ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000    0x211d5 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x6d ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000     0x388a ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x63 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000     0x1f0d ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0xe96 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x166 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x307 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x917 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x478 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xd6 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x1cd ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x55b ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x638 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x7b ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x114 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x22c ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x35 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xa5 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x313 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x1bb ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xab ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xad ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0x19 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x31a ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x96a ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xe4 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x5cf ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xeb ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x693 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000       0xa6 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x23f ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x169 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x2a7 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_macro   0x00000000      0x47e ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_line    0x00000000      0xaf4 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_str     0x00000000   0x13d146 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .comment       0x00000000       0x44 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .debug_frame   0x00000000       0x58 ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
+ .ARM.attributes
+                0x00000000       0x3a ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
  .group         0x00000000        0xc ./Application/Protocol/FlashManager/Src/FlashManager.o
  .group         0x00000000        0xc ./Application/Protocol/FlashManager/Src/FlashManager.o
  .group         0x00000000        0xc ./Application/Protocol/FlashManager/Src/FlashManager.o
@@ -11689,6 +11840,7 @@ LOAD ./Application/Library/tinycrypt/src/hmac_prng.o
 LOAD ./Application/Library/tinycrypt/src/sha256.o
 LOAD ./Application/Library/tinycrypt/src/utils.o
 LOAD ./Application/Protocol/CryptoEngine/Src/CryptoEngine.o
+LOAD ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
 LOAD ./Application/Protocol/FlashManager/Src/FlashManager.o
 LOAD ./Application/Protocol/Generator/Src/Generator.o
 LOAD ./Application/Protocol/KeyDerivator/Src/KeyDerivator.o

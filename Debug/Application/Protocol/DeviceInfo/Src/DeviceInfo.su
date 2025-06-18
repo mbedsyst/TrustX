@@ -1,0 +1,2 @@
+../Application/Protocol/DeviceInfo/Src/DeviceInfo.c:5:14:DeviceInfo_GetDeviceID	24	static
+../Application/Protocol/DeviceInfo/Src/DeviceInfo.c:16:14:DeviceInfo_GetUniqueID	32	static

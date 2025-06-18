@@ -17,6 +17,7 @@
 "./Application/Library/tinycrypt/src/sha256.o"
 "./Application/Library/tinycrypt/src/utils.o"
 "./Application/Protocol/CryptoEngine/Src/CryptoEngine.o"
+"./Application/Protocol/DeviceInfo/Src/DeviceInfo.o"
 "./Application/Protocol/FlashManager/Src/FlashManager.o"
 "./Application/Protocol/Generator/Src/Generator.o"
 "./Application/Protocol/KeyDerivator/Src/KeyDerivator.o"

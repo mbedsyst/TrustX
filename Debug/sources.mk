@@ -35,6 +35,7 @@ Application/Library/EEPROM/Src \
 Application/Library/FLASH/Src \
 Application/Library/tinycrypt/src \
 Application/Protocol/CryptoEngine/Src \
+Application/Protocol/DeviceInfo/Src \
 Application/Protocol/FlashManager/Src \
 Application/Protocol/Generator/Src \
 Application/Protocol/KeyDerivator/Src \
