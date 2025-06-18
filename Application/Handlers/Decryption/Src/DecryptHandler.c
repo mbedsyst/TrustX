@@ -24,6 +24,14 @@
 #define OUT_KEYID_POS	0
 #define OUT_CT_POS		4
 
+static uint32_t ConvertKeyIDToUint32(const uint8_t keyID[4])
+{
+    return ((uint32_t)keyID[0]) |
+           ((uint32_t)keyID[1] << 8) |
+           ((uint32_t)keyID[2] << 16) |
+           ((uint32_t)keyID[3] << 24);
+}
+
 OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
 	log_info("Handling Decryption operation.");
@@ -38,6 +46,7 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 	uint8_t keyState, ivState;
 	// Initialize array to store Key ID
 	uint8_t keyID[4] = {0};
+	uint32_t keyID_32 = 0;
 	// Declare array to hold Key and IV data in data section
 	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
 	// Parse out Key State and IV state from Input Data Stream
@@ -76,17 +85,20 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 		case DEC_KEY_BYOK:
 			log_info("Using a User-Provided Decryption Key.");
 			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
+			GenerateKEYID(keyID);
+			keyID_32 = ConvertKeyIDToUint32(keyID);
 			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
-			KeyManager_AddKey(keyID, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_DECRYPT);
+			KeyManager_AddKey(keyID_32, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_DECRYPT);
 			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			// ToDo Fix the Key Size parameter
 			break;
 
 		case DEC_KEY_DABA:
 			log_info("Searching for a stored Key in the Key Manager.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
+			memcpy(keyID, &request->inputData[KEY_DATA_POS], KEYID_LEN);
+			keyID_32 = ConvertKeyIDToUint32(keyID);
 			// ToDo Search Key Manager for a match using Key ID
-			KeyManager_GetKey(keyID, keyData);
+			KeyManager_GetKey(keyID_32, keyData);
 			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			break;
 

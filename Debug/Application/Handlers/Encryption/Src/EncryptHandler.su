@@ -1,1 +1,2 @@
-../Application/Handlers/Encryption/Src/EncryptHandler.c:28:19:EncryptHandler_Encrypt	48	static
+../Application/Handlers/Encryption/Src/EncryptHandler.c:28:17:ConvertKeyIDToUint32	16	static
+../Application/Handlers/Encryption/Src/EncryptHandler.c:36:19:EncryptHandler_Encrypt	56	static

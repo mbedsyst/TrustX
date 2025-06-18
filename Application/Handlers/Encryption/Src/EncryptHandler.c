@@ -25,6 +25,14 @@
 #define OUT_IV_POS		4
 #define OUT_CT_POS		20
 
+static uint32_t ConvertKeyIDToUint32(const uint8_t keyID[4])
+{
+    return ((uint32_t)keyID[0]) |
+           ((uint32_t)keyID[1] << 8) |
+           ((uint32_t)keyID[2] << 16) |
+           ((uint32_t)keyID[3] << 24);
+}
+
 OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
 	log_info("Handling Encryption operation.");
@@ -39,6 +47,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	uint8_t keyState, ivState;
 	// Initialize variable to store Key ID
 	uint8_t keyID[4] = {0};
+	uint32_t keyID_32 = 0;
 	// Declare array to hold Key and IV data in data section
 	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
 	// Parse out Key State and IV state from Input Data Stream
@@ -79,7 +88,8 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
 			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
 			GenerateKEYID(keyID);
-			KeyManager_AddKey(keyID, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_ENCRYPT);
+			keyID_32 = ConvertKeyIDToUint32(keyID);
+			KeyManager_AddKey(keyID_32, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_ENCRYPT);
 			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			// ToDo Fix the Key Size parameter
 			break;
@@ -88,7 +98,8 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			log_info("Searching for a stored Key in the Key Manager.");
 			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
 			// ToDo Search the Key Manager for a match using the given Key ID
-			KeyManager_GetKey(keyID, keyData);
+			keyID_32 = ConvertKeyIDToUint32(keyID);
+			KeyManager_GetKey(keyID_32, keyData);
 			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			break;
 
@@ -96,8 +107,9 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			log_info("Generating a Random Encryption Key.");
 			GenerateKEY(keyData);
 			GenerateKEYID(keyID);
+			keyID_32 = ConvertKeyIDToUint32(keyID);
 			// ToDo Store the Generated Key in the Key Manager
-			KeyManager_AddKey(keyID, keyData, AES_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_ENCRYPT);
+			KeyManager_AddKey(keyID_32, keyData, AES_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_ENCRYPT);
 			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			// ToDo Fix the Key Size parameter
 			break;
@@ -108,11 +120,11 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	}
 	// Execute the Encryption operation
 	codec_result = CryptoEngine_Codec(ciphertextData,
-										plaintextLen,
-										&request->inputData[PLAINTEXT_POS],
-										plaintextLen,
-										ivData,
-										keyData);
+									  plaintextLen,
+									  &request->inputData[PLAINTEXT_POS],
+									  plaintextLen,
+									  ivData,
+									  keyData);
 	// Check if Encryption operation was success
 	if(codec_result == CODEC_FAILURE)
 	{
