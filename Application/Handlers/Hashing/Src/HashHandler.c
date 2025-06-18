@@ -15,11 +15,11 @@ OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponseP
 	// Check if either Request or Response Packet is NULL
     if (!request )
     {
-        return OPERATION_INVALID_DATA;
+        return OPERATION_INVALID_INPUT_DATA;
     }
     uint32_t AlgorithmSelected;
     // Declare status as Negative for Early Exit Pattern
-    OperationStatus_t status = OPERATION_INVALID_OPTION;
+    OperationStatus_t status = OPERATION_HASH_FAIL;
     // Declare a static byte array of 64 elements
     static uint8_t digest[64] = {0};
     // Check the Request Packet's option member
@@ -68,7 +68,7 @@ OperationStatus_t HashingHandler_Handle(const ParsedPacket_t* request, ResponseP
     hhash.Init.Algorithm = AlgorithmSelected;
     if (HAL_HASH_Init(&hhash) != HAL_OK)
     {
-    	status = OPERATION_FAILURE;
+    	status = OPERATION_HASH_FAIL;
     }
 
     log_info("Re-initialized HASH Peripheral.");

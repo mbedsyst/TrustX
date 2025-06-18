@@ -1,6 +1,6 @@
 Application/Handlers/Decryption/Src/DecryptHandler.o: \
  ../Application/Handlers/Decryption/Src/DecryptHandler.c \
- ../Application/Handlers/Decryption/Src/../../Decryption/Inc/DecryptHandler.h \
+ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Handlers/Decryption/Inc/DecryptHandler.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/types.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketParser/Inc/PacketParser.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketBuilder/Inc/PacketBuilder.h \
@@ -48,7 +48,7 @@ Application/Handlers/Decryption/Src/DecryptHandler.o: \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h
-../Application/Handlers/Decryption/Src/../../Decryption/Inc/DecryptHandler.h:
+C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Handlers/Decryption/Inc/DecryptHandler.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/types.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketParser/Inc/PacketParser.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Protocol/PacketBuilder/Inc/PacketBuilder.h:

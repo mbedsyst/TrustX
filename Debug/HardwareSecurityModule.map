@@ -205,7 +205,7 @@ Discarded input sections
                 0x00000000      0x104 ./Application/Core/HSMManager/Src/HSMManager.o
  .text.HSMManager_ProcessCommand
                 0x00000000      0x140 ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_info    0x00000000      0x81e ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_info    0x00000000      0x82a ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_abbrev  0x00000000      0x247 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_aranges
                 0x00000000       0x50 ./Application/Core/HSMManager/Src/HSMManager.o
@@ -301,7 +301,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x52 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000      0x130 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_line    0x00000000     0x125f ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_str     0x00000000   0x13fef8 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_str     0x00000000   0x13ff32 ./Application/Core/HSMManager/Src/HSMManager.o
  .comment       0x00000000       0x44 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_frame   0x00000000      0x114 ./Application/Core/HSMManager/Src/HSMManager.o
  .ARM.attributes
@@ -378,10 +378,10 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .data          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .bss           0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .rodata        0x00000000      0x17a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .rodata        0x00000000      0x132 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .text.OperationDispatcher_Dispatch
-                0x00000000      0x120 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_info    0x00000000      0x2d2 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+                0x00000000      0x11c ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_info    0x00000000      0x310 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_abbrev  0x00000000      0x127 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_aranges
                 0x00000000       0x20 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
@@ -457,8 +457,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x2a7 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x47e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_line    0x00000000      0xe36 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_str     0x00000000   0x13d86d ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_line    0x00000000      0xe34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_str     0x00000000   0x13d8d5 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .comment       0x00000000       0x44 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_frame   0x00000000       0x34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .ARM.attributes
@@ -551,7 +551,7 @@ Discarded input sections
  .bss.ivData.1  0x00000000       0x10 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .bss.keyData.0
                 0x00000000       0x10 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_info    0x00000000      0x52a ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_info    0x00000000      0x536 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_abbrev  0x00000000      0x169 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_aranges
                 0x00000000       0x28 ./Application/Handlers/Decryption/Src/DecryptHandler.o
@@ -635,8 +635,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_line    0x00000000      0xeb6 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_str     0x00000000   0x13ddfa ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_line    0x00000000      0xee5 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_str     0x00000000   0x13de34 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_frame   0x00000000       0x60 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .ARM.attributes
@@ -729,7 +729,7 @@ Discarded input sections
  .bss.ivData.1  0x00000000       0x10 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .bss.keyData.0
                 0x00000000       0x10 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_info    0x00000000      0x551 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_info    0x00000000      0x55d ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_abbrev  0x00000000      0x169 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_aranges
                 0x00000000       0x28 ./Application/Handlers/Encryption/Src/EncryptHandler.o
@@ -813,8 +813,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_line    0x00000000      0xec1 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_str     0x00000000   0x13de1f ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_line    0x00000000      0xef0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_str     0x00000000   0x13de59 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_frame   0x00000000       0x64 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .ARM.attributes
@@ -900,7 +900,7 @@ Discarded input sections
  .bss.keyData.1
                 0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .bss.digest.0  0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_info    0x00000000      0xab8 ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_info    0x00000000      0xac4 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_abbrev  0x00000000      0x227 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_aranges
                 0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
@@ -980,7 +980,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_line    0x00000000      0xd04 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_str     0x00000000   0x13df6f ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_str     0x00000000   0x13dfa9 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_frame   0x00000000       0x3c ./Application/Handlers/HMAC/Src/HMACHandler.o
  .ARM.attributes
@@ -1064,7 +1064,7 @@ Discarded input sections
  .text.HashingHandler_Handle
                 0x00000000      0x164 ./Application/Handlers/Hashing/Src/HashHandler.o
  .bss.digest.0  0x00000000       0x40 ./Application/Handlers/Hashing/Src/HashHandler.o
- .debug_info    0x00000000      0x9dd ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_info    0x00000000      0x9e9 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_abbrev  0x00000000      0x21b ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_aranges
                 0x00000000       0x20 ./Application/Handlers/Hashing/Src/HashHandler.o
@@ -1144,7 +1144,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_line    0x00000000      0xc71 ./Application/Handlers/Hashing/Src/HashHandler.o
- .debug_str     0x00000000   0x13dd9c ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_str     0x00000000   0x13ddd6 ./Application/Handlers/Hashing/Src/HashHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_frame   0x00000000       0x34 ./Application/Handlers/Hashing/Src/HashHandler.o
  .ARM.attributes
@@ -1229,16 +1229,16 @@ Discarded input sections
  .bss           0x00000000        0x0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.CalculateKeySize
                 0x00000000       0x94 ./Application/Handlers/Keys/Src/KeyHandler.o
- .rodata        0x00000000      0x113 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .rodata        0x00000000      0x16f ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Generate
-                0x00000000       0xbc ./Application/Handlers/Keys/Src/KeyHandler.o
+                0x00000000       0xf0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Store
                 0x00000000       0x18 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Erase
                 0x00000000       0x18 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Handle
                 0x00000000       0x7c ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_info    0x00000000      0x533 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_info    0x00000000      0x54d ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_abbrev  0x00000000      0x215 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_aranges
                 0x00000000       0x40 ./Application/Handlers/Keys/Src/KeyHandler.o
@@ -1320,8 +1320,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_line    0x00000000      0xd1c ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_str     0x00000000   0x13da88 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_line    0x00000000      0xd32 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_str     0x00000000   0x13dacc ./Application/Handlers/Keys/Src/KeyHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_frame   0x00000000       0xd0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .ARM.attributes
@@ -1409,7 +1409,7 @@ Discarded input sections
  .rodata        0x00000000       0xd4 ./Application/Handlers/OTP/Src/OTPHandler.o
  .text.OTPHandler_Handle
                 0x00000000       0xbc ./Application/Handlers/OTP/Src/OTPHandler.o
- .debug_info    0x00000000      0x481 ./Application/Handlers/OTP/Src/OTPHandler.o
+ .debug_info    0x00000000      0x48d ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_abbrev  0x00000000      0x1df ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_aranges
                 0x00000000       0x28 ./Application/Handlers/OTP/Src/OTPHandler.o
@@ -1492,7 +1492,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_line    0x00000000      0xc9d ./Application/Handlers/OTP/Src/OTPHandler.o
- .debug_str     0x00000000   0x13da47 ./Application/Handlers/OTP/Src/OTPHandler.o
+ .debug_str     0x00000000   0x13da81 ./Application/Handlers/OTP/Src/OTPHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_frame   0x00000000       0x5c ./Application/Handlers/OTP/Src/OTPHandler.o
  .ARM.attributes
@@ -1580,7 +1580,7 @@ Discarded input sections
  .rodata        0x00000000       0xd0 ./Application/Handlers/Random/Src/RandomHandler.o
  .text.RandomHandler_Handle
                 0x00000000       0xbc ./Application/Handlers/Random/Src/RandomHandler.o
- .debug_info    0x00000000      0x481 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_info    0x00000000      0x48d ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_abbrev  0x00000000      0x1df ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_aranges
                 0x00000000       0x28 ./Application/Handlers/Random/Src/RandomHandler.o
@@ -1663,7 +1663,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_line    0x00000000      0xcc5 ./Application/Handlers/Random/Src/RandomHandler.o
- .debug_str     0x00000000   0x13da57 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_str     0x00000000   0x13da91 ./Application/Handlers/Random/Src/RandomHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_frame   0x00000000       0x5c ./Application/Handlers/Random/Src/RandomHandler.o
  .ARM.attributes

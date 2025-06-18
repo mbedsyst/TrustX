@@ -6,7 +6,6 @@
 #include "../../../Handlers/Random/Inc/RandomHandler.h"
 #include "../../../Handlers/OTP/Inc/OTPHandler.h"
 #include "constants.h"
-#include "types.h"
 #include "Logger.h"
 
 OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, ResponsePacket_t* response)
@@ -17,13 +16,11 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
     {
         case CMD_ENCRYPT:
         	log_info("Calling Encryption Operation.");
-        	log_warn("Encryption Operation not supported");
-            return OPERATION_UNKNOWN_ERROR;
+            return EncryptHandler_Encrypt(request, response);
 
         case CMD_DECRYPT:
         	log_info("Calling Decryption Operation.");
-        	log_warn("Decryption Operation not supported");
-            return OPERATION_UNKNOWN_ERROR;
+            return DecryptHandler_Decrypt(request, response);
 
         case CMD_HASH:
         	log_info("Calling Hashing Operation.");
@@ -46,7 +43,7 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
         case CMD_PING:
         	log_info("Calling Ping Operation.");
         	log_warn("Ping Operation not supported");
-            return OPERATION_UNKNOWN_ERROR;
+            return OPERATION_INVALID_CMD;
 
         default:
             log_error("Invalid Command code received");

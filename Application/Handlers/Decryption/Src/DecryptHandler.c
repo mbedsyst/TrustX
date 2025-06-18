@@ -1,4 +1,4 @@
-#include "../../Decryption/Inc/DecryptHandler.h"
+#include "DecryptHandler.h"
 #include "CryptoEngine.h"
 #include "KeyManager.h"
 #include "Generator.h"
@@ -13,8 +13,8 @@
 #define CODEC_SUCCESS	1
 #define CODEC_FAILURE	0
 
-#define AES_KEY_SIZE	16
-#define AES_IV_SIZE		16
+#define DEC_KEY_SIZE	16
+#define DEC_IV_SIZE		16
 #define KEY_STATE_POS	8
 #define KEY_DATA_POS	9
 #define IV_STATE_POS	25
@@ -38,7 +38,7 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 	// Check if either Request or Response Packet is NULL
 	if (!request )
 	{
-		return OPERATION_INVALID_DATA;
+		return OPERATION_INVALID_INPUT_DATA;
 	}
 	// Initialize variable to store Codec operation status
 	int codec_result = 0;
@@ -48,31 +48,31 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 	uint8_t keyID[4] = {0};
 	uint32_t keyID_32 = 0;
 	// Declare array to hold Key and IV data in data section
-	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
+	static uint8_t keyData[DEC_KEY_SIZE], ivData[DEC_IV_SIZE];
 	// Parse out Key State and IV state from Input Data Stream
 	keyState = request->inputData[KEY_STATE_POS];
 	ivState = request->inputData[IV_STATE_POS];
 	// Calculate the size of input Ciphertext
-	const uint16_t ciphertextLen = (request->inputSize) - AES_KEY_SIZE - AES_IV_SIZE - 2;
+	const uint16_t ciphertextLen = (request->inputSize) - DEC_KEY_SIZE - DEC_IV_SIZE - 2;
 	// Declare array to hold the output Ciphertext on the stack
 	uint8_t *plaintextData = malloc(ciphertextLen);
 	// Check if the dynamically allocated array is NULL or not
 	if (plaintextData == NULL)
 	{
 	    log_error("Failed to allocate buffer for Plaintext");
-	    return OPERATION_UNKNOWN_ERROR;
+	    return OPERATION_HEAP_FAIL;
 	}
 	// Copy the IV from the Data Stream
 	switch(ivState)
 	{
 		case DEC_IV_BYIV:
 			log_info("Using a User-Provided Initialization Vector.");
-			memcpy(ivData, &request->inputData[IV_DATA_POS], AES_IV_SIZE);
+			memcpy(ivData, &request->inputData[IV_DATA_POS], DEC_IV_SIZE);
 			break;
 
 		case DEC_IV_DABA:
 			log_info("Generating a Random Initialization Vector");
-			memcpy(ivData, &request->inputData[IV_DATA_POS], AES_IV_SIZE);
+			memcpy(ivData, &request->inputData[IV_DATA_POS], DEC_IV_SIZE);
 			break;
 
 		default:
@@ -84,22 +84,18 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 	{
 		case DEC_KEY_BYOK:
 			log_info("Using a User-Provided Decryption Key.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], DEC_KEY_SIZE);
 			GenerateKEYID(keyID);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
-			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
-			KeyManager_AddKey(keyID_32, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_DECRYPT);
-			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			// ToDo Fix the Key Size parameter
+			KeyManager_AddKey(keyID_32, keyData, DEC_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_DECRYPT);
 			break;
 
 		case DEC_KEY_DABA:
 			log_info("Searching for a stored Key in the Key Manager.");
 			memcpy(keyID, &request->inputData[KEY_DATA_POS], KEYID_LEN);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
-			// ToDo Search Key Manager for a match using Key ID
 			KeyManager_GetKey(keyID_32, keyData);
-			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			break;
 
 		default:
@@ -120,7 +116,7 @@ OperationStatus_t DecryptHandler_Decrypt(const ParsedPacket_t* request, Response
 		return OPERATION_DECRYPTION_FAIL;
 	}
 	// Set the output size in Response Packet
-	response->outputSize = ciphertextLen + KEYID_LEN + AES_IV_SIZE;
+	response->outputSize = ciphertextLen + KEYID_LEN + DEC_IV_SIZE;
 	// Copy the Key ID into Output Data Buffer
 	memcpy(&response->outputData[OUT_KEYID_POS], keyID, KEYID_LEN);
 	// Copy the Ciphertext into Output Data Buffer

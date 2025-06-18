@@ -27,7 +27,7 @@ OperationStatus_t HMACHandler_Handle(const ParsedPacket_t* request, ResponsePack
 	// Check if either Request or Response Packet is NULL
     if (!request )
     {
-        return OPERATION_INVALID_DATA;
+        return OPERATION_INVALID_INPUT_DATA;
     }
 	// Declare variable to assign Key state
 	uint8_t keyState;

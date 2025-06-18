@@ -56,7 +56,7 @@ OperationStatus_t OTPHandler_Handle(const ParsedPacket_t* request, ResponsePacke
 	    if (hal_status != HAL_OK)
 	    {
 	    	log_error("Failed to generate random number from RNG peripheral.");
-		    return OPERATION_RANDOM_GEN_FAIL;
+		    return OPERATION_OTP_GEN_FAIL;
 	    }
 	    // Append generated random word to response packet
         response->outputData[i] = (uint8_t)(randomValue & 0xFF);

@@ -1,4 +1,4 @@
-#include "../../Encryption/Inc/EncryptHandler.h"
+#include "EncryptHandler.h"
 #include "CryptoEngine.h"
 #include "KeyManager.h"
 #include "Generator.h"
@@ -13,8 +13,8 @@
 #define CODEC_SUCCESS	1
 #define CODEC_FAILURE	0
 
-#define AES_KEY_SIZE	16
-#define AES_IV_SIZE		16
+#define ENC_KEY_SIZE	16
+#define ENC_IV_SIZE		16
 #define KEY_STATE_POS	8
 #define KEY_DATA_POS	9
 #define IV_STATE_POS	25
@@ -39,7 +39,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	// Check if either Request or Response Packet is NULL
 	if (!request )
 	{
-		return OPERATION_INVALID_DATA;
+		return OPERATION_INVALID_INPUT_DATA;
 	}
 	// Initialize variable to store Codec operation status
 	int codec_result = 0;
@@ -49,26 +49,26 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	uint8_t keyID[4] = {0};
 	uint32_t keyID_32 = 0;
 	// Declare array to hold Key and IV data in data section
-	static uint8_t keyData[AES_KEY_SIZE], ivData[AES_IV_SIZE];
+	static uint8_t keyData[ENC_KEY_SIZE], ivData[ENC_IV_SIZE];
 	// Parse out Key State and IV state from Input Data Stream
 	keyState = request->inputData[KEY_STATE_POS];
 	ivState = request->inputData[IV_STATE_POS];
 	// Calculate the size of input Plaintext
-	uint16_t plaintextLen = (request->inputSize) - AES_KEY_SIZE - AES_IV_SIZE - 2;
+	uint16_t plaintextLen = (request->inputSize) - ENC_KEY_SIZE - ENC_IV_SIZE - 2;
 	// Declare array to hold the output Ciphertext on the stack
 	uint8_t *ciphertextData = malloc(plaintextLen);
 	// Check if the dynamically allocated array is NULL or not
 	if (ciphertextData == NULL)
 	{
 	    log_error("Failed to allocate buffer for Ciphertext");
-	    return OPERATION_UNKNOWN_ERROR;
+	    return OPERATION_HEAP_FAIL;
 	}
 	// Copy the IV from Data Stream or Generate an IV
 	switch(ivState)
 	{
 		case ENC_IV_BYIV:
 			log_info("Using a User-Provided Initialization Vector.");
-			memcpy(ivData, &request->inputData[IV_DATA_POS], AES_IV_SIZE);
+			memcpy(ivData, &request->inputData[IV_DATA_POS], ENC_IV_SIZE);
 			break;
 
 		case ENC_IV_GYIV:
@@ -85,13 +85,12 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	{
 		case ENC_KEY_BYOK:
 			log_info("Using a User-Provided Encryption Key.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], AES_KEY_SIZE);
-			// ToDo Generate a Key ID & Store the provided Key in the Key Manager
+			memcpy(keyData, &request->inputData[KEY_DATA_POS], ENC_KEY_SIZE);
 			GenerateKEYID(keyID);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
-			KeyManager_AddKey(keyID_32, keyData, AES_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_ENCRYPT);
-			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			// ToDo Fix the Key Size parameter
+			KeyManager_AddKey(keyID_32, keyData, ENC_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_ENCRYPT);
+
 			break;
 
 		case ENC_KEY_DABA:
@@ -100,7 +99,6 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			// ToDo Search the Key Manager for a match using the given Key ID
 			keyID_32 = ConvertKeyIDToUint32(keyID);
 			KeyManager_GetKey(keyID_32, keyData);
-			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			break;
 
 		case ENC_KEY_GYOK:
@@ -108,10 +106,8 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			GenerateKEY(keyData);
 			GenerateKEYID(keyID);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
-			// ToDo Store the Generated Key in the Key Manager
-			KeyManager_AddKey(keyID_32, keyData, AES_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_ENCRYPT);
-			// ToDo Fix datatype of KeyID to uint32_t variable and not uint8_t []
 			// ToDo Fix the Key Size parameter
+			KeyManager_AddKey(keyID_32, keyData, ENC_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_ENCRYPT);
 			break;
 
 		default:
@@ -133,11 +129,11 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	}
 
 	// Set the output size in Response Packet
-	response->outputSize = plaintextLen + KEYID_LEN + AES_IV_SIZE;
+	response->outputSize = plaintextLen + KEYID_LEN + ENC_IV_SIZE;
 	// Copy the Key ID into Output Data Buffer
 	memcpy(&response->outputData[OUT_KEYID_POS], keyID, KEYID_LEN);
 	// Copy the Initialization Vector into Output Data Buffer
-	memcpy(&response->outputData[OUT_IV_POS], ivData, AES_IV_SIZE);
+	memcpy(&response->outputData[OUT_IV_POS], ivData, ENC_IV_SIZE);
 	// Copy the Ciphertext into Output Data Buffer
 	memcpy(&response->outputData[OUT_CT_POS], ciphertextData, plaintextLen);
 	// Return the OperationStatus value
