@@ -190,7 +190,7 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
  .data          0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
  .bss           0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
- .rodata        0x00000000      0x5a8 ./Application/Core/HSMManager/Src/HSMManager.o
+ .rodata        0x00000000      0x624 ./Application/Core/HSMManager/Src/HSMManager.o
  .text.GetCommandName
                 0x00000000       0xb0 ./Application/Core/HSMManager/Src/HSMManager.o
  .text.GetOptionName
@@ -202,11 +202,11 @@ Discarded input sections
  .text.LogTransmitBuffer
                 0x00000000       0xc0 ./Application/Core/HSMManager/Src/HSMManager.o
  .text.HSMManager_Init
-                0x00000000      0x104 ./Application/Core/HSMManager/Src/HSMManager.o
+                0x00000000      0x154 ./Application/Core/HSMManager/Src/HSMManager.o
  .text.HSMManager_ProcessCommand
                 0x00000000      0x140 ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_info    0x00000000      0x82a ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_abbrev  0x00000000      0x247 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_info    0x00000000      0x83d ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_abbrev  0x00000000      0x249 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_aranges
                 0x00000000       0x50 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_rnglists
@@ -300,10 +300,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000       0x52 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000      0x130 ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_line    0x00000000     0x125f ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_line    0x00000000     0x1292 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_str     0x00000000   0x13ff32 ./Application/Core/HSMManager/Src/HSMManager.o
  .comment       0x00000000       0x44 ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_frame   0x00000000      0x114 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_frame   0x00000000      0x11c ./Application/Core/HSMManager/Src/HSMManager.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Core/HSMManager/Src/HSMManager.o
  .group         0x00000000        0xc ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
