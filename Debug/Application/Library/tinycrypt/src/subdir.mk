@@ -8,27 +8,18 @@ C_SRCS += \
 ../Application/Library/tinycrypt/src/aes_decrypt.c \
 ../Application/Library/tinycrypt/src/aes_encrypt.c \
 ../Application/Library/tinycrypt/src/ctr_mode.c \
-../Application/Library/tinycrypt/src/hmac.c \
-../Application/Library/tinycrypt/src/hmac_prng.c \
-../Application/Library/tinycrypt/src/sha256.c \
 ../Application/Library/tinycrypt/src/utils.c 
 
 OBJS += \
 ./Application/Library/tinycrypt/src/aes_decrypt.o \
 ./Application/Library/tinycrypt/src/aes_encrypt.o \
 ./Application/Library/tinycrypt/src/ctr_mode.o \
-./Application/Library/tinycrypt/src/hmac.o \
-./Application/Library/tinycrypt/src/hmac_prng.o \
-./Application/Library/tinycrypt/src/sha256.o \
 ./Application/Library/tinycrypt/src/utils.o 
 
 C_DEPS += \
 ./Application/Library/tinycrypt/src/aes_decrypt.d \
 ./Application/Library/tinycrypt/src/aes_encrypt.d \
 ./Application/Library/tinycrypt/src/ctr_mode.d \
-./Application/Library/tinycrypt/src/hmac.d \
-./Application/Library/tinycrypt/src/hmac_prng.d \
-./Application/Library/tinycrypt/src/sha256.d \
 ./Application/Library/tinycrypt/src/utils.d 
 
 
@@ -39,7 +30,7 @@ Application/Library/tinycrypt/src/%.o Application/Library/tinycrypt/src/%.su App
 clean: clean-Application-2f-Library-2f-tinycrypt-2f-src
 
 clean-Application-2f-Library-2f-tinycrypt-2f-src:
-	-$(RM) ./Application/Library/tinycrypt/src/aes_decrypt.cyclo ./Application/Library/tinycrypt/src/aes_decrypt.d ./Application/Library/tinycrypt/src/aes_decrypt.o ./Application/Library/tinycrypt/src/aes_decrypt.su ./Application/Library/tinycrypt/src/aes_encrypt.cyclo ./Application/Library/tinycrypt/src/aes_encrypt.d ./Application/Library/tinycrypt/src/aes_encrypt.o ./Application/Library/tinycrypt/src/aes_encrypt.su ./Application/Library/tinycrypt/src/ctr_mode.cyclo ./Application/Library/tinycrypt/src/ctr_mode.d ./Application/Library/tinycrypt/src/ctr_mode.o ./Application/Library/tinycrypt/src/ctr_mode.su ./Application/Library/tinycrypt/src/hmac.cyclo ./Application/Library/tinycrypt/src/hmac.d ./Application/Library/tinycrypt/src/hmac.o ./Application/Library/tinycrypt/src/hmac.su ./Application/Library/tinycrypt/src/hmac_prng.cyclo ./Application/Library/tinycrypt/src/hmac_prng.d ./Application/Library/tinycrypt/src/hmac_prng.o ./Application/Library/tinycrypt/src/hmac_prng.su ./Application/Library/tinycrypt/src/sha256.cyclo ./Application/Library/tinycrypt/src/sha256.d ./Application/Library/tinycrypt/src/sha256.o ./Application/Library/tinycrypt/src/sha256.su ./Application/Library/tinycrypt/src/utils.cyclo ./Application/Library/tinycrypt/src/utils.d ./Application/Library/tinycrypt/src/utils.o ./Application/Library/tinycrypt/src/utils.su
+	-$(RM) ./Application/Library/tinycrypt/src/aes_decrypt.cyclo ./Application/Library/tinycrypt/src/aes_decrypt.d ./Application/Library/tinycrypt/src/aes_decrypt.o ./Application/Library/tinycrypt/src/aes_decrypt.su ./Application/Library/tinycrypt/src/aes_encrypt.cyclo ./Application/Library/tinycrypt/src/aes_encrypt.d ./Application/Library/tinycrypt/src/aes_encrypt.o ./Application/Library/tinycrypt/src/aes_encrypt.su ./Application/Library/tinycrypt/src/ctr_mode.cyclo ./Application/Library/tinycrypt/src/ctr_mode.d ./Application/Library/tinycrypt/src/ctr_mode.o ./Application/Library/tinycrypt/src/ctr_mode.su ./Application/Library/tinycrypt/src/utils.cyclo ./Application/Library/tinycrypt/src/utils.d ./Application/Library/tinycrypt/src/utils.o ./Application/Library/tinycrypt/src/utils.su
 
 .PHONY: clean-Application-2f-Library-2f-tinycrypt-2f-src
 

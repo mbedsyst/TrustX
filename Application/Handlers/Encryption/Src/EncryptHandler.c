@@ -1,10 +1,13 @@
 #include "EncryptHandler.h"
+
 #include "CryptoEngine.h"
 #include "KeyManager.h"
 #include "Generator.h"
 #include "Logger.h"
+
 #include "constants.h"
 #include "types.h"
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -15,11 +18,13 @@
 
 #define ENC_KEY_SIZE	16
 #define ENC_IV_SIZE		16
-#define KEY_STATE_POS	8
-#define KEY_DATA_POS	9
-#define IV_STATE_POS	25
-#define IV_DATA_POS		26
-#define PLAINTEXT_POS	42
+#define KEY_STATE_POS	0
+#define KEY_STATE_SIZE	1
+#define KEY_DATA_POS	1
+#define IV_STATE_POS	17
+#define IV_STATE_SIZE	1
+#define IV_DATA_POS		18
+#define PLAINTEXT_POS	34
 #define KEYID_LEN		4
 #define OUT_KEYID_POS	0
 #define OUT_IV_POS		4
@@ -39,6 +44,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	// Check if either Request or Response Packet is NULL
 	if (!request )
 	{
+		log_error("Request Packet is NULL.");
 		return OPERATION_INVALID_INPUT_DATA;
 	}
 	// Initialize variable to store Codec operation status
@@ -46,7 +52,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	// Declare variables to assign Key and IV state
 	uint8_t keyState, ivState;
 	// Initialize variable to store Key ID
-	uint8_t keyID[4] = {0};
+	uint8_t keyID[KEYID_LEN] = {0};
 	uint32_t keyID_32 = 0;
 	// Declare array to hold Key and IV data in data section
 	static uint8_t keyData[ENC_KEY_SIZE], ivData[ENC_IV_SIZE];
@@ -54,7 +60,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	keyState = request->inputData[KEY_STATE_POS];
 	ivState = request->inputData[IV_STATE_POS];
 	// Calculate the size of input Plaintext
-	uint16_t plaintextLen = (request->inputSize) - ENC_KEY_SIZE - ENC_IV_SIZE - 2;
+	uint16_t plaintextLen = (request->inputSize) - ENC_KEY_SIZE - ENC_IV_SIZE - KEY_STATE_SIZE - IV_STATE_SIZE;
 	// Declare array to hold the output Ciphertext on the stack
 	uint8_t *ciphertextData = malloc(plaintextLen);
 	// Check if the dynamically allocated array is NULL or not
@@ -88,15 +94,12 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			memcpy(keyData, &request->inputData[KEY_DATA_POS], ENC_KEY_SIZE);
 			GenerateKEYID(keyID);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
-			// ToDo Fix the Key Size parameter
 			KeyManager_AddKey(keyID_32, keyData, ENC_KEY_SIZE, KEY_ORIGIN_PROVIDED, USAGE_ENCRYPT);
-
 			break;
 
 		case ENC_KEY_DABA:
 			log_info("Searching for a stored Key in the Key Manager.");
-			memcpy(keyData, &request->inputData[KEY_DATA_POS], KEYID_LEN);
-			// ToDo Search the Key Manager for a match using the given Key ID
+			memcpy(keyID, &request->inputData[KEY_DATA_POS], KEYID_LEN);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
 			KeyManager_GetKey(keyID_32, keyData);
 			break;
@@ -106,7 +109,6 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 			GenerateKEY(keyData);
 			GenerateKEYID(keyID);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
-			// ToDo Fix the Key Size parameter
 			KeyManager_AddKey(keyID_32, keyData, ENC_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_ENCRYPT);
 			break;
 
@@ -127,7 +129,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 		log_error("Encryption operation failed.");
 		return OPERATION_ENCRYPTION_FAIL;
 	}
-
+	log_info("Input Data has been Encrypted. Building Packet now.");
 	// Set the output size in Response Packet
 	response->outputSize = plaintextLen + KEYID_LEN + ENC_IV_SIZE;
 	// Copy the Key ID into Output Data Buffer
@@ -136,6 +138,7 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 	memcpy(&response->outputData[OUT_IV_POS], ivData, ENC_IV_SIZE);
 	// Copy the Ciphertext into Output Data Buffer
 	memcpy(&response->outputData[OUT_CT_POS], ciphertextData, plaintextLen);
+	log_info("Encryption operation complete.");
 	// Return the OperationStatus value
 	return OPERATION_SUCCESS;
 }

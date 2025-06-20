@@ -545,9 +545,9 @@ Discarded input sections
  .bss           0x00000000        0x0 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .text.ConvertKeyIDToUint32
                 0x00000000       0x38 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .rodata        0x00000000      0x159 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .rodata        0x00000000      0x1c8 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .text.DecryptHandler_Decrypt
-                0x00000000      0x198 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+                0x00000000      0x1b4 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .bss.ivData.1  0x00000000       0x10 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .bss.keyData.0
                 0x00000000       0x10 ./Application/Handlers/Decryption/Src/DecryptHandler.o
@@ -635,8 +635,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_line    0x00000000      0xee5 ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_str     0x00000000   0x13de34 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_line    0x00000000      0xeec ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_str     0x00000000   0x13de35 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_frame   0x00000000       0x60 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .ARM.attributes
@@ -723,9 +723,9 @@ Discarded input sections
  .bss           0x00000000        0x0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .text.ConvertKeyIDToUint32
                 0x00000000       0x38 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .rodata        0x00000000      0x181 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .rodata        0x00000000      0x1ef ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .text.EncryptHandler_Encrypt
-                0x00000000      0x1e4 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+                0x00000000      0x1fc ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .bss.ivData.1  0x00000000       0x10 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .bss.keyData.0
                 0x00000000       0x10 ./Application/Handlers/Encryption/Src/EncryptHandler.o
@@ -735,7 +735,7 @@ Discarded input sections
                 0x00000000       0x28 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_rnglists
                 0x00000000       0x1a ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_macro   0x00000000      0x40c ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_macro   0x00000000      0x418 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000      0xac0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x22 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x8e ./Application/Handlers/Encryption/Src/EncryptHandler.o
@@ -813,8 +813,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_line    0x00000000      0xef0 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_str     0x00000000   0x13de59 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_line    0x00000000      0xef7 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_str     0x00000000   0x13de7a ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_frame   0x00000000       0x64 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .ARM.attributes
@@ -891,22 +891,25 @@ Discarded input sections
  .group         0x00000000        0xc ./Application/Handlers/HMAC/Src/HMACHandler.o
  .group         0x00000000        0xc ./Application/Handlers/HMAC/Src/HMACHandler.o
  .group         0x00000000        0xc ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .group         0x00000000        0xc ./Application/Handlers/HMAC/Src/HMACHandler.o
  .text          0x00000000        0x0 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .data          0x00000000        0x0 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .bss           0x00000000        0x0 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .rodata        0x00000000      0x1cd ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .text.ConvertKeyIDToUint32
+                0x00000000       0x38 ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .rodata        0x00000000      0x20d ./Application/Handlers/HMAC/Src/HMACHandler.o
  .text.HMACHandler_Handle
-                0x00000000      0x214 ./Application/Handlers/HMAC/Src/HMACHandler.o
+                0x00000000      0x25c ./Application/Handlers/HMAC/Src/HMACHandler.o
  .bss.keyData.1
                 0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .bss.digest.0  0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_info    0x00000000      0xac4 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_abbrev  0x00000000      0x227 ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_info    0x00000000      0xbf8 ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_abbrev  0x00000000      0x225 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_aranges
-                0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
+                0x00000000       0x28 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_rnglists
-                0x00000000       0x14 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_macro   0x00000000      0x3aa ./Application/Handlers/HMAC/Src/HMACHandler.o
+                0x00000000       0x1a ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_macro   0x00000000      0x3b9 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000      0xac0 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x22 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x8e ./Application/Handlers/HMAC/Src/HMACHandler.o
@@ -975,14 +978,15 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000      0x2a7 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000      0x47e ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_macro   0x00000000       0x16 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000      0x130 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x35 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_line    0x00000000      0xd04 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_str     0x00000000   0x13dfa9 ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_line    0x00000000      0xdbc ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_str     0x00000000   0x13e28b ./Application/Handlers/HMAC/Src/HMACHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_frame   0x00000000       0x3c ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_frame   0x00000000       0x64 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Handlers/HMAC/Src/HMACHandler.o
  .group         0x00000000        0xc ./Application/Handlers/Hashing/Src/HashHandler.o
@@ -2222,256 +2226,6 @@ Discarded input sections
  .debug_frame   0x00000000       0x34 ./Application/Library/tinycrypt/src/ctr_mode.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Library/tinycrypt/src/ctr_mode.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac.o
- .text          0x00000000        0x0 ./Application/Library/tinycrypt/src/hmac.o
- .data          0x00000000        0x0 ./Application/Library/tinycrypt/src/hmac.o
- .bss           0x00000000        0x0 ./Application/Library/tinycrypt/src/hmac.o
- .text.rekey    0x00000000       0x88 ./Application/Library/tinycrypt/src/hmac.o
- .text.tc_hmac_set_key
-                0x00000000      0x13a ./Application/Library/tinycrypt/src/hmac.o
- .text.tc_hmac_init
-                0x00000000       0x32 ./Application/Library/tinycrypt/src/hmac.o
- .text.tc_hmac_update
-                0x00000000       0x2c ./Application/Library/tinycrypt/src/hmac.o
- .text.tc_hmac_final
-                0x00000000       0x6c ./Application/Library/tinycrypt/src/hmac.o
- .debug_info    0x00000000      0x37e ./Application/Library/tinycrypt/src/hmac.o
- .debug_abbrev  0x00000000      0x150 ./Application/Library/tinycrypt/src/hmac.o
- .debug_aranges
-                0x00000000       0x40 ./Application/Library/tinycrypt/src/hmac.o
- .debug_rnglists
-                0x00000000       0x2d ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000      0x179 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000      0xac0 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000      0x189 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x22 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x8e ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x51 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000      0x103 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x6a ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000      0x1df ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x22 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x61 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x2a ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x43 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x34 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x43 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x34 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x10 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x58 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x8e ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x1c ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000      0x177 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000      0x369 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x10 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x35 ./Application/Library/tinycrypt/src/hmac.o
- .debug_macro   0x00000000       0x20 ./Application/Library/tinycrypt/src/hmac.o
- .debug_line    0x00000000      0x775 ./Application/Library/tinycrypt/src/hmac.o
- .debug_str     0x00000000     0x74cd ./Application/Library/tinycrypt/src/hmac.o
- .comment       0x00000000       0x44 ./Application/Library/tinycrypt/src/hmac.o
- .debug_frame   0x00000000       0xcc ./Application/Library/tinycrypt/src/hmac.o
- .ARM.attributes
-                0x00000000       0x3a ./Application/Library/tinycrypt/src/hmac.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/hmac_prng.o
- .text          0x00000000        0x0 ./Application/Library/tinycrypt/src/hmac_prng.o
- .data          0x00000000        0x0 ./Application/Library/tinycrypt/src/hmac_prng.o
- .bss           0x00000000        0x0 ./Application/Library/tinycrypt/src/hmac_prng.o
- .rodata.MIN_SLEN
-                0x00000000        0x4 ./Application/Library/tinycrypt/src/hmac_prng.o
- .rodata.MAX_SLEN
-                0x00000000        0x4 ./Application/Library/tinycrypt/src/hmac_prng.o
- .rodata.MAX_PLEN
-                0x00000000        0x4 ./Application/Library/tinycrypt/src/hmac_prng.o
- .rodata.MAX_ALEN
-                0x00000000        0x4 ./Application/Library/tinycrypt/src/hmac_prng.o
- .rodata.MAX_GENS
-                0x00000000        0x4 ./Application/Library/tinycrypt/src/hmac_prng.o
- .rodata.MAX_OUT
-                0x00000000        0x4 ./Application/Library/tinycrypt/src/hmac_prng.o
- .text.update   0x00000000      0x170 ./Application/Library/tinycrypt/src/hmac_prng.o
- .text.tc_hmac_prng_init
-                0x00000000       0x66 ./Application/Library/tinycrypt/src/hmac_prng.o
- .text.tc_hmac_prng_reseed
-                0x00000000       0x80 ./Application/Library/tinycrypt/src/hmac_prng.o
- .text.tc_hmac_prng_generate
-                0x00000000       0xd0 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_info    0x00000000      0x467 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_abbrev  0x00000000      0x16f ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_aranges
-                0x00000000       0x38 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_rnglists
-                0x00000000       0x28 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000      0x189 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000      0xac0 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000      0x189 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x22 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x8e ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x51 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000      0x103 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x6a ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000      0x1df ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x22 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x61 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x2a ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x43 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x34 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x43 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x34 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x10 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x58 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x8e ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x1c ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000      0x177 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000      0x369 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x10 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x35 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_macro   0x00000000       0x20 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_line    0x00000000      0x7ed ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_str     0x00000000     0x75ae ./Application/Library/tinycrypt/src/hmac_prng.o
- .comment       0x00000000       0x44 ./Application/Library/tinycrypt/src/hmac_prng.o
- .debug_frame   0x00000000       0xa4 ./Application/Library/tinycrypt/src/hmac_prng.o
- .ARM.attributes
-                0x00000000       0x3a ./Application/Library/tinycrypt/src/hmac_prng.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .group         0x00000000        0xc ./Application/Library/tinycrypt/src/sha256.o
- .text          0x00000000        0x0 ./Application/Library/tinycrypt/src/sha256.o
- .data          0x00000000        0x0 ./Application/Library/tinycrypt/src/sha256.o
- .bss           0x00000000        0x0 ./Application/Library/tinycrypt/src/sha256.o
- .text.tc_sha256_init
-                0x00000000       0x78 ./Application/Library/tinycrypt/src/sha256.o
- .text.tc_sha256_update
-                0x00000000       0x86 ./Application/Library/tinycrypt/src/sha256.o
- .text.tc_sha256_final
-                0x00000000      0x1ea ./Application/Library/tinycrypt/src/sha256.o
- .rodata.k256   0x00000000      0x100 ./Application/Library/tinycrypt/src/sha256.o
- .text.ROTR     0x00000000       0x1e ./Application/Library/tinycrypt/src/sha256.o
- .text.BigEndian
-                0x00000000       0x66 ./Application/Library/tinycrypt/src/sha256.o
- .text.compress
-                0x00000000      0x314 ./Application/Library/tinycrypt/src/sha256.o
- .debug_info    0x00000000      0x3a8 ./Application/Library/tinycrypt/src/sha256.o
- .debug_abbrev  0x00000000      0x176 ./Application/Library/tinycrypt/src/sha256.o
- .debug_aranges
-                0x00000000       0x48 ./Application/Library/tinycrypt/src/sha256.o
- .debug_rnglists
-                0x00000000       0x34 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000      0x199 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000      0xac0 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000      0x189 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x22 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x8e ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x51 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000      0x103 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x6a ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000      0x1df ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x22 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x61 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x2a ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x43 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x34 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x16 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x43 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x34 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x10 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x58 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x8e ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x1c ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000      0x177 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000      0x369 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x10 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x35 ./Application/Library/tinycrypt/src/sha256.o
- .debug_macro   0x00000000       0x20 ./Application/Library/tinycrypt/src/sha256.o
- .debug_line    0x00000000      0xa8f ./Application/Library/tinycrypt/src/sha256.o
- .debug_str     0x00000000     0x7579 ./Application/Library/tinycrypt/src/sha256.o
- .comment       0x00000000       0x44 ./Application/Library/tinycrypt/src/sha256.o
- .debug_frame   0x00000000      0x100 ./Application/Library/tinycrypt/src/sha256.o
- .ARM.attributes
-                0x00000000       0x3a ./Application/Library/tinycrypt/src/sha256.o
  .group         0x00000000        0xc ./Application/Library/tinycrypt/src/utils.o
  .group         0x00000000        0xc ./Application/Library/tinycrypt/src/utils.o
  .group         0x00000000        0xc ./Application/Library/tinycrypt/src/utils.o
@@ -11845,9 +11599,6 @@ LOAD ./Application/Library/FLASH/Src/W25Q64.o
 LOAD ./Application/Library/tinycrypt/src/aes_decrypt.o
 LOAD ./Application/Library/tinycrypt/src/aes_encrypt.o
 LOAD ./Application/Library/tinycrypt/src/ctr_mode.o
-LOAD ./Application/Library/tinycrypt/src/hmac.o
-LOAD ./Application/Library/tinycrypt/src/hmac_prng.o
-LOAD ./Application/Library/tinycrypt/src/sha256.o
 LOAD ./Application/Library/tinycrypt/src/utils.o
 LOAD ./Application/Protocol/CryptoEngine/Src/CryptoEngine.o
 LOAD ./Application/Protocol/DeviceInfo/Src/DeviceInfo.o
