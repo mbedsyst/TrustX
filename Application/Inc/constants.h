@@ -44,6 +44,7 @@
 #define OPTION_RNG_1024           0x4D // 0b00111101
 #define OPTION_RNG_2048           0x4E // 0b00111110
 #define OPTION_RNG_4096           0x4F // 0b00111111
+
 // -- Encryption Key State
 #define ENC_KEY_BYOK			  0xF1
 #define ENC_KEY_GYOK			  0xF2
@@ -51,16 +52,19 @@
 // -- Encryption IV State
 #define ENC_IV_BYIV				  0xE1
 #define ENC_IV_GYIV				  0xE2
+
 // -- Decryption Key State
 #define DEC_KEY_BYOK			  0xD1
 #define DEC_KEY_DABA			  0xD2
 // -- Decryption IV State
 #define DEC_IV_BYIV				  0xC1
 #define DEC_IV_DABA               0xC2
+
 // -- HMAC Key State
 #define HMAC_KEY_BYOK			  0xB1
 #define HMAC_KEY_GYOK			  0xB2
 #define HMAC_KEY_DABA			  0xB3
+
 // === End of Data Flag (EOD field) ===
 #define IN_EOD_FLAG				  0xDEADBEEF
 #define OUT_EOD_FLAG			  0xCAFEBABE
