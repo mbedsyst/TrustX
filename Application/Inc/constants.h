@@ -5,12 +5,10 @@
 #define CMD_ENCRYPT               0x01 // 0b00000001
 #define CMD_DECRYPT               0x02 // 0b00000010
 #define CMD_HASH                  0x03 // 0b00000011
-#define CMD_HMAC				  0x04
+#define CMD_HMAC				  0x04 // 0b00000100
 #define CMD_RANDOM                0x05 // 0b00000100
 #define CMD_OTP					  0x06 // 0b00000101
-#define CMD_KEY_GEN               0x07 // 0b00000101
-#define CMD_KEY_STORE          	  0x08 // 0b00000110
-#define CMD_KEY_ERASE             0x09 // 0b00000111
+#define CMD_KEY_MANAGE            0x07 // 0b00000101
 #define CMD_PING                  0x0F // 0b00001111    For testing HSM connection
 
 // === Option Codes (OPTION field) ===
@@ -44,6 +42,10 @@
 #define OPTION_RNG_1024           0x4D // 0b00111101
 #define OPTION_RNG_2048           0x4E // 0b00111110
 #define OPTION_RNG_4096           0x4F // 0b00111111
+// -- Key Manager
+#define OPTION_KEY_GEN			  0x51
+#define OPTION_KEY_STORE		  0x52
+#define OPTION_KEY_DELETE		  0x53
 
 // -- Encryption Key State
 #define ENC_KEY_BYOK			  0xF1

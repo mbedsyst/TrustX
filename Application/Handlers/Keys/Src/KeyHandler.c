@@ -91,7 +91,7 @@ static OperationStatus_t KeyHandler_Erase(const ParsedPacket_t* request, Respons
 
 OperationStatus_t  KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
-	switch(request->cmd)
+	switch(request->option)
 	{
 		case CMD_KEY_GEN:
 			log_info("Handling Key Generation operation in KMS.");

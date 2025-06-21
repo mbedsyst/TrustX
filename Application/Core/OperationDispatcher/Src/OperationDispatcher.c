@@ -34,9 +34,7 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
             log_info("Calling OTP Operation.");
             return OTPHandler_Handle(request, response);
 
-        case CMD_KEY_GEN:
-        case CMD_KEY_STORE:
-        case CMD_KEY_ERASE:
+        case CMD_KEY_MANAGE:
         	log_info("Calling Key Management.");
             return KeyHandler_Handle(request, response);
 
