@@ -1,4 +1,40 @@
 # main.py
+from PySide6.QtWidgets import QApplication
+from app.ui.main_window import MainWindow
+import sys
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+
+    #Load stylesheet
+    with open("app/resources/style.qss", "r") as f:
+        app.setStyleSheet(f.read())
+    window = MainWindow()
+    window.show()
+
+    sys.exit(app.exec())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QPushButton,
     QVBoxLayout, QMessageBox
