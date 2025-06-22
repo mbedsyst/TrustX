@@ -2,6 +2,7 @@
 #include "../../../Handlers/Encryption/Inc/EncryptHandler.h"
 #include "../../../Handlers/Decryption/Inc/DecryptHandler.h"
 #include "../../../Handlers/Hashing/Inc/HashHandler.h"
+#include "../../../Handlers/HMAC/Inc/HMACHandler.h"
 #include "../../../Handlers/Keys/Inc/KeyHandler.h"
 #include "../../../Handlers/Random/Inc/RandomHandler.h"
 #include "../../../Handlers/OTP/Inc/OTPHandler.h"
@@ -25,6 +26,10 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
         case CMD_HASH:
         	log_info("Calling Hashing Operation.");
             return HashingHandler_Handle(request, response);
+
+        case CMD_HMAC:
+        	log_info("Calling HMAC Operation.");
+            return HMACHandler_Handle(request, response);
 
         case CMD_RANDOM:
         	log_info("Calling RNG Operation.");

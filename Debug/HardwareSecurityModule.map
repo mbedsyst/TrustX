@@ -378,16 +378,16 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .data          0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .bss           0x00000000        0x0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .rodata        0x00000000      0x132 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .rodata        0x00000000      0x14a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .text.OperationDispatcher_Dispatch
-                0x00000000      0x11c ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_info    0x00000000      0x310 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+                0x00000000      0x130 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_info    0x00000000      0x329 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_abbrev  0x00000000      0x127 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_aranges
                 0x00000000       0x20 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_rnglists
                 0x00000000       0x14 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_macro   0x00000000      0x370 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x37a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0xac0 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000       0x22 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000       0x8e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
@@ -457,8 +457,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x2a7 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x47e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_line    0x00000000      0xe34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_str     0x00000000   0x13d8f3 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_line    0x00000000      0xe92 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_str     0x00000000   0x13d928 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .comment       0x00000000       0x44 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_frame   0x00000000       0x34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .ARM.attributes
@@ -1228,27 +1228,30 @@ Discarded input sections
  .group         0x00000000        0xc ./Application/Handlers/Keys/Src/KeyHandler.o
  .group         0x00000000        0xc ./Application/Handlers/Keys/Src/KeyHandler.o
  .group         0x00000000        0xc ./Application/Handlers/Keys/Src/KeyHandler.o
+ .group         0x00000000        0xc ./Application/Handlers/Keys/Src/KeyHandler.o
  .text          0x00000000        0x0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .data          0x00000000        0x0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .bss           0x00000000        0x0 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .text.ConvertKeyIDToUint32
+                0x00000000       0x38 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.CalculateKeySize
                 0x00000000       0x94 ./Application/Handlers/Keys/Src/KeyHandler.o
- .rodata        0x00000000      0x16f ./Application/Handlers/Keys/Src/KeyHandler.o
+ .rodata        0x00000000      0x1ef ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Generate
                 0x00000000       0xf0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Store
-                0x00000000       0x18 ./Application/Handlers/Keys/Src/KeyHandler.o
+                0x00000000       0xd4 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Erase
                 0x00000000       0x18 ./Application/Handlers/Keys/Src/KeyHandler.o
  .text.KeyHandler_Handle
                 0x00000000       0x7c ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_info    0x00000000      0x54d ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_abbrev  0x00000000      0x215 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_info    0x00000000      0x747 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_abbrev  0x00000000      0x242 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_aranges
-                0x00000000       0x40 ./Application/Handlers/Keys/Src/KeyHandler.o
+                0x00000000       0x48 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_rnglists
-                0x00000000       0x2d ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_macro   0x00000000      0x39e ./Application/Handlers/Keys/Src/KeyHandler.o
+                0x00000000       0x34 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_macro   0x00000000      0x3b1 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000      0xac0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x22 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x8e ./Application/Handlers/Keys/Src/KeyHandler.o
@@ -1259,6 +1262,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x10 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x10 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_macro   0x00000000       0x16 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000      0x1e8 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x61 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x2a ./Application/Handlers/Keys/Src/KeyHandler.o
@@ -1324,10 +1328,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x29 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_line    0x00000000      0xd32 ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_str     0x00000000   0x13daea ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_line    0x00000000      0xe9e ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_str     0x00000000   0x13de9e ./Application/Handlers/Keys/Src/KeyHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_frame   0x00000000       0xd0 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_frame   0x00000000       0xf8 ./Application/Handlers/Keys/Src/KeyHandler.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Handlers/Keys/Src/KeyHandler.o
  .group         0x00000000        0xc ./Application/Handlers/OTP/Src/OTPHandler.o
