@@ -190,9 +190,9 @@ Discarded input sections
  .text          0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
  .data          0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
  .bss           0x00000000        0x0 ./Application/Core/HSMManager/Src/HSMManager.o
- .rodata        0x00000000      0x624 ./Application/Core/HSMManager/Src/HSMManager.o
+ .rodata        0x00000000      0x5fc ./Application/Core/HSMManager/Src/HSMManager.o
  .text.GetCommandName
-                0x00000000       0xb0 ./Application/Core/HSMManager/Src/HSMManager.o
+                0x00000000       0xa0 ./Application/Core/HSMManager/Src/HSMManager.o
  .text.GetOptionName
                 0x00000000      0x22c ./Application/Core/HSMManager/Src/HSMManager.o
  .text.LogParsedPacket
@@ -213,7 +213,7 @@ Discarded input sections
                 0x00000000       0x3e ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000      0x490 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000      0xac0 ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_macro   0x00000000      0x130 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_macro   0x00000000      0x136 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000       0x22 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000       0x8e ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000       0x51 ./Application/Core/HSMManager/Src/HSMManager.o
@@ -300,8 +300,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000       0x52 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_macro   0x00000000      0x130 ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_line    0x00000000     0x1292 ./Application/Core/HSMManager/Src/HSMManager.o
- .debug_str     0x00000000   0x13ff32 ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_line    0x00000000     0x128c ./Application/Core/HSMManager/Src/HSMManager.o
+ .debug_str     0x00000000   0x13ff50 ./Application/Core/HSMManager/Src/HSMManager.o
  .comment       0x00000000       0x44 ./Application/Core/HSMManager/Src/HSMManager.o
  .debug_frame   0x00000000      0x11c ./Application/Core/HSMManager/Src/HSMManager.o
  .ARM.attributes
@@ -398,7 +398,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000       0x10 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000       0x10 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_macro   0x00000000      0x130 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_macro   0x00000000      0x136 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x1e8 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000       0x61 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000       0x2a ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
@@ -458,7 +458,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2a7 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_macro   0x00000000      0x47e ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_line    0x00000000      0xe34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
- .debug_str     0x00000000   0x13d8d5 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
+ .debug_str     0x00000000   0x13d8f3 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .comment       0x00000000       0x44 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .debug_frame   0x00000000       0x34 ./Application/Core/OperationDispatcher/Src/OperationDispatcher.o
  .ARM.attributes
@@ -628,7 +628,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000      0x2a7 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000      0x47e ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_macro   0x00000000      0x130 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_macro   0x00000000      0x136 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x35 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Decryption/Src/DecryptHandler.o
@@ -636,7 +636,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_line    0x00000000      0xeec ./Application/Handlers/Decryption/Src/DecryptHandler.o
- .debug_str     0x00000000   0x13de35 ./Application/Handlers/Decryption/Src/DecryptHandler.o
+ .debug_str     0x00000000   0x13de53 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .debug_frame   0x00000000       0x60 ./Application/Handlers/Decryption/Src/DecryptHandler.o
  .ARM.attributes
@@ -806,7 +806,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000      0x2a7 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000      0x47e ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_macro   0x00000000      0x130 ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_macro   0x00000000      0x136 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x35 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Encryption/Src/EncryptHandler.o
@@ -814,7 +814,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_line    0x00000000      0xef7 ./Application/Handlers/Encryption/Src/EncryptHandler.o
- .debug_str     0x00000000   0x13de7a ./Application/Handlers/Encryption/Src/EncryptHandler.o
+ .debug_str     0x00000000   0x13de98 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .debug_frame   0x00000000       0x64 ./Application/Handlers/Encryption/Src/EncryptHandler.o
  .ARM.attributes
@@ -979,12 +979,12 @@ Discarded input sections
  .debug_macro   0x00000000      0x2a7 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000      0x47e ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_macro   0x00000000      0x130 ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_macro   0x00000000      0x136 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x35 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_line    0x00000000      0xdbc ./Application/Handlers/HMAC/Src/HMACHandler.o
- .debug_str     0x00000000   0x13e28b ./Application/Handlers/HMAC/Src/HMACHandler.o
+ .debug_str     0x00000000   0x13e2a9 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .debug_frame   0x00000000       0x64 ./Application/Handlers/HMAC/Src/HMACHandler.o
  .ARM.attributes
@@ -1085,7 +1085,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_macro   0x00000000       0x10 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_macro   0x00000000       0x10 ./Application/Handlers/Hashing/Src/HashHandler.o
- .debug_macro   0x00000000      0x130 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_macro   0x00000000      0x136 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_macro   0x00000000      0x1e8 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_macro   0x00000000       0x61 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_macro   0x00000000       0x2a ./Application/Handlers/Hashing/Src/HashHandler.o
@@ -1148,7 +1148,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_line    0x00000000      0xc71 ./Application/Handlers/Hashing/Src/HashHandler.o
- .debug_str     0x00000000   0x13ddd6 ./Application/Handlers/Hashing/Src/HashHandler.o
+ .debug_str     0x00000000   0x13ddf4 ./Application/Handlers/Hashing/Src/HashHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Hashing/Src/HashHandler.o
  .debug_frame   0x00000000       0x34 ./Application/Handlers/Hashing/Src/HashHandler.o
  .ARM.attributes
@@ -1317,7 +1317,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000      0x2a7 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000      0x47e ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_macro   0x00000000      0x130 ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_macro   0x00000000      0x136 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x35 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Keys/Src/KeyHandler.o
@@ -1325,7 +1325,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_line    0x00000000      0xd32 ./Application/Handlers/Keys/Src/KeyHandler.o
- .debug_str     0x00000000   0x13dacc ./Application/Handlers/Keys/Src/KeyHandler.o
+ .debug_str     0x00000000   0x13daea ./Application/Handlers/Keys/Src/KeyHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Keys/Src/KeyHandler.o
  .debug_frame   0x00000000       0xd0 ./Application/Handlers/Keys/Src/KeyHandler.o
  .ARM.attributes
@@ -1488,7 +1488,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_macro   0x00000000      0x2a7 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_macro   0x00000000      0x47e ./Application/Handlers/OTP/Src/OTPHandler.o
- .debug_macro   0x00000000      0x130 ./Application/Handlers/OTP/Src/OTPHandler.o
+ .debug_macro   0x00000000      0x136 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_macro   0x00000000       0x35 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/OTP/Src/OTPHandler.o
@@ -1496,7 +1496,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_line    0x00000000      0xc9d ./Application/Handlers/OTP/Src/OTPHandler.o
- .debug_str     0x00000000   0x13da81 ./Application/Handlers/OTP/Src/OTPHandler.o
+ .debug_str     0x00000000   0x13da9f ./Application/Handlers/OTP/Src/OTPHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/OTP/Src/OTPHandler.o
  .debug_frame   0x00000000       0x5c ./Application/Handlers/OTP/Src/OTPHandler.o
  .ARM.attributes
@@ -1659,7 +1659,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_macro   0x00000000      0x2a7 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_macro   0x00000000      0x47e ./Application/Handlers/Random/Src/RandomHandler.o
- .debug_macro   0x00000000      0x130 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_macro   0x00000000      0x136 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_macro   0x00000000       0x35 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Random/Src/RandomHandler.o
@@ -1667,7 +1667,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_macro   0x00000000       0x20 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_line    0x00000000      0xcc5 ./Application/Handlers/Random/Src/RandomHandler.o
- .debug_str     0x00000000   0x13da91 ./Application/Handlers/Random/Src/RandomHandler.o
+ .debug_str     0x00000000   0x13daaf ./Application/Handlers/Random/Src/RandomHandler.o
  .comment       0x00000000       0x44 ./Application/Handlers/Random/Src/RandomHandler.o
  .debug_frame   0x00000000       0x5c ./Application/Handlers/Random/Src/RandomHandler.o
  .ARM.attributes
@@ -2622,7 +2622,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x6a ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000      0x1df ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_macro   0x00000000      0x130 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_macro   0x00000000      0x136 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000      0x1e8 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x61 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x2a ./Application/Protocol/FlashManager/Src/FlashManager.o
@@ -2685,7 +2685,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_macro   0x00000000       0x20 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_line    0x00000000      0xc3e ./Application/Protocol/FlashManager/Src/FlashManager.o
- .debug_str     0x00000000   0x13d752 ./Application/Protocol/FlashManager/Src/FlashManager.o
+ .debug_str     0x00000000   0x13d770 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .comment       0x00000000       0x44 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .debug_frame   0x00000000       0xe8 ./Application/Protocol/FlashManager/Src/FlashManager.o
  .ARM.attributes
@@ -3077,6 +3077,8 @@ Discarded input sections
  .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
  .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
  .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .group         0x00000000        0xc ./Application/Protocol/KeyManager/Src/KeyManager.o
  .text          0x00000000        0x0 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .data          0x00000000        0x0 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .bss           0x00000000        0x0 ./Application/Protocol/KeyManager/Src/KeyManager.o
@@ -3094,14 +3096,14 @@ Discarded input sections
  .text.KeyManager_Init
                 0x00000000       0xb4 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .text.KeyManager_AddKey
-                0x00000000      0x1d0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+                0x00000000      0x25c ./Application/Protocol/KeyManager/Src/KeyManager.o
  .text.KeyManager_GetKey
-                0x00000000      0x1d0 ./Application/Protocol/KeyManager/Src/KeyManager.o
+                0x00000000      0x248 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .text.KeyManager_DeleteKey
                 0x00000000       0x78 ./Application/Protocol/KeyManager/Src/KeyManager.o
- .bss.ciphertext.5
+ .bss.plaintext.5
                 0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
- .bss.plaintext.4
+ .bss.ciphertext.4
                 0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .bss.keyEntryArray.3
                 0x00000000       0x58 ./Application/Protocol/KeyManager/Src/KeyManager.o
@@ -3111,13 +3113,13 @@ Discarded input sections
                 0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .bss.plaintext.0
                 0x00000000       0x23 ./Application/Protocol/KeyManager/Src/KeyManager.o
- .debug_info    0x00000000      0x781 ./Application/Protocol/KeyManager/Src/KeyManager.o
- .debug_abbrev  0x00000000      0x1ff ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_info    0x00000000      0x87a ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_abbrev  0x00000000      0x213 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_aranges
                 0x00000000       0x50 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_rnglists
                 0x00000000       0x3a ./Application/Protocol/KeyManager/Src/KeyManager.o
- .debug_macro   0x00000000      0x414 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000      0x444 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000      0xac0 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x22 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x8e ./Application/Protocol/KeyManager/Src/KeyManager.o
@@ -3185,16 +3187,18 @@ Discarded input sections
  .debug_macro   0x00000000      0x169 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000      0x2a7 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000      0x47e ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x10 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_macro   0x00000000       0x22 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x35 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x29 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x16 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .debug_macro   0x00000000       0x20 ./Application/Protocol/KeyManager/Src/KeyManager.o
- .debug_line    0x00000000      0xf06 ./Application/Protocol/KeyManager/Src/KeyManager.o
- .debug_str     0x00000000   0x13d9f5 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_line    0x00000000     0x10c9 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_str     0x00000000   0x13dbd2 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .comment       0x00000000       0x44 ./Application/Protocol/KeyManager/Src/KeyManager.o
- .debug_frame   0x00000000      0x124 ./Application/Protocol/KeyManager/Src/KeyManager.o
+ .debug_frame   0x00000000      0x128 ./Application/Protocol/KeyManager/Src/KeyManager.o
  .ARM.attributes
                 0x00000000       0x3a ./Application/Protocol/KeyManager/Src/KeyManager.o
  .group         0x00000000        0xc ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
@@ -3290,7 +3294,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_macro   0x00000000       0x22 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_macro   0x00000000       0x10 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
- .debug_macro   0x00000000      0x130 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
+ .debug_macro   0x00000000      0x136 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_macro   0x00000000      0x1e8 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_macro   0x00000000       0x61 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_macro   0x00000000       0x2a ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
@@ -3353,7 +3357,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_macro   0x00000000       0x20 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_line    0x00000000      0xc22 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
- .debug_str     0x00000000   0x13d665 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
+ .debug_str     0x00000000   0x13d683 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .comment       0x00000000       0x44 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .debug_frame   0x00000000       0x34 ./Application/Protocol/PacketBuilder/Src/PacketBuilder.o
  .ARM.attributes
@@ -3449,7 +3453,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_macro   0x00000000      0x1df ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_macro   0x00000000       0x22 ./Application/Protocol/PacketParser/Src/PacketParser.o
- .debug_macro   0x00000000      0x130 ./Application/Protocol/PacketParser/Src/PacketParser.o
+ .debug_macro   0x00000000      0x136 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_macro   0x00000000      0x1e8 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_macro   0x00000000       0x61 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_macro   0x00000000       0x2a ./Application/Protocol/PacketParser/Src/PacketParser.o
@@ -3512,7 +3516,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x35 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_macro   0x00000000       0x20 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_line    0x00000000      0xbd1 ./Application/Protocol/PacketParser/Src/PacketParser.o
- .debug_str     0x00000000   0x13d64e ./Application/Protocol/PacketParser/Src/PacketParser.o
+ .debug_str     0x00000000   0x13d66c ./Application/Protocol/PacketParser/Src/PacketParser.o
  .comment       0x00000000       0x44 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .debug_frame   0x00000000       0x34 ./Application/Protocol/PacketParser/Src/PacketParser.o
  .ARM.attributes
@@ -4186,7 +4190,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x95 ./Core/Src/main.o
  .debug_macro   0x00000000       0x10 ./Core/Src/main.o
  .debug_macro   0x00000000       0x22 ./Core/Src/main.o
- .debug_macro   0x00000000      0x130 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x136 ./Core/Src/main.o
  .debug_macro   0x00000000       0x10 ./Core/Src/main.o
  .debug_macro   0x00000000       0x10 ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/stm32h5xx_hal_msp.o
@@ -13512,80 +13516,80 @@ LOAD C:/ST/STM32CubeIDE_1.11.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0002aaa1      0xbdf ./USB/Core/Src/usbd_desc.o
  .debug_line    0x0002b680      0xb32 ./USB/Core/Src/usbd_ioreq.o
 
-.debug_str      0x00000000   0x14c21e
+.debug_str      0x00000000   0x14c23c
  .debug_str     0x00000000   0x13d5ac ./Application/Library/FLASH/Src/W25Q64.o
                              0x13d97b (size before relaxing)
  .debug_str     0x0013d5ac      0x8fe ./Application/Utils/Logger/Src/Logger.o
                              0x13d923 (size before relaxing)
- .debug_str     0x0013deaa     0x3f5b ./Core/Src/main.o
-                             0x14202b (size before relaxing)
- .debug_str     0x00141e05      0xce5 ./Core/Src/stm32h5xx_hal_msp.o
+ .debug_str     0x0013deaa     0x3f79 ./Core/Src/main.o
+                             0x142049 (size before relaxing)
+ .debug_str     0x00141e23      0xce5 ./Core/Src/stm32h5xx_hal_msp.o
                              0x1406a8 (size before relaxing)
- .debug_str     0x00142aea      0x116 ./Core/Src/stm32h5xx_it.o
+ .debug_str     0x00142b08      0x116 ./Core/Src/stm32h5xx_it.o
                              0x13ee14 (size before relaxing)
- .debug_str     0x00142c00     0x1fc3 ./Core/Src/syscalls.o
+ .debug_str     0x00142c1e     0x1fc3 ./Core/Src/syscalls.o
                                0x98f8 (size before relaxing)
- .debug_str     0x00144bc3       0x6b ./Core/Src/sysmem.o
+ .debug_str     0x00144be1       0x6b ./Core/Src/sysmem.o
                                0x6110 (size before relaxing)
- .debug_str     0x00144c2e      0x1b8 ./Core/Src/system_stm32h5xx.o
+ .debug_str     0x00144c4c      0x1b8 ./Core/Src/system_stm32h5xx.o
                              0x13d673 (size before relaxing)
- .debug_str     0x00144de6       0x44 ./Core/Startup/startup_stm32h563zitx.o
+ .debug_str     0x00144e04       0x44 ./Core/Startup/startup_stm32h563zitx.o
                                  0x91 (size before relaxing)
- .debug_str     0x00144e2a      0x33d ./Drivers/BSP/STM32H5xx_Nucleo/stm32h5xx_nucleo.o
+ .debug_str     0x00144e48      0x33d ./Drivers/BSP/STM32H5xx_Nucleo/stm32h5xx_nucleo.o
                              0x13f4de (size before relaxing)
- .debug_str     0x00145167      0x944 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal.o
+ .debug_str     0x00145185      0x944 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal.o
                              0x13e4bf (size before relaxing)
- .debug_str     0x00145aab      0x3d8 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_cortex.o
+ .debug_str     0x00145ac9      0x3d8 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_cortex.o
                              0x13e04e (size before relaxing)
- .debug_str     0x00145e83      0x27c ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_exti.o
+ .debug_str     0x00145ea1      0x27c ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_exti.o
                              0x13d3a5 (size before relaxing)
- .debug_str     0x001460ff      0x2ad ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_flash.o
+ .debug_str     0x0014611d      0x2ad ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_flash.o
                              0x13d66d (size before relaxing)
- .debug_str     0x001463ac      0x21a ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_gpio.o
+ .debug_str     0x001463ca      0x21a ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_gpio.o
                              0x13d3d8 (size before relaxing)
- .debug_str     0x001465c6      0x3d8 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_hash.o
+ .debug_str     0x001465e4      0x3d8 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_hash.o
                              0x13d9e7 (size before relaxing)
- .debug_str     0x0014699e      0xee4 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_i2c.o
+ .debug_str     0x001469bc      0xee4 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_i2c.o
                              0x13e626 (size before relaxing)
- .debug_str     0x00147882       0x87 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_i2c_ex.o
+ .debug_str     0x001478a0       0x87 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_i2c_ex.o
                              0x13d747 (size before relaxing)
- .debug_str     0x00147909      0x5f7 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_pcd.o
+ .debug_str     0x00147927      0x5f7 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_pcd.o
                              0x13da53 (size before relaxing)
- .debug_str     0x00147f00      0x186 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_pcd_ex.o
+ .debug_str     0x00147f1e      0x186 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_pcd_ex.o
                              0x13d5db (size before relaxing)
- .debug_str     0x00148086      0x5ce ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_pwr_ex.o
+ .debug_str     0x001480a4      0x5ce ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_pwr_ex.o
                              0x13d7bd (size before relaxing)
- .debug_str     0x00148654      0x378 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rcc.o
+ .debug_str     0x00148672      0x378 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rcc.o
                              0x13dbb8 (size before relaxing)
- .debug_str     0x001489cc      0x6bf ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rcc_ex.o
+ .debug_str     0x001489ea      0x6bf ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rcc_ex.o
                              0x13df02 (size before relaxing)
- .debug_str     0x0014908b      0x14a ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rng.o
+ .debug_str     0x001490a9      0x14a ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rng.o
                              0x13d2ce (size before relaxing)
- .debug_str     0x001491d5      0x3db ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rtc.o
+ .debug_str     0x001491f3      0x3db ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rtc.o
                              0x13d70f (size before relaxing)
- .debug_str     0x001495b0      0xbf0 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rtc_ex.o
+ .debug_str     0x001495ce      0xbf0 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rtc_ex.o
                              0x13e1c5 (size before relaxing)
- .debug_str     0x0014a1a0      0x51c ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_spi.o
+ .debug_str     0x0014a1be      0x51c ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_spi.o
                              0x13dcde (size before relaxing)
- .debug_str     0x0014a6bc      0x8f5 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_uart.o
+ .debug_str     0x0014a6da      0x8f5 ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_uart.o
                              0x13e0b9 (size before relaxing)
- .debug_str     0x0014afb1      0x26b ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_uart_ex.o
+ .debug_str     0x0014afcf      0x26b ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_uart_ex.o
                              0x13da8a (size before relaxing)
- .debug_str     0x0014b21c      0x31b ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_ll_usb.o
+ .debug_str     0x0014b23a      0x31b ./Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_ll_usb.o
                              0x13d7b3 (size before relaxing)
- .debug_str     0x0014b537      0x31a ./USB/Class/CDC/Src/usbd_cdc.o
+ .debug_str     0x0014b555      0x31a ./USB/Class/CDC/Src/usbd_cdc.o
                              0x13f33c (size before relaxing)
- .debug_str     0x0014b851      0x1ae ./USB/Class/CDC/Src/usbd_cdc_if.o
+ .debug_str     0x0014b86f      0x1ae ./USB/Class/CDC/Src/usbd_cdc_if.o
                              0x13ef1d (size before relaxing)
- .debug_str     0x0014b9ff      0x170 ./USB/Core/Src/usbd_conf.o
+ .debug_str     0x0014ba1d      0x170 ./USB/Core/Src/usbd_conf.o
                              0x14015a (size before relaxing)
- .debug_str     0x0014bb6f      0x23d ./USB/Core/Src/usbd_core.o
+ .debug_str     0x0014bb8d      0x23d ./USB/Core/Src/usbd_core.o
                              0x13ecbd (size before relaxing)
- .debug_str     0x0014bdac       0xd8 ./USB/Core/Src/usbd_ctlreq.o
+ .debug_str     0x0014bdca       0xd8 ./USB/Core/Src/usbd_ctlreq.o
                              0x13eae8 (size before relaxing)
- .debug_str     0x0014be84      0x36d ./USB/Core/Src/usbd_desc.o
+ .debug_str     0x0014bea2      0x36d ./USB/Core/Src/usbd_desc.o
                              0x13e968 (size before relaxing)
- .debug_str     0x0014c1f1       0x2d ./USB/Core/Src/usbd_ioreq.o
+ .debug_str     0x0014c20f       0x2d ./USB/Core/Src/usbd_ioreq.o
                              0x13e9bd (size before relaxing)
 
 .comment        0x00000000       0x43

@@ -93,16 +93,16 @@ OperationStatus_t  KeyHandler_Handle(const ParsedPacket_t* request, ResponsePack
 {
 	switch(request->option)
 	{
-		case CMD_KEY_GEN:
+		case OPTION_KEY_GEN:
 			log_info("Handling Key Generation operation in KMS.");
 			return KeyHandler_Generate(request, response);
 
-		case CMD_KEY_STORE:
+		case OPTION_KEY_STORE:
 			log_info("Handling Key Store operation in KMS.");
 			log_warn("Key Store operation not supported now.");
 			return KeyHandler_Store(request, response);
 
-		case CMD_KEY_ERASE:
+		case OPTION_KEY_DELETE:
 			log_info("Handling Key Store operation in KMS.");
 			log_warn("Key Store operation not supported now.");
 			return KeyHandler_Erase(request, response);

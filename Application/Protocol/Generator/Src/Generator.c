@@ -4,7 +4,7 @@
 extern RNG_HandleTypeDef hrng;
 extern HASH_HandleTypeDef hhash;
 
-#define HMAC_KEY_SIZE	32
+#define HMAC_KEY_SIZE	16
 
 static GeneratorStatus_t GenerateRandomBytes(uint8_t *output, uint32_t length)
 {
