@@ -28,7 +28,6 @@
 
 #include "HSMManager.h"
 #include "Logger.h"
-#include "W25Q64.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,8 +100,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  uint8_t data[100] = {0};
-  uint8_t msg[] = "WELL, IT JUST SO HAPPENS THAT WE ARE EXPERTS AT EXTERMINATING SHITBAG SUPES.";
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -157,45 +155,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  // HSMManager_Init();
+  HSMManager_Init();
 
-  // HSMManager_ProcessCommand();
-  W25Q_Reset();
-  W25Q_Write(0, 0, sizeof(msg), msg);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  W25Q_Read(0, 0, sizeof(msg), data);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED ON.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  log_info("Turning LED OFF.");
-  BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
-  BSP_LED_Toggle(LED_RED);    HAL_Delay(1000);
-  BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
-  printf("\n\n\r%s", data);
+  HSMManager_ProcessCommand();
 
   while (1)
   {

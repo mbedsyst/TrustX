@@ -1,0 +1,30 @@
+[01:16:38] Connection Failed: Device not found. Please check connection.
+[01:16:40] No active Connection.
+[02:31:07] Connection Failed: Device not found. Please check connection.
+[02:31:08] No active Connection.
+[02:31:09] No active Connection.
+[02:31:10] Connection Failed: Device not found. Please check connection.
+[02:31:11] Connection Failed: Device not found. Please check connection.
+[03:15:18] RNG Error: Incomplete Packet.
+[03:15:25] Connection Failed: Device not found. Please check connection.
+[03:15:26] No active Connection.
+[03:16:11] RNG Error: Incomplete Packet.
+[03:16:13] Connection Failed: Device not found. Please check connection.
+[03:17:59] Device Connected
+[03:18:02] RNG Error: Incomplete Packet.
+[03:18:11] Device Connected
+[03:18:12] Device Disconnected.
+[03:18:14] Device Connected
+[03:18:14] Device Disconnected.
+[03:18:15] No active Connection.
+[03:18:16] Device Connected
+[03:18:17] Connection Failed: Failed to connect to COM4: could not open port 'COM4': PermissionError(13, 'Access is denied.', None, 5)
+[03:18:19] Device Disconnected.
+[03:18:20] Device Connected
+[03:18:28] RNG Error: Incomplete Packet.
+[03:19:46] RNG Error: Incomplete Packet.
+[03:19:50] Device Disconnected.
+[03:41:44] Device Connected
+[03:41:49] KEYGEN Error: Incomplete Packet.
+[03:42:03] OTP Error: Incomplete Packet.
+[03:42:08] Device Disconnected.

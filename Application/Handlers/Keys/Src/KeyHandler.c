@@ -165,7 +165,7 @@ static OperationStatus_t KeyHandler_Delete(const ParsedPacket_t* request, Respon
     return OPERATION_SUCCESS;
 }
 
-OperationStatus_t  KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
+OperationStatus_t KeyHandler_Handle(const ParsedPacket_t* request, ResponsePacket_t* response)
 {
 	switch(request->option)
 	{

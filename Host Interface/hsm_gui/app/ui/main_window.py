@@ -1,5 +1,7 @@
 # main_window.py
-from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QStackedWidget
+from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QStackedWidget
+from app.core.logger import set_gui_log_callback
+from app.ui.widgets.debug_terminal import DebugTerminal
 from app.ui.landing_page import LandingPage
 from app.ui.sidebar import Sidebar
 from app.ui.encrypt_page import EncryptPage
@@ -19,11 +21,15 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("TrustX Console")
         self.setMinimumSize(720, 480)
 
+        self.debug_terminal = DebugTerminal()
+        set_gui_log_callback(self.debug_terminal.append_message)
+        
         central = QWidget()
-        layout = QHBoxLayout()
-        central.setLayout(layout)
+        main_layout = QVBoxLayout()
+        central.setLayout(main_layout)
         self.setCentralWidget(central)
 
+        page_layout = QHBoxLayout()
         self.sidebar = Sidebar()
         self.stack = QStackedWidget()
 
@@ -46,8 +52,14 @@ class MainWindow(QMainWindow):
 
         self.sidebar.navigate.connect(self.switch_page)
 
-        layout.addWidget(self.sidebar)
-        layout.addWidget(self.stack)
+        page_layout.addWidget(self.sidebar)
+        page_layout.addWidget(self.stack)
+
+        main_layout.addLayout(page_layout)
+
+        SHOW_DEBUG_TERMINAL = True
+        if SHOW_DEBUG_TERMINAL:
+            main_layout.addWidget(self.debug_terminal)
 
         self.switch_page("landing")
 

@@ -1,8 +1,8 @@
 #include "EncryptHandler.h"
 
 #include "CryptoEngine.h"
-#include "KeyManager.h"
 #include "Generator.h"
+#include "KeyManager.h"
 #include "Logger.h"
 
 #include "constants.h"
@@ -106,8 +106,8 @@ OperationStatus_t EncryptHandler_Encrypt(const ParsedPacket_t* request, Response
 
 		case ENC_KEY_GYOK:
 			log_info("Generating a Random Encryption Key.");
-			GenerateKEY(keyData);
 			GenerateKEYID(keyID);
+			GenerateKEY(keyData);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
 			KeyManager_AddKey(keyID_32, keyData, ENC_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_ENCRYPT);
 			break;

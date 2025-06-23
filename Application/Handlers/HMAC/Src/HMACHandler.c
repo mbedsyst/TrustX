@@ -101,8 +101,8 @@ OperationStatus_t HMACHandler_Handle(const ParsedPacket_t* request, ResponsePack
 
 		case HMAC_KEY_GYOK:
 			log_info("Generating a Random HMAC Key.");
-			GenerateKEY(keyData);
 			GenerateKEYID(keyID);
+			GenerateKEY(keyData);
 			keyID_32 = ConvertKeyIDToUint32(keyID);
 			KeyManager_AddKey(keyID_32, keyData, HMAC_KEY_SIZE, KEY_ORIGIN_GENERATED, USAGE_HMAC);
 			break;
