@@ -1,10 +1,10 @@
-# app/ui/keygen_page.py
+# app/ui/keydelete_page.py
 
 from PySide6.QtWidgets import QWidget, QLabel, QVBoxLayout
 
-class KeyGenPage(QWidget):
+class KeyDeletePage(QWidget):
     def __init__(self):
         super().__init__()
         layout = QVBoxLayout()
-        layout.addWidget(QLabel("Key Generation Page"))
+        layout.addWidget(QLabel("Key Delete Page"))
         self.setLayout(layout)
