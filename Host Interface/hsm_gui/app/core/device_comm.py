@@ -1,6 +1,8 @@
-# device_comm.py
+# app/core/device_comm.py
+
 import serial
 from serial.tools import list_ports
+from app.core.logger import log
 
 class DeviceInterface:
     def __init__(self, baudrate = 115200):
@@ -38,8 +40,12 @@ class DeviceInterface:
     def send(self, data: bytes):
         if self.is_connected():
             self.serial.write(data)
+            log(f"[TX] {data.hex(' ').upper()}")
 
     def receive(self) -> bytes:
         if self.is_connected():
-            return self.serial.read(1024)
+            data = self.serial.read(1024)
+            if data:
+                log(f"[RX] {data.hex(' ').upper()}")
+            return data
         return b''
