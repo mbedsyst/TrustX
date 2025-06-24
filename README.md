@@ -1,36 +1,88 @@
-# Hardware Security Module over USB-CDC Class Device
-A Hardware Security Module (HSM) that supports AES, RSA, and ECC encryption and decryption, along with hashing using SHA-224, SHA-256, SHA-384, and SHA-512 algorithms. It includes HMAC verification using SHA-224 or SHA-256 and features secure random number generation of various sizes. Secure key management is implemented by storing keys in internal flash memory in an encrypted format, derived from the processor’s Hardware Unique Key (HUK), with an encrypted backup copy stored externally on flash memory.  
+# 🔐 TrustX – Embedded Hardware Security Module over USB
 
-To ensure persistent configuration storage across resets, a serial EEPROM is incorporated. Hardware security measures include readout protection for internal flash memory and restricted access to the Secure World from Non-Secure code using the GTZC feature of the STM32. Tamper protection is also implemented, monitoring both internal tamper signals and a predefined external GPIO pin for enclosure breaches, triggering erasure protocols for both internal and external flash memory if necessary.  
+**TrustX** is a custom-built Hardware Security Module (HSM) designed for secure, offline cryptographic operations. Built around the STM32H5 microcontroller series, it supports Symmetric encryption, HMAC, Hashing, Key Management, Random Number Generation, and communication over USB using the CDC class.
 
-Currently, the PCB is being designed with the STM32H573RIV6 MCU at the core, featuring a USB-C receptacle as the sole interface. SWD pins are exposed for potential future flashing and debugging needs, and UART terminal pins are included for use as a serial data logger during debugging.
+This repository contains:
+- Embedded firmware for STM32H563ZI (development version)
+- Python-based GUI for host interaction
+- PCB design assets (in progress)
+- Documentation and security implementation details
+
+---
+
+## 🧭 Project Overview
+
+**TrustX** is built with the goal of providing:
+- **Secure key generation and storage** tied to the specific hardware instance
+- **Hardware-accelerated cryptographic operations** that never expose key material to the host
+- A clean, **USB CDC-based communication protocol** with a platform-independent Python GUI
+- Optional tamper response and persistent configuration features
+
+TrustX is suitable for experimentation, cryptographic offloading, or use as a secure peripheral in broader security-critical systems.
+
+---
+
+## ⚙️ Features
+|------------------------------|--------------------------------------------------------------|
+| Feature                      | Description                                                  |
+|------------------------------|--------------------------------------------------------------|
+| Encryption/Decryption        | Software based Symmetric Encryption and Decryption           |
+| Hashing (SHA2)               | On-device SHA-224, SHA-256, SHA-384, SHA-512                 |
+| HMAC (SHA-224/SHA-256)       | Secure message authentication                                |
+| Random Number Generation     | True Random Number Generation (TRNG-based)                   |
+| Key Derivation               | UID + Salt-based Runtime Key Derivation                      |
+| Key Management               | Add / Read / Delete Key entries, encrypted in external Flash |
+| OTP Stream Generator         | For One-Time Symmetric Secure Exchanges                      |
+| USB CDC Interface            | Secure protocol between Host and HSM                         |
+| Flash Binding                | External Flash encrypted using MCU-derived key               |
+|------------------------------|--------------------------------------------------------------|
+
+---
+
+PCB design and enclosure are in progress. Images will be added when design is completed.
+
+---
+
+## 🧱 Architecture Overview
+
+                          ┌──────────────────────────┐
+                          │        Host PC GUI       │
+                          │ (Python, USB Serial GUI) │
+                          └────────────┬─────────────┘
+                                       │ USB CDC
+                          ┌────────────▼─────────────┐
+                          │      TrustX Firmware     │
+                          │      (STM32H563ZI)       │
+                          └──────┬──────────┬────────┘
+                                 │          │
+                    ┌────────────▼───┐ ┌────▼────────────────┐
+                    │ Key Derivation │ │   Command Handler   │
+                    │ UID + Salt KDF │ │ (Dispatching Logic) │
+                    └────────┬───────┘ └────┬────────────────┘
+                             │              │
+               ┌─────────────▼──────┐  ┌────▼──────────────────────────┐
+               │  Master Key (RAM)  │  │        Operation Units        │
+               │    (Not stored)    │  │ Encryption, Decryption, Hash  │
+               └────────┬───────────┘  │   HMAC, RNG, Key Management   │
+                        │              └────────┬──────────────────────┘
+     ┌──────────────────▼────────────┐          │
+     │ Encrypted External Flash      │◄─────────┘
+     │ Key Store (Bound to UID)      │
+     └───────────────────────────────┘
 
 
-## PCB Design (Work in Progress)
+---
 
-### 🧷 2D Views
-**Top View:**
+## 🖥️ Host Interface (Python GUI)
 
-![2D Top View](PCB/Images/01.%20PCB%20View%202D%20Top%20Silkscreen.png)
+- Written in Python 3 with Tkinter
+- Simple landing screen with separate operation pages
+- Serial port detection, command packaging, and response parsing
+- Supports all features provided by the HSM firmware
+- Copy/download output support for generated or decrypted content
 
-**Bottom View:**
+Run with:
 
-![2D Bottom View](PCB/Images/02.%20PCB%20View%202D%20Bottom%20Silkscreen.png)
-
-### 🧷 3D Views
-**Top View:**
-
-![Gerber Top View](PCB/Images/03.%20PCB%20Gerber%20View%20Top.png)
-
-**Right View:**
-
-![Gerber Right View](PCB/Images/04.%20PCB%20Gerber%20View%20Bottom.png)
-
-### 🧷 Routed Views
-**Top Routed View:**
-
-![2D Top Routed View](PCB/Images/05.%20PCB%20View%202D%20Top%20Routed.png)
-
-**Bottom Routed View:**
-
-![2D Bottom Routed View](PCB/Images/06.%20PCB%20View%202D%20Bottom%20Routed.png)
+```bash
+pip install pyserial
+python gui/main.py
