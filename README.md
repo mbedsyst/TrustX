@@ -57,7 +57,7 @@ Run with:
 ```bash
 pip install pyserial
 python gui/main.py
-
+```
 ---
 
 ## A Note on Security
