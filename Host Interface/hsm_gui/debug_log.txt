@@ -29,3 +29,26 @@
 [03:42:03] OTP Error: Incomplete Packet.
 [03:42:08] Device Disconnected.
 [18:06:00] KEYGEN Error: Incomplete Packet.
+[23:30:20] Device Connected
+[23:30:22] Device Disconnected.
+[23:31:04] Connection Failed: Device not found. Please check connection.
+[23:31:10] No active Connection.
+[23:31:11] Connection Failed: Device not found. Please check connection.
+[23:31:19] Device Connected
+[23:31:25] KEYGEN Error: Incomplete Packet.
+[23:31:48] Device Disconnected.
+[23:34:42] Device Connected
+[23:34:47] KEYGEN Error: Incomplete Packet.
+[23:34:56] Device Disconnected.
+[23:37:10] Device Connected
+[23:41:56] Device Connected
+[23:41:58] KEYGEN Error: Incomplete Packet.
+[23:42:15] RNG Error: Incomplete Packet.
+[23:50:41] RNG Error: Incomplete Packet.
+[00:00:47] KEYGEN Error: Incomplete Packet.
+[00:01:22] Device Connected
+[00:01:26] [TX] 21 1E CA 1F 05 41 00 02 00 00 DE AD BE EF
+[00:01:27] RNG Error: Incomplete Packet.
+[02:40:47] Hashing Error: Incomplete Packet.
+[02:54:09] No active Connection.
+[02:54:10] Connection Failed: Device not found. Please check connection.

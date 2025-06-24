@@ -25,7 +25,7 @@ class Sidebar(QWidget):
             ("RNG", "rng"),
             ("OTP", "otp"),
             ("Key Gen", "keygen"),
-            ("Key Store", "key store"),
+            ("Key Store", "keystore"),
             ("Key Delete", "keydelete"),
             ("About", "about"),
         ]

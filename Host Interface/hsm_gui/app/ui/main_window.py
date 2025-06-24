@@ -40,7 +40,7 @@ class MainWindow(QMainWindow):
             "landing": LandingPage(self.device),
             "encrypt": EncryptPage(self.device),
             "decrypt": DecryptPage(self.device),
-            "hashing": HashingPage(self.device),
+            "hash": HashingPage(self.device),
             "hmac": HMACPage(self.device),
             "rng": RNGPage(self.device),
             "otp": OTPPage(self.device),
