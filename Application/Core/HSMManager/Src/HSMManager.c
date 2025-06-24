@@ -169,7 +169,7 @@ static void LogTransmitBuffer(const uint8_t* usb_tx_buffer, uint32_t usb_tx_inde
 
 void HSMManager_Init(void)
 {
-	int err;
+	// int err;
 
 	log_init(LOG_LEVEL_DEBUG);
 	log_info("Initializing HSM Device.");
@@ -185,7 +185,7 @@ void HSMManager_Init(void)
 	BSP_LED_Toggle(LED_YELLOW); HAL_Delay(1000);
 	log_clearline();
 
-	err = SaltManager_Init();
+	/*err = SaltManager_Init();
 	if(err)
 	{
 		log_error("Salt Manager did not Initialize. Error.");
@@ -202,7 +202,7 @@ void HSMManager_Init(void)
 	{
 		log_error("Key Manager did not Initialize. Error.");
 		while(1);
-	}
+	}*/
 
 	log_info("Turning LED ON.");
 	BSP_LED_Toggle(LED_GREEN);  HAL_Delay(1000);
