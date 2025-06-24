@@ -6,21 +6,57 @@ TrustX was built with the goal of tying cryptographic operations and key storage
 
 The project includes firmware for the STM32H563ZI (used during development), a Python-based GUI for interacting with the device from a PC, and PCB design assets that are currently in progress. 
 
----
-
 ## Features
 
 | Feature                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
 | Encryption/Decryption        | Software based Symmetric Cryptography (Intel tinycrypt)      |
-| Hashing (SHA2)               | FIPS-compliant hardware HASH Engine with MD5/SHA1/SHA2       |
+| Hashing                      | FIPS-compliant hardware HASH Engine with MD5/SHA1/SHA2       |
 | HMAC (SHA-224/SHA-256)       | Message Authentication using HASH Engine                     |
 | Random Number Generation     | NIST SP 800-90B compliant TRNG entropy source                |
-| Key Derivation               | Unique Device ID + Runtime Salt for Key Derivation           |
+| Key Derivation               | 96-bit UID + Runtime Salt for Key Derivation                 |
 | Key Management               | Add/Delete Key entries, encrypted in external Flash          |
 | OTP Stream Generator         | For One-Time Symmetric Secure Exchanges                      |
 | USB CDC Interface            | Communication Middleware between Host and HSM                |
 | Flash Binding                | External Flash encrypted using MCU-derived key               |
+
+## Architecture Overview
+
+		                          ┌──────────────────────────┐
+		                          │        Host PC GUI       │
+		                          │ (Python, USB Serial GUI) │
+		                          └────────────┬─────────────┘
+		                                       │ USB CDC
+		                          ┌────────────▼────────────┐
+		                          │     TrustX Firmware     │
+		                          │      (STM32H563ZI)      │
+		                          └──────┬──────────┬───────┘
+		                                 │          │
+		                    ┌────────────▼───┐ ┌────▼────────────────┐
+		                    │ Key Derivation │ │   Command Handler   │
+		                    │ UID + Salt KDF │ │ (Dispatching Logic) │
+		                    └────────┬───────┘ └────┬────────────────┘
+		                             │              │
+		               ┌─────────────▼──────┐  ┌────▼──────────────────────────┐
+		               │  Master Key (RAM)  │  │        Operation Units        │
+		               │    (Not stored)    │  │ Encryption, Decryption, Hash  │
+		               └────────┬───────────┘  │   HMAC, RNG, Key Management   │
+		                        │              └────────┬──────────────────────┘
+		     ┌──────────────────▼────────────┐          │
+		     │ Encrypted External Flash      │◄─────────┘
+		     │ Key Store (Bound to UID)      │
+		     └───────────────────────────────┘
+
+
+## Host Interface (Python GUI)
+
+The Host Interface is written in Python 3 using Tkinter and provides a simple landing screen with dedicated pages for each cryptographic operation. It handles USB serial port detection, command formatting, and response parsing automatically. All features supported by the HSM firmware can be accessed through this GUI, and it also includes options to copy or download output data such as random bytes or decrypted content.
+
+Run with:
+
+```bash
+pip install pyserial
+python gui/main.py
 
 ---
 
@@ -31,49 +67,3 @@ While TrustX is designed with security in mind, I want to be clear that this is 
 If you’re someone who’s into Firmware, Cryptography, or Embedded Systems and happen to notice a Security gap, Logic flaw, or Improvement, I’d really appreciate it if you raise it. I’m open to feedback and happy to work on fixing or improving it.
 
 TrustX is an experiment.
-
----
-
-## Architecture Overview
-
-                          ┌──────────────────────────┐
-                          │        Host PC GUI       │
-                          │ (Python, USB Serial GUI) │
-                          └────────────┬─────────────┘
-                                       │ USB CDC
-                          ┌────────────▼────────────┐
-                          │     TrustX Firmware     │
-                          │      (STM32H563ZI)      │
-                          └──────┬──────────┬───────┘
-                                 │          │
-                    ┌────────────▼───┐ ┌────▼────────────────┐
-                    │ Key Derivation │ │   Command Handler   │
-                    │ UID + Salt KDF │ │ (Dispatching Logic) │
-                    └────────┬───────┘ └────┬────────────────┘
-                             │              │
-               ┌─────────────▼──────┐  ┌────▼──────────────────────────┐
-               │  Master Key (RAM)  │  │        Operation Units        │
-               │    (Not stored)    │  │ Encryption, Decryption, Hash  │
-               └────────┬───────────┘  │   HMAC, RNG, Key Management   │
-                        │              └────────┬──────────────────────┘
-     ┌──────────────────▼────────────┐          │
-     │ Encrypted External Flash      │◄─────────┘
-     │ Key Store (Bound to UID)      │
-     └───────────────────────────────┘
-
-
----
-
-## Host Interface (Python GUI)
-
-- Written in Python 3 with Tkinter
-- Simple Landing screen with separate operation pages
-- Serial Port detection, Command packaging, and Response Parsing
-- Supports all features provided by the HSM firmware
-- Copy/Download output support for generated or decrypted content
-
-Run with:
-
-```bash
-pip install pyserial
-python gui/main.py
