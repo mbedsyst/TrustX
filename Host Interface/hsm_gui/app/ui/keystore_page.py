@@ -3,8 +3,9 @@
 from PySide6.QtWidgets import QWidget, QLabel, QVBoxLayout
 
 class KeyStorePage(QWidget):
-    def __init__(self):
+    def __init__(self, device):
         super().__init__()
+        self.device = device
         layout = QVBoxLayout()
         layout.addWidget(QLabel("Key Store Page"))
         self.setLayout(layout)

@@ -6,9 +6,9 @@ from PySide6.QtCore import Qt, QUrl, QSize
 import os
 
 class AboutPage(QWidget):
-    def __init__(self):
+    def __init__(self, device):
         super().__init__()
-
+        self.device = device
         layout = QVBoxLayout()
         layout.setAlignment(Qt.AlignTop)
 

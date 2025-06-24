@@ -6,10 +6,9 @@ from app.ui.widgets.toast import Toast
 from app.ui.widgets.clock import ClockWidget
 
 class LandingPage(QWidget):
-    def __init__(self):
+    def __init__(self, device):
         super().__init__()
-
-        self.device = DeviceInterface()
+        self.device = device
 
         self.clock = ClockWidget()
 

@@ -21,11 +21,10 @@ KEYGEN_OPTIONS = {
 }
 
 class KeyGenPage(QWidget):
-    def __init__(self):
+    def __init__(self, device):
         super().__init__()
         
-        self.device = DeviceInterface()
-
+        self.device = device
         self.dropdown = QComboBox()
         for label in KEYGEN_OPTIONS:
             self.dropdown.addItem(label)

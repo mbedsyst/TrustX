@@ -1,6 +1,7 @@
 # main_window.py
 from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QStackedWidget
 from app.core.logger import set_gui_log_callback
+from app.core.device_comm import DeviceInterface
 from app.ui.widgets.debug_terminal import DebugTerminal
 from app.ui.landing_page import LandingPage
 from app.ui.sidebar import Sidebar
@@ -21,6 +22,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("TrustX Console")
         self.setMinimumSize(720, 480)
 
+        self.device = DeviceInterface()
+
         self.debug_terminal = DebugTerminal()
         set_gui_log_callback(self.debug_terminal.append_message)
         
@@ -34,17 +37,17 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
 
         self.pages = {
-            "landing": LandingPage(),
-            "encrypt": EncryptPage(),
-            "decrypt": DecryptPage(),
-            "hashing": HashingPage(),
-            "hmac": HMACPage(),
-            "rng": RNGPage(),
-            "otp": OTPPage(),
-            "keygen": KeyGenPage(),
-            "keystore": KeyStorePage(),
-            "keydelete": KeyDeletePage(),
-            "about": AboutPage(),
+            "landing": LandingPage(self.device),
+            "encrypt": EncryptPage(self.device),
+            "decrypt": DecryptPage(self.device),
+            "hashing": HashingPage(self.device),
+            "hmac": HMACPage(self.device),
+            "rng": RNGPage(self.device),
+            "otp": OTPPage(self.device),
+            "keygen": KeyGenPage(self.device),
+            "keystore": KeyStorePage(self.device),
+            "keydelete": KeyDeletePage(self.device),
+            "about": AboutPage(self.device),
         }
 
         for key, page in self.pages.items():
@@ -57,7 +60,7 @@ class MainWindow(QMainWindow):
 
         main_layout.addLayout(page_layout)
 
-        SHOW_DEBUG_TERMINAL = False
+        SHOW_DEBUG_TERMINAL = True
         if SHOW_DEBUG_TERMINAL:
             main_layout.addWidget(self.debug_terminal)
 
