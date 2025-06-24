@@ -32,6 +32,9 @@ RM := rm -rf
 -include Application/Handlers/Random/Src/subdir.mk
 -include Application/Handlers/OTP/Src/subdir.mk
 -include Application/Handlers/Keys/Src/subdir.mk
+-include Application/Handlers/KeyStore/Src/subdir.mk
+-include Application/Handlers/KeyGen/Src/subdir.mk
+-include Application/Handlers/KeyDelete/Src/subdir.mk
 -include Application/Handlers/Hashing/Src/subdir.mk
 -include Application/Handlers/HMAC/Src/subdir.mk
 -include Application/Handlers/Encryption/Src/subdir.mk

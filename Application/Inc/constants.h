@@ -8,7 +8,9 @@
 #define CMD_HMAC				  0x04 // 0b00000100
 #define CMD_RANDOM                0x05 // 0b00000100
 #define CMD_OTP					  0x06 // 0b00000101
-#define CMD_KEY_MANAGE            0x07 // 0b00000101
+#define CMD_KEY_GEN	              0x07 // 0b00000101
+#define CMD_KEY_STORE             0x08 // 0b00000101
+#define CMD_KEY_DELETE            0x09 // 0b00000101
 #define CMD_PING                  0x0F // 0b00001111    For testing HSM connection
 
 // === Option Codes (OPTION field) ===

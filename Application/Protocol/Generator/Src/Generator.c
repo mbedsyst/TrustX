@@ -80,7 +80,7 @@ GeneratorStatus_t GenerateHMAC(uint8_t* input, uint8_t size, uint8_t* key, uint8
 }
 
 
-GeneratorStatus_t GenerateKey(uint8_t *key_out)
+GeneratorStatus_t GenerateKEY(uint8_t *key_out)
 {
     return GenerateRandomBytes(key_out, 16);
 }

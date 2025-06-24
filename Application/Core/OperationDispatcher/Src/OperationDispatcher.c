@@ -3,9 +3,11 @@
 #include "../../../Handlers/Decryption/Inc/DecryptHandler.h"
 #include "../../../Handlers/Hashing/Inc/HashHandler.h"
 #include "../../../Handlers/HMAC/Inc/HMACHandler.h"
-#include "../../../Handlers/Keys/Inc/KeyHandler.h"
 #include "../../../Handlers/Random/Inc/RandomHandler.h"
 #include "../../../Handlers/OTP/Inc/OTPHandler.h"
+#include "../../../Handlers/KeyGen/Inc/KeyGen.h"
+#include "../../../Handlers/KeyStore/Inc/KeyStore.h"
+#include "../../../Handlers/KeyDelete/Inc/KeyDelete.h"
 #include "constants.h"
 #include "Logger.h"
 
@@ -39,9 +41,17 @@ OperationStatus_t OperationDispatcher_Dispatch(const ParsedPacket_t* request, Re
             log_info("Calling OTP Operation.");
             return OTPHandler_Handle(request, response);
 
-        case CMD_KEY_MANAGE:
-        	log_info("Calling Key Management.");
-            return KeyHandler_Handle(request, response);
+        case CMD_KEY_GEN:
+        	log_info("Calling Key Generator Operation.");
+            return KeyHandler_Generate(request, response);
+
+        case CMD_KEY_STORE:
+        	log_info("Calling Key Store Operation.");
+            return KeyHandler_Store(request, response);
+
+        case CMD_KEY_DELETE:
+        	log_info("Calling Key Delete Operation.");
+            return KeyHandler_Delete(request, response);
 
         case CMD_PING:
         	log_info("Calling Ping Operation.");

@@ -28,3 +28,4 @@
 [03:41:49] KEYGEN Error: Incomplete Packet.
 [03:42:03] OTP Error: Incomplete Packet.
 [03:42:08] Device Disconnected.
+[18:06:00] KEYGEN Error: Incomplete Packet.

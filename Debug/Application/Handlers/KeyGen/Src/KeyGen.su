@@ -1,0 +1,2 @@
+../Application/Handlers/KeyGen/Src/KeyGen.c:20:17:CalculateKeySize	24	static
+../Application/Handlers/KeyGen/Src/KeyGen.c:40:19:KeyHandler_Generate	32	static

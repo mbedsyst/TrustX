@@ -57,7 +57,7 @@ class MainWindow(QMainWindow):
 
         main_layout.addLayout(page_layout)
 
-        SHOW_DEBUG_TERMINAL = True
+        SHOW_DEBUG_TERMINAL = False
         if SHOW_DEBUG_TERMINAL:
             main_layout.addWidget(self.debug_terminal)
 

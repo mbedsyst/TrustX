@@ -1,6 +1,6 @@
 ../Application/Protocol/Generator/Src/Generator.c:9:26:GenerateRandomBytes	24	static
 ../Application/Protocol/Generator/Src/Generator.c:48:19:GenerateHMAC	32	static
-../Application/Protocol/Generator/Src/Generator.c:83:19:GenerateKey	16	static
+../Application/Protocol/Generator/Src/Generator.c:83:19:GenerateKEY	16	static
 ../Application/Protocol/Generator/Src/Generator.c:88:19:GenerateIV	16	static
 ../Application/Protocol/Generator/Src/Generator.c:93:19:GenerateKEYID	16	static
 ../Application/Protocol/Generator/Src/Generator.c:98:19:GenerateSalt	16	static

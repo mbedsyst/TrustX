@@ -28,6 +28,9 @@ Application/Handlers/Decryption/Src \
 Application/Handlers/Encryption/Src \
 Application/Handlers/HMAC/Src \
 Application/Handlers/Hashing/Src \
+Application/Handlers/KeyDelete/Src \
+Application/Handlers/KeyGen/Src \
+Application/Handlers/KeyStore/Src \
 Application/Handlers/Keys/Src \
 Application/Handlers/OTP/Src \
 Application/Handlers/Random/Src \

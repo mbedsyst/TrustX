@@ -8,9 +8,11 @@ Application/Core/OperationDispatcher/Src/OperationDispatcher.o: \
  ../Application/Core/OperationDispatcher/Src/../../../Handlers/Decryption/Inc/DecryptHandler.h \
  ../Application/Core/OperationDispatcher/Src/../../../Handlers/Hashing/Inc/HashHandler.h \
  ../Application/Core/OperationDispatcher/Src/../../../Handlers/HMAC/Inc/HMACHandler.h \
- ../Application/Core/OperationDispatcher/Src/../../../Handlers/Keys/Inc/KeyHandler.h \
  ../Application/Core/OperationDispatcher/Src/../../../Handlers/Random/Inc/RandomHandler.h \
  ../Application/Core/OperationDispatcher/Src/../../../Handlers/OTP/Inc/OTPHandler.h \
+ ../Application/Core/OperationDispatcher/Src/../../../Handlers/KeyGen/Inc/KeyGen.h \
+ ../Application/Core/OperationDispatcher/Src/../../../Handlers/KeyStore/Inc/KeyStore.h \
+ ../Application/Core/OperationDispatcher/Src/../../../Handlers/KeyDelete/Inc/KeyDelete.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h \
  C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h \
  ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
@@ -59,9 +61,11 @@ C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Applicati
 ../Application/Core/OperationDispatcher/Src/../../../Handlers/Decryption/Inc/DecryptHandler.h:
 ../Application/Core/OperationDispatcher/Src/../../../Handlers/Hashing/Inc/HashHandler.h:
 ../Application/Core/OperationDispatcher/Src/../../../Handlers/HMAC/Inc/HMACHandler.h:
-../Application/Core/OperationDispatcher/Src/../../../Handlers/Keys/Inc/KeyHandler.h:
 ../Application/Core/OperationDispatcher/Src/../../../Handlers/Random/Inc/RandomHandler.h:
 ../Application/Core/OperationDispatcher/Src/../../../Handlers/OTP/Inc/OTPHandler.h:
+../Application/Core/OperationDispatcher/Src/../../../Handlers/KeyGen/Inc/KeyGen.h:
+../Application/Core/OperationDispatcher/Src/../../../Handlers/KeyStore/Inc/KeyStore.h:
+../Application/Core/OperationDispatcher/Src/../../../Handlers/KeyDelete/Inc/KeyDelete.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Inc/constants.h:
 C:/Users/zalma/Downloads/Workspaces/STM32H5_HAL/HardwareSecurityModule/Application/Utils/Logger/Inc/Logger.h:
 ../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:

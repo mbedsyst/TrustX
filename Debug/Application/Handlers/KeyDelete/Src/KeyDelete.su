@@ -1,0 +1,2 @@
+../Application/Handlers/KeyDelete/Src/KeyDelete.c:15:17:ConvertKeyIDToUint32	16	static
+../Application/Handlers/KeyDelete/Src/KeyDelete.c:24:19:KeyHandler_Delete	24	static
