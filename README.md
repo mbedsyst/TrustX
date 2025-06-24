@@ -1,59 +1,51 @@
-# 🔐 TrustX – Embedded Hardware Security Module over USB
+# TrustX
 
-**TrustX** is a custom-built Hardware Security Module (HSM) designed for secure, offline cryptographic operations. Built around the STM32H5 microcontroller series, it supports Symmetric encryption, HMAC, Hashing, Key Management, Random Number Generation, and communication over USB using the CDC class.
+**TrustX** is a custom-built Hardware Security Module designed for secure, offline cryptographic operations using the STM32H563ZI microcontroller series. It supports Symmetric Encryption, HMAC, SHA2 based Hashing, Secure Key Generation & Management, Random Number Generation, and communicates with a host system over USB using the CDC class.
 
-This repository contains:
-- Embedded firmware for STM32H563ZI (development version)
-- Python-based GUI for host interaction
-- PCB design assets (in progress)
-- Documentation and security implementation details
+TrustX was built with the goal of tying cryptographic operations and key storage to the unique identity of the hardware itself, ensuring that sensitive data never leaves the device in plaintext. It provides a simple interface for interacting with the HSM through a USB serial connection, along with optional tamper detection and persistent configuration capabilities. While still under development, TrustX is intended as a practical platform for Security Experimentation, Cryptographic Offloading, and Embedded Security learning.
+
+The project includes firmware for the STM32H563ZI (used during development), a Python-based GUI for interacting with the device from a PC, and PCB design assets that are currently in progress. 
 
 ---
 
-## 🧭 Project Overview
+## Features
 
-**TrustX** is built with the goal of providing:
-- **Secure key generation and storage** tied to the specific hardware instance
-- **Hardware-accelerated cryptographic operations** that never expose key material to the host
-- A clean, **USB CDC-based communication protocol** with a platform-independent Python GUI
-- Optional tamper response and persistent configuration features
-
-TrustX is suitable for experimentation, cryptographic offloading, or use as a secure peripheral in broader security-critical systems.
-
----
-
-## ⚙️ Features
-|------------------------------|--------------------------------------------------------------|
 | Feature                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
-| Encryption/Decryption        | Software based Symmetric Encryption and Decryption           |
-| Hashing (SHA2)               | On-device SHA-224, SHA-256, SHA-384, SHA-512                 |
-| HMAC (SHA-224/SHA-256)       | Secure message authentication                                |
-| Random Number Generation     | True Random Number Generation (TRNG-based)                   |
-| Key Derivation               | UID + Salt-based Runtime Key Derivation                      |
-| Key Management               | Add / Read / Delete Key entries, encrypted in external Flash |
+| Encryption/Decryption        | Software based Symmetric Cryptography (Intel tinycrypt)      |
+| Hashing (SHA2)               | FIPS-compliant hardware HASH Engine with MD5/SHA1/SHA2       |
+| HMAC (SHA-224/SHA-256)       | Message Authentication using HASH Engine                     |
+| Random Number Generation     | NIST SP 800-90B compliant TRNG entropy source                |
+| Key Derivation               | Unique Device ID + Runtime Salt for Key Derivation           |
+| Key Management               | Add/Delete Key entries, encrypted in external Flash          |
 | OTP Stream Generator         | For One-Time Symmetric Secure Exchanges                      |
-| USB CDC Interface            | Secure protocol between Host and HSM                         |
+| USB CDC Interface            | Communication Middleware between Host and HSM                |
 | Flash Binding                | External Flash encrypted using MCU-derived key               |
 |------------------------------|--------------------------------------------------------------|
 
 ---
 
-PCB design and enclosure are in progress. Images will be added when design is completed.
+## A Note on Security
+
+While TrustX is designed with security in mind, I want to be clear that this is a learning project and may contain vulnerabilities — both known and unknown. I'm still exploring embedded cryptography and system design, and there’s a lot more to learn.
+
+If you’re someone who’s into Firmware, Cryptography, or Embedded Systems and happen to notice a Security gap, Logic flaw, or Improvement, I’d really appreciate it if you raise it. I’m open to feedback and happy to work on fixing or improving it.
+
+TrustX is an experiment.
 
 ---
 
-## 🧱 Architecture Overview
+## Architecture Overview
 
                           ┌──────────────────────────┐
                           │        Host PC GUI       │
                           │ (Python, USB Serial GUI) │
                           └────────────┬─────────────┘
                                        │ USB CDC
-                          ┌────────────▼─────────────┐
-                          │      TrustX Firmware     │
-                          │      (STM32H563ZI)       │
-                          └──────┬──────────┬────────┘
+                          ┌────────────▼────────────┐
+                          │     TrustX Firmware     │
+                          │      (STM32H563ZI)      │
+                          └──────┬──────────┬───────┘
                                  │          │
                     ┌────────────▼───┐ ┌────▼────────────────┐
                     │ Key Derivation │ │   Command Handler   │
@@ -73,13 +65,13 @@ PCB design and enclosure are in progress. Images will be added when design is co
 
 ---
 
-## 🖥️ Host Interface (Python GUI)
+## Host Interface (Python GUI)
 
 - Written in Python 3 with Tkinter
-- Simple landing screen with separate operation pages
-- Serial port detection, command packaging, and response parsing
+- Simple Landing screen with separate operation pages
+- Serial Port detection, Command packaging, and Response Parsing
 - Supports all features provided by the HSM firmware
-- Copy/download output support for generated or decrypted content
+- Copy/Download output support for generated or decrypted content
 
 Run with:
 
