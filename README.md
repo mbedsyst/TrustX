@@ -21,7 +21,6 @@ The project includes firmware for the STM32H563ZI (used during development), a P
 | OTP Stream Generator         | For One-Time Symmetric Secure Exchanges                      |
 | USB CDC Interface            | Communication Middleware between Host and HSM                |
 | Flash Binding                | External Flash encrypted using MCU-derived key               |
-|------------------------------|--------------------------------------------------------------|
 
 ---
 
