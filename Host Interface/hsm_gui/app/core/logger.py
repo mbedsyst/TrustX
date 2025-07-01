@@ -1,6 +1,5 @@
 # app/core/logger.py
 
-# GUI Injection Point
 log_callback = None
 
 def set_gui_log_callback(callback):

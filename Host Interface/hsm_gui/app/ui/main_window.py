@@ -1,4 +1,6 @@
-from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QStackedWidget, QStackedLayout
+# app/ui/main_window.py
+
+from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QStackedLayout, QStackedWidget
 from PySide6.QtCore import QTimer
 from app.core.logger import set_gui_log_callback
 from app.core.device_comm import DeviceInterface
@@ -16,6 +18,7 @@ from app.ui.keystore_page import KeyStorePage
 from app.ui.keydelete_page import KeyDeletePage
 from app.ui.about_page import AboutPage
 from app.resources.splash.splash_screen import CorruptedDecrypt
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -35,18 +38,17 @@ class MainWindow(QMainWindow):
         self.stack = QStackedLayout()
         self.central.setLayout(self.stack)
 
+        # Splash screen setup
         self.splash = CorruptedDecrypt()
         self.splash.finished.connect(self.init_main_gui)
         self.stack.addWidget(self.splash)
         self.splash.start()
 
-
-
-        # Placeholder for main GUI (to be added after splash finishes)
+        # Placeholder for main GUI
         self.main_gui = None
 
     def init_main_gui(self):
-        # Build main interface after splash
+        # Build the main GUI
         gui_container = QWidget()
         gui_container.setObjectName("centralWidget")
         gui_container.setStyleSheet("background-color: #000000;")
@@ -59,6 +61,7 @@ class MainWindow(QMainWindow):
         self.sidebar = Sidebar()
         self.stack_widget = QStackedWidget()
 
+        # Add application pages
         self.pages = {
             "landing": LandingPage(self.device),
             "encrypt": EncryptPage(self.device),

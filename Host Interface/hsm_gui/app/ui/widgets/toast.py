@@ -1,4 +1,5 @@
 # app/ui/widgets/toast.py
+
 from PySide6.QtWidgets import QLabel, QGraphicsOpacityEffect
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation
 

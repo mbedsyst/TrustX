@@ -1,5 +1,4 @@
 # app/ui/about_page.py
-# app/ui/about_page.py
 
 from PySide6.QtWidgets import QWidget, QLabel, QVBoxLayout, QHBoxLayout, QPushButton, QSpacerItem, QSizePolicy
 from PySide6.QtGui import QPixmap, QDesktopServices, QFont, QIcon
@@ -47,26 +46,26 @@ class AboutPage(QWidget):
             "Features\n"
             "- Intel TinyCrypt Symmetric Encryption/Decryption\n"
             "- FIPS-compliant hardware HASH Engine with MD5/SHA1/SHA2\n"
-            "- TNIST SP 800-90B compliant TRNG Entropy source\n"
+            "- TNIST SP 800-90B compliant TRNG Entropy Source\n"
             "- 96-bit UID + 160-bit Runtime Salt for Key Derivation\n"
-            "- OTP Generator for secure exchange\n"
-            "- External Flash encrypted using MCU-derived key\n"
-            "- USB Serial (CDC) Host Communication"
+            "- One-Time Pad Generator for Secure Exchange\n"
+            "- External Flash bounded using MCU-derived Key\n"
+            "- USB CDC Host Communication"
         )
         info.setWordWrap(True)
         info.setStyleSheet("color: #ddd; font-size: 14px;")
 
         # 🔧 Tech Stack
         tech = QLabel(
-            "Trust X Firmware Version: 1.2.0 (Beta)\n"
-            "Trust X Console Version: 1.0.0 (Beta)"
+            "TrustX Firmware Version: 1.2.0 (Beta)\n"
+            "TrustX Console Version: 1.0.0 (Beta)"
         )
         tech.setWordWrap(True)
         tech.setStyleSheet("color: #ddd; font-size: 14px;")
 
         # ⚠️ Disclaimer
         disclaimer = QLabel(
-            "ⓘ  This tool is intended for educational and research purposes only. It is not certified for production use."
+            "ⓘ  This tool is intended for Educational and Research purposes only. It is not certified for Production use."
         )
         disclaimer.setWordWrap(True)
         disclaimer.setStyleSheet("color: #ddd; font-size: 14px;")

@@ -1,3 +1,5 @@
+# app/ui/sidebar.py
+
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QSizePolicy
 from PySide6.QtCore import Signal, Qt
 from PySide6.QtGui import QPixmap
