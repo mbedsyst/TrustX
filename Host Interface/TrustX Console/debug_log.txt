@@ -67,3 +67,29 @@
 [01:38:20] RNG Error: Incomplete Packet.
 [02:44:17] Key Store Error: Key must be exactly 16 bytes in hex (32 characters).
 [02:44:27] Key Store Error: Key must be exactly 16 bytes in hex (32 characters).
+[16:09:06] Connection Failed: Device not found. Please check connection.
+[16:09:10] Connection Failed: Device not found. Please check connection.
+[16:09:11] No active Connection.
+[16:09:20] Connection Failed: Device not found. Please check connection.
+[16:09:44] Connection Failed: Device not found. Please check connection.
+[16:10:14] Connection Failed: Device not found. Please check connection.
+[16:11:20] Connection Failed: Device not found. Please check connection.
+[16:11:43] Connection Failed: Device not found. Please check connection.
+[16:12:35] Connection Failed: Device not found. Please check connection.
+[16:12:59] Connection Failed: Device not found. Please check connection.
+[16:13:15] Connection Failed: Device not found. Please check connection.
+[16:13:32] Connection Failed: Device not found. Please check connection.
+[16:13:34] No active Connection.
+[16:13:37] Connection Failed: Device not found. Please check connection.
+[16:13:41] No active Connection.
+[16:13:46] No active Connection.
+[16:13:47] Connection Failed: Device not found. Please check connection.
+[16:13:48] Connection Failed: Device not found. Please check connection.
+[16:13:52] Connection Failed: Device not found. Please check connection.
+[16:13:55] No active Connection.
+[16:14:26] Connection Failed: Device not found. Please check connection.
+[16:14:29] No active Connection.
+[16:14:40] Connection Failed: Device not found. Please check connection.
+[16:14:43] No active Connection.
+[16:14:59] No active Connection.
+[16:15:00] Connection Failed: Device not found. Please check connection.
