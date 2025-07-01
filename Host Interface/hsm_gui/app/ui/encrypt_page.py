@@ -1,17 +1,18 @@
 # app/ui/encrypt_page.py
 
-from PySide6.QtWidgets import  (
+from PySide6.QtWidgets import (
     QWidget, QLabel, QVBoxLayout, QHBoxLayout, QPushButton,
-    QComboBox, QTextEdit, QFileDialog
+    QComboBox, QTextEdit, QFileDialog, QScrollArea, QSpacerItem, QSizePolicy
 )
-from PySide6.QtWidgets import QScrollArea
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon
 from app.core.packet_builder import build_packet
 from app.core.packet_parser import parse_packet
 from app.core.iv_store import IVStore
 from app.utils.clipboard_utils import copy_to_clipboard
 from app.utils.file_utils import save_text_to_file
 from app.core.logger import log
+import os
 
 iv_store = IVStore()
 
@@ -33,86 +34,131 @@ IV_STATES = {
     "GYIV (HSM Generates IV)": 0xE2,
 }
 
+ICON_PATH = os.path.join(os.path.dirname(__file__), "..", "resources", "icons")
+
 class EncryptPage(QWidget):
     def __init__(self, device):
         super().__init__()
         self.device = device
-        
+
+        layout = QVBoxLayout()
+
+        def inline_row(label_text, widget):
+            row = QHBoxLayout()
+            row.setContentsMargins(12, 0, 12, 0)
+            label = QLabel(label_text)
+            label.setFixedWidth(120)
+            row.addWidget(label)
+            row.addWidget(widget)
+            return row
+
         self.key_option = QComboBox()
+        self.key_option.addItem("Select Key Size")
         self.key_option.addItems(KEY_OPTIONS.keys())
 
         self.key_state = QComboBox()
+        self.key_state.addItem("Select Key State")
         self.key_state.addItems(KEY_STATES.keys())
 
         self.iv_state = QComboBox()
+        self.iv_state.addItem("Select IV State")
         self.iv_state.addItems(IV_STATES.keys())
 
         self.key_input = QTextEdit()
         self.key_input.setPlaceholderText("Enter 16-byte Key or 4-byte Key ID")
         self.key_input.setFixedHeight(40)
+        self.key_input.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
         self.iv_input = QTextEdit()
         self.iv_input.setPlaceholderText("Enter 16-byte Initialization Vector")
         self.iv_input.setFixedHeight(40)
+        self.iv_input.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
         self.plaintext_input = QTextEdit()
         self.plaintext_input.setPlaceholderText("Enter Plaintext or Upload file")
-        
-        self.upload_btn = QPushButton("Upload Plaintext File")
+
+        self.upload_btn = QPushButton()
+        self.upload_btn.setIcon(QIcon(os.path.join(ICON_PATH, "upload")))
+        self.upload_btn.setFixedSize(32, 32)
         self.upload_btn.clicked.connect(self.upload_file)
 
         self.encrypt_btn = QPushButton("Encrypt")
         self.encrypt_btn.clicked.connect(self.encrypt_data)
 
+        layout.addLayout(inline_row("Key Option:", self.key_option))
+        layout.addLayout(inline_row("Key State:", self.key_state))
+        layout.addLayout(inline_row("Key Data / ID:", self.key_input))
+        layout.addLayout(inline_row("IV State:", self.iv_state))
+        layout.addLayout(inline_row("IV Data:", self.iv_input))
+
+        # Plaintext row
+        plaintext_row = QHBoxLayout()
+        plaintext_row.setContentsMargins(12, 0, 12, 0)
+        label_plain = QLabel("Plaintext:")
+        label_plain.setFixedWidth(120)
+        plaintext_row.addWidget(label_plain)
+        plaintext_row.addWidget(self.upload_btn)
+        plaintext_row.addStretch()
+
+        layout.addLayout(plaintext_row)
+        layout.setContentsMargins(12, 0, 12, 0)
+        layout.addWidget(self.plaintext_input)
+        layout.addWidget(self.encrypt_btn)
+
+        def output_row(label_text, output_widget, copy_btn, save_btn):
+            row = QHBoxLayout()
+            row.setContentsMargins(12, 0, 12, 0)
+            label = QLabel(label_text)
+            label.setFixedWidth(120)
+            output_widget.setFixedHeight(30)
+            output_widget.setMaximumHeight(30)
+            output_widget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+            row.addWidget(label)
+            row.addWidget(output_widget)
+            row.addStretch()
+            row.addWidget(copy_btn)
+            row.addWidget(save_btn)
+            return row
+
+        def make_icon_button(icon_file, tooltip):
+            btn = QPushButton()
+            btn.setIcon(QIcon(os.path.join(ICON_PATH, icon_file)))
+            btn.setToolTip(tooltip)
+            btn.setFixedSize(32, 32)
+            btn.setStyleSheet("border: none;")
+            return btn
+
         self.output_keyid = QTextEdit(); self.output_keyid.setReadOnly(True)
         self.output_iv = QTextEdit(); self.output_iv.setReadOnly(True)
         self.output_ciphertext = QTextEdit(); self.output_ciphertext.setReadOnly(True)
 
-        self.copy_keyid = QPushButton("Copy KeyID")
+        self.copy_keyid = make_icon_button("copy.png", "Copy Key ID")
         self.copy_keyid.clicked.connect(lambda: copy_to_clipboard(self.output_keyid.toPlainText()))
-        self.save_keyid = QPushButton("Download KeyID")
+        self.save_keyid = make_icon_button("download.png", "Download Key ID")
         self.save_keyid.clicked.connect(lambda: save_text_to_file(self.output_keyid.toPlainText(), "key_id.txt"))
 
-        self.copy_iv = QPushButton("Copy IV")
+        self.copy_iv = make_icon_button("copy.png", "Copy IV")
         self.copy_iv.clicked.connect(lambda: copy_to_clipboard(self.output_iv.toPlainText()))
-        self.save_iv = QPushButton("Download IV")
+        self.save_iv = make_icon_button("download.png", "Download IV")
         self.save_iv.clicked.connect(lambda: save_text_to_file(self.output_iv.toPlainText(), "iv.txt"))
 
-        self.copy_cipher = QPushButton("Copy Ciphertext")
+        self.copy_cipher = make_icon_button("copy.png", "Copy Ciphertext")
         self.copy_cipher.clicked.connect(lambda: copy_to_clipboard(self.output_ciphertext.toPlainText()))
-        self.save_cipher = QPushButton("Download Ciphertext")
+        self.save_cipher = make_icon_button("download.png", "Download Ciphertext")
         self.save_cipher.clicked.connect(lambda: save_text_to_file(self.output_ciphertext.toPlainText(), "ciphertext.txt"))
 
-        layout = QVBoxLayout()
-        layout.addWidget(QLabel("Key Option:"))
-        layout.addWidget(self.key_option)
-        layout.addWidget(QLabel("Key State:"))
-        layout.addWidget(self.key_state)
-        layout.addWidget(QLabel("Key Data / ID:"))
-        layout.addWidget(self.key_input)
-        layout.addWidget(QLabel("IV State:"))
-        layout.addWidget(self.iv_state)
-        layout.addWidget(QLabel("IV Data:"))
-        layout.addWidget(self.iv_input)
-        layout.addWidget(QLabel("Plaintext:"))
-        layout.addWidget(self.plaintext_input)
-        layout.addWidget(self.upload_btn)
-        layout.addWidget(self.encrypt_btn)
+        layout.addLayout(output_row("Key ID:", self.output_keyid, self.copy_keyid, self.save_keyid))
+        layout.addLayout(output_row("IV:", self.output_iv, self.copy_iv, self.save_iv))
 
-        layout.addWidget(QLabel("Key ID:"))
-        layout.addWidget(self.output_keyid)
-        layout.addWidget(self.copy_keyid)
-        layout.addWidget(self.save_keyid)
+        # Ciphertext block
+        layout.addLayout(inline_row("Ciphertext:", QLabel("")))
+        cipher_block = QHBoxLayout()
+        cipher_block.setContentsMargins(12, 0, 12, 10)
+        cipher_block.addWidget(self.output_ciphertext)
+        cipher_block.addWidget(self.copy_cipher)
+        cipher_block.addWidget(self.save_cipher)
 
-        layout.addWidget(QLabel("IV:"))
-        layout.addWidget(self.output_iv)
-        layout.addWidget(self.copy_iv)
-        layout.addWidget(self.save_iv)
-
-        layout.addWidget(QLabel("Ciphertext:"))
-        layout.addWidget(self.output_ciphertext)
-        layout.addWidget(self.copy_cipher)
-        layout.addWidget(self.save_cipher)
+        layout.addLayout(cipher_block)
 
         container = QWidget()
         container.setLayout(layout)
@@ -166,4 +212,6 @@ class EncryptPage(QWidget):
             log(f"Encryption failed: {e}")
             self.output_ciphertext.setPlainText("Error: " + str(e))
 
-
+        except Exception as e:
+            log(f"Encryption failed: {e}")
+            self.output_ciphertext.setPlainText("Error: " + str(e))

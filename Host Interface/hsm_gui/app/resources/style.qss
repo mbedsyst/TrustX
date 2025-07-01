@@ -1,0 +1,101 @@
+QWidget {
+    background-color: #000000;
+    color: white;
+    font-family: 'Outfit';
+    font-size: 18px;
+}
+
+QMainWindow, QFrame {
+    background-color: #121212;
+}
+
+#sidebar {
+    background-color: #1e1e1e;
+}
+
+#sidebarButton {
+    background-color: transparent;
+    color: white;
+    font-family: 'Outfit';
+    padding: 12px 20px;
+    text-align: left;
+    border: none;
+}
+
+#sidebarButton:hover {
+    background-color: #2a2a2a;
+}
+
+#LandingPage {
+    background-color: #000000;
+}
+
+#landingClock {
+    color: white;
+    font-size: 48px;
+    font-family: Outfit;
+}
+
+#connectButton, #disconnectButton {
+    background-color: #444;
+    color: white;
+    border: 1px solid #888;
+    border-radius: 5px;
+}
+
+#connectButton:hover, #disconnectButton:hover {
+    background-color: #666;
+}
+
+#sidebar {
+    background-color: #1e1e1e;
+}
+
+#sidebarButton {
+    background-color: transparent;
+    color: white;
+    font-family: 'Outfit';
+    padding: 14px 20px;
+    text-align: left;
+    border: none;
+    font-size: 16px;
+}
+
+#sidebarButton:hover {
+    background-color: #2a2a2a;
+}
+
+#ClockWidget {
+    color: white;
+    font-size: 42px;
+    font-family: 'Outfit';
+}
+
+QPushButton {
+    background-color: #111111;
+    color: white;
+    padding: 6px 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+QPushButton:hover {
+    background-color: #222222;
+}
+
+QPushButton:pressed {
+    background-color: #555;
+}
+
+/* Text boxes */
+QLineEdit, QTextEdit {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+/* Labels */
+QLabel {
+    color: #FFFFFF;
+}
