@@ -48,16 +48,6 @@ The project includes firmware for the STM32H563ZI (used during development), a P
 		     └───────────────────────────────┘
 
 
-## Host Interface (Python GUI)
-
-The Host Interface is written in Python 3 using Tkinter and provides a simple landing screen with dedicated pages for each cryptographic operation. It handles USB serial port detection, command formatting, and response parsing automatically. All features supported by the HSM firmware can be accessed through this GUI, and it also includes options to copy or download output data such as random bytes or decrypted content.
-
-Run with:
-
-```bash
-pip install pyserial
-python gui/main.py
-```
 ---
 
 ## A Note on Security
