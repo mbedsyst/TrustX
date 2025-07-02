@@ -6,6 +6,23 @@ TrustX was built with the goal of tying cryptographic operations and key storage
 
 The project includes firmware for the STM32H563ZI (used during development), a Python-based GUI for interacting with the device from a PC, and PCB design assets that are currently in progress. 
 
+## TrustX Console Preview
+
+### Home Operation Page
+![Home Page](Host%20Interface/Console%20Snippets/Home_Page.png)
+
+### Encryption Operation Page
+![Encryption Page](Host%20Interface/Console%20Snippets/Encrypt_Page.png)
+
+### HMAC Operation Page
+![HMAC Page](Host%20Interface/Console%20Snippets/HMAC_Page.png)
+
+### Key Generation Page
+![Key Generator Page](Host%20Interface/Console%20Snippets/KeyGen_Page.png)
+
+### About Page
+![About Page](Host%20Interface/Console%20Snippets/About_Page.png)
+
 ## Features
 
 | Feature                      | Description                                                  |
